@@ -1,6 +1,5 @@
 package com.yipkei.vanilladdition.data.generator;
 
-import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

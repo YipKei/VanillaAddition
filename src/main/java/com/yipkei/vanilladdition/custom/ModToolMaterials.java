@@ -4,7 +4,6 @@ import com.google.common.base.Suppliers;
 import com.yipkei.vanilladdition.init.ModItems;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.minecraft.block.Block;
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
