@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cherry_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:cherry_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:cherry_slab_from_cherry_logs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cherry_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:cherry_slab_from_cherry_logs"
+    ]
+  }
+}

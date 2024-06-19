@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "*": {
+      "item": "vanilla-addition:diamond_shard"
+    }
+  },
+  "pattern": [
+    "#*#",
+    "###",
+    "#*#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:diamond_shards_upgrade_smithing_template"
+  }
+}

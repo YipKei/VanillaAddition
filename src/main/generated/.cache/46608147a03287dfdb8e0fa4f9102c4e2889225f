@@ -1,0 +1,10 @@
+// 1.21	2024-06-19T14:55:53.2642718	Vanilla Addition/Tags for minecraft:block
+321e61550e6ec68cce5017c383ba3c59523b3815 data\minecraft\tags\block\stairs.json
+34969052b498f41eaf578b7489231a8dd5ec55a2 data\minecraft\tags\block\beacon_base_blocks.json
+34969052b498f41eaf578b7489231a8dd5ec55a2 data\minecraft\tags\block\needs_iron_tool.json
+068aff5cb32d712026aa14aa88a3f074166c9e1c data\minecraft\tags\block\slabs.json
+f78f7f3cf2c38ee75563f8048d16baa8a7efeef7 data\minecraft\tags\block\walls.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_stone_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_diamond_tool.json
+34969052b498f41eaf578b7489231a8dd5ec55a2 data\minecraft\tags\block\mineable\pickaxe.json
+0eb85ae18a15d14311f1a26d94d4e8894bf17ee5 data\minecraft\tags\block\ice.json

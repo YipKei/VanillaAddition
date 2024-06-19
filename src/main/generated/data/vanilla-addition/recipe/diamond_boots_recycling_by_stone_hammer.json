@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "hammer_processing",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_boots"
+    },
+    {
+      "item": "vanilla-addition:stone_hammer"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "vanilla-addition:diamond_shard"
+  }
+}

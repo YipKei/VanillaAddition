@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:dropper"
+    },
+    "*": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " *o",
+    "*#o",
+    " *o"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:dispenser"
+  }
+}

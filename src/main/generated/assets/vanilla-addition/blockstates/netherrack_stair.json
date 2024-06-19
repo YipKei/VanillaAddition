@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "vanilla-addition:block/netherrack_stair"
+    },
+    "type=double": {
+      "model": "minecraft:block/netherrack"
+    },
+    "type=top": {
+      "model": "vanilla-addition:block/netherrack_stair_top"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "hammer_processing",
+  "ingredients": [
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "tag": "vanilla-addition:quartz_block"
+    },
+    {
+      "item": "vanilla-addition:diamond_hammer"
+    }
+  ],
+  "result": {
+    "count": 32,
+    "id": "minecraft:quartz"
+  }
+}

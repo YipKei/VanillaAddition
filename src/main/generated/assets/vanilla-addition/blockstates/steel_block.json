@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "vanilla-addition:block/steel_block"
+    }
+  }
+}

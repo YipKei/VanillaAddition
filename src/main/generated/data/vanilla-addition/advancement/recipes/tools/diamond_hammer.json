@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:diamond_shard"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_iron_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:iron_hammer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:diamond_hammer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_diamond_shard",
+      "has_iron_hammer"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:diamond_hammer"
+    ]
+  }
+}

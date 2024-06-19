@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "hammer_processing",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_helmet"
+    },
+    {
+      "item": "vanilla-addition:iron_hammer"
+    }
+  ],
+  "result": {
+    "count": 40,
+    "id": "vanilla-addition:diamond_shard"
+  }
+}

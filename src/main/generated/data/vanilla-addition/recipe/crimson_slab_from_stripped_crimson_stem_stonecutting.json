@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stripped_crimson_stem"
+  },
+  "result": {
+    "count": 8,
+    "id": "minecraft:crimson_slab"
+  }
+}

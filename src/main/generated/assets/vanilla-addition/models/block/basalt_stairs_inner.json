@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "vanilla-addition:block/basalt_side",
+    "side": "vanilla-addition:block/basalt_side",
+    "top": "vanilla-addition:block/basalt_side"
+  }
+}

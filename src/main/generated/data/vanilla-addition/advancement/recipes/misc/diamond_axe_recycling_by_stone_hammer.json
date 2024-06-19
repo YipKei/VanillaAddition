@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:diamond_axe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stone_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:stone_hammer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:diamond_axe_recycling_by_stone_hammer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_diamond_axe",
+      "has_stone_hammer"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:diamond_axe_recycling_by_stone_hammer"
+    ]
+  }
+}

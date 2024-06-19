@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "vanilla-addition:steel_ingot"
+  },
+  "base": {
+    "item": "vanilla-addition:steel_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:diamond_upgraded_pickaxe"
+  },
+  "template": {
+    "item": "vanilla-addition:diamond_shards_upgrade_smithing_template"
+  }
+}

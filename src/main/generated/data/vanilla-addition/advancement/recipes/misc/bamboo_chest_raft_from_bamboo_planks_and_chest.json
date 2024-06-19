@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bamboo_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:bamboo_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chest"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:bamboo_chest_raft_from_bamboo_planks_and_chest"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bamboo_planks",
+      "has_chest"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:bamboo_chest_raft_from_bamboo_planks_and_chest"
+    ]
+  }
+}

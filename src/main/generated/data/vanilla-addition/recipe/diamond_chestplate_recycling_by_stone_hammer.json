@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "hammer_processing",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_chestplate"
+    },
+    {
+      "item": "vanilla-addition:stone_hammer"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "vanilla-addition:diamond_shard"
+  }
+}

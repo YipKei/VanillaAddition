@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "vanilla-addition",
+	"version": "${version}",
+	"name": "Vanilla Addition",
+	"description": "原版流程简化与服务器探索流程优化",
+	"authors": [
+		"楪筱祈"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "MIT",
+	"icon": "assets/vanilla-addition/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.yipkei.vanilladdition.VanillaAddition"
+		],
+		"client": [
+			"com.yipkei.vanilladdition.VanillaAdditionClient"
+		],
+		"fabric-datagen": [
+			"com.yipkei.vanilladdition.VanillaAdditionDataGenerator"
+		]
+	},
+	"mixins": [
+		"vanilla-addition.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

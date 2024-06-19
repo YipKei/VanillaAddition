@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_birch_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:birch_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:birch_slab_from_birch_logs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_birch_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:birch_slab_from_birch_logs"
+    ]
+  }
+}

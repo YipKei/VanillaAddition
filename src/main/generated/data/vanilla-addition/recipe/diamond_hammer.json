@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "vanilla-addition:diamond_shard"
+    },
+    "*": {
+      "item": "vanilla-addition:iron_hammer"
+    }
+  },
+  "pattern": [
+    "#",
+    "*"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:diamond_hammer"
+  }
+}

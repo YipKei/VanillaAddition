@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chest"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spruce_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:spruce_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:spruce_chest_boat_from_spruce_planks_and_chest"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_spruce_planks",
+      "has_chest"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:spruce_chest_boat_from_spruce_planks_and_chest"
+    ]
+  }
+}

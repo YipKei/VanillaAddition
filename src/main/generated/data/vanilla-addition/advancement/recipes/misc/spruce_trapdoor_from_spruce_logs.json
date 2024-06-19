@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_spruce_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:spruce_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:spruce_trapdoor_from_spruce_logs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_spruce_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:spruce_trapdoor_from_spruce_logs"
+    ]
+  }
+}

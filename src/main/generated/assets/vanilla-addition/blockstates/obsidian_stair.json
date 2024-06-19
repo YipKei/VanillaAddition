@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "vanilla-addition:block/obsidian_stair"
+    },
+    "type=double": {
+      "model": "minecraft:block/obsidian"
+    },
+    "type=top": {
+      "model": "vanilla-addition:block/obsidian_stair_top"
+    }
+  }
+}
