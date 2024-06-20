@@ -31,7 +31,7 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
     public void generate(RecipeExporter exporter) {
         /* 可逆压实 */
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.STEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.STEEL_BLOCK);
-
+        offerReversible2x2CompactingRecipes(exporter,RecipeCategory.MISC,ModItems.DIAMOND_SHARD, ModItems.DIAMOND_SHARD_STACK);
 
         /* 原版烧炼配方 */
 
@@ -39,6 +39,91 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerBlasting(exporter,STEEL_MATERIAL_LIST,RecipeCategory.MISC,ModItems.STEEL_INGOT, 1.0f,400,"steel_ingot");
 
         offerCookingDefault(exporter,200,Items.ROTTEN_FLESH,ModItems.ROASTED_ROTTEN_FLESH,0.8f);
+
+
+        /* 工具与装备合成配方 */
+
+        offerSwordRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_SWORD,"steel");
+        offerShovelRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_SHOVEL,"steel");
+        offerPickaxeRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_PICKAXE,"steel");
+        offerAxeRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_AXE,"steel");
+        offerHoeRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_HOE,"steel");
+        
+        /* 工具锤合成配方及其处理配方*/
+        offerTorchLikeRecipe(exporter,RecipeCategory.TOOLS,Items.COBBLESTONE,Items.STICK,ModItems.STONE_HAMMER,1,"stone_hammer");
+        offerTorchLikeRecipe(exporter,RecipeCategory.TOOLS,Items.IRON_INGOT,Items.STICK,ModItems.IRON_HAMMER,1,"iron_hammer");
+        offerTorchLikeRecipe(exporter,RecipeCategory.TOOLS,ModItems.DIAMOND_SHARD,ModItems.IRON_HAMMER,ModItems.DIAMOND_HAMMER,1,"diamond_hammer");
+
+        offerHammerProcessing(exporter,Items.DIAMOND,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,3,"processing");
+        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,2,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,1,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,3,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_AXE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,3,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HOE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,2,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,5,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,8,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,7,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,4,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,5,"recycling");
+
+        offerHammerProcessing(exporter,Items.DIAMOND,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,24,"processing");
+        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,16,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,8,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,24,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_AXE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,24,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HOE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,16,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,40,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,64,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,56,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,32,"recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,40,"recycling");
+
+        offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,8,ModItems.DIAMOND_HAMMER,Items.QUARTZ,32,"recycling", "quartz_like_block");
+        offerHammerProcessing(exporter,Items.CONDUIT,1,ModItems.DIAMOND_HAMMER,ModItems.PULSE_OF_THE_SEA,8,"processing");
+
+
+        offerUpgradeRecipe(exporter,ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE, ModItems.STEEL_INGOT, RecipeCategory.TOOLS,ModItems.DIAMOND_UPGRADED_PICKAXE);
+        offerUpgradeRecipe(exporter,ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE, ModItems.STEEL_INGOT, RecipeCategory.TOOLS,ModItems.DIAMOND_UPGRADED_AXE);
+
+        /* 简易再生 */
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.YELLOW_WOOL,ModItems.PULSE_OF_THE_SEA,Items.SPONGE,8);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.BRAIN_CORAL,ModItems.PULSE_OF_THE_SEA,Items.BRAIN_CORAL_BLOCK,1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.BUBBLE_CORAL,ModItems.PULSE_OF_THE_SEA,Items.BUBBLE_CORAL_BLOCK,1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.FIRE_CORAL,ModItems.PULSE_OF_THE_SEA,Items.FIRE_CORAL_BLOCK,1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.HORN_CORAL,ModItems.PULSE_OF_THE_SEA,Items.HORN_CORAL_BLOCK,1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.TUBE_CORAL,ModItems.PULSE_OF_THE_SEA,Items.TUBE_CORAL_BLOCK,1);
+
+
+
+        /* 原型合成 */
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,ModItems.DIAMOND_SHARD_STACK,Items.COAL_BLOCK,ModItems.DIAMOND_PROTOTYPE,1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.NETHERITE_BLOCK,Items.NETHER_STAR,ModItems.HEAVY_CORE_PROTOTYPE,1);
+
+
+
+
+        /* 碎钻升级锻造模板，不考虑模板复制，因为合成成本极低 */
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE,1)
+                .pattern("#*#")
+                .pattern("###")
+                .pattern("#*#")
+                .input('#', ItemTags.PLANKS)
+                .input('*',ModItems.DIAMOND_SHARD)
+                .criterion(hasItem(ModItems.DIAMOND_SHARD),conditionsFromItem(ModItems.DIAMOND_SHARD))
+                .offerTo(exporter,Identifier.of("diamond_upgraded_smithing_template"));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /* 建筑方块拓展配方 */
         offerDefaultWallRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.STONE, ModBlocks.STONE_WALL);
@@ -226,74 +311,6 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerDefaultSlabRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_TERRACOTTA, ModBlocks.PURPLE_TERRACOTTA_SLAB);
         offerDefaultSlabRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_TERRACOTTA, ModBlocks.MAGENTA_TERRACOTTA_SLAB);
         offerDefaultSlabRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_TERRACOTTA, ModBlocks.PINK_TERRACOTTA_SLAB);
-
-        /* 工具与装备合成配方 */
-
-        offerSwordRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_SWORD,"steel");
-        offerShovelRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_SHOVEL,"steel");
-        offerPickaxeRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_PICKAXE,"steel");
-        offerAxeRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_AXE,"steel");
-        offerHoeRecipe(exporter,ModItems.STEEL_INGOT,Items.STICK,ModItems.STEEL_HOE,"steel");
-        
-        /* 工具锤合成配方及其处理配方*/
-        offerTorchLikeRecipe(exporter,RecipeCategory.TOOLS,Items.COBBLESTONE,Items.STICK,ModItems.STONE_HAMMER,1,"stone_hammer");
-        offerTorchLikeRecipe(exporter,RecipeCategory.TOOLS,Items.IRON_INGOT,Items.STICK,ModItems.IRON_HAMMER,1,"iron_hammer");
-        offerTorchLikeRecipe(exporter,RecipeCategory.TOOLS,ModItems.DIAMOND_SHARD,ModItems.IRON_HAMMER,ModItems.DIAMOND_HAMMER,1,"diamond_hammer");
-
-        offerHammerProcessing(exporter,Items.DIAMOND,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,3,"processing");
-        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,2,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,1,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,3,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_AXE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,3,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HOE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,2,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,5,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,8,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,7,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,4,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1,ModItems.STONE_HAMMER,ModItems.DIAMOND_SHARD,5,"recycling");
-
-        offerHammerProcessing(exporter,Items.DIAMOND,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,24,"processing");
-        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,16,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,8,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,24,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_AXE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,24,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HOE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,16,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,40,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,64,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,56,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,32,"recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1,ModItems.IRON_HAMMER,ModItems.DIAMOND_SHARD,40,"recycling");
-
-        offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,8,ModItems.DIAMOND_HAMMER,Items.QUARTZ,32,"recycling", "quartz_like_block");
-
-
-        offerUpgradeRecipe(exporter,ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE, ModItems.STEEL_INGOT, RecipeCategory.TOOLS,ModItems.DIAMOND_UPGRADED_PICKAXE);
-        offerUpgradeRecipe(exporter,ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE, ModItems.STEEL_INGOT, RecipeCategory.TOOLS,ModItems.DIAMOND_UPGRADED_AXE);
-
-        /* 碎钻升级锻造模板，不考虑模板复制，因为合成成本极低 */
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE,1)
-                .pattern("#*#")
-                .pattern("###")
-                .pattern("#*#")
-                .input('#', ItemTags.PLANKS)
-                .input('*',ModItems.DIAMOND_SHARD)
-                .criterion(hasItem(ModItems.DIAMOND_SHARD),conditionsFromItem(ModItems.DIAMOND_SHARD))
-                .offerTo(exporter,Identifier.of("diamond_upgraded_smithing_template"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         /**
                As no plan：有损原木配方 - 原木合成木楼梯等

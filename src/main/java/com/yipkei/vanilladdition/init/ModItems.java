@@ -15,18 +15,15 @@ import java.util.List;
 
 public class ModItems {
 
-    public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));
-    public static final Item DIAMOND_SHARD = registerItems("diamond_shard", new Item(new Item.Settings()));
+    //食物
+    public static final Item ROASTED_ROTTEN_FLESH = registerItems("roasted_rotten_flesh", new Item(new Item.Settings().food(ModFoodComponents.ROASTED_ROTTEN_FLESH)));
 
-    public static final Item DIAMOND_FLINT = registerItems("diamond_flint", new FlintAndSteelItem(new Item.Settings().maxDamage(200)));
-    public static final Item STEEL_SHEARS = registerItems("steel_shears", new ShearsItem(new Item.Settings().maxDamage(600)));
-
+    //耗材
     public static final Item STONE_HAMMER = registerItems("stone_hammer", new Item(new Item.Settings()));
     public static final Item IRON_HAMMER = registerItems("iron_hammer", new Item(new Item.Settings()));
     public static final Item DIAMOND_HAMMER = registerItems("diamond_hammer", new Item((new Item.Settings())));
 
-    public static final Item ROASTED_ROTTEN_FLESH = registerItems("roasted_rotten_flesh", new Item(new Item.Settings().food(ModFoodComponents.ROASTED_ROTTEN_FLESH)));
-
+    //工具
     public static final Item STEEL_SWORD = registerItems("steel_sword", new SwordItem(ModToolMaterials.STEEL,(new Item.Settings()).attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 3, -2.4F))));
    public static final Item STEEL_SHOVEL = registerItems("steel_shovel", new ShovelItem(ModToolMaterials.STEEL,(new Item.Settings()).attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterials.STEEL,1.5f,-3.0f))));
     public static final Item STEEL_PICKAXE = registerItems("steel_pickaxe", new PickaxeItem(ModToolMaterials.STEEL,(new Item.Settings()).attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.STEEL,1,-2.8f))));
@@ -36,16 +33,26 @@ public class ModItems {
     public static final Item DIAMOND_UPGRADED_PICKAXE = registerItems("diamond_upgraded_pickaxe", new PickaxeItem(ModToolMaterials.DIAMOND_SHARD,(new Item.Settings()).attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.DIAMOND_SHARD,1,-2.8f))));
     public static final Item DIAMOND_UPGRADED_AXE = registerItems("diamond_upgraded_axe", new AxeItem(ModToolMaterials.DIAMOND_SHARD,(new Item.Settings()).attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterials.DIAMOND_SHARD,6.0f,-3.1f))));
 
+    public static final Item DIAMOND_FLINT = registerItems("diamond_flint", new FlintAndSteelItem(new Item.Settings().maxDamage(200)));
+    public static final Item STEEL_SHEARS = registerItems("steel_shears", new ShearsItem(new Item.Settings().maxDamage(600)));
+
+    //原料
+    public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));
+    public static final Item DIAMOND_SHARD = registerItems("diamond_shard", new Item(new Item.Settings()));
     public static final Item DIAMOND_SHARD_STACK = registerItems("diamond_shard_stack", new Item(new Item.Settings()));
     public static final Item PULSE_OF_THE_SEA = registerItems("pulse_of_the_sea", new Item(new Item.Settings()));
     public static final Item DRAGON_WING_MEMBRANE = registerItems("dragon_wing_membrane", new Item(new Item.Settings()));
+    public static final Item ANCIENT_TEAR = registerItems("ancient_tear", new Item(new Item.Settings()));
 
+    //原型
     public static final Item DIAMOND_PROTOTYPE = registerItems("diamond_prototype", new Item(new Item.Settings()));
     public static final Item ANCIENT_PROTOTYPE = registerItems("ancient_prototype", new Item(new Item.Settings()));
     public static final Item HEAVY_CORE_PROTOTYPE = registerItems("heavy_core_prototype", new Item(new Item.Settings()));
     public static final Item CONDUIT_PROTOTYPE = registerItems("conduit_prototype", new Item(new Item.Settings()));
     public static final Item ELYTRA_PROTOTYPE = registerItems("elytra_prototype", new Item(new Item.Settings()));
 
+
+    //模板相关
     private static List<Identifier> getDiamondShardsUpgradeEmptyBaseSlotTextures(){
         return List.of(
                 Identifier.of("item/empty_slot_axe"),

@@ -356,6 +356,8 @@ public class ModModelsProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.ROASTED_ROTTEN_FLESH,Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.DRAGON_WING_MEMBRANE,Models.GENERATED);
+
         itemModelGenerator.register(ModItems.STEEL_SWORD,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_SHOVEL,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_PICKAXE,Models.HANDHELD);

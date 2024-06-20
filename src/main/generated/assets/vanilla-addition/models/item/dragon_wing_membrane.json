@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vanilla-addition:item/dragon_wing_membrane"
+  }
+}

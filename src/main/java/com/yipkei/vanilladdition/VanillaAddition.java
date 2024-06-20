@@ -3,6 +3,7 @@ package com.yipkei.vanilladdition;
 import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItemGroups;
 import com.yipkei.vanilladdition.init.ModItems;
+import com.yipkei.vanilladdition.util.ModLootTableModifiers;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -28,6 +29,6 @@ public class VanillaAddition implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerModItemGroup();
 
-
+		ModLootTableModifiers.modifierLootTables();
 	}
 }
