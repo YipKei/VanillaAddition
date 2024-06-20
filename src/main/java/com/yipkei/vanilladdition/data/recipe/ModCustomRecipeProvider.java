@@ -14,6 +14,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -316,6 +317,31 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
                 .input('#',tagKey)
                 .criterion("has_"+input,conditionsFromTag(tagKey))
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,convertBetween(result,input)));
+    }
+
+    public static void offerStairsRecipe(RecipeExporter exporter, RecipeCategory category,ItemConvertible input,ItemConvertible result){
+        ShapedRecipeJsonBuilder.create(category, result, 1)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .input('#',input)
+                .criterion(hasItem(input),conditionsFromItem(input))
+                .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,convertBetween(result,input)));
+    }
+
+    public static void offerDefaultWallRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible baseBlock, ItemConvertible output){
+        offerWallRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,output,baseBlock);
+        offerStonecuttingRecipe(exporter,category,output,baseBlock);
+    }
+
+    public static void offerDefaultStairsRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible baseBlock, ItemConvertible output){
+        offerStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,output,baseBlock);
+        offerStonecuttingRecipe(exporter,category,output,baseBlock);
+    }
+
+    public static void offerDefaultSlabRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible baseBlock, ItemConvertible output){
+        offerSlabRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,output,baseBlock);
+        offerStonecuttingRecipe(exporter,category,output,baseBlock);
     }
 
 

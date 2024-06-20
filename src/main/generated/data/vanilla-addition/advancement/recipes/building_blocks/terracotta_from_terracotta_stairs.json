@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_terracotta_stairs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:terracotta_stairs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:terracotta_from_terracotta_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_terracotta_stairs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:terracotta_from_terracotta_stairs"
+    ]
+  }
+}

@@ -7,14 +7,15 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModLootTablesProvider extends FabricBlockLootTableProvider {
+public class ModBlockLootTablesProvider extends FabricBlockLootTableProvider {
 
-    public ModLootTablesProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public ModBlockLootTablesProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
     @Override
     public void generate() {
         addDrop(ModBlocks.STEEL_BLOCK);
+
     }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:smooth_stone"
+  },
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:smooth_stone_stairs"
+  }
+}
