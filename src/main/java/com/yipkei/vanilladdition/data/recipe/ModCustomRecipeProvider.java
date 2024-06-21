@@ -8,13 +8,13 @@ import net.minecraft.data.server.recipe.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -106,7 +106,7 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
                         category,
                         result).criterion("has_"+smithingTemplate.toString(), RecipeProvider
                         .conditionsFromItem(smithingTemplate))
-                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing");
+                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing_from" + RecipeProvider.getItemPath(input));
     }
 
     public static void offerUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, Item result, RegistryEntry<Enchantment> enchantment, int level){
@@ -118,7 +118,7 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
                         result)
                 .criterion("has_"+smithingTemplate.toString(), RecipeProvider
                         .conditionsFromItem(smithingTemplate))
-                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing");
+                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing_from" + RecipeProvider.getItemPath(input));
     }
 
 //    public static void offerDiamondShardsUpgradeRecipe(RecipeExporter exporter, Item input, RecipeCategory category, Item result){
@@ -143,6 +143,12 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
     public static void offerMetalSmeltingDefault(RecipeExporter exporter, List<ItemConvertible> input, ItemConvertible output, float experience, int baseSmeltingTime, String group){
         offerSmelting(exporter,input,RecipeCategory.MISC,output,experience,baseSmeltingTime,group);
         offerBlasting(exporter,input,RecipeCategory.MISC,output,experience,baseSmeltingTime/2,group);
+    }
+
+    public static void offerMetalSmeltingDefault(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, float experience, int baseSmeltingTime, String group){
+        List<ItemConvertible> inputList = List.of(input);
+        offerSmelting(exporter,inputList,RecipeCategory.MISC,output,experience,baseSmeltingTime,group);
+        offerBlasting(exporter,inputList,RecipeCategory.MISC,output,experience,baseSmeltingTime/2,group);
     }
 
     public static void offerHammerProcessing(RecipeExporter exporter,ItemConvertible input,int size,ItemConvertible hammer,Item result,int count,String type){
@@ -342,6 +348,20 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
     public static void offerDefaultSlabRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible baseBlock, ItemConvertible output){
         offerSlabRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,output,baseBlock);
         offerStonecuttingRecipe(exporter,category,output,baseBlock);
+    }
+
+    public static void offerSherdCopy(RecipeExporter exporter, Item baseSherd, Item blueprint, Item prototype, float exp, int smeltTime){
+        List<ItemConvertible> prototypeList = List.of(prototype);
+        offerChestLikeRecipe(exporter, RecipeCategory.MISC, Items.PAPER, baseSherd, blueprint, 8);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, prototype, 4)
+                .pattern(" # ")
+                .pattern("#*#")
+                .pattern(" # ")
+                .input('#', Items.CLAY_BALL)
+                .input('*', blueprint)
+                .criterion(hasItem(blueprint),conditionsFromItem(blueprint))
+                .offerTo(exporter, Identifier.of(VanillaAddition.MOD_ID, convertBetween(prototype,blueprint)));
+        offerSmelting(exporter, prototypeList, RecipeCategory.MISC, baseSherd, exp, smeltTime, RecipeProvider.getItemPath(baseSherd));
     }
 
 

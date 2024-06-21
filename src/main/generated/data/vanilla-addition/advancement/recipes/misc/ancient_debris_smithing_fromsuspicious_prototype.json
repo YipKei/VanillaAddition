@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:ancient_debris_smithing_fromsuspicious_prototype"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanilla-addition:nether_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:nether_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_vanilla-addition:nether_smithing_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:ancient_debris_smithing_fromsuspicious_prototype"
+    ]
+  }
+}

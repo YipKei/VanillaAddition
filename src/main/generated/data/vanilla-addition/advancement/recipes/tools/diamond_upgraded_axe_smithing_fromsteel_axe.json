@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:diamond_upgraded_axe_smithing_fromsteel_axe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanilla-addition:diamond_shards_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:diamond_shards_upgrade_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_vanilla-addition:diamond_shards_upgrade_smithing_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:diamond_upgraded_axe_smithing_fromsteel_axe"
+    ]
+  }
+}

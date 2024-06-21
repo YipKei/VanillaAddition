@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "vanilla-addition:diamond_hammer"
+  },
+  "base": {
+    "item": "minecraft:netherite_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:nether_smithing_template_pro"
+  },
+  "template": {
+    "item": "vanilla-addition:nether_smithing_template"
+  }
+}

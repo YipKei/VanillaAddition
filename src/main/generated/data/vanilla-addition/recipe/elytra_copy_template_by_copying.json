@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "*": {
+      "item": "vanilla-addition:elytra_copy_template"
+    },
+    "o": {
+      "item": "minecraft:bamboo"
+    },
+    "x": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "o*o",
+    "#x#",
+    "#x#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "vanilla-addition:elytra_copy_template"
+  }
+}

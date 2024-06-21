@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nether_star": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:nether_star"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pulse_of_the_sea": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:pulse_of_the_sea"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:conduit_prototype_from_pulse_of_the_sea"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_nether_star",
+      "has_pulse_of_the_sea"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:conduit_prototype_from_pulse_of_the_sea"
+    ]
+  }
+}

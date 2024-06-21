@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "*": {
+      "item": "vanilla-addition:dragon_wing_membrane"
+    }
+  },
+  "pattern": [
+    "# #",
+    "*#*",
+    "* *"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:elytra_prototype"
+  }
+}

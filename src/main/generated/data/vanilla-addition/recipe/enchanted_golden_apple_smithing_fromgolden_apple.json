@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:experience_bottle"
+  },
+  "base": {
+    "item": "minecraft:golden_apple"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:enchanted_golden_apple"
+  },
+  "template": {
+    "item": "vanilla-addition:enchanted_golden_apply_copy_template"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:nautilus_shell"
+  },
+  "base": {
+    "item": "vanilla-addition:conduit_prototype"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:heart_of_the_sea"
+  },
+  "template": {
+    "item": "vanilla-addition:nether_smithing_template_pro"
+  }
+}

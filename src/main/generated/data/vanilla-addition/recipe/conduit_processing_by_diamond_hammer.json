@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "hammer_processing",
+  "ingredients": [
+    {
+      "item": "minecraft:conduit"
+    },
+    {
+      "item": "vanilla-addition:diamond_hammer"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "vanilla-addition:pulse_of_the_sea"
+  }
+}

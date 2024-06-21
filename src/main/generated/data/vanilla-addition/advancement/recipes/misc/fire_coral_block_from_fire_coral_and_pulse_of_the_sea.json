@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fire_coral": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:fire_coral"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pulse_of_the_sea": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:pulse_of_the_sea"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:fire_coral_block_from_fire_coral_and_pulse_of_the_sea"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fire_coral",
+      "has_pulse_of_the_sea"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:fire_coral_block_from_fire_coral_and_pulse_of_the_sea"
+    ]
+  }
+}

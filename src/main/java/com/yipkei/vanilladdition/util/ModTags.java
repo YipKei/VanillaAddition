@@ -8,8 +8,15 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class ModTags {
+
     public static class Blocks {
         public static final TagKey<Block> NULL_BLOCK = createTag("null_block");
+
+        public static final TagKey<Block> OBSIDIAN = createTag("obsidian");
+
+        public static final TagKey<Block> WORLD_DESTROYER = createTag("world_destroyer");
+
+        public static final TagKey<Block> FAIRY_WAND_REPLACEABEL = createTag("fairy_wand_replaceable");
 
 
         private static TagKey<Block> createTag(String name){

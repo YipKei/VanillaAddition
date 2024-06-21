@@ -1,10 +1,10 @@
-// 1.21	2024-06-20T16:37:11.2351757	Vanilla Addition/Tags for minecraft:item
+// 1.21	2024-06-21T18:20:24.531198	Vanilla Addition/Tags for minecraft:item
 fdab8ddd5529ae14b26bc1853b004131135318a4 data\vanilla-addition\tags\item\diamond_like_ingredients.json
 f7c5163386ca4f6f59c115f8a2488784b9f15ce3 data\minecraft\tags\item\axes.json
 8cda0614724ff2d3771cb9987e19759dd204f0a6 data\minecraft\tags\item\shovels.json
 c8dff9260a0d1578661497e8fa33098aa108664b data\minecraft\tags\item\swords.json
 235f3bf8614616b6cd50b21268354ae7443870ea data\minecraft\tags\item\hoes.json
-4d332b3fae78361e92ad070f51cbcd7245c60316 data\minecraft\tags\item\pickaxes.json
+58073e7c3793c0caede7bd20de47cc59975ae68f data\minecraft\tags\item\pickaxes.json
 0fc8f3412c4268133c259f539485ac33ae528ab5 data\vanilla-addition\tags\item\diamond_like_shards.json
 877f533d26c14af5a05b6a1796a793825ec75b58 data\minecraft\tags\item\beacon_payment_items.json
 cf9cfe7cdb60b294c6438346aac9de5c1b3b0465 data\vanilla-addition\tags\item\quartz_block.json

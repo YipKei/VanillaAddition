@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "*": {
+      "item": "vanilla-addition:pulse_of_the_sea"
+    },
+    "o": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "#*#",
+    "*o*",
+    "#*#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:conduit_prototype"
+  }
+}

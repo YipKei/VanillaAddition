@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:gold_block"
+    },
+    "*": {
+      "item": "vanilla-addition:enchanted_golden_apply_copy_template"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "vanilla-addition:enchanted_golden_apply_copy_template"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "*": {
+      "item": "vanilla-addition:head_copy_smithing_template"
+    },
+    "o": {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "ooo"
+  ],
+  "result": {
+    "count": 4,
+    "id": "vanilla-addition:head_copy_smithing_template"
+  }
+}

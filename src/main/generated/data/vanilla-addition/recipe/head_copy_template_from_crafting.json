@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "*": {
+      "item": "vanilla-addition:nether_smithing_template_pro"
+    },
+    "1": {
+      "item": "minecraft:creeper_head"
+    },
+    "2": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "3": {
+      "item": "minecraft:zombie_head"
+    },
+    "4": {
+      "item": "minecraft:dragon_head"
+    },
+    "5": {
+      "item": "minecraft:piglin_head"
+    },
+    "6": {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  },
+  "pattern": [
+    "123",
+    "4*5",
+    "666"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:head_copy_smithing_template"
+  }
+}

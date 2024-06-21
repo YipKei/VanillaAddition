@@ -3,6 +3,8 @@ package com.yipkei.vanilladdition.init;
 import com.yipkei.vanilladdition.VanillaAddition;
 import com.yipkei.vanilladdition.custom.ModFoodComponents;
 import com.yipkei.vanilladdition.custom.ModToolMaterials;
+import com.yipkei.vanilladdition.item.AbstractPickaxeItem;
+import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
@@ -33,6 +35,10 @@ public class ModItems {
     public static final Item DIAMOND_UPGRADED_PICKAXE = registerItems("diamond_upgraded_pickaxe", new PickaxeItem(ModToolMaterials.DIAMOND_SHARD,(new Item.Settings()).attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.DIAMOND_SHARD,1,-2.8f))));
     public static final Item DIAMOND_UPGRADED_AXE = registerItems("diamond_upgraded_axe", new AxeItem(ModToolMaterials.DIAMOND_SHARD,(new Item.Settings()).attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterials.DIAMOND_SHARD,6.0f,-3.1f))));
 
+    // 针对性挖掘镐
+    public static final Item GLASS_PICKAXE = registerItems("glass_pickaxe", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.OBSIDIAN,1200, 10, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,1,-2.8f))));
+    public static final Item DESTROYER_PICKAXE = registerItems("destroyer_pickaxe", new AbstractPickaxeItem(ToolMaterials.NETHERITE, ModTags.Blocks.WORLD_DESTROYER,60, 1,2,(new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ToolMaterials.NETHERITE,1,-2.8f))));
+
     public static final Item DIAMOND_FLINT = registerItems("diamond_flint", new FlintAndSteelItem(new Item.Settings().maxDamage(200)));
     public static final Item STEEL_SHEARS = registerItems("steel_shears", new ShearsItem(new Item.Settings().maxDamage(600)));
 
@@ -47,10 +53,60 @@ public class ModItems {
     //原型
     public static final Item DIAMOND_PROTOTYPE = registerItems("diamond_prototype", new Item(new Item.Settings()));
     public static final Item ANCIENT_PROTOTYPE = registerItems("ancient_prototype", new Item(new Item.Settings()));
+    public static final Item SUSPICIOUS_PROTOTYPE = registerItems("suspicious_prototype", new Item(new Item.Settings()));
     public static final Item HEAVY_CORE_PROTOTYPE = registerItems("heavy_core_prototype", new Item(new Item.Settings()));
     public static final Item CONDUIT_PROTOTYPE = registerItems("conduit_prototype", new Item(new Item.Settings()));
     public static final Item ELYTRA_PROTOTYPE = registerItems("elytra_prototype", new Item(new Item.Settings()));
 
+    //陶片纹样
+    public static final Item ANGLER_POTTERY_SHERD_BLUEPRINT =       registerItems("angler_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    public static final Item ARCHER_POTTERY_SHERD_BLUEPRINT =       registerItems("archer_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    public static final Item ARMS_UP_POTTERY_SHERD_BLUEPRINT =      registerItems("arms_pottery_sherd_blueprint",       new Item(new Item.Settings()));
+    public static final Item BLADE_POTTERY_SHERD_BLUEPRINT =        registerItems("blade_pottery_sherd_blueprint",      new Item(new Item.Settings()));
+    public static final Item BREWER_POTTERY_SHERD_BLUEPRINT =       registerItems("brewer_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    public static final Item BURN_POTTERY_SHERD_BLUEPRINT =         registerItems("brun_pottery_sherd_blueprint",       new Item(new Item.Settings()));
+    public static final Item DANGER_POTTERY_SHERD_BLUEPRINT =       registerItems("danger_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    public static final Item EXPLORER_POTTERY_SHERD_BLUEPRINT =     registerItems("explorer_pottery_sherd_blueprint",   new Item(new Item.Settings()));
+    public static final Item FRIEND_POTTERY_SHERD_BLUEPRINT =       registerItems("friend_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    public static final Item HEART_POTTERY_SHERD_BLUEPRINT =        registerItems("heart_pottery_sherd_blueprint",      new Item(new Item.Settings()));
+    public static final Item HEARTBREAK_POTTERY_SHERD_BLUEPRINT =   registerItems("heartbreak_pottery_sherd_blueprint", new Item(new Item.Settings()));
+    public static final Item HOWL_POTTERY_SHERD_BLUEPRINT =         registerItems("howl_pottery_sherd_blueprint",       new Item(new Item.Settings()));
+    public static final Item MINER_POTTERY_SHERD_BLUEPRINT =        registerItems("miner_pottery_sherd_blueprint",      new Item(new Item.Settings()));
+    public static final Item MOURNER_POTTERY_SHERD_BLUEPRINT =      registerItems("mourner_pottery_sherd_blueprint",    new Item(new Item.Settings()));
+    public static final Item PLENTY_POTTERY_SHERD_BLUEPRINT =       registerItems("plenty_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    public static final Item PRIZE_POTTERY_SHERD_BLUEPRINT =        registerItems("prize_pottery_sherd_blueprint",      new Item(new Item.Settings()));
+    public static final Item SHEAF_POTTERY_SHERD_BLUEPRINT =        registerItems("sheaf_pottery_sherd_blueprint",      new Item(new Item.Settings()));
+    public static final Item SHELTER_POTTERY_SHERD_BLUEPRINT =      registerItems("shelter_pottery_sherd_blueprint",    new Item(new Item.Settings()));
+    public static final Item SKULL_POTTERY_SHERD_BLUEPRINT =        registerItems("skull_pottery_sherd_blueprint",      new Item(new Item.Settings()));
+    public static final Item SNORT_POTTERY_SHERD_BLUEPRINT =        registerItems("snort_pottery_sherd_blueprint",      new Item(new Item.Settings()));
+    public static final Item FLOW_POTTERY_SHERD_BLUEPRINT =         registerItems("flow_pottery_sherd_blueprint",        new Item(new Item.Settings()));
+    public static final Item GUSTER_POTTERY_SHERD_BLUEPRINT =       registerItems("guster_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    public static final Item SCRAPE_POTTERY_SHERD_BLUEPRINT =       registerItems("scrape_pottery_sherd_blueprint",     new Item(new Item.Settings()));
+    
+    //陶片原坯
+    public static final Item ANGLER_POTTERY_SHERD_PROTOTYPE =       registerItems("angler_pottery_sherd_prototype",     new Item(new Item.Settings()));
+    public static final Item ARCHER_POTTERY_SHERD_PROTOTYPE =       registerItems("archer_pottery_sherd_prototype",     new Item(new Item.Settings()));
+    public static final Item ARMS_UP_POTTERY_SHERD_PROTOTYPE =      registerItems("arms_pottery_sherd_prototype",       new Item(new Item.Settings()));
+    public static final Item BLADE_POTTERY_SHERD_PROTOTYPE =        registerItems("blade_pottery_sherd_prototype",      new Item(new Item.Settings()));
+    public static final Item BREWER_POTTERY_SHERD_PROTOTYPE =       registerItems("brewer_pottery_sherd_prototype",     new Item(new Item.Settings()));
+    public static final Item BURN_POTTERY_SHERD_PROTOTYPE =         registerItems("brun_pottery_sherd_prototype",       new Item(new Item.Settings()));
+    public static final Item DANGER_POTTERY_SHERD_PROTOTYPE =       registerItems("danger_pottery_sherd_prototype",     new Item(new Item.Settings()));
+    public static final Item EXPLORER_POTTERY_SHERD_PROTOTYPE =     registerItems("explorer_pottery_sherd_prototype",   new Item(new Item.Settings()));
+    public static final Item FRIEND_POTTERY_SHERD_PROTOTYPE =       registerItems("friend_pottery_sherd_prototype",     new Item(new Item.Settings()));
+    public static final Item HEART_POTTERY_SHERD_PROTOTYPE =        registerItems("heart_pottery_sherd_prototype",      new Item(new Item.Settings()));
+    public static final Item HEARTBREAK_POTTERY_SHERD_PROTOTYPE =   registerItems("heartbreak_pottery_sherd_prototype", new Item(new Item.Settings()));
+    public static final Item HOWL_POTTERY_SHERD_PROTOTYPE =         registerItems("howl_pottery_sherd_prototype",       new Item(new Item.Settings()));
+    public static final Item MINER_POTTERY_SHERD_PROTOTYPE =        registerItems("miner_pottery_sherd_prototype",      new Item(new Item.Settings()));
+    public static final Item MOURNER_POTTERY_SHERD_PROTOTYPE =      registerItems("mourner_pottery_sherd_prototype",    new Item(new Item.Settings()));
+    public static final Item PLENTY_POTTERY_SHERD_PROTOTYPE =       registerItems("plenty_pottery_sherd_prototype",     new Item(new Item.Settings()));
+    public static final Item PRIZE_POTTERY_SHERD_PROTOTYPE =        registerItems("prize_pottery_sherd_prototype",      new Item(new Item.Settings()));
+    public static final Item SHEAF_POTTERY_SHERD_PROTOTYPE =        registerItems("sheaf_pottery_sherd_prototype",      new Item(new Item.Settings()));
+    public static final Item SHELTER_POTTERY_SHERD_PROTOTYPE =      registerItems("shelter_pottery_sherd_prototype",    new Item(new Item.Settings()));
+    public static final Item SKULL_POTTERY_SHERD_PROTOTYPE =        registerItems("skull_pottery_sherd_prototype",      new Item(new Item.Settings()));
+    public static final Item SNORT_POTTERY_SHERD_PROTOTYPE =        registerItems("snort_pottery_sherd_prototype",      new Item(new Item.Settings()));
+    public static final Item FLOW_POTTERY_SHERD_PROTOTYPE =         registerItems("flow_pottery_sherd_prototype",        new Item(new Item.Settings()));
+    public static final Item GUSTER_POTTERY_SHERD_PROTOTYPE =       registerItems("guster_pottery_sherd_prototype",     new Item(new Item.Settings()));
+    public static final Item SCRAPE_POTTERY_SHERD_PROTOTYPE =       registerItems("scrape_pottery_sherd_prototype",     new Item(new Item.Settings()));
 
     //模板相关
     private static List<Identifier> getDiamondShardsUpgradeEmptyBaseSlotTextures(){
@@ -74,7 +130,7 @@ public class ModItems {
                     getDiamondShardsUpgradeEmptyAdditionsSlotTextures()
             ));
 
-    public static final Item PRESSURE_CRAFTING_SMITHING_TEMPLATE = registerItems("pressure_crafting_smithing_template",
+    public static final Item PRESSURE_CRAFTING_TEMPLATE = registerItems("pressure_crafting_smithing_template",
             new SmithingTemplateItem(
                     Text.translatable("pressure_crafting_applies_to"),
                     Text.translatable("pressure_crafting_ingredients"),

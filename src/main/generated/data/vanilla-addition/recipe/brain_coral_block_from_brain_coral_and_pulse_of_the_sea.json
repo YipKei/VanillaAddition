@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:brain_coral"
+    },
+    "*": {
+      "item": "vanilla-addition:pulse_of_the_sea"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:brain_coral_block"
+  }
+}

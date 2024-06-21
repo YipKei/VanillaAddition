@@ -1,6 +1,8 @@
 {
   "values": [
     "vanilla-addition:steel_pickaxe",
-    "vanilla-addition:diamond_upgraded_pickaxe"
+    "vanilla-addition:diamond_upgraded_pickaxe",
+    "vanilla-addition:glass_pickaxe",
+    "vanilla-addition:destroyer_pickaxe"
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "vanilla-addition:ancient_tear"
+  },
+  "base": {
+    "item": "vanilla-addition:suspicious_prototype"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:ancient_debris"
+  },
+  "template": {
+    "item": "vanilla-addition:nether_smithing_template"
+  }
+}

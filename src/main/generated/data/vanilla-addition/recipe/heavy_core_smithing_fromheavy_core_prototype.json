@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:wind_charge"
+  },
+  "base": {
+    "item": "vanilla-addition:heavy_core_prototype"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:heavy_core"
+  },
+  "template": {
+    "item": "vanilla-addition:nether_smithing_template_pro"
+  }
+}

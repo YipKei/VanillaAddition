@@ -3,15 +3,15 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_upgraded_pickaxe_smithing"
+        "recipe": "vanilla-addition:totem_of_undying_copy_template_from_itself"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vanilla-addition:diamond_shards_upgrade_smithing_template": {
+    "has_totem_of_undying": {
       "conditions": {
         "items": [
           {
-            "items": "vanilla-addition:diamond_shards_upgrade_smithing_template"
+            "items": "minecraft:totem_of_undying"
           }
         ]
       },
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_vanilla-addition:diamond_shards_upgrade_smithing_template"
+      "has_totem_of_undying"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_upgraded_pickaxe_smithing"
+      "vanilla-addition:totem_of_undying_copy_template_from_itself"
     ]
   }
 }
