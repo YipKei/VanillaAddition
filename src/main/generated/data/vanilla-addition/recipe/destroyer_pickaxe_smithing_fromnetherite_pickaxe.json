@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:heavy_core"
+  },
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:destroyer_pickaxe"
+  },
+  "template": {
+    "item": "vanilla-addition:nether_smithing_template_pro"
+  }
+}

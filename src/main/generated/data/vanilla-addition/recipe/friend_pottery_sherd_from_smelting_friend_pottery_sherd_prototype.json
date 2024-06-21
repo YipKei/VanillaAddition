@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.4,
+  "group": "friend_pottery_sherd",
+  "ingredient": {
+    "item": "vanilla-addition:friend_pottery_sherd_prototype"
+  },
+  "result": {
+    "id": "minecraft:friend_pottery_sherd"
+  }
+}

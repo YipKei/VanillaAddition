@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_friend_pottery_sherd_prototype": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:friend_pottery_sherd_prototype"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:friend_pottery_sherd_from_smelting_friend_pottery_sherd_prototype"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_friend_pottery_sherd_prototype"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:friend_pottery_sherd_from_smelting_friend_pottery_sherd_prototype"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_howl_pottery_sherd_prototype": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:howl_pottery_sherd_prototype"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:howl_pottery_sherd_from_smelting_howl_pottery_sherd_prototype"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_howl_pottery_sherd_prototype"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:howl_pottery_sherd_from_smelting_howl_pottery_sherd_prototype"
+    ]
+  }
+}

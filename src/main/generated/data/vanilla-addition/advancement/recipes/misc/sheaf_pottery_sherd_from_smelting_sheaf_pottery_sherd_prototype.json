@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sheaf_pottery_sherd_prototype": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:sheaf_pottery_sherd_prototype"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sheaf_pottery_sherd_from_smelting_sheaf_pottery_sherd_prototype"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sheaf_pottery_sherd_prototype"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sheaf_pottery_sherd_from_smelting_sheaf_pottery_sherd_prototype"
+    ]
+  }
+}

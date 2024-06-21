@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_plenty_pottery_sherd_blueprint": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:plenty_pottery_sherd_blueprint"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:plenty_pottery_sherd_prototype_from_plenty_pottery_sherd_blueprint"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_plenty_pottery_sherd_blueprint"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:plenty_pottery_sherd_prototype_from_plenty_pottery_sherd_blueprint"
+    ]
+  }
+}

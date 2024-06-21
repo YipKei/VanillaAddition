@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_crimson_stem": {
+    "has_angler_pottery_sherd_blueprint": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:crimson_stem"
+            "items": "vanilla-addition:angler_pottery_sherd_blueprint"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:crimson_slab_from_crimson_stem_stonecutting"
+        "recipe": "vanilla-addition:angler_pottery_sherd_prototype_from_angler_pottery_sherd_blueprint"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_crimson_stem"
+      "has_angler_pottery_sherd_blueprint"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:crimson_slab_from_crimson_stem_stonecutting"
+      "vanilla-addition:angler_pottery_sherd_prototype_from_angler_pottery_sherd_blueprint"
     ]
   }
 }

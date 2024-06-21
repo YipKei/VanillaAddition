@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_paper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:paper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_snort_pottery_sherd": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:snort_pottery_sherd"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:snort_pottery_sherd_blueprint_from_paper_and_snort_pottery_sherd"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_paper",
+      "has_snort_pottery_sherd"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:snort_pottery_sherd_blueprint_from_paper_and_snort_pottery_sherd"
+    ]
+  }
+}
