@@ -11,10 +11,12 @@ import net.minecraft.util.Identifier;
 
 
 public class ModItemGroups {
-    public static final ItemGroup Vanilla_Addition = Registry.register(Registries.ITEM_GROUP,
+    public static final ItemGroup Vanilla_Addition = Registry.register(
+            Registries.ITEM_GROUP,
             Identifier.of(VanillaAddition.MOD_ID,"vanilla_addition"),
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.vanilla_addition"))
-                    .icon(()->new ItemStack(ModItems.DIAMOND_SHARD)).entries((displayContext,entries)->{
+                    .icon(()->new ItemStack(ModItems.ROASTED_ROTTEN_FLESH))
+                    .entries((displayContext,entries)->{
                         entries.add(ModItems.ROASTED_ROTTEN_FLESH);
                         entries.add(ModItems.STEEL_INGOT);
                         entries.add(ModBlocks.STEEL_BLOCK);
@@ -28,17 +30,99 @@ public class ModItemGroups {
                         entries.add(ModItems.STEEL_HOE);
                         entries.add(ModItems.DIAMOND_UPGRADED_PICKAXE);
                         entries.add(ModItems.DIAMOND_UPGRADED_AXE);
+                        entries.add(ModItems.GLASS_PICKAXE_PROTOTYPE);
+                        entries.add(ModItems.GLASS_PICKAXE);
+                        entries.add(ModItems.DESTROYER_PICKAXE);
+                        entries.add(ModItems.DIAMOND_FLINT);
+                        entries.add(ModItems.STEEL_SHEARS);
 
+                        entries.add(ModItems.FAIRY_WAND);
 
                         entries.add(ModItems.STONE_HAMMER);
                         entries.add(ModItems.IRON_HAMMER);
                         entries.add(ModItems.DIAMOND_HAMMER);
                     }).build());
 
-    public static final ItemGroup Vanilla_Building_Addition =Registry.register(Registries.ITEM_GROUP,
+    public static final ItemGroup Vanilla_Renewable_Addition = Registry.register(
+            Registries.ITEM_GROUP,
+            Identifier.of(VanillaAddition.MOD_ID,"vanilla_renewable"),
+            FabricItemGroup.builder().displayName(Text.translatable("vanilla_renewable"))
+                    .icon(()->new ItemStack(ModItems.DIAMOND_SHARD))
+                    .entries((displayContext,entries)->{
+                        entries.add(ModItems.DIAMOND_SHARD_STACK);
+                        entries.add(ModItems.PULSE_OF_THE_SEA);
+                        entries.add(ModItems.DRAGON_WING_MEMBRANE);
+
+                        entries.add(ModItems.DIAMOND_PROTOTYPE);
+                        entries.add(ModItems.ANCIENT_PROTOTYPE);
+                        entries.add(ModItems.SUSPICIOUS_PROTOTYPE);
+                        entries.add(ModItems.HEAVY_CORE_PROTOTYPE);
+                        entries.add(ModItems.CONDUIT_PROTOTYPE);
+                        entries.add(ModItems.ELYTRA_PROTOTYPE);
+
+                        entries.add(ModItems.PRESSURE_CRAFTING_TEMPLATE);
+                        entries.add(ModItems.NETHER_SMITHING_TEMPLATE);
+                        entries.add(ModItems.NETHER_SMITHING_TEMPLATE_PRO);
+                        entries.add(ModItems.ELYTRA_COPY_TEMPLATE);
+                        entries.add(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE);
+                        entries.add(ModItems.HEAD_COPY_TEMPLATE);
+                        entries.add(ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE);
+
+                        entries.add(ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.ARMS_UP_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.BLADE_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.BREWER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.BURN_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.DANGER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.EXPLORER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.FRIEND_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.HEART_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.HEARTBREAK_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.HOWL_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.MINER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.MOURNER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.PLENTY_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.PRIZE_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.SHEAF_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.SHELTER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.SKULL_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.SNORT_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.FLOW_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.GUSTER_POTTERY_SHERD_BLUEPRINT);
+                        entries.add(ModItems.SCRAPE_POTTERY_SHERD_BLUEPRINT);
+
+                        entries.add(ModItems.ANGLER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.ARCHER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.ARMS_UP_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.BLADE_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.BREWER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.BURN_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.DANGER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.EXPLORER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.FRIEND_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.HEART_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.HEARTBREAK_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.HOWL_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.MINER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.MOURNER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.PLENTY_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.PRIZE_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.SHEAF_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.SHELTER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.SKULL_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.SNORT_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.FLOW_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE);
+                        entries.add(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE);
+                    }).build());
+
+    public static final ItemGroup Vanilla_Building_Addition =Registry.register(
+            Registries.ITEM_GROUP,
             Identifier.of(VanillaAddition.MOD_ID,"vanilla_building_addition"),
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.building_addition"))
-                    .icon(()->new ItemStack(ModBlocks.PURPUR_WALL)).entries((displayContext,entries)->{
+                    .icon(()->new ItemStack(ModBlocks.PURPUR_WALL))
+                    .entries((displayContext,entries)->{
                         entries.add(ModBlocks.STONE);
                         entries.add(ModBlocks.STONE_STAIRS);
                         entries.add(ModBlocks.STONE_SLAB);

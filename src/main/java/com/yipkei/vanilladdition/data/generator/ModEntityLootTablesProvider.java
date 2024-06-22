@@ -3,7 +3,6 @@ package com.yipkei.vanilladdition.data.generator;
 import com.yipkei.vanilladdition.custom.FabricEntityLootTablesProvider;
 import com.yipkei.vanilladdition.init.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.data.server.loottable.EntityLootTableGenerator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -16,11 +15,10 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
-import net.minecraft.resource.featuretoggle.FeatureSet;
 
 import java.util.concurrent.CompletableFuture;
 
+@Deprecated
 public class ModEntityLootTablesProvider extends FabricEntityLootTablesProvider {
 
 

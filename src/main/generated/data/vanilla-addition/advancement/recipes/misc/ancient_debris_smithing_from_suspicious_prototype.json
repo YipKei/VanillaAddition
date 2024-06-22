@@ -3,15 +3,15 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_upgraded_pickaxe_smithing_fromsteel_pickaxe"
+        "recipe": "minecraft:ancient_debris_smithing_from_suspicious_prototype"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vanilla-addition:diamond_shards_upgrade_smithing_template": {
+    "has_vanilla-addition:nether_smithing_template": {
       "conditions": {
         "items": [
           {
-            "items": "vanilla-addition:diamond_shards_upgrade_smithing_template"
+            "items": "vanilla-addition:nether_smithing_template"
           }
         ]
       },
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_vanilla-addition:diamond_shards_upgrade_smithing_template"
+      "has_vanilla-addition:nether_smithing_template"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_upgraded_pickaxe_smithing_fromsteel_pickaxe"
+      "minecraft:ancient_debris_smithing_from_suspicious_prototype"
     ]
   }
 }

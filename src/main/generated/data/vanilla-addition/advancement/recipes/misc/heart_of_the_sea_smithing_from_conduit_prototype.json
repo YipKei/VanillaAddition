@@ -3,15 +3,15 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ancient_debris_smithing_fromsuspicious_prototype"
+        "recipe": "minecraft:heart_of_the_sea_smithing_from_conduit_prototype"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vanilla-addition:nether_smithing_template": {
+    "has_vanilla-addition:nether_smithing_template_pro": {
       "conditions": {
         "items": [
           {
-            "items": "vanilla-addition:nether_smithing_template"
+            "items": "vanilla-addition:nether_smithing_template_pro"
           }
         ]
       },
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_vanilla-addition:nether_smithing_template"
+      "has_vanilla-addition:nether_smithing_template_pro"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ancient_debris_smithing_fromsuspicious_prototype"
+      "minecraft:heart_of_the_sea_smithing_from_conduit_prototype"
     ]
   }
 }

@@ -43,16 +43,18 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerCookingDefault(exporter,200,Items.ROTTEN_FLESH,ModItems.ROASTED_ROTTEN_FLESH,0.8f);
 
         /* 工具与装备合成配方 */
-        offerSwordRecipe  (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_SWORD,   "steel");
-        offerShovelRecipe (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_SHOVEL,  "steel");
-        offerPickaxeRecipe(exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_PICKAXE, "steel");
-        offerAxeRecipe    (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_AXE,     "steel");
-        offerHoeRecipe    (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_HOE,     "steel");
+        offerSwordRecipe   (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_SWORD,   "steel");
+        offerShovelRecipe  (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_SHOVEL,  "steel");
+        offerPickaxeRecipe (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_PICKAXE, "steel");
+        offerAxeRecipe     (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_AXE,     "steel");
+        offerHoeRecipe     (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_HOE,     "steel");
+
+        offerPickaxeRecipe (exporter, Items.GLASS_PANE,     Items.STICK, ModItems.GLASS_PICKAXE_PROTOTYPE, "glass");
         
         /* 工具锤合成配方及其处理配方*/
-        offerTorchLikeRecipe(exporter, RecipeCategory.TOOLS, Items.COBBLESTONE,      Items.STICK,          ModItems.STONE_HAMMER,   1, "stone_hammer");
-        offerTorchLikeRecipe(exporter, RecipeCategory.TOOLS, Items.IRON_INGOT,       Items.STICK,          ModItems.IRON_HAMMER,    1, "iron_hammer");
-        offerTorchLikeRecipe(exporter, RecipeCategory.TOOLS, ModItems.DIAMOND_SHARD, ModItems.IRON_HAMMER, ModItems.DIAMOND_HAMMER, 1, "diamond_hammer");
+        offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, Items.COBBLESTONE,      Items.STICK,          ModItems.STONE_HAMMER,   1, "stone_hammer");
+        offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, Items.IRON_INGOT,       Items.STICK,          ModItems.IRON_HAMMER,    1, "iron_hammer");
+        offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, ModItems.DIAMOND_SHARD, ModItems.IRON_HAMMER, ModItems.DIAMOND_HAMMER, 1, "diamond_hammer");
 
         offerHammerProcessing(exporter,Items.DIAMOND,            1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 3, "processing");
         offerHammerProcessing(exporter,Items.DIAMOND_SWORD,      1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 2, "recycling");
@@ -84,8 +86,12 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerHammerProcessing(exporter,Items.CONDUIT,1,ModItems.DIAMOND_HAMMER,ModItems.PULSE_OF_THE_SEA,8,"processing");
 
         // 锻造台配方
-        offerUpgradeRecipe(exporter,ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE, ModItems.STEEL_INGOT, RecipeCategory.TOOLS,ModItems.DIAMOND_UPGRADED_PICKAXE);
-        offerUpgradeRecipe(exporter,ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE,     ModItems.STEEL_INGOT, RecipeCategory.TOOLS,ModItems.DIAMOND_UPGRADED_AXE);
+        offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE,  ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_PICKAXE);
+        offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE,      ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_AXE);
+        offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,              Items.NETHERITE_PICKAXE, Items.HEAVY_CORE,     RecipeCategory.COMBAT, ModItems.DESTROYER_PICKAXE);
+        offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.GLASS_PICKAXE_PROTOTYPE, ModItems.DIAMOND_SHARD, RecipeCategory.TOOLS, ModItems.GLASS_PICKAXE);
+        offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.BREEZE_ROD,        Items.DRAGON_BREATH,  RecipeCategory.MISC,   ModItems.FAIRY_WAND);
+
 
         offerUpgradeRecipe(exporter,ModItems.PRESSURE_CRAFTING_TEMPLATE,           ModItems.DIAMOND_PROTOTYPE,    Items.END_CRYSTAL,        RecipeCategory.MISC, Items.DIAMOND_BLOCK);
         offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE,             ModItems.ANCIENT_PROTOTYPE,    ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
@@ -93,8 +99,7 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE_PRO,         ModItems.HEAVY_CORE_PROTOTYPE, Items.WIND_CHARGE,        RecipeCategory.MISC, Items.HEAVY_CORE);
         offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE_PRO,         ModItems.CONDUIT_PROTOTYPE,    Items.NAUTILUS_SHELL,     RecipeCategory.MISC, Items.HEART_OF_THE_SEA);
         offerUpgradeRecipe(exporter,ModItems.ELYTRA_COPY_TEMPLATE,                 ModItems.ELYTRA_PROTOTYPE,     Items.SADDLE,             RecipeCategory.MISC, Items.ELYTRA);
-        offerUpgradeRecipe(exporter,ModItems.ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE, Items.GOLDEN_APPLE,            Items.EXPERIENCE_BOTTLE,  RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE);
-        offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE_PRO,         Items.NETHERITE_PICKAXE,       Items.HEAVY_CORE,         RecipeCategory.MISC, ModItems.DESTROYER_PICKAXE);
+        offerUpgradeRecipe(exporter,ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE, Items.GOLDEN_APPLE,            Items.EXPERIENCE_BOTTLE,  RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE);
 
         /* 简易再生 */
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.YELLOW_WOOL,  ModItems.PULSE_OF_THE_SEA,Items.SPONGE,            8);
@@ -216,23 +221,23 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"elytra_copy_template_by_copying"));
 
         // 金苹果仿制模板 - 合成
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE,1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE,1)
                 .pattern("###")
                 .pattern("#*#")
                 .pattern("###")
                 .input('#', Items.NETHERITE_INGOT)
-                .input('*',ModItems.ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE)
+                .input('*',ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE)
                 .criterion(hasItem(Items.ENCHANTED_GOLDEN_APPLE),conditionsFromItem(Items.ENCHANTED_GOLDEN_APPLE))
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"enchanted_golden_apple_copy_template_from_itself"));
 
         // 金苹果仿制模板 - 复制
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE,4)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE,4)
                 .pattern("###")
                 .pattern("#*#")
                 .pattern("###")
                 .input('#', Items.GOLD_BLOCK)
-                .input('*',ModItems.ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE)
-                .criterion(hasItem(ModItems.ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE),conditionsFromItem(ModItems.ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE))
+                .input('*',ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE)
+                .criterion(hasItem(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE),conditionsFromItem(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE))
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"enchanted_golden_apple_copy_template_by_copying"));
 
         // 不死图腾仿制模板

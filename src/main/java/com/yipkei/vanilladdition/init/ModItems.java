@@ -3,6 +3,7 @@ package com.yipkei.vanilladdition.init;
 import com.yipkei.vanilladdition.VanillaAddition;
 import com.yipkei.vanilladdition.custom.ModFoodComponents;
 import com.yipkei.vanilladdition.custom.ModToolMaterials;
+import com.yipkei.vanilladdition.item.AbstractFairyWand;
 import com.yipkei.vanilladdition.item.AbstractPickaxeItem;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -36,11 +37,14 @@ public class ModItems {
     public static final Item DIAMOND_UPGRADED_AXE = registerItems("diamond_upgraded_axe", new AxeItem(ModToolMaterials.DIAMOND_SHARD,(new Item.Settings()).attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterials.DIAMOND_SHARD,6.0f,-3.1f))));
 
     // 针对性挖掘镐
+    public static final Item GLASS_PICKAXE_PROTOTYPE = registerItems("glass_pickaxe_prototype", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.NULL_BLOCK, 0, 100, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,0,-5f))));
     public static final Item GLASS_PICKAXE = registerItems("glass_pickaxe", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.OBSIDIAN,1200, 10, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,1,-2.8f))));
     public static final Item DESTROYER_PICKAXE = registerItems("destroyer_pickaxe", new AbstractPickaxeItem(ToolMaterials.NETHERITE, ModTags.Blocks.WORLD_DESTROYER,60, 1,2,(new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ToolMaterials.NETHERITE,1,-2.8f))));
 
     public static final Item DIAMOND_FLINT = registerItems("diamond_flint", new FlintAndSteelItem(new Item.Settings().maxDamage(200)));
     public static final Item STEEL_SHEARS = registerItems("steel_shears", new ShearsItem(new Item.Settings().maxDamage(600)));
+
+    public static final Item FAIRY_WAND = registerItems("fairy_wand", new AbstractFairyWand(new Item.Settings().maxDamage(1)));
 
     //原料
     public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));
@@ -154,11 +158,11 @@ public class ModItems {
 
     public static final Item NETHER_SMITHING_TEMPLATE_PRO = registerItems("nether_smithing_template_pro",
             new SmithingTemplateItem(
-                    Text.translatable("nether_sminthing_pro_applies_to"),
-                    Text.translatable("nether_sminthing_pro_ingredients"),
-                    Text.translatable("nether_sminthing_pro"),
-                    Text.translatable("nether_sminthing_pro_base_slot"),
-                    Text.translatable("nether_sminthing_pro_additions_slot"),
+                    Text.translatable("nether_smithing_pro_applies_to"),
+                    Text.translatable("nether_smithing_pro_ingredients"),
+                    Text.translatable("nether_smithing_pro"),
+                    Text.translatable("nether_smithing_pro_base_slot"),
+                    Text.translatable("nether_smithing_pro_additions_slot"),
                     getDiamondShardsUpgradeEmptyBaseSlotTextures(),
                     getDiamondShardsUpgradeEmptyAdditionsSlotTextures()
             ));
@@ -174,7 +178,7 @@ public class ModItems {
                     getDiamondShardsUpgradeEmptyAdditionsSlotTextures()
             ));
 
-    public static final Item ENCHANTED_GOLDEN_APPLE_COPY_TEMPLATE = registerItems("enchanted_golden_apply_copy_template",
+    public static final Item ENCHANTED_GOLDEN_APPLE_TEMPLATE = registerItems("enchanted_golden_apply_copy_template",
             new SmithingTemplateItem(
                     Text.translatable("enchanted_golden_apple_copy_applies_to"),
                     Text.translatable("enchanted_golden_apple_copy_ingredients"),

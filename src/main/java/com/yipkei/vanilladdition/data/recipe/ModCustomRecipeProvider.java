@@ -106,7 +106,7 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
                         category,
                         result).criterion("has_"+smithingTemplate.toString(), RecipeProvider
                         .conditionsFromItem(smithingTemplate))
-                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing_from" + RecipeProvider.getItemPath(input));
+                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing_from_" + RecipeProvider.getItemPath(input));
     }
 
     public static void offerUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, Item result, RegistryEntry<Enchantment> enchantment, int level){
@@ -118,7 +118,7 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
                         result)
                 .criterion("has_"+smithingTemplate.toString(), RecipeProvider
                         .conditionsFromItem(smithingTemplate))
-                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing_from" + RecipeProvider.getItemPath(input));
+                .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing_from_" + RecipeProvider.getItemPath(input));
     }
 
 //    public static void offerDiamondShardsUpgradeRecipe(RecipeExporter exporter, Item input, RecipeCategory category, Item result){

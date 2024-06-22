@@ -4,4 +4,5 @@ import net.minecraft.item.ItemStack;
 
 public interface ItemSettingModifier {
     public ItemStack getDestroyedStack(int damage);
+
 }

@@ -16,7 +16,7 @@ public class ModTags {
 
         public static final TagKey<Block> WORLD_DESTROYER = createTag("world_destroyer");
 
-        public static final TagKey<Block> FAIRY_WAND_REPLACEABEL = createTag("fairy_wand_replaceable");
+        public static final TagKey<Block> FAIRY_WAND_REPLACEABLE = createTag("fairy_wand_replaceable");
 
 
         private static TagKey<Block> createTag(String name){

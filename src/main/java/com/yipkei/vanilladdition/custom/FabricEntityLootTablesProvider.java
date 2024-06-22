@@ -8,13 +8,9 @@ import net.minecraft.data.server.loottable.EntityLootTableGenerator;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
-import net.minecraft.resource.featuretoggle.FeatureSet;
-import net.minecraft.util.Identifier;
-
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
+@Deprecated
 public abstract class FabricEntityLootTablesProvider extends EntityLootTableGenerator implements FabricLootTableProvider {
     private final FabricDataOutput output;
     private final CompletableFuture<RegistryWrapper.WrapperLookup> registryLookupFuture;

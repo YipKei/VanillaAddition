@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:enchanted_golden_apple_smithing_fromgolden_apple"
+        "recipe": "minecraft:enchanted_golden_apple_smithing_from_golden_apple"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:enchanted_golden_apple_smithing_fromgolden_apple"
+      "minecraft:enchanted_golden_apple_smithing_from_golden_apple"
     ]
   }
 }

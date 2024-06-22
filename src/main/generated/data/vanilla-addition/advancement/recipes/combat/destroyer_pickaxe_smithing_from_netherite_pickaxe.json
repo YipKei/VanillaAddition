@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:heart_of_the_sea_smithing_fromconduit_prototype"
+        "recipe": "minecraft:destroyer_pickaxe_smithing_from_netherite_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:heart_of_the_sea_smithing_fromconduit_prototype"
+      "minecraft:destroyer_pickaxe_smithing_from_netherite_pickaxe"
     ]
   }
 }

@@ -152,5 +152,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.BLUE_ICE_SLAB)
                 .add(ModBlocks.BLUE_ICE_WALL)
                 ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.FAIRY_WAND_REPLACEABLE)
+                .add(Blocks.WITHER_SKELETON_WALL_SKULL)
+                .add(Blocks.WITHER_SKELETON_SKULL)
+//                .add(Blocks.ZOMBIE_HEAD)
+//                .add(Blocks.ZOMBIE_WALL_HEAD)
+                .add(Blocks.CREEPER_HEAD)
+                .add(Blocks.CREEPER_WALL_HEAD)
+                .add(Blocks.PIGLIN_HEAD)
+                .add(Blocks.PIGLIN_WALL_HEAD)
+                .add(Blocks.SKELETON_SKULL)
+                .add(Blocks.SKELETON_WALL_SKULL)
+                ;
     }
 }

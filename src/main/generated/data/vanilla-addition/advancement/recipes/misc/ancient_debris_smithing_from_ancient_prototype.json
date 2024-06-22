@@ -3,15 +3,15 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_block_smithing_fromdiamond_prototype"
+        "recipe": "minecraft:ancient_debris_smithing_from_ancient_prototype"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vanilla-addition:pressure_crafting_smithing_template": {
+    "has_vanilla-addition:nether_smithing_template": {
       "conditions": {
         "items": [
           {
-            "items": "vanilla-addition:pressure_crafting_smithing_template"
+            "items": "vanilla-addition:nether_smithing_template"
           }
         ]
       },
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_vanilla-addition:pressure_crafting_smithing_template"
+      "has_vanilla-addition:nether_smithing_template"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_block_smithing_fromdiamond_prototype"
+      "minecraft:ancient_debris_smithing_from_ancient_prototype"
     ]
   }
 }

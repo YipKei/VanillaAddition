@@ -29,7 +29,81 @@ public class ModZhCnLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.DIAMOND_UPGRADED_AXE,           "钻斧（伪）");
         translationBuilder.add(ModItems.DIAMOND_UPGRADED_PICKAXE,       "钻镐（伪）");
         translationBuilder.add(ModItems.ROASTED_ROTTEN_FLESH,           "辣条");
+        translationBuilder.add(ModItems.GLASS_PICKAXE_PROTOTYPE,        "玻璃镐原坯");
+        translationBuilder.add(ModItems.GLASS_PICKAXE,                  "玻璃镐");
+        translationBuilder.add(ModItems.DESTROYER_PICKAXE,              "“破坏王”");
+        translationBuilder.add(ModItems.DIAMOND_FLINT,                  "持久火石");
+        translationBuilder.add(ModItems.STEEL_SHEARS,                   "钢剪");
+        translationBuilder.add(ModItems.FAIRY_WAND,                     "仙女棒");
 
+        //再生
+        translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "碎钻堆");
+        translationBuilder.add(ModItems.PULSE_OF_THE_SEA,               "海洋脉搏");
+        translationBuilder.add(ModItems.DRAGON_WING_MEMBRANE,           "龙翼膜");
+
+        translationBuilder.add(ModItems.DIAMOND_PROTOTYPE,              "钻石原坯");
+        translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "远古原坯");
+        translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "可疑的原坯");
+        translationBuilder.add(ModItems.HEAVY_CORE_PROTOTYPE,           "沉重核心原坯");
+        translationBuilder.add(ModItems.CONDUIT_PROTOTYPE,              "潮涌原坯");
+        translationBuilder.add(ModItems.ELYTRA_PROTOTYPE,               "鞘翅原坯");
+
+        translationBuilder.add(ModItems.PRESSURE_CRAFTING_TEMPLATE,         "压力合成模板");
+        translationBuilder.add(ModItems.NETHER_SMITHING_TEMPLATE,           "下界锻造模板");
+        translationBuilder.add(ModItems.NETHER_SMITHING_TEMPLATE_PRO,       "高级下界锻造模板");
+        translationBuilder.add(ModItems.ELYTRA_COPY_TEMPLATE,               "鞘翅复制模板");
+        translationBuilder.add(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE,    "附魔金苹果模板");
+        translationBuilder.add(ModItems.HEAD_COPY_TEMPLATE,                 "“分头行动”");
+        translationBuilder.add(ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,     "不死图腾仿制模板");
+
+        translationBuilder.add(ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT,     "垂钓纹样拓片");
+        translationBuilder.add(ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT,     "弓箭纹样拓片");
+        translationBuilder.add(ModItems.ARMS_UP_POTTERY_SHERD_BLUEPRINT,    "举臂纹样拓片");
+        translationBuilder.add(ModItems.BLADE_POTTERY_SHERD_BLUEPRINT,      "利刃纹样拓片");
+        translationBuilder.add(ModItems.BREWER_POTTERY_SHERD_BLUEPRINT,     "佳酿纹样拓片");
+        translationBuilder.add(ModItems.BURN_POTTERY_SHERD_BLUEPRINT,       "烈焰纹样拓片");
+        translationBuilder.add(ModItems.DANGER_POTTERY_SHERD_BLUEPRINT,     "危机纹样拓片");
+        translationBuilder.add(ModItems.EXPLORER_POTTERY_SHERD_BLUEPRINT,   "探险纹样拓片");
+        translationBuilder.add(ModItems.FRIEND_POTTERY_SHERD_BLUEPRINT,     "挚友纹样拓片");
+        translationBuilder.add(ModItems.HEART_POTTERY_SHERD_BLUEPRINT,      "爱心纹样拓片");
+        translationBuilder.add(ModItems.HEARTBREAK_POTTERY_SHERD_BLUEPRINT, "心碎纹样拓片");
+        translationBuilder.add(ModItems.HOWL_POTTERY_SHERD_BLUEPRINT,       "狼嚎纹样拓片");
+        translationBuilder.add(ModItems.MINER_POTTERY_SHERD_BLUEPRINT,      "采矿纹样拓片");
+        translationBuilder.add(ModItems.MOURNER_POTTERY_SHERD_BLUEPRINT,    "悲恸纹样拓片");
+        translationBuilder.add(ModItems.PLENTY_POTTERY_SHERD_BLUEPRINT,     "富饶纹样拓片");
+        translationBuilder.add(ModItems.PRIZE_POTTERY_SHERD_BLUEPRINT,      "珍宝纹样拓片");
+        translationBuilder.add(ModItems.SHEAF_POTTERY_SHERD_BLUEPRINT,      "麦捆纹样拓片");
+        translationBuilder.add(ModItems.SHELTER_POTTERY_SHERD_BLUEPRINT,    "树荫纹样拓片");
+        translationBuilder.add(ModItems.SKULL_POTTERY_SHERD_BLUEPRINT,      "头颅纹样拓片");
+        translationBuilder.add(ModItems.SNORT_POTTERY_SHERD_BLUEPRINT,      "嗅探纹样拓片");
+        translationBuilder.add(ModItems.FLOW_POTTERY_SHERD_BLUEPRINT,       "涡流纹样拓片");
+        translationBuilder.add(ModItems.GUSTER_POTTERY_SHERD_BLUEPRINT,     "旋风纹样拓片");
+        translationBuilder.add(ModItems.SCRAPE_POTTERY_SHERD_BLUEPRINT,     "刮削纹样拓片");
+
+        translationBuilder.add(ModItems.ANGLER_POTTERY_SHERD_PROTOTYPE,     "垂钓纹样陶坯");
+        translationBuilder.add(ModItems.ARCHER_POTTERY_SHERD_PROTOTYPE,     "弓箭纹样陶坯");
+        translationBuilder.add(ModItems.ARMS_UP_POTTERY_SHERD_PROTOTYPE,    "举臂纹样陶坯");
+        translationBuilder.add(ModItems.BLADE_POTTERY_SHERD_PROTOTYPE,      "利刃纹样陶坯");
+        translationBuilder.add(ModItems.BREWER_POTTERY_SHERD_PROTOTYPE,     "佳酿纹样陶坯");
+        translationBuilder.add(ModItems.BURN_POTTERY_SHERD_PROTOTYPE,       "烈焰纹样陶坯");
+        translationBuilder.add(ModItems.DANGER_POTTERY_SHERD_PROTOTYPE,     "危机纹样陶坯");
+        translationBuilder.add(ModItems.EXPLORER_POTTERY_SHERD_PROTOTYPE,   "探险纹样陶坯");
+        translationBuilder.add(ModItems.FRIEND_POTTERY_SHERD_PROTOTYPE,     "挚友纹样陶坯");
+        translationBuilder.add(ModItems.HEART_POTTERY_SHERD_PROTOTYPE,      "爱心纹样陶坯");
+        translationBuilder.add(ModItems.HEARTBREAK_POTTERY_SHERD_PROTOTYPE, "心碎纹样陶坯");
+        translationBuilder.add(ModItems.HOWL_POTTERY_SHERD_PROTOTYPE,       "狼嚎纹样陶坯");
+        translationBuilder.add(ModItems.MINER_POTTERY_SHERD_PROTOTYPE,      "采矿纹样陶坯");
+        translationBuilder.add(ModItems.MOURNER_POTTERY_SHERD_PROTOTYPE,    "悲恸纹样陶坯");
+        translationBuilder.add(ModItems.PLENTY_POTTERY_SHERD_PROTOTYPE,     "富饶纹样陶坯");
+        translationBuilder.add(ModItems.PRIZE_POTTERY_SHERD_PROTOTYPE,      "珍宝纹样陶坯");
+        translationBuilder.add(ModItems.SHEAF_POTTERY_SHERD_PROTOTYPE,      "麦捆纹样陶坯");
+        translationBuilder.add(ModItems.SHELTER_POTTERY_SHERD_PROTOTYPE,    "树荫纹样陶坯");
+        translationBuilder.add(ModItems.SKULL_POTTERY_SHERD_PROTOTYPE,      "头颅纹样陶坯");
+        translationBuilder.add(ModItems.SNORT_POTTERY_SHERD_PROTOTYPE,      "嗅探纹样陶坯");
+        translationBuilder.add(ModItems.FLOW_POTTERY_SHERD_PROTOTYPE,       "涡流纹样陶坯");
+        translationBuilder.add(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE,     "旋风纹样陶坯");
+        translationBuilder.add(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE,     "刮削纹样陶坯");
+        
         //方块
         translationBuilder.add(ModBlocks.STEEL_BLOCK,                   "钢块");
 
@@ -197,14 +271,57 @@ public class ModZhCnLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_SLAB,          "粉红色陶瓦半砖");
 
         //文本
-        translationBuilder.add("diamond_shards_upgrade_applies_to",         "钢质工具");
+        translationBuilder.add("diamond_shards_upgrade_applies_to",         "工具");
         translationBuilder.add("diamond_shards_upgrade_ingredients",        "碎钻");
         translationBuilder.add("diamond_shards_upgrade",                    "钻石升级（伪）");
-        translationBuilder.add("diamond_shards_upgrade_base_slot",          "置入钢斧或钢镐");
+        translationBuilder.add("diamond_shards_upgrade_base_slot",          "置入斧头或镐子");
         translationBuilder.add("diamond_shards_upgrade_additions_slot",     "置入任意碎钻");
+
+        translationBuilder.add("pressure_crafting_applies_to",              "原型");
+        translationBuilder.add("pressure_crafting_ingredients",             "强力爆炸物，如末影水晶");
+        translationBuilder.add("pressure_crafting",                         "高爆压合");
+        translationBuilder.add("pressure_crafting_base_slot",               "置入原料方块");
+        translationBuilder.add("pressure_crafting_additions_slot",          "置入爆炸物");
+
+        translationBuilder.add("nether_smithing_applies_to",                "稀有材料原型");
+        translationBuilder.add("nether_smithing_ingredients",               "远古之泪");
+        translationBuilder.add("nether_smithing",                           "“远哭”");
+        translationBuilder.add("nether_smithing_base_slot",                 "置入材料原型");
+        translationBuilder.add("nether_smithing_additions_slot",            "置入远古之泪");
+
+        translationBuilder.add("nether_smithing_pro_applies_to",            "宝藏原型");
+        translationBuilder.add("nether_smithing_pro_ingredients",           "引子");
+        translationBuilder.add("nether_smithing_pro",                       "“远哭”");
+        translationBuilder.add("nether_smithing_pro_base_slot",             "置入宝藏原型");
+        translationBuilder.add("nether_smithing_pro_additions_slot",        "置入引子");
+
+        translationBuilder.add("elytra_copy_applies_to",                    "鞘翅原型");
+        translationBuilder.add("elytra_copy_ingredients",                   "鞍");
+        translationBuilder.add("elytra_copy",                               "鞘翅的传承");
+        translationBuilder.add("elytra_copy_base_slot",                     "置入鞘翅原型");
+        translationBuilder.add("elytra_copy_additions_slot",                "置入鞍");
+
+        translationBuilder.add("enchanted_golden_apple_copy_applies_to",    "金苹果");
+        translationBuilder.add("enchanted_golden_apple_copy_ingredients",   "置入附魔之瓶");
+        translationBuilder.add("enchanted_golden_apple_copy",               "为苹果附魔");
+        translationBuilder.add("enchanted_golden_apple_copy_base_slot",     "置入金苹果");
+        translationBuilder.add("enchanted_golden_apple_copy_additions_slot","置入附魔之瓶");
+
+        translationBuilder.add("head_copy_applies_to",                      "旋风棒");
+        translationBuilder.add("head_copy_ingredients",                     "龙息");
+        translationBuilder.add("head_copy",                                 "丘比之爱");
+        translationBuilder.add("head_copy_base_slot",                       "置入旋风棒");
+        translationBuilder.add("head_copy_additions_slot",                  "置入龙息");
+
+        translationBuilder.add("totem_of_undying_copy_applies_to",          "钻石");
+        translationBuilder.add("totem_of_undying_copy_ingredients",         "青金石");
+        translationBuilder.add("totem_of_undying_copy",                     "续命仪式");
+        translationBuilder.add("totem_of_undying_copy_base_slot",           "置入钻石");
+        translationBuilder.add("totem_of_undying_copy_additions_slot",      "置入青金石");
 
         translationBuilder.add("itemGroup.vanilla_addition",                "原版增强");
         translationBuilder.add("itemGroup.building_addition",               "建筑增强");
+        translationBuilder.add("itemGroup.vanilla_renewable",               "再生增強");
     }
 
 

@@ -29,6 +29,80 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.DIAMOND_UPGRADED_AXE,           "Faked Diamond Axe");
         translationBuilder.add(ModItems.DIAMOND_UPGRADED_PICKAXE,       "Faked Diamond Pickaxe");
         translationBuilder.add(ModItems.ROASTED_ROTTEN_FLESH,           "Latiao");
+        translationBuilder.add(ModItems.GLASS_PICKAXE_PROTOTYPE,        "Glass Pickaxe Prototype");
+        translationBuilder.add(ModItems.GLASS_PICKAXE,                  "Glass Pickaxe");
+        translationBuilder.add(ModItems.DESTROYER_PICKAXE,              "Destroyer Pickaxe");
+        translationBuilder.add(ModItems.DIAMOND_FLINT,                  "Diamond Flint");
+        translationBuilder.add(ModItems.STEEL_SHEARS,                   "Steel Shears");
+        translationBuilder.add(ModItems.FAIRY_WAND,                     "Fairy Wand");
+
+        //再生
+        translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "Diamond Shard Stack");
+        translationBuilder.add(ModItems.PULSE_OF_THE_SEA,               "Pulse of The Sea");
+        translationBuilder.add(ModItems.DRAGON_WING_MEMBRANE,           "Dragon Wing Membrane");
+
+        translationBuilder.add(ModItems.DIAMOND_PROTOTYPE,              "Diamond Prototype");
+        translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "Ancient Prototype");
+        translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "Suspicious Prototype");
+        translationBuilder.add(ModItems.HEAVY_CORE_PROTOTYPE,           "Heavy Core Prototype");
+        translationBuilder.add(ModItems.CONDUIT_PROTOTYPE,              "Conduit Prototype");
+        translationBuilder.add(ModItems.ELYTRA_PROTOTYPE,               "Elytra Prototype");
+
+        translationBuilder.add(ModItems.PRESSURE_CRAFTING_TEMPLATE,         "Pressure Crafting Template");
+        translationBuilder.add(ModItems.NETHER_SMITHING_TEMPLATE,           "Nether Smithing Template");
+        translationBuilder.add(ModItems.NETHER_SMITHING_TEMPLATE_PRO,       "Nether Smithing Template Pro");
+        translationBuilder.add(ModItems.ELYTRA_COPY_TEMPLATE,               "Elytra Copy Template");
+        translationBuilder.add(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE,    "Enchanted Golden Apple Template");
+        translationBuilder.add(ModItems.HEAD_COPY_TEMPLATE,                 "Head Copy Template");
+        translationBuilder.add(ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,     "Totem Of Undying Copy Template");
+
+        translationBuilder.add(ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT,     "Angler Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT,     "Archer Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.ARMS_UP_POTTERY_SHERD_BLUEPRINT,    "Arms Up Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.BLADE_POTTERY_SHERD_BLUEPRINT,      "Blade Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.BREWER_POTTERY_SHERD_BLUEPRINT,     "Brewer Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.BURN_POTTERY_SHERD_BLUEPRINT,       "Burn Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.DANGER_POTTERY_SHERD_BLUEPRINT,     "Danger Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.EXPLORER_POTTERY_SHERD_BLUEPRINT,   "Explorer Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.FRIEND_POTTERY_SHERD_BLUEPRINT,     "Friend Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.HEART_POTTERY_SHERD_BLUEPRINT,      "Heart Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.HEARTBREAK_POTTERY_SHERD_BLUEPRINT, "Heartbreak Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.HOWL_POTTERY_SHERD_BLUEPRINT,       "Howl Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.MINER_POTTERY_SHERD_BLUEPRINT,      "Miner Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.MOURNER_POTTERY_SHERD_BLUEPRINT,    "Mourner Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.PLENTY_POTTERY_SHERD_BLUEPRINT,     "Plenty Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.PRIZE_POTTERY_SHERD_BLUEPRINT,      "Prize Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.SHEAF_POTTERY_SHERD_BLUEPRINT,      "Sheaf Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.SHELTER_POTTERY_SHERD_BLUEPRINT,    "Shelter Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.SKULL_POTTERY_SHERD_BLUEPRINT,      "Skull Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.SNORT_POTTERY_SHERD_BLUEPRINT,      "Snort Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.FLOW_POTTERY_SHERD_BLUEPRINT,       "Flow Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.GUSTER_POTTERY_SHERD_BLUEPRINT,     "Guster Pottery Sherd Blueprint");
+        translationBuilder.add(ModItems.SCRAPE_POTTERY_SHERD_BLUEPRINT,     "Scrape Pottery Sherd Blueprint");
+
+        translationBuilder.add(ModItems.ANGLER_POTTERY_SHERD_PROTOTYPE,     "Angler Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.ARCHER_POTTERY_SHERD_PROTOTYPE,     "Archer Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.ARMS_UP_POTTERY_SHERD_PROTOTYPE,    "Arms Up Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.BLADE_POTTERY_SHERD_PROTOTYPE,      "Blade Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.BREWER_POTTERY_SHERD_PROTOTYPE,     "Brewer Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.BURN_POTTERY_SHERD_PROTOTYPE,       "Burn Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.DANGER_POTTERY_SHERD_PROTOTYPE,     "Danger Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.EXPLORER_POTTERY_SHERD_PROTOTYPE,   "Explorer Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.FRIEND_POTTERY_SHERD_PROTOTYPE,     "Friend Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.HEART_POTTERY_SHERD_PROTOTYPE,      "Heart Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.HEARTBREAK_POTTERY_SHERD_PROTOTYPE, "Heartbreak Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.HOWL_POTTERY_SHERD_PROTOTYPE,       "Howl Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.MINER_POTTERY_SHERD_PROTOTYPE,      "Miner Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.MOURNER_POTTERY_SHERD_PROTOTYPE,    "Mourner Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.PLENTY_POTTERY_SHERD_PROTOTYPE,     "Plenty Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.PRIZE_POTTERY_SHERD_PROTOTYPE,      "Prize Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.SHEAF_POTTERY_SHERD_PROTOTYPE,      "Sheaf Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.SHELTER_POTTERY_SHERD_PROTOTYPE,    "Shelter Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.SKULL_POTTERY_SHERD_PROTOTYPE,      "Skull Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.SNORT_POTTERY_SHERD_PROTOTYPE,      "Snort Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.FLOW_POTTERY_SHERD_PROTOTYPE,       "Flow Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE,     "Guster Pottery Sherd Prototype");
+        translationBuilder.add(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE,     "Scrape Pottery Sherd Prototype");
 
         //方块
         translationBuilder.add(ModBlocks.STEEL_BLOCK,                   "Steel Block");
@@ -197,14 +271,57 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_SLAB,          "Pink Terracotta Slab");
 
         //文本
-        translationBuilder.add("diamond_shards_upgrade_applies_to",         "Steel Tools");
+        translationBuilder.add("diamond_shards_upgrade_applies_to",         "Tools");
         translationBuilder.add("diamond_shards_upgrade_ingredients",        "Diamond Shard");
         translationBuilder.add("diamond_shards_upgrade",                    "Faked Diamond Upgrade");
-        translationBuilder.add("diamond_shards_upgrade_base_slot",          "Put Steel Pickaxe or Axe");
+        translationBuilder.add("diamond_shards_upgrade_base_slot",          "Put Pickaxe or Axe");
         translationBuilder.add("diamond_shards_upgrade_additions_slot",     "Put Any Diamond Shards");
+
+        translationBuilder.add("pressure_crafting_applies_to",              "Prototype");
+        translationBuilder.add("pressure_crafting_ingredients",             "Explosive Such As End Crystal");
+        translationBuilder.add("pressure_crafting",                         "High-explosive Compaction");
+        translationBuilder.add("pressure_crafting_base_slot",               "Put Ingredient Block");
+        translationBuilder.add("pressure_crafting_additions_slot",          "Put Any Explosive");
+
+        translationBuilder.add("nether_smithing_applies_to",                "Rare Material Prototype");
+        translationBuilder.add("nether_smithing_ingredients",               "Ancient Tears");
+        translationBuilder.add("nether_smithing",                           "The Ancient Crying");
+        translationBuilder.add("nether_smithing_base_slot",                 "Put Ingredient Prototype");
+        translationBuilder.add("nether_smithing_additions_slot",            "Put Ancient Tears");
+
+        translationBuilder.add("nether_smithing_pro_applies_to",            "Treasure Prototype");
+        translationBuilder.add("nether_smithing_pro_ingredients",           "Treasure Relics");
+        translationBuilder.add("nether_smithing_pro",                       "The Ancient Crying");
+        translationBuilder.add("nether_smithing_pro_base_slot",             "Put Treasure Prototype");
+        translationBuilder.add("nether_smithing_pro_additions_slot",        "Put Treasure Relics");
+
+        translationBuilder.add("elytra_copy_applies_to",                    "Elytra Prototype");
+        translationBuilder.add("elytra_copy_ingredients",                   "Saddle");
+        translationBuilder.add("elytra_copy",                               "Elytra Inherit");
+        translationBuilder.add("elytra_copy_base_slot",                     "Put Elytra Prototype");
+        translationBuilder.add("elytra_copy_additions_slot",                "Put Saddle");
+
+        translationBuilder.add("enchanted_golden_apple_copy_applies_to",    "Golden Apple");
+        translationBuilder.add("enchanted_golden_apple_copy_ingredients",   "Experience Bottle");
+        translationBuilder.add("enchanted_golden_apple_copy",               "Enchanted Apples");
+        translationBuilder.add("enchanted_golden_apple_copy_base_slot",     "Put Golden Apple");
+        translationBuilder.add("enchanted_golden_apple_copy_additions_slot","Put Experience Bottle");
+
+        translationBuilder.add("head_copy_applies_to",                      "Breeze Rod");
+        translationBuilder.add("head_copy_ingredients",                     "Dragon's Breath");
+        translationBuilder.add("head_copy",                                 "Incubator's Love");
+        translationBuilder.add("head_copy_base_slot",                       "Put Breeze Rod");
+        translationBuilder.add("head_copy_additions_slot",                  "Put Dragon's Breath");
+
+        translationBuilder.add("totem_of_undying_copy_applies_to",          "Diamond");
+        translationBuilder.add("totem_of_undying_copy_ingredients",         "Lapis");
+        translationBuilder.add("totem_of_undying_copy",                     "Life-extending ceremony");
+        translationBuilder.add("totem_of_undying_copy_base_slot",           "Put Diamond");
+        translationBuilder.add("totem_of_undying_copy_additions_slot",      "Put Lapis");
 
         translationBuilder.add("itemGroup.vanilla_addition",                "Vanilla Addition");
         translationBuilder.add("itemGroup.building_addition",               "Building Addition");
+        translationBuilder.add("itemGroup.vanilla_renewable",               "Renewable Addition");
     }
 
 

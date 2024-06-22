@@ -29,6 +29,80 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.DIAMOND_UPGRADED_AXE,           "鑽石斧（流嘢）");
         translationBuilder.add(ModItems.DIAMOND_UPGRADED_PICKAXE,       "鑽石鎬（流嘢）");
         translationBuilder.add(ModItems.ROASTED_ROTTEN_FLESH,           "辣條");
+        translationBuilder.add(ModItems.GLASS_PICKAXE_PROTOTYPE,        "玻璃鎬樣板");
+        translationBuilder.add(ModItems.GLASS_PICKAXE,                  "玻璃鎬");
+        translationBuilder.add(ModItems.DESTROYER_PICKAXE,              "“無敵破壞王”");
+        translationBuilder.add(ModItems.DIAMOND_FLINT,                  "高級打火石");
+        translationBuilder.add(ModItems.STEEL_SHEARS,                   "鋼鉸剪");
+        translationBuilder.add(ModItems.FAIRY_WAND,                     "魔法棒");
+
+        //再生
+        translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "碎鑽石堆");
+        translationBuilder.add(ModItems.PULSE_OF_THE_SEA,               "海洋脈搏");
+        translationBuilder.add(ModItems.DRAGON_WING_MEMBRANE,           "終界龍翼膜");
+
+        translationBuilder.add(ModItems.DIAMOND_PROTOTYPE,              "鑽石樣板");
+        translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "遠古樣板");
+        translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "古怪嘅樣板");
+        translationBuilder.add(ModItems.HEAVY_CORE_PROTOTYPE,           "沉重核心樣板");
+        translationBuilder.add(ModItems.CONDUIT_PROTOTYPE,              "海靈樣板");
+        translationBuilder.add(ModItems.ELYTRA_PROTOTYPE,               "鞘翅樣板");
+
+        translationBuilder.add(ModItems.PRESSURE_CRAFTING_TEMPLATE,         "高壓合成模板");
+        translationBuilder.add(ModItems.NETHER_SMITHING_TEMPLATE,           "下界鍛造模板");
+        translationBuilder.add(ModItems.NETHER_SMITHING_TEMPLATE_PRO,       "高級下界鍛造模板");
+        translationBuilder.add(ModItems.ELYTRA_COPY_TEMPLATE,               "鞘翅複製模板");
+        translationBuilder.add(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE,    "附魔金蘋果模板");
+        translationBuilder.add(ModItems.HEAD_COPY_TEMPLATE,                 "「分頭行動」");
+        translationBuilder.add(ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,     "不死圖騰仿製模板");
+
+        translationBuilder.add(ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT,     "垂釣款圖紙");
+        translationBuilder.add(ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT,     "弓箭款圖紙");
+        translationBuilder.add(ModItems.ARMS_UP_POTTERY_SHERD_BLUEPRINT,    "舉臂款圖紙");
+        translationBuilder.add(ModItems.BLADE_POTTERY_SHERD_BLUEPRINT,      "利刃款圖紙");
+        translationBuilder.add(ModItems.BREWER_POTTERY_SHERD_BLUEPRINT,     "佳釀款圖紙");
+        translationBuilder.add(ModItems.BURN_POTTERY_SHERD_BLUEPRINT,       "烈焰款圖紙");
+        translationBuilder.add(ModItems.DANGER_POTTERY_SHERD_BLUEPRINT,     "危機款圖紙");
+        translationBuilder.add(ModItems.EXPLORER_POTTERY_SHERD_BLUEPRINT,   "探險款圖紙");
+        translationBuilder.add(ModItems.FRIEND_POTTERY_SHERD_BLUEPRINT,     "朋友款圖紙");
+        translationBuilder.add(ModItems.HEART_POTTERY_SHERD_BLUEPRINT,      "愛心款圖紙");
+        translationBuilder.add(ModItems.HEARTBREAK_POTTERY_SHERD_BLUEPRINT, "心碎款圖紙");
+        translationBuilder.add(ModItems.HOWL_POTTERY_SHERD_BLUEPRINT,       "狼嚎款圖紙");
+        translationBuilder.add(ModItems.MINER_POTTERY_SHERD_BLUEPRINT,      "採礦款圖紙");
+        translationBuilder.add(ModItems.MOURNER_POTTERY_SHERD_BLUEPRINT,    "悲慟款圖紙");
+        translationBuilder.add(ModItems.PLENTY_POTTERY_SHERD_BLUEPRINT,     "富饒款圖紙");
+        translationBuilder.add(ModItems.PRIZE_POTTERY_SHERD_BLUEPRINT,      "珍寶款圖紙");
+        translationBuilder.add(ModItems.SHEAF_POTTERY_SHERD_BLUEPRINT,      "麥捆款圖紙");
+        translationBuilder.add(ModItems.SHELTER_POTTERY_SHERD_BLUEPRINT,    "樹蔭款圖紙");
+        translationBuilder.add(ModItems.SKULL_POTTERY_SHERD_BLUEPRINT,      "頭顱款圖紙");
+        translationBuilder.add(ModItems.SNORT_POTTERY_SHERD_BLUEPRINT,      "嗅探款圖紙");
+        translationBuilder.add(ModItems.FLOW_POTTERY_SHERD_BLUEPRINT,       "渦流款圖紙");
+        translationBuilder.add(ModItems.GUSTER_POTTERY_SHERD_BLUEPRINT,     "旋風款圖紙");
+        translationBuilder.add(ModItems.SCRAPE_POTTERY_SHERD_BLUEPRINT,     "刮削款圖紙");
+
+        translationBuilder.add(ModItems.ANGLER_POTTERY_SHERD_PROTOTYPE,     "垂釣款生陶板");
+        translationBuilder.add(ModItems.ARCHER_POTTERY_SHERD_PROTOTYPE,     "弓箭款生陶板");
+        translationBuilder.add(ModItems.ARMS_UP_POTTERY_SHERD_PROTOTYPE,    "舉臂款生陶板");
+        translationBuilder.add(ModItems.BLADE_POTTERY_SHERD_PROTOTYPE,      "利刃款生陶板");
+        translationBuilder.add(ModItems.BREWER_POTTERY_SHERD_PROTOTYPE,     "佳釀款生陶板");
+        translationBuilder.add(ModItems.BURN_POTTERY_SHERD_PROTOTYPE,       "烈焰款生陶板");
+        translationBuilder.add(ModItems.DANGER_POTTERY_SHERD_PROTOTYPE,     "危機款生陶板");
+        translationBuilder.add(ModItems.EXPLORER_POTTERY_SHERD_PROTOTYPE,   "探險款生陶板");
+        translationBuilder.add(ModItems.FRIEND_POTTERY_SHERD_PROTOTYPE,     "朋友款生陶板");
+        translationBuilder.add(ModItems.HEART_POTTERY_SHERD_PROTOTYPE,      "愛心款生陶板");
+        translationBuilder.add(ModItems.HEARTBREAK_POTTERY_SHERD_PROTOTYPE, "心碎款生陶板");
+        translationBuilder.add(ModItems.HOWL_POTTERY_SHERD_PROTOTYPE,       "狼嚎款生陶板");
+        translationBuilder.add(ModItems.MINER_POTTERY_SHERD_PROTOTYPE,      "採礦款生陶板");
+        translationBuilder.add(ModItems.MOURNER_POTTERY_SHERD_PROTOTYPE,    "悲慟款生陶板");
+        translationBuilder.add(ModItems.PLENTY_POTTERY_SHERD_PROTOTYPE,     "富饒款生陶板");
+        translationBuilder.add(ModItems.PRIZE_POTTERY_SHERD_PROTOTYPE,      "珍寶款生陶板");
+        translationBuilder.add(ModItems.SHEAF_POTTERY_SHERD_PROTOTYPE,      "麥捆款生陶板");
+        translationBuilder.add(ModItems.SHELTER_POTTERY_SHERD_PROTOTYPE,    "樹蔭款生陶板");
+        translationBuilder.add(ModItems.SKULL_POTTERY_SHERD_PROTOTYPE,      "頭顱款生陶板");
+        translationBuilder.add(ModItems.SNORT_POTTERY_SHERD_PROTOTYPE,      "嗅探款生陶板");
+        translationBuilder.add(ModItems.FLOW_POTTERY_SHERD_PROTOTYPE,       "渦流款生陶板");
+        translationBuilder.add(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE,     "旋風款生陶板");
+        translationBuilder.add(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE,     "刮削款生陶板");
 
         //方块
         translationBuilder.add(ModBlocks.STEEL_BLOCK,                   "鋼塊");
@@ -197,14 +271,57 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_SLAB,          "粉紅色陶瓦半磚");
 
         //文本
-        translationBuilder.add("diamond_shards_upgrade_applies_to",         "鋼制工具");
+        translationBuilder.add("diamond_shards_upgrade_applies_to",         "工具");
         translationBuilder.add("diamond_shards_upgrade_ingredients",        "碎鑽石");
         translationBuilder.add("diamond_shards_upgrade",                    "鑽石升級（流嘢）");
-        translationBuilder.add("diamond_shards_upgrade_base_slot",          "擺入鋼斧或鋼鎬");
+        translationBuilder.add("diamond_shards_upgrade_base_slot",          "擺入斧頭或鎬");
         translationBuilder.add("diamond_shards_upgrade_additions_slot",     "擺入任意碎鑽石");
+
+        translationBuilder.add("pressure_crafting_applies_to",              "樣板磚");
+        translationBuilder.add("pressure_crafting_ingredients",             "大炸彈，好似末影水晶");
+        translationBuilder.add("pressure_crafting",                         "宇宙洪荒");
+        translationBuilder.add("pressure_crafting_base_slot",               "擺入樣板磚");
+        translationBuilder.add("pressure_crafting_additions_slot",          "擺入大炸彈");
+
+        translationBuilder.add("nether_smithing_applies_to",                "稀有物樣板");
+        translationBuilder.add("nether_smithing_ingredients",               "遠古之淚");
+        translationBuilder.add("nether_smithing",                           "上古之泣");
+        translationBuilder.add("nether_smithing_base_slot",                 "擺入材料樣板");
+        translationBuilder.add("nether_smithing_additions_slot",            "擺入遠古之淚");
+
+        translationBuilder.add("nether_smithing_pro_applies_to",            "財寶樣板");
+        translationBuilder.add("nether_smithing_pro_ingredients",           "儀式之引");
+        translationBuilder.add("nether_smithing_pro",                       "上古之泣");
+        translationBuilder.add("nether_smithing_pro_base_slot",             "擺入財寶樣板");
+        translationBuilder.add("nether_smithing_pro_additions_slot",        "擺入儀式之引");
+
+        translationBuilder.add("elytra_copy_applies_to",                    "鞘翅樣板");
+        translationBuilder.add("elytra_copy_ingredients",                   "鞍");
+        translationBuilder.add("elytra_copy",                               "鞘翅嘅傳承");
+        translationBuilder.add("elytra_copy_base_slot",                     "擺入鞘翅樣板");
+        translationBuilder.add("elytra_copy_additions_slot",                "擺入鞍");
+
+        translationBuilder.add("enchanted_golden_apple_copy_applies_to",    "金蘋果");
+        translationBuilder.add("enchanted_golden_apple_copy_ingredients",   "擺入附魔之瓶");
+        translationBuilder.add("enchanted_golden_apple_copy",               "超級金蘋果");
+        translationBuilder.add("enchanted_golden_apple_copy_base_slot",     "擺入金蘋果");
+        translationBuilder.add("enchanted_golden_apple_copy_additions_slot","擺入附魔之瓶");
+
+        translationBuilder.add("head_copy_applies_to",                      "旋風棒");
+        translationBuilder.add("head_copy_ingredients",                     "龍之吐息");
+        translationBuilder.add("head_copy",                                 "Q比之愛");
+        translationBuilder.add("head_copy_base_slot",                       "擺入旋風棒");
+        translationBuilder.add("head_copy_additions_slot",                  "擺入龍之吐息");
+
+        translationBuilder.add("totem_of_undying_copy_applies_to",          "鑽石");
+        translationBuilder.add("totem_of_undying_copy_ingredients",         "青金石");
+        translationBuilder.add("totem_of_undying_copy",                     "買命錢");
+        translationBuilder.add("totem_of_undying_copy_base_slot",           "擺入鑽石");
+        translationBuilder.add("totem_of_undying_copy_additions_slot",      "擺入青金石");
 
         translationBuilder.add("itemGroup.vanilla_addition",                "原版升級");
         translationBuilder.add("itemGroup.building_addition",               "建筑升級");
+        translationBuilder.add("itemGroup.vanilla_renewable",               "可持續發展");
     }
 
 
