@@ -34,7 +34,8 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.DESTROYER_PICKAXE,              "Destroyer Pickaxe");
         translationBuilder.add(ModItems.DIAMOND_FLINT,                  "Diamond Flint");
         translationBuilder.add(ModItems.STEEL_SHEARS,                   "Steel Shears");
-        translationBuilder.add(ModItems.FAIRY_WAND,                     "Fairy Wand");
+        translationBuilder.add(ModItems.DEEP_DARK_FANTASY,              "Ender Transformer");
+        translationBuilder.add(ModItems.EXPLOSION_CREATOR,              "Explosion Creator");
 
         //再生
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "Diamond Shard Stack");

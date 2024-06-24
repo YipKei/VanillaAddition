@@ -90,7 +90,9 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE,      ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_AXE);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,              Items.NETHERITE_PICKAXE, Items.HEAVY_CORE,     RecipeCategory.COMBAT, ModItems.DESTROYER_PICKAXE);
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.GLASS_PICKAXE_PROTOTYPE, ModItems.DIAMOND_SHARD, RecipeCategory.TOOLS, ModItems.GLASS_PICKAXE);
-        offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.BREEZE_ROD,        Items.DRAGON_BREATH,  RecipeCategory.MISC,   ModItems.FAIRY_WAND);
+
+        offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.BREEZE_ROD,        Items.DRAGON_BREATH,  RecipeCategory.MISC,   ModItems.DEEP_DARK_FANTASY);
+        offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.BLAZE_ROD,         Items.GUNPOWDER,      RecipeCategory.MISC,   ModItems.EXPLOSION_CREATOR);
 
 
         offerUpgradeRecipe(exporter,ModItems.PRESSURE_CRAFTING_TEMPLATE,           ModItems.DIAMOND_PROTOTYPE,    Items.END_CRYSTAL,        RecipeCategory.MISC, Items.DIAMOND_BLOCK);

@@ -60,5 +60,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.SMOOTH_QUARTZ)
                 .add(Items.QUARTZ_BRICKS)
                 .add(Items.QUARTZ_PILLAR);
+
+        getOrCreateTagBuilder(ModTags.Items.SHEARS)
+                .add(Items.SHEARS)
+                .add(ModItems.STEEL_SHEARS)
+        ;
     }
 }

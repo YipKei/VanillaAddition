@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vanilla-addition:item/pulse_of_the_sea"
+  }
+}

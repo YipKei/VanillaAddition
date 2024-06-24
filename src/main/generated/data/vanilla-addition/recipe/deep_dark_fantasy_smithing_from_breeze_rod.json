@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:dragon_breath"
+  },
+  "base": {
+    "item": "minecraft:breeze_rod"
+  },
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:deep_dark_fantasy"
+  },
+  "template": {
+    "item": "vanilla-addition:head_copy_smithing_template"
+  }
+}

@@ -17,9 +17,6 @@ public class ModModelsProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
-
-
         BlockTexturePool steel              = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.STEEL_BLOCK);
         BlockTexturePool stone              = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.STONE);
         BlockTexturePool smoothStone        = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_STONE);
@@ -336,27 +333,22 @@ public class ModModelsProvider extends FabricModelProvider {
                 .wall  (ModBlocks.PINK_TERRACOTTA_WALL)
                 .stairs(ModBlocks.PINK_TERRACOTTA_STAIRS)
                 .slab  (ModBlocks.PINK_TERRACOTTA_SLAB);
-
-
-
-
-
-
-
-
-
-
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModItems.ROASTED_ROTTEN_FLESH,Models.GENERATED);
+        
         itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIAMOND_SHARD,Models.GENERATED);
-
-
-        itemModelGenerator.register(ModItems.ROASTED_ROTTEN_FLESH,Models.GENERATED);
-
+        itemModelGenerator.register(ModItems.DIAMOND_SHARD_STACK,Models.GENERATED);
+        itemModelGenerator.register(ModItems.PULSE_OF_THE_SEA,Models.GENERATED);
         itemModelGenerator.register(ModItems.DRAGON_WING_MEMBRANE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANCIENT_TEAR,Models.GENERATED);
+        
+        itemModelGenerator.register(ModItems.STONE_HAMMER,Models.GENERATED);
+        itemModelGenerator.register(ModItems.IRON_HAMMER,Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_HAMMER,Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STEEL_SWORD,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_SHOVEL,Models.HANDHELD);
@@ -364,14 +356,80 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STEEL_AXE,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_HOE,Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE,Models.GENERATED);
         itemModelGenerator.register(ModItems.DIAMOND_UPGRADED_PICKAXE,Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIAMOND_UPGRADED_AXE,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GLASS_PICKAXE_PROTOTYPE,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GLASS_PICKAXE,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DESTROYER_PICKAXE,Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.DIAMOND_FLINT,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.STEEL_SHEARS,Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.STONE_HAMMER,Models.GENERATED);
-        itemModelGenerator.register(ModItems.IRON_HAMMER,Models.GENERATED);
-        itemModelGenerator.register(ModItems.DIAMOND_HAMMER,Models.GENERATED);
+        itemModelGenerator.register(ModItems.DEEP_DARK_FANTASY,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.EXPLOSION_CREATOR,Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.DIAMOND_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANCIENT_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SUSPICIOUS_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAVY_CORE_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.CONDUIT_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ELYTRA_PROTOTYPE,Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRESSURE_CRAFTING_TEMPLATE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHER_SMITHING_TEMPLATE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHER_SMITHING_TEMPLATE_PRO,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ELYTRA_COPY_TEMPLATE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_COPY_TEMPLATE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARMS_UP_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLADE_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BREWER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BURN_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.DANGER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.EXPLORER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.FRIEND_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEART_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEARTBREAK_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HOWL_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MINER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MOURNER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.PLENTY_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRIZE_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHEAF_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHELTER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SKULL_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SNORT_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.FLOW_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.GUSTER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SCRAPE_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.ANGLER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARCHER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARMS_UP_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLADE_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BREWER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BURN_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.DANGER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.EXPLORER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.FRIEND_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEART_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEARTBREAK_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HOWL_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MINER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MOURNER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.PLENTY_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRIZE_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHEAF_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHELTER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SKULL_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SNORT_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.FLOW_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
     }
 }

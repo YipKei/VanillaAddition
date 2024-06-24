@@ -94,6 +94,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ICE_WALL)
                 .add(ModBlocks.PACKED_ICE_WALL)
                 .add(ModBlocks.BLUE_ICE_WALL)
+                .add(ModBlocks.OBSIDIAN_WALL)
+                .add(ModBlocks.CRYING_OBSIDIAN_WALL)
 
                 .add(ModBlocks.WHITE_CONCRETE_WALL)
                 .add(ModBlocks.LIGHT_GRAY_CONCRETE_WALL)

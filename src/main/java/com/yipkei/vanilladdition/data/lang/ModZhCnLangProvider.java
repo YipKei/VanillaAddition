@@ -34,7 +34,8 @@ public class ModZhCnLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.DESTROYER_PICKAXE,              "“破坏王”");
         translationBuilder.add(ModItems.DIAMOND_FLINT,                  "持久火石");
         translationBuilder.add(ModItems.STEEL_SHEARS,                   "钢剪");
-        translationBuilder.add(ModItems.FAIRY_WAND,                     "仙女棒");
+        translationBuilder.add(ModItems.DEEP_DARK_FANTASY,              "黑暗深邃幻想");
+        translationBuilder.add(ModItems.EXPLOSION_CREATOR,              "大炸逼制造者");
 
         //再生
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "碎钻堆");

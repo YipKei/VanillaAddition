@@ -1,14 +1,14 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:dragon_breath"
+    "item": "minecraft:gunpowder"
   },
   "base": {
-    "item": "minecraft:breeze_rod"
+    "item": "minecraft:blaze_rod"
   },
   "result": {
     "count": 1,
-    "id": "vanilla-addition:fairy_wand"
+    "id": "vanilla-addition:explosion_creator"
   },
   "template": {
     "item": "vanilla-addition:head_copy_smithing_template"

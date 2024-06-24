@@ -36,7 +36,8 @@ public class ModItemGroups {
                         entries.add(ModItems.DIAMOND_FLINT);
                         entries.add(ModItems.STEEL_SHEARS);
 
-                        entries.add(ModItems.FAIRY_WAND);
+                        entries.add(ModItems.DEEP_DARK_FANTASY);
+                        entries.add(ModItems.EXPLOSION_CREATOR);
 
                         entries.add(ModItems.STONE_HAMMER);
                         entries.add(ModItems.IRON_HAMMER);
@@ -46,7 +47,7 @@ public class ModItemGroups {
     public static final ItemGroup Vanilla_Renewable_Addition = Registry.register(
             Registries.ITEM_GROUP,
             Identifier.of(VanillaAddition.MOD_ID,"vanilla_renewable"),
-            FabricItemGroup.builder().displayName(Text.translatable("vanilla_renewable"))
+            FabricItemGroup.builder().displayName(Text.translatable("itemGroup.vanilla_renewable"))
                     .icon(()->new ItemStack(ModItems.DIAMOND_SHARD))
                     .entries((displayContext,entries)->{
                         entries.add(ModItems.DIAMOND_SHARD_STACK);

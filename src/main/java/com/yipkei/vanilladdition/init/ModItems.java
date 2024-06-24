@@ -3,8 +3,9 @@ package com.yipkei.vanilladdition.init;
 import com.yipkei.vanilladdition.VanillaAddition;
 import com.yipkei.vanilladdition.custom.ModFoodComponents;
 import com.yipkei.vanilladdition.custom.ModToolMaterials;
-import com.yipkei.vanilladdition.item.AbstractFairyWand;
 import com.yipkei.vanilladdition.item.AbstractPickaxeItem;
+import com.yipkei.vanilladdition.item.DeepDarkFantasyWand;
+import com.yipkei.vanilladdition.item.ExplosionCreatorWand;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -44,7 +45,8 @@ public class ModItems {
     public static final Item DIAMOND_FLINT = registerItems("diamond_flint", new FlintAndSteelItem(new Item.Settings().maxDamage(200)));
     public static final Item STEEL_SHEARS = registerItems("steel_shears", new ShearsItem(new Item.Settings().maxDamage(600)));
 
-    public static final Item FAIRY_WAND = registerItems("fairy_wand", new AbstractFairyWand(new Item.Settings().maxDamage(1)));
+    public static final Item DEEP_DARK_FANTASY = registerItems("deep_dark_fantasy", new DeepDarkFantasyWand(new Item.Settings()));
+    public static final Item EXPLOSION_CREATOR = registerItems("explosion_creator", new ExplosionCreatorWand(new Item.Settings()));
 
     //原料
     public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));
