@@ -166,6 +166,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.PIGLIN_WALL_HEAD)
                 .add(Blocks.SKELETON_SKULL)
                 .add(Blocks.SKELETON_WALL_SKULL)
+                .add(Blocks.NETHER_BRICKS)
                 ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.NETHER_BRICKS)
+                .add(Blocks.NETHER_BRICKS)
+                .add(ModBlocks.NETHERRACK_SLAB)
+                .add(ModBlocks.NETHERRACK_STAIRS)
+                ;
+
     }
 }

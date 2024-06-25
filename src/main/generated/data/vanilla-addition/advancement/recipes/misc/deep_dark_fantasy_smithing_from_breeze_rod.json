@@ -7,11 +7,11 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vanilla-addition:head_copy_smithing_template": {
+    "has_vanilla-addition:head_copy_template": {
       "conditions": {
         "items": [
           {
-            "items": "vanilla-addition:head_copy_smithing_template"
+            "items": "vanilla-addition:head_copy_template"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_vanilla-addition:head_copy_smithing_template"
+      "has_vanilla-addition:head_copy_template"
     ]
   ],
   "rewards": {

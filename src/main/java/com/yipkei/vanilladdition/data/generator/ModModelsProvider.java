@@ -4,19 +4,27 @@ import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.BlockTexturePool;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
+import net.minecraft.util.Identifier;
 
 public class ModModelsProvider extends FabricModelProvider {
     public ModModelsProvider(FabricDataOutput output) {
         super(output);
     }
 
+    public static final BlockFamily BASALT = BlockFamilies.register(Blocks.BASALT).wall(ModBlocks.BASALT_WALL).stairs(ModBlocks.BASALT_STAIRS).slab(ModBlocks.BASALT_SLAB).build();
+
+
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+//        BlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach(family->blockStateModelGenerator.registerCubeAllModelTexturePool(family.getBaseBlock()).family((BlockFamily) family));
+
+
         BlockTexturePool steel              = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.STEEL_BLOCK);
         BlockTexturePool stone              = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.STONE);
         BlockTexturePool smoothStone        = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_STONE);
@@ -145,6 +153,16 @@ public class ModModelsProvider extends FabricModelProvider {
                 .wall  (ModBlocks.BASALT_WALL)
                 .stairs(ModBlocks.BASALT_STAIRS)
                 .slab  (ModBlocks.BASALT_SLAB);
+
+//        TextureMap basaltMap = TextureMap.wallSideTopBottom(Blocks.BASALT);
+//        Identifier idBasaltPost = Models.TEMPLATE_WALL_POST.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        Identifier idBasaltSide = Models.TEMPLATE_WALL_SIDE.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        Identifier idBasaltSideTall = Models.TEMPLATE_WALL_SIDE_TALL.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(ModBlocks.BASALT_WALL, idBasaltPost, idBasaltSide, idBasaltSideTall));
+//        Identifier idInventory = Models.WALL_INVENTORY.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASALT_WALL, idInventory);
+
+
         //平滑玄武岩
         smoothBasalt
                 .wall  (ModBlocks.SMOOTH_BASALT_WALL)
@@ -432,4 +450,6 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
         itemModelGenerator.register(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
     }
+
+
 }

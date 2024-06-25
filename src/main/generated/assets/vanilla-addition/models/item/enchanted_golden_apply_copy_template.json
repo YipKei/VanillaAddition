@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "vanilla-addition:item/enchanted_golden_apply_copy_template"
-  }
-}

@@ -38,7 +38,7 @@ public class ModItems {
     public static final Item DIAMOND_UPGRADED_AXE = registerItems("diamond_upgraded_axe", new AxeItem(ModToolMaterials.DIAMOND_SHARD,(new Item.Settings()).attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterials.DIAMOND_SHARD,6.0f,-3.1f))));
 
     // 针对性挖掘镐
-    public static final Item GLASS_PICKAXE_PROTOTYPE = registerItems("glass_pickaxe_prototype", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.NULL_BLOCK, 0, 100, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,0,-5f))));
+    public static final Item GLASS_PICKAXE_PROTOTYPE = registerItems("glass_pickaxe_prototype", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.NULL_BLOCK, 0, 300, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,0,-5f))));
     public static final Item GLASS_PICKAXE = registerItems("glass_pickaxe", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.OBSIDIAN,1200, 10, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,1,-2.8f))));
     public static final Item DESTROYER_PICKAXE = registerItems("destroyer_pickaxe", new AbstractPickaxeItem(ToolMaterials.NETHERITE, ModTags.Blocks.WORLD_DESTROYER,60, 1,2,(new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ToolMaterials.NETHERITE,1,-2.8f))));
 
@@ -67,10 +67,10 @@ public class ModItems {
     //陶片纹样
     public static final Item ANGLER_POTTERY_SHERD_BLUEPRINT =       registerItems("angler_pottery_sherd_blueprint",     new Item(new Item.Settings()));
     public static final Item ARCHER_POTTERY_SHERD_BLUEPRINT =       registerItems("archer_pottery_sherd_blueprint",     new Item(new Item.Settings()));
-    public static final Item ARMS_UP_POTTERY_SHERD_BLUEPRINT =      registerItems("arms_pottery_sherd_blueprint",       new Item(new Item.Settings()));
+    public static final Item ARMS_UP_POTTERY_SHERD_BLUEPRINT =      registerItems("arms_up_pottery_sherd_blueprint",       new Item(new Item.Settings()));
     public static final Item BLADE_POTTERY_SHERD_BLUEPRINT =        registerItems("blade_pottery_sherd_blueprint",      new Item(new Item.Settings()));
     public static final Item BREWER_POTTERY_SHERD_BLUEPRINT =       registerItems("brewer_pottery_sherd_blueprint",     new Item(new Item.Settings()));
-    public static final Item BURN_POTTERY_SHERD_BLUEPRINT =         registerItems("brun_pottery_sherd_blueprint",       new Item(new Item.Settings()));
+    public static final Item BURN_POTTERY_SHERD_BLUEPRINT =         registerItems("burn_pottery_sherd_blueprint",       new Item(new Item.Settings()));
     public static final Item DANGER_POTTERY_SHERD_BLUEPRINT =       registerItems("danger_pottery_sherd_blueprint",     new Item(new Item.Settings()));
     public static final Item EXPLORER_POTTERY_SHERD_BLUEPRINT =     registerItems("explorer_pottery_sherd_blueprint",   new Item(new Item.Settings()));
     public static final Item FRIEND_POTTERY_SHERD_BLUEPRINT =       registerItems("friend_pottery_sherd_blueprint",     new Item(new Item.Settings()));
@@ -92,10 +92,10 @@ public class ModItems {
     //陶片原坯
     public static final Item ANGLER_POTTERY_SHERD_PROTOTYPE =       registerItems("angler_pottery_sherd_prototype",     new Item(new Item.Settings()));
     public static final Item ARCHER_POTTERY_SHERD_PROTOTYPE =       registerItems("archer_pottery_sherd_prototype",     new Item(new Item.Settings()));
-    public static final Item ARMS_UP_POTTERY_SHERD_PROTOTYPE =      registerItems("arms_pottery_sherd_prototype",       new Item(new Item.Settings()));
+    public static final Item ARMS_UP_POTTERY_SHERD_PROTOTYPE =      registerItems("arms_up_pottery_sherd_prototype",    new Item(new Item.Settings()));
     public static final Item BLADE_POTTERY_SHERD_PROTOTYPE =        registerItems("blade_pottery_sherd_prototype",      new Item(new Item.Settings()));
     public static final Item BREWER_POTTERY_SHERD_PROTOTYPE =       registerItems("brewer_pottery_sherd_prototype",     new Item(new Item.Settings()));
-    public static final Item BURN_POTTERY_SHERD_PROTOTYPE =         registerItems("brun_pottery_sherd_prototype",       new Item(new Item.Settings()));
+    public static final Item BURN_POTTERY_SHERD_PROTOTYPE =         registerItems("burn_pottery_sherd_prototype",       new Item(new Item.Settings()));
     public static final Item DANGER_POTTERY_SHERD_PROTOTYPE =       registerItems("danger_pottery_sherd_prototype",     new Item(new Item.Settings()));
     public static final Item EXPLORER_POTTERY_SHERD_PROTOTYPE =     registerItems("explorer_pottery_sherd_prototype",   new Item(new Item.Settings()));
     public static final Item FRIEND_POTTERY_SHERD_PROTOTYPE =       registerItems("friend_pottery_sherd_prototype",     new Item(new Item.Settings()));
@@ -180,7 +180,7 @@ public class ModItems {
                     getDiamondShardsUpgradeEmptyAdditionsSlotTextures()
             ));
 
-    public static final Item ENCHANTED_GOLDEN_APPLE_TEMPLATE = registerItems("enchanted_golden_apply_copy_template",
+    public static final Item ENCHANTED_GOLDEN_APPLE_TEMPLATE = registerItems("enchanted_golden_apple_template",
             new SmithingTemplateItem(
                     Text.translatable("enchanted_golden_apple_copy_applies_to"),
                     Text.translatable("enchanted_golden_apple_copy_ingredients"),
@@ -191,7 +191,7 @@ public class ModItems {
                     getDiamondShardsUpgradeEmptyAdditionsSlotTextures()
             ));
 
-    public static final Item HEAD_COPY_TEMPLATE = registerItems("head_copy_smithing_template",
+    public static final Item HEAD_COPY_TEMPLATE = registerItems("head_copy_template",
             new SmithingTemplateItem(
                     Text.translatable("head_copy_applies_to"),
                     Text.translatable("head_copy_ingredients"),

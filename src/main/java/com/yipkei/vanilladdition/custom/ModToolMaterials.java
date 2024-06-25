@@ -19,7 +19,7 @@ public enum ModToolMaterials implements ToolMaterial {
     /** 碎钻强化材质：钻石采掘等级，耐久比钻石工具低，通过模板升级钢质工具得到*/
     DIAMOND_SHARD(BlockTags.INCORRECT_FOR_DIAMOND_TOOL,1200,6.5f,2.5f,12,()->Ingredient.fromTag(ModTags.Items.DIAMOND_LIKE_SHARDS)),
     /** 玻璃材质：针对黑曜石方块有特殊采掘速度，采掘等级同钻石，10倍耐久消耗*/
-    GLASS(BlockTags.INCORRECT_FOR_DIAMOND_TOOL,300,6.5f,2.5f,30,()->Ingredient.fromTag(ModTags.Items.DIAMOND_LIKE_SHARDS))
+    GLASS(BlockTags.INCORRECT_FOR_DIAMOND_TOOL,100,6.5f,2.5f,30,()->Ingredient.fromTag(ModTags.Items.DIAMOND_LIKE_SHARDS))
     ;
     private final TagKey<Block> inverseTag;
     private final int itemDurability;

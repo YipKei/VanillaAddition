@@ -303,7 +303,7 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add("elytra_copy_additions_slot",                "擺入鞍");
 
         translationBuilder.add("enchanted_golden_apple_copy_applies_to",    "金蘋果");
-        translationBuilder.add("enchanted_golden_apple_copy_ingredients",   "擺入附魔之瓶");
+        translationBuilder.add("enchanted_golden_apple_copy_ingredients",   "附魔之瓶");
         translationBuilder.add("enchanted_golden_apple_copy",               "超級金蘋果");
         translationBuilder.add("enchanted_golden_apple_copy_base_slot",     "擺入金蘋果");
         translationBuilder.add("enchanted_golden_apple_copy_additions_slot","擺入附魔之瓶");

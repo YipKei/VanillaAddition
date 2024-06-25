@@ -11,6 +11,6 @@
     "id": "vanilla-addition:explosion_creator"
   },
   "template": {
-    "item": "vanilla-addition:head_copy_smithing_template"
+    "item": "vanilla-addition:head_copy_template"
   }
 }

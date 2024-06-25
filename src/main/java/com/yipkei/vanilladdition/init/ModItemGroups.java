@@ -30,6 +30,7 @@ public class ModItemGroups {
                         entries.add(ModItems.STEEL_HOE);
                         entries.add(ModItems.DIAMOND_UPGRADED_PICKAXE);
                         entries.add(ModItems.DIAMOND_UPGRADED_AXE);
+
                         entries.add(ModItems.GLASS_PICKAXE_PROTOTYPE);
                         entries.add(ModItems.GLASS_PICKAXE);
                         entries.add(ModItems.DESTROYER_PICKAXE);
@@ -53,6 +54,7 @@ public class ModItemGroups {
                         entries.add(ModItems.DIAMOND_SHARD_STACK);
                         entries.add(ModItems.PULSE_OF_THE_SEA);
                         entries.add(ModItems.DRAGON_WING_MEMBRANE);
+                        entries.add(ModItems.ANCIENT_TEAR);
 
                         entries.add(ModItems.DIAMOND_PROTOTYPE);
                         entries.add(ModItems.ANCIENT_PROTOTYPE);

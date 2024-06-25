@@ -6,7 +6,7 @@
       "item": "minecraft:netherite_ingot"
     },
     "*": {
-      "item": "vanilla-addition:head_copy_smithing_template"
+      "item": "vanilla-addition:head_copy_template"
     },
     "o": {
       "item": "minecraft:wither_skeleton_skull"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 4,
-    "id": "vanilla-addition:head_copy_smithing_template"
+    "id": "vanilla-addition:head_copy_template"
   }
 }

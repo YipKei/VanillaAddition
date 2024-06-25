@@ -5,7 +5,8 @@
   "mixins": [
     "ExampleMixin",
     "PumpkinBlockMixin",
-    "SheepEntityMixin"
+    "SheepEntityMixin",
+    "SpawnHelperMixin"
   ],
   "injectors": {
     "defaultRequire": 1

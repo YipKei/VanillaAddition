@@ -7,11 +7,11 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vanilla-addition:enchanted_golden_apply_copy_template": {
+    "has_vanilla-addition:enchanted_golden_apple_template": {
       "conditions": {
         "items": [
           {
-            "items": "vanilla-addition:enchanted_golden_apply_copy_template"
+            "items": "vanilla-addition:enchanted_golden_apple_template"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_vanilla-addition:enchanted_golden_apply_copy_template"
+      "has_vanilla-addition:enchanted_golden_apple_template"
     ]
   ],
   "rewards": {
