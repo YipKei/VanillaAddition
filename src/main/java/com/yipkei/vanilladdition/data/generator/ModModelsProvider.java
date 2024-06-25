@@ -4,20 +4,16 @@ import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.BlockTexturePool;
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
-import net.minecraft.util.Identifier;
 
 public class ModModelsProvider extends FabricModelProvider {
     public ModModelsProvider(FabricDataOutput output) {
         super(output);
     }
 
-    public static final BlockFamily BASALT = BlockFamilies.register(Blocks.BASALT).wall(ModBlocks.BASALT_WALL).stairs(ModBlocks.BASALT_STAIRS).slab(ModBlocks.BASALT_SLAB).build();
+//    public static final BlockFamily BASALT = BlockFamilies.register(Blocks.BASALT).wall(ModBlocks.BASALT_WALL).stairs(ModBlocks.BASALT_STAIRS).slab(ModBlocks.BASALT_SLAB).build();
 
 
     @Override

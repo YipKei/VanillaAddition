@@ -1,7 +1,6 @@
 package com.yipkei.vanilladdition.mixin;
 
 import com.yipkei.vanilladdition.util.ModTags;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
