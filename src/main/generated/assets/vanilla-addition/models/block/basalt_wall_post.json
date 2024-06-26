@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "vanilla-addition:block/basalt_side"
+    "wall": "minecraft:block/basalt_side"
   }
 }

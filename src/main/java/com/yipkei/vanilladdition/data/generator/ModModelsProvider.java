@@ -8,6 +8,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.BlockTexturePool;
 
+
 public class ModModelsProvider extends FabricModelProvider {
     public ModModelsProvider(FabricDataOutput output) {
         super(output);
@@ -32,11 +33,11 @@ public class ModModelsProvider extends FabricModelProvider {
         BlockTexturePool prismarineBricks   = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.PRISMARINE_BRICKS);
         BlockTexturePool darkPrismarine     = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DARK_PRISMARINE);
         BlockTexturePool netherrack         = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.NETHERRACK);
-        BlockTexturePool basalt             = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_BASALT);
+//        BlockTexturePool basalt             = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_BASALT);
         BlockTexturePool smoothBasalt       = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_BASALT);
-        BlockTexturePool polishedBasalt     = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_POLISHED_BASALT);
+//        BlockTexturePool polishedBasalt     = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_POLISHED_BASALT);
         BlockTexturePool purpur             = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.PURPUR_BLOCK);
-        BlockTexturePool quartz             = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_QUARTZ_BLOCK);
+//        BlockTexturePool quartz             = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_QUARTZ_BLOCK);
         BlockTexturePool smoothQuartz       = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_QUARTZ);
         BlockTexturePool dirt               = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DIRT);
         BlockTexturePool mud                = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.MUD);
@@ -86,6 +87,50 @@ public class ModModelsProvider extends FabricModelProvider {
         BlockTexturePool redTerracotta      = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.RED_TERRACOTTA);
         BlockTexturePool blackTerracotta    = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.BLACK_TERRACOTTA);
 
+//        Map<Block, TexturedModel> specialTexturedModels = Map.of(Blocks.BASALT, TexturedModel.makeFactory((Function<Block, TextureMap>) block -> {
+//            Identifier identifier = TextureMap.getSubId(block,"_side");
+//            return new TextureMap().put(TextureKey.TEXTURE, identifier).put(TextureKey.WALL, identifier).put(TextureKey.SIDE, identifier).put(TextureKey.END, TextureMap.getSubId(block, "_top"));
+//        },Models.CUBE_COLUMN).get(Blocks.BASALT), Blocks.POLISHED_BASALT, TexturedModel.makeFactory((Function<Block, TextureMap>) block -> {
+//            Identifier identifier = TextureMap.getSubId(block,"_side");
+//            return new TextureMap().put(TextureKey.TEXTURE, identifier).put(TextureKey.WALL, identifier).put(TextureKey.SIDE, identifier).put(TextureKey.END, TextureMap.getSubId(block, "_top"));
+//        },Models.CUBE_COLUMN).get(Blocks.POLISHED_BASALT), Blocks.QUARTZ_BLOCK, TexturedModel.makeFactory((Function<Block, TextureMap>) block -> {
+//            Identifier identifier = TextureMap.getSubId(block,"_side");
+//            return new TextureMap().put(TextureKey.TEXTURE, identifier).put(TextureKey.WALL, identifier).put(TextureKey.SIDE, identifier).put(TextureKey.END, TextureMap.getSubId(block, "_top"));
+//        },Models.CUBE_COLUMN).get(Blocks.QUARTZ_BLOCK));
+//
+//        TextureMap basaltMap = new TextureMap().put(TextureKey.WALL, TextureMap.getId(Blocks.BASALT)).put(TextureKey.SIDE, TextureMap.getSubId(Blocks.BASALT,"_side")).put(TextureKey.TOP,TextureMap.getSubId(Blocks.BASALT,"_top")).put(TextureKey.BOTTOM, TextureMap.getSubId(Blocks.BASALT,"_top"));
+//        Identifier basalt1 = Models.TEMPLATE_WALL_POST.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        Identifier basalt2 = Models.TEMPLATE_WALL_SIDE.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        Identifier basalt3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        Identifier basalt4 = Models.WALL_INVENTORY.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
+//        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(ModBlocks.BASALT_WALL,basalt1,basalt2,basalt3));
+//        blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASALT_WALL,basalt4);
+
+
+
+//        final Map<Block, TexturedModel> texturedModels = ImmutableMap
+//                .builder()
+//                .put(Blocks.SANDSTONE, TexturedModel.SIDE_TOP_BOTTOM_WALL.get(Blocks.SANDSTONE))
+//                .put(Blocks.RED_SANDSTONE, TexturedModel.SIDE_TOP_BOTTOM_WALL.get(Blocks.RED_SANDSTONE))
+//                .put(Blocks.SMOOTH_SANDSTONE, TexturedModel.getCubeAll(TextureMap.getSubId(Blocks.SANDSTONE, "_top")))
+//                .put(Blocks.SMOOTH_RED_SANDSTONE, TexturedModel.getCubeAll(TextureMap.getSubId(Blocks.RED_SANDSTONE, "_top")))
+//                .put(Blocks.CUT_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.SANDSTONE).textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(Blocks.CUT_SANDSTONE))))
+//                .put(Blocks.CUT_RED_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.RED_SANDSTONE).textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(Blocks.CUT_RED_SANDSTONE))))
+//                .put(Blocks.QUARTZ_BLOCK, TexturedModel.CUBE_COLUMN.get(Blocks.QUARTZ_BLOCK)).put(Blocks.SMOOTH_QUARTZ, TexturedModel.getCubeAll(TextureMap.getSubId(Blocks.QUARTZ_BLOCK, "_bottom")))
+//                .put(Blocks.BLACKSTONE, TexturedModel.SIDE_END_WALL.get(Blocks.BLACKSTONE))
+//                .put(Blocks.DEEPSLATE, TexturedModel.SIDE_END_WALL.get(Blocks.DEEPSLATE))
+//                .put(Blocks.CHISELED_QUARTZ_BLOCK, TexturedModel.CUBE_COLUMN.get(Blocks.CHISELED_QUARTZ_BLOCK).textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(Blocks.CHISELED_QUARTZ_BLOCK))))
+//                .put(Blocks.CHISELED_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.CHISELED_SANDSTONE).textures(textures -> {
+//                    textures.put(TextureKey.END, TextureMap.getSubId(Blocks.SANDSTONE, "_top"));
+//                    textures.put(TextureKey.SIDE, TextureMap.getId(Blocks.CHISELED_SANDSTONE));
+//                }))
+//                .put(Blocks.CHISELED_RED_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.CHISELED_RED_SANDSTONE).textures(textures -> {
+//                    textures.put(TextureKey.END, TextureMap.getSubId(Blocks.RED_SANDSTONE, "_top"));
+//                    textures.put(TextureKey.SIDE, TextureMap.getId(Blocks.CHISELED_RED_SANDSTONE));
+//                }))
+//                .put(Blocks.CHISELED_TUFF_BRICKS, TexturedModel.SIDE_END_WALL.get(Blocks.CHISELED_TUFF_BRICKS))
+//                .put(Blocks.CHISELED_TUFF, TexturedModel.SIDE_END_WALL.get(Blocks.CHISELED_TUFF))
+//                .build();
 
         //方块补全（一）只缺墙
         //石质
@@ -105,8 +150,8 @@ public class ModModelsProvider extends FabricModelProvider {
         //暗海晶砖
         darkPrismarine.wall(ModBlocks.DARK_PRISMARINE_WALL);
         //石英 - 特殊模型
-        quartz
-                .wall  (ModBlocks.QUARTZ_WALL)        ;
+//        quartz
+//                .wall  (ModBlocks.QUARTZ_WALL)        ;
         //平滑石英
         smoothQuartz
                 .wall  (ModBlocks.SMOOTH_QUARTZ_WALL);
@@ -145,10 +190,10 @@ public class ModModelsProvider extends FabricModelProvider {
                 .stairs(ModBlocks.NETHERRACK_STAIRS)
                 .slab  (ModBlocks.NETHERRACK_SLAB);
         //玄武岩 - 特殊模型
-        basalt
-                .wall  (ModBlocks.BASALT_WALL)
-                .stairs(ModBlocks.BASALT_STAIRS)
-                .slab  (ModBlocks.BASALT_SLAB);
+//        basalt
+//                .wall  (ModBlocks.BASALT_WALL)
+//                .stairs(ModBlocks.BASALT_STAIRS)
+//                .slab  (ModBlocks.BASALT_SLAB);
 
 //        TextureMap basaltMap = TextureMap.wallSideTopBottom(Blocks.BASALT);
 //        Identifier idBasaltPost = Models.TEMPLATE_WALL_POST.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
@@ -165,10 +210,10 @@ public class ModModelsProvider extends FabricModelProvider {
                 .stairs(ModBlocks.SMOOTH_BASALT_STAIRS)
                 .slab  (ModBlocks.SMOOTH_BASALT_SLAB);
         //磨制玄武岩 - 特殊模型
-        polishedBasalt
-                .wall  (ModBlocks.POLISHED_BASALT_WALL)
-                .stairs(ModBlocks.POLISHED_BASALT_STAIRS)
-                .slab  (ModBlocks.POLISHED_BASALT_SLAB);
+//        polishedBasalt
+//                .wall  (ModBlocks.POLISHED_BASALT_WALL)
+//                .stairs(ModBlocks.POLISHED_BASALT_STAIRS)
+//                .slab  (ModBlocks.POLISHED_BASALT_SLAB);
         //黑曜石
         obsidian
                 .wall  (ModBlocks.OBSIDIAN_WALL)

@@ -228,28 +228,20 @@ public class ModBlocks extends Blocks{
     public static final Block PINK_TERRACOTTA_STAIRS = registerBlocks("pink_terracotta_stairs", new StairsBlock(Blocks.PINK_TERRACOTTA.getDefaultState(),AbstractBlock.Settings.copy(PINK_TERRACOTTA)));
     public static final Block PINK_TERRACOTTA_SLAB = registerBlocks("pink_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(PINK_TERRACOTTA)));
 
-
-
     //特殊操作 - 影子方块，缺点：与材质包不兼容，应尽量避免使用或进行覆盖
-    public static final Block SHADOW_QUARTZ_BLOCK = registerBlocks("quartz_block_side",new Block(AbstractBlock.Settings.copy(QUARTZ_BLOCK)));
-    public static final Block SHADOW_BASALT = registerBlocks("basalt_side",new Block(AbstractBlock.Settings.copy(BASALT)));
-    public static final Block SHADOW_POLISHED_BASALT = registerBlocks("polished_basalt_side",new Block(AbstractBlock.Settings.copy(POLISHED_BASALT)));
+//    public static final Block SHADOW_QUARTZ_BLOCK = registerBlocks("quartz_block_side",new Block(AbstractBlock.Settings.copy(QUARTZ_BLOCK)));
+//    public static final Block SHADOW_BASALT = registerBlocks("basalt_side",new Block(AbstractBlock.Settings.copy(BASALT)));
+//    public static final Block SHADOW_POLISHED_BASALT = registerBlocks("polished_basalt_side",new Block(AbstractBlock.Settings.copy(POLISHED_BASALT)));
 
     public static final Block BASALT_WALL = registerBlocks("basalt_wall", new WallBlock(AbstractBlock.Settings.copy(BASALT).solid()));
     public static final Block BASALT_STAIRS = registerBlocks("basalt_stairs", new StairsBlock(Blocks.BASALT.getDefaultState(),AbstractBlock.Settings.copy(BASALT)));
     public static final Block BASALT_SLAB = registerBlocks("basalt_slab", new SlabBlock(AbstractBlock.Settings.copy(BASALT)));
-
-
-
-
-
 
     public static final Block POLISHED_BASALT_WALL = registerBlocks("polished_basalt_wall", new WallBlock(AbstractBlock.Settings.copy(POLISHED_BASALT).solid()));
     public static final Block POLISHED_BASALT_STAIRS = registerBlocks("polished_basalt_stairs", new StairsBlock(Blocks.POLISHED_BASALT.getDefaultState(),AbstractBlock.Settings.copy(POLISHED_BASALT)));
     public static final Block POLISHED_BASALT_SLAB = registerBlocks("polished_basalt_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_BASALT)));
 
     public static final Block QUARTZ_WALL = registerBlocks("quartz_wall", new WallBlock(AbstractBlock.Settings.copy(QUARTZ_BLOCK).solid()));
-
 
     private static Block registerBlocks(String name,Block block){
         registerBlockItems(name,block);

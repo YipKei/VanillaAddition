@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "vanilla-addition:block/polished_basalt_side"
+    "wall": "minecraft:block/polished_basalt_side"
   }
 }
