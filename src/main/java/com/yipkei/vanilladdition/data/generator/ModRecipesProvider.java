@@ -110,6 +110,7 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.FIRE_CORAL,   ModItems.PULSE_OF_THE_SEA,Items.FIRE_CORAL_BLOCK,  1);
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.HORN_CORAL,   ModItems.PULSE_OF_THE_SEA,Items.HORN_CORAL_BLOCK,  1);
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.TUBE_CORAL,   ModItems.PULSE_OF_THE_SEA,Items.TUBE_CORAL_BLOCK,  1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.AMETHYST_SHARD,ModItems.ANCIENT_TEAR,Items.ECHO_SHARD,8);
 
         /* 原型合成 */
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,ModItems.DIAMOND_SHARD_STACK,Items.COAL_BLOCK,ModItems.DIAMOND_PROTOTYPE,1);
