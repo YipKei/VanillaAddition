@@ -41,7 +41,7 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "碎鑽石堆");
         translationBuilder.add(ModItems.PULSE_OF_THE_SEA,               "海洋脈搏");
         translationBuilder.add(ModItems.DRAGON_WING_MEMBRANE,           "終界龍翼膜");
-
+        translationBuilder.add(ModItems.ANCIENT_TEAR,"遠古之淚");
         translationBuilder.add(ModItems.DIAMOND_PROTOTYPE,              "鑽石樣板");
         translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "遠古樣板");
         translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "古怪嘅樣板");
