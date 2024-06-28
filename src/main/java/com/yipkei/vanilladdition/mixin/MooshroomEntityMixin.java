@@ -3,6 +3,7 @@ package com.yipkei.vanilladdition.mixin;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Shearable;
+import net.minecraft.entity.VariantHolder;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,10 +22,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Deprecated
 @Mixin(MooshroomEntity.class)
 public abstract class MooshroomEntityMixin extends CowEntity
-        implements Shearable {
-    public MooshroomEntityMixin(EntityType<? extends CowEntity> entityType, World world) {
+        implements Shearable, VariantHolder<MooshroomEntity.Type> {
+    protected MooshroomEntityMixin(EntityType<? extends CowEntity> entityType, World world) {
         super(entityType, world);
     }
+
+
 
     @Shadow
     public abstract boolean isShearable();
