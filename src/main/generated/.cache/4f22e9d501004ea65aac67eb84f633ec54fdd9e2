@@ -1,4 +1,4 @@
-// 1.21	2024-06-28T11:19:03.338659	Vanilla Addition/Block Loot Tables
+// 1.21	2024-06-28T11:48:03.7619121	Vanilla Addition/Block Loot Tables
 65582469a7435f6364ca0c189e06cc7497e76075 data\vanilla-addition\loot_table\blocks\ice_stairs.json
 1a98f88a25643465c0404911c7ed52ac7b4c2d05 data\vanilla-addition\loot_table\blocks\magenta_concrete_stairs.json
 8b11a61582f4250ff65fd05bb8861fa422d474c1 data\vanilla-addition\loot_table\blocks\packed_ice_slab.json
@@ -16,11 +16,11 @@ f96813563be1894dda4599e23947eab20c3546e7 data\vanilla-addition\loot_table\blocks
 e06987dc17b682ce3c593c600d798fc5e5fc67cf data\vanilla-addition\loot_table\blocks\smooth_basalt_stairs.json
 71835326bf4c62a4e2e30ecc3315de9572090b08 data\vanilla-addition\loot_table\blocks\calcite_stairs.json
 840044eecbb47edc8a058fb43bc5d326c9273d9b data\vanilla-addition\loot_table\blocks\cyan_concrete_stairs.json
-da6cc0a1a57a094f16c6c31f2bc33e8cb517192a data\vanilla-addition\loot_table\blocks\smooth_basalt_wall.json
 780ab464e604056656a32b28a18150ae068e4df3 data\vanilla-addition\loot_table\blocks\end_stone_stairs.json
+da6cc0a1a57a094f16c6c31f2bc33e8cb517192a data\vanilla-addition\loot_table\blocks\smooth_basalt_wall.json
 6fd303fc2b78cf3323da43121c7dc2605f378117 data\vanilla-addition\loot_table\blocks\packed_ice_wall.json
-216417e49f4a80fa16d12486858a58686d87df6f data\vanilla-addition\loot_table\blocks\dirt_stairs.json
 dd9d1f2bcf23add3a4a5ebdeb85e323beb3156e1 data\vanilla-addition\loot_table\blocks\purple_concrete_slab.json
+216417e49f4a80fa16d12486858a58686d87df6f data\vanilla-addition\loot_table\blocks\dirt_stairs.json
 2e8c8fb47155a3561ce0236f7410e0c825be0d86 data\vanilla-addition\loot_table\blocks\magenta_terracotta_wall.json
 88a81153c9a6dbd030b92c98d236c3750cec4203 data\vanilla-addition\loot_table\blocks\cyan_terracotta_stairs.json
 a6815adb7657d486842f961cc12ae5808e0c737b data\vanilla-addition\loot_table\blocks\green_concrete_stairs.json
