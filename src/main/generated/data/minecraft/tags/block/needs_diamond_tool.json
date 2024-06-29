@@ -1,3 +1,10 @@
 {
-  "values": []
+  "values": [
+    "vanilla-addition:obsidian_wall",
+    "vanilla-addition:obsidian_stairs",
+    "vanilla-addition:obsidian_stair",
+    "vanilla-addition:crying_obsidian_wall",
+    "vanilla-addition:crying_obsidian_stairs",
+    "vanilla-addition:crying_obsidian_stair"
+  ]
 }

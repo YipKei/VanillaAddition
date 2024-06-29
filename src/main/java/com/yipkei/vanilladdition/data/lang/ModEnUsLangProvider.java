@@ -41,7 +41,7 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "Diamond Shard Stack");
         translationBuilder.add(ModItems.PULSE_OF_THE_SEA,               "Pulse of The Sea");
         translationBuilder.add(ModItems.DRAGON_WING_MEMBRANE,           "Dragon Wing Membrane");
-        translationBuilder.add(ModItems.ANCIENT_TEAR,"Ancient Tear");
+        translationBuilder.add(ModItems.ANCIENT_TEAR,                   "Ancient Tear");
         translationBuilder.add(ModItems.DIAMOND_PROTOTYPE,              "Diamond Prototype");
         translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "Ancient Prototype");
         translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "Suspicious Prototype");
