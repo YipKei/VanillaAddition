@@ -347,7 +347,7 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
 
     public static void offerDefaultSlabRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible baseBlock, ItemConvertible output){
         offerSlabRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,output,baseBlock);
-        offerStonecuttingRecipe(exporter,category,output,baseBlock);
+        offerStonecuttingRecipe(exporter,category,output,baseBlock, 2);
     }
 
     public static void offerSherdCopy(RecipeExporter exporter, Item baseSherd, Item blueprint, Item prototype, float exp, int smeltTime){

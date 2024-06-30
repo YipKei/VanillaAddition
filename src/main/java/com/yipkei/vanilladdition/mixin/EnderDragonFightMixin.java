@@ -41,9 +41,9 @@ public class EnderDragonFightMixin {
                     target = "Lnet/minecraft/entity/boss/dragon/EnderDragonFight;previouslyKilled:Z",
                     opcode = Opcodes.PUTFIELD))
     private void dropElytraCopyTemplate(EnderDragonEntity dragon, CallbackInfo ci){
-        BlockPos templateDropPos = this.world.getTopPosition(Heightmap.Type.MOTION_BLOCKING, EndPortalFeature.offsetOrigin(this.origin)).offset(Direction.Axis.Y, 6);
+        BlockPos templateDropPos = this.world.getTopPosition(Heightmap.Type.MOTION_BLOCKING, EndPortalFeature.offsetOrigin(this.origin));
         if (!previouslyKilled){
-            ItemEntity template = new ItemEntity(world, templateDropPos.getX(), templateDropPos.getY(), templateDropPos.getZ(), new ItemStack(ModItems.ELYTRA_COPY_TEMPLATE, 1));
+            ItemEntity template = new ItemEntity(world, templateDropPos.getX(), templateDropPos.getY() + 6.0f, templateDropPos.getZ(), new ItemStack(ModItems.ELYTRA_COPY_TEMPLATE, 1));
             this.world.spawnEntity(template);
         }
     }
