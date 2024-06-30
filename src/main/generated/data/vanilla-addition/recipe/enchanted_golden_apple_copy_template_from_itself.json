@@ -6,7 +6,7 @@
       "item": "minecraft:netherite_ingot"
     },
     "*": {
-      "item": "vanilla-addition:enchanted_golden_apple_template"
+      "item": "minecraft:enchanted_golden_apple"
     }
   },
   "pattern": [

@@ -244,7 +244,7 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
                 .pattern("#*#")
                 .pattern("###")
                 .input('#', Items.NETHERITE_INGOT)
-                .input('*',ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE)
+                .input('*', Items.ENCHANTED_GOLDEN_APPLE)
                 .criterion(hasItem(Items.ENCHANTED_GOLDEN_APPLE),conditionsFromItem(Items.ENCHANTED_GOLDEN_APPLE))
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"enchanted_golden_apple_copy_template_from_itself"));
 
