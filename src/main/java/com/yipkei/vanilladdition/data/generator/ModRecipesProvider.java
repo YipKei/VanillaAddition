@@ -50,6 +50,21 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerHoeRecipe     (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_HOE,     "steel");
 
         offerPickaxeRecipe (exporter, Items.GLASS_PANE,     Items.STICK, ModItems.GLASS_PICKAXE_PROTOTYPE, "glass");
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STEEL_SHEARS, 1)
+                .pattern(" #")
+                .pattern("# ")
+                .input('#',ModItems.STEEL_INGOT)
+                .criterion(hasItem(ModItems.STEEL_INGOT),conditionsFromItem(ModItems.STEEL_INGOT))
+                .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"steel_shears"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_FLINT, 1)
+                .pattern("#*")
+                .input('#',ModItems.STEEL_INGOT)
+                .input('*',ModItems.DIAMOND_SHARD)
+                .criterion(hasItem(ModItems.STEEL_INGOT),conditionsFromItem(ModItems.STEEL_INGOT))
+                .criterion(hasItem(ModItems.DIAMOND_SHARD),conditionsFromItem(ModItems.DIAMOND_SHARD))
+                .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"diamond_flint"));
         
         /* 工具锤合成配方及其处理配方*/
         offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, Items.COBBLESTONE,      Items.STICK,          ModItems.STONE_HAMMER,   1, "stone_hammer");
