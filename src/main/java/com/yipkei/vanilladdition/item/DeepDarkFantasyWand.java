@@ -16,6 +16,7 @@ public class DeepDarkFantasyWand extends AbstractFairyWand{
 
     @Override protected void replaceOrDrop(World world, BlockPos blockPos, BlockState blockState, PlayerEntity player){
         if (blockState.isOf(Blocks.WITHER_SKELETON_SKULL)){
+
             world.playSound(null, blockPos, SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.setBlockState(blockPos, Blocks.DRAGON_HEAD.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
         }

@@ -110,13 +110,14 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.BLAZE_ROD,         Items.GUNPOWDER,      RecipeCategory.MISC,   ModItems.EXPLOSION_CREATOR);
 
 
-        offerUpgradeRecipe(exporter,ModItems.PRESSURE_CRAFTING_TEMPLATE,           ModItems.DIAMOND_PROTOTYPE,    Items.END_CRYSTAL,        RecipeCategory.MISC, Items.DIAMOND_BLOCK);
-        offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE,             ModItems.ANCIENT_PROTOTYPE,    ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
-        offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE,             ModItems.SUSPICIOUS_PROTOTYPE, ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
-        offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE_PRO,         ModItems.HEAVY_CORE_PROTOTYPE, Items.WIND_CHARGE,        RecipeCategory.MISC, Items.HEAVY_CORE);
-        offerUpgradeRecipe(exporter,ModItems.NETHER_SMITHING_TEMPLATE_PRO,         ModItems.CONDUIT_PROTOTYPE,    Items.NAUTILUS_SHELL,     RecipeCategory.MISC, Items.HEART_OF_THE_SEA);
-        offerUpgradeRecipe(exporter,ModItems.ELYTRA_COPY_TEMPLATE,                 ModItems.ELYTRA_PROTOTYPE,     Items.SADDLE,             RecipeCategory.MISC, Items.ELYTRA);
-        offerUpgradeRecipe(exporter,ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE, Items.GOLDEN_APPLE,            Items.EXPERIENCE_BOTTLE,  RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE);
+        offerUpgradeRecipe(exporter, ModItems.PRESSURE_CRAFTING_TEMPLATE,      ModItems.DIAMOND_PROTOTYPE,    Items.END_CRYSTAL,        RecipeCategory.MISC, Items.DIAMOND_BLOCK);
+        offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE,        ModItems.ANCIENT_PROTOTYPE,    ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
+        offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE,        ModItems.SUSPICIOUS_PROTOTYPE, ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
+        offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,    ModItems.HEAVY_CORE_PROTOTYPE, Items.WIND_CHARGE,        RecipeCategory.MISC, Items.HEAVY_CORE);
+        offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,    ModItems.CONDUIT_PROTOTYPE,    Items.NAUTILUS_SHELL,     RecipeCategory.MISC, Items.HEART_OF_THE_SEA);
+        offerUpgradeRecipe(exporter, ModItems.ELYTRA_COPY_TEMPLATE,            ModItems.ELYTRA_PROTOTYPE,     Items.SADDLE,             RecipeCategory.MISC, Items.ELYTRA);
+        offerUpgradeRecipe(exporter, ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE, Items.GOLDEN_APPLE,            Items.EXPERIENCE_BOTTLE,  RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE);
+        offerUpgradeRecipe(exporter, ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,  Items.DIAMOND,                 Items.LAPIS_LAZULI,       RecipeCategory.MISC, Items.TOTEM_OF_UNDYING);
 
         /* 简易再生 */
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.YELLOW_WOOL,  ModItems.PULSE_OF_THE_SEA,Items.SPONGE,            8);

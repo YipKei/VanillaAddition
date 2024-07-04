@@ -326,7 +326,7 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
     }
 
     public static void offerStairsRecipe(RecipeExporter exporter, RecipeCategory category,ItemConvertible result,ItemConvertible input){
-        ShapedRecipeJsonBuilder.create(category, result, 1)
+        ShapedRecipeJsonBuilder.create(category, result, 4)
                 .pattern("#  ")
                 .pattern("## ")
                 .pattern("###")
