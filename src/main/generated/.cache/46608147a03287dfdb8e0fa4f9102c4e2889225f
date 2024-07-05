@@ -1,7 +1,7 @@
-// 1.21	2024-07-04T09:56:50.9626535	Vanilla Addition/Tags for minecraft:block
+// 1.21	2024-07-05T23:57:24.4374394	Vanilla Addition/Tags for minecraft:block
 ff6f92a3e9ef8e4d51485509dae9a528c14c76a0 data\vanilla-addition\tags\block\nether_bricks.json
-96122621230a2112253efc3723f65deb6ee0fb48 data\vanilla-addition\tags\block\obsidian.json
 34969052b498f41eaf578b7489231a8dd5ec55a2 data\minecraft\tags\block\beacon_base_blocks.json
+96122621230a2112253efc3723f65deb6ee0fb48 data\vanilla-addition\tags\block\obsidian.json
 46c914fc5a9a16aba22d45e84efb29a9a0ba17f7 data\minecraft\tags\block\walls.json
 df61f73843a6cfb476f990e97e6d5dbcd2741125 data\vanilla-addition\tags\block\fairy_wand_replaceable.json
 6e36c43445339b5f766dae865cbb05a81b449af5 data\minecraft\tags\block\needs_diamond_tool.json
