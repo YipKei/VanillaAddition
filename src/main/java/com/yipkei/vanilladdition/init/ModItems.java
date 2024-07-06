@@ -40,7 +40,7 @@ public class ModItems {
     // 针对性挖掘镐
     public static final Item GLASS_PICKAXE_PROTOTYPE = registerItems("glass_pickaxe_prototype", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.NULL_BLOCK, 0, 300, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,0,-5f))));
     public static final Item GLASS_PICKAXE = registerItems("glass_pickaxe", new AbstractPickaxeItem(ModToolMaterials.GLASS, ModTags.Blocks.OBSIDIAN,1200, 10, ModToolMaterials.GLASS.getDurability(), (new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ModToolMaterials.GLASS,1,-2.8f))));
-    public static final Item DESTROYER_PICKAXE = registerItems("destroyer_pickaxe", new AbstractPickaxeItem(ToolMaterials.NETHERITE, ModTags.Blocks.WORLD_DESTROYER,60, 1,2,(new Item.Settings()).attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ToolMaterials.NETHERITE,1,-2.8f))));
+    public static final Item DESTROYER_PICKAXE = registerItems("destroyer_pickaxe", new AbstractPickaxeItem(ToolMaterials.NETHERITE, ModTags.Blocks.WORLD_DESTROYER,60, 1,2,(new Item.Settings()).fireproof().attributeModifiers(AbstractPickaxeItem.createAttributeModifiers(ToolMaterials.NETHERITE,1,-2.8f))));
 
     public static final Item DIAMOND_FLINT = registerItems("diamond_flint", new FlintAndSteelItem(new Item.Settings().maxDamage(200)));
     public static final Item STEEL_SHEARS = registerItems("steel_shears", new ShearsItem(new Item.Settings().maxDamage(600)));
