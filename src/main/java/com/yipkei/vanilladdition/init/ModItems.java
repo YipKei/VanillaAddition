@@ -58,7 +58,7 @@ public class ModItems {
 
     //原型
     public static final Item DIAMOND_PROTOTYPE = registerItems("diamond_prototype", new Item(new Item.Settings()));
-    public static final Item ANCIENT_PROTOTYPE = registerItems("ancient_prototype", new Item(new Item.Settings()));
+    public static final Item ANCIENT_PROTOTYPE = registerItems("ancient_prototype", new Item(new Item.Settings().fireproof()));
     public static final Item SUSPICIOUS_PROTOTYPE = registerItems("suspicious_prototype", new Item(new Item.Settings()));
     public static final Item HEAVY_CORE_PROTOTYPE = registerItems("heavy_core_prototype", new Item(new Item.Settings()));
     public static final Item CONDUIT_PROTOTYPE = registerItems("conduit_prototype", new Item(new Item.Settings()));

@@ -41,6 +41,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.HOES)
                 .add(ModItems.STEEL_HOE);
 
+        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(ModItems.DIAMOND_FLINT);
+
         getOrCreateTagBuilder(ModTags.Items.STEEL_TOOLS)
                 .add(ModItems.STEEL_SWORD)
                 .add(ModItems.STEEL_SHOVEL)
