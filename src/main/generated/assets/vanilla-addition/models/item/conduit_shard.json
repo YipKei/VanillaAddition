@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "vanilla-addition:item/conduit_prototype"
+    "layer0": "vanilla-addition:item/conduit_shard"
   }
 }

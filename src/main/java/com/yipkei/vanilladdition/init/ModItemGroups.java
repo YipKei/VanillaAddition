@@ -60,7 +60,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ANCIENT_PROTOTYPE);
                         entries.add(ModItems.SUSPICIOUS_PROTOTYPE);
                         entries.add(ModItems.HEAVY_CORE_PROTOTYPE);
-                        entries.add(ModItems.CONDUIT_PROTOTYPE);
+                        entries.add(ModItems.CONDUIT_SHARD);
                         entries.add(ModItems.ELYTRA_PROTOTYPE);
 
                         entries.add(ModItems.PRESSURE_CRAFTING_TEMPLATE);

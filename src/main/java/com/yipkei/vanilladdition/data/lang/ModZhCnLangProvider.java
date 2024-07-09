@@ -46,7 +46,7 @@ public class ModZhCnLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "远古原坯");
         translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "可疑的原坯");
         translationBuilder.add(ModItems.HEAVY_CORE_PROTOTYPE,           "沉重核心原坯");
-        translationBuilder.add(ModItems.CONDUIT_PROTOTYPE,              "潮涌原坯");
+        translationBuilder.add(ModItems.CONDUIT_SHARD,                  "潮涌碎片");
         translationBuilder.add(ModItems.ELYTRA_PROTOTYPE,               "鞘翅原坯");
 
         translationBuilder.add(ModItems.PRESSURE_CRAFTING_TEMPLATE,         "压力合成模板");

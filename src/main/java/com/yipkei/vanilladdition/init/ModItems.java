@@ -61,7 +61,7 @@ public class ModItems {
     public static final Item ANCIENT_PROTOTYPE = registerItems("ancient_prototype", new Item(new Item.Settings().fireproof()));
     public static final Item SUSPICIOUS_PROTOTYPE = registerItems("suspicious_prototype", new Item(new Item.Settings()));
     public static final Item HEAVY_CORE_PROTOTYPE = registerItems("heavy_core_prototype", new Item(new Item.Settings()));
-    public static final Item CONDUIT_PROTOTYPE = registerItems("conduit_prototype", new Item(new Item.Settings()));
+    public static final Item CONDUIT_SHARD = registerItems("conduit_shard", new Item(new Item.Settings()));
     public static final Item ELYTRA_PROTOTYPE = registerItems("elytra_prototype", new Item(new Item.Settings()));
 
     //陶片纹样

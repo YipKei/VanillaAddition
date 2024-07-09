@@ -98,7 +98,7 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         // 石英块拆解
         offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,8,ModItems.DIAMOND_HAMMER,Items.QUARTZ,32,"recycling", "quartz_like_block");
         // 潮涌核心拆解
-        offerHammerProcessing(exporter,Items.CONDUIT,1,ModItems.DIAMOND_HAMMER,ModItems.PULSE_OF_THE_SEA,8,"processing");
+        offerHammerProcessing(exporter,Items.CONDUIT,1,ModItems.DIAMOND_HAMMER,ModItems.CONDUIT_SHARD,8,"processing");
 
         // 锻造台配方
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE,  ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_PICKAXE);
@@ -114,19 +114,19 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE,        ModItems.ANCIENT_PROTOTYPE,    ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE,        ModItems.SUSPICIOUS_PROTOTYPE, ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,    ModItems.HEAVY_CORE_PROTOTYPE, Items.WIND_CHARGE,        RecipeCategory.MISC, Items.HEAVY_CORE);
-        offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,    ModItems.CONDUIT_PROTOTYPE,    Items.NAUTILUS_SHELL,     RecipeCategory.MISC, Items.HEART_OF_THE_SEA);
+        offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,    ModItems.PULSE_OF_THE_SEA,     Items.NAUTILUS_SHELL,     RecipeCategory.MISC, Items.HEART_OF_THE_SEA);
         offerUpgradeRecipe(exporter, ModItems.ELYTRA_COPY_TEMPLATE,            ModItems.ELYTRA_PROTOTYPE,     Items.SADDLE,             RecipeCategory.MISC, Items.ELYTRA);
         offerUpgradeRecipe(exporter, ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE, Items.GOLDEN_APPLE,            Items.EXPERIENCE_BOTTLE,  RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE);
         offerUpgradeRecipe(exporter, ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,  Items.DIAMOND,                 Items.LAPIS_LAZULI,       RecipeCategory.MISC, Items.TOTEM_OF_UNDYING);
 
         /* 简易再生 */
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.YELLOW_WOOL,  ModItems.PULSE_OF_THE_SEA,Items.SPONGE,            8);
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.BRAIN_CORAL,  ModItems.PULSE_OF_THE_SEA,Items.BRAIN_CORAL_BLOCK, 1);
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.BUBBLE_CORAL, ModItems.PULSE_OF_THE_SEA,Items.BUBBLE_CORAL_BLOCK,1);
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.FIRE_CORAL,   ModItems.PULSE_OF_THE_SEA,Items.FIRE_CORAL_BLOCK,  1);
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.HORN_CORAL,   ModItems.PULSE_OF_THE_SEA,Items.HORN_CORAL_BLOCK,  1);
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.TUBE_CORAL,   ModItems.PULSE_OF_THE_SEA,Items.TUBE_CORAL_BLOCK,  1);
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.AMETHYST_SHARD,ModItems.ANCIENT_TEAR,Items.ECHO_SHARD,8);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.YELLOW_WOOL,   ModItems.CONDUIT_SHARD,Items.SPONGE,            8);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.BRAIN_CORAL,   ModItems.CONDUIT_SHARD,Items.BRAIN_CORAL_BLOCK, 1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.BUBBLE_CORAL,  ModItems.CONDUIT_SHARD,Items.BUBBLE_CORAL_BLOCK,1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.FIRE_CORAL,    ModItems.CONDUIT_SHARD,Items.FIRE_CORAL_BLOCK,  1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.HORN_CORAL,    ModItems.CONDUIT_SHARD,Items.HORN_CORAL_BLOCK,  1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.TUBE_CORAL,    ModItems.CONDUIT_SHARD,Items.TUBE_CORAL_BLOCK,  1);
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.AMETHYST_SHARD,ModItems.ANCIENT_TEAR, Items.ECHO_SHARD,        8);
 
         /* 原型合成 */
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,ModItems.DIAMOND_SHARD_STACK,Items.COAL_BLOCK,ModItems.DIAMOND_PROTOTYPE,1);
@@ -152,12 +152,12 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
                 .criterion(hasItem(ModItems.DRAGON_WING_MEMBRANE),conditionsFromItem(ModItems.DRAGON_WING_MEMBRANE))
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"elytra_prototype_from_dragon_wing_membrane"));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.CONDUIT_PROTOTYPE,1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.PULSE_OF_THE_SEA,1)
                 .pattern("#*#")
                 .pattern("*o*")
                 .pattern("#*#")
                 .input('#',Items.PRISMARINE_CRYSTALS)
-                .input('*',ModItems.PULSE_OF_THE_SEA)
+                .input('*',ModItems.CONDUIT_SHARD)
                 .input('o',Items.NETHER_STAR)
                 .criterion(hasItem(Items.NETHER_STAR),conditionsFromItem(Items.NETHER_STAR))
                 .criterion(hasItem(ModItems.PULSE_OF_THE_SEA),conditionsFromItem(ModItems.PULSE_OF_THE_SEA))

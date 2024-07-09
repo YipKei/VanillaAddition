@@ -6,7 +6,7 @@
       "item": "minecraft:fire_coral"
     },
     "*": {
-      "item": "vanilla-addition:pulse_of_the_sea"
+      "item": "vanilla-addition:conduit_shard"
     }
   },
   "pattern": [

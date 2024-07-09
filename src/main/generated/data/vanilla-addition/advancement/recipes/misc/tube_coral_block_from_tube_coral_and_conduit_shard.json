@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_pulse_of_the_sea": {
+    "has_conduit_shard": {
       "conditions": {
         "items": [
           {
-            "items": "vanilla-addition:pulse_of_the_sea"
+            "items": "vanilla-addition:conduit_shard"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanilla-addition:tube_coral_block_from_tube_coral_and_pulse_of_the_sea"
+        "recipe": "vanilla-addition:tube_coral_block_from_tube_coral_and_conduit_shard"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -32,12 +32,12 @@
     [
       "has_the_recipe",
       "has_tube_coral",
-      "has_pulse_of_the_sea"
+      "has_conduit_shard"
     ]
   ],
   "rewards": {
     "recipes": [
-      "vanilla-addition:tube_coral_block_from_tube_coral_and_pulse_of_the_sea"
+      "vanilla-addition:tube_coral_block_from_tube_coral_and_conduit_shard"
     ]
   }
 }

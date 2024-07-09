@@ -39,14 +39,14 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
 
         //再生
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "碎鑽石堆");
-        translationBuilder.add(ModItems.PULSE_OF_THE_SEA,               "海洋脈搏");
+        translationBuilder.add(ModItems.PULSE_OF_THE_SEA,               "海之脈搏");
         translationBuilder.add(ModItems.DRAGON_WING_MEMBRANE,           "終界龍翼膜");
         translationBuilder.add(ModItems.ANCIENT_TEAR,                   "遠古之淚");
         translationBuilder.add(ModItems.DIAMOND_PROTOTYPE,              "鑽石樣板");
         translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "遠古樣板");
         translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "古怪嘅樣板");
         translationBuilder.add(ModItems.HEAVY_CORE_PROTOTYPE,           "沉重核心樣板");
-        translationBuilder.add(ModItems.CONDUIT_PROTOTYPE,              "海靈樣板");
+        translationBuilder.add(ModItems.CONDUIT_SHARD,                  "海靈碎片");
         translationBuilder.add(ModItems.ELYTRA_PROTOTYPE,               "鞘翅樣板");
 
         translationBuilder.add(ModItems.PRESSURE_CRAFTING_TEMPLATE,         "高壓合成模板");

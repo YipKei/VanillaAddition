@@ -6,7 +6,7 @@
       "item": "minecraft:prismarine_crystals"
     },
     "*": {
-      "item": "vanilla-addition:pulse_of_the_sea"
+      "item": "vanilla-addition:conduit_shard"
     },
     "o": {
       "item": "minecraft:nether_star"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "vanilla-addition:conduit_prototype"
+    "id": "vanilla-addition:pulse_of_the_sea"
   }
 }

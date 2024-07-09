@@ -431,7 +431,7 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ANCIENT_PROTOTYPE,Models.GENERATED);
         itemModelGenerator.register(ModItems.SUSPICIOUS_PROTOTYPE,Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAVY_CORE_PROTOTYPE,Models.GENERATED);
-        itemModelGenerator.register(ModItems.CONDUIT_PROTOTYPE,Models.GENERATED);
+        itemModelGenerator.register(ModItems.CONDUIT_SHARD,Models.GENERATED);
         itemModelGenerator.register(ModItems.ELYTRA_PROTOTYPE,Models.GENERATED);
 
         itemModelGenerator.register(ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE,Models.GENERATED);

@@ -46,7 +46,7 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.ANCIENT_PROTOTYPE,              "Ancient Prototype");
         translationBuilder.add(ModItems.SUSPICIOUS_PROTOTYPE,           "Suspicious Prototype");
         translationBuilder.add(ModItems.HEAVY_CORE_PROTOTYPE,           "Heavy Core Prototype");
-        translationBuilder.add(ModItems.CONDUIT_PROTOTYPE,              "Conduit Prototype");
+        translationBuilder.add(ModItems.CONDUIT_SHARD,                  "Conduit Shard");
         translationBuilder.add(ModItems.ELYTRA_PROTOTYPE,               "Elytra Prototype");
 
         translationBuilder.add(ModItems.PRESSURE_CRAFTING_TEMPLATE,         "Pressure Crafting Template");
