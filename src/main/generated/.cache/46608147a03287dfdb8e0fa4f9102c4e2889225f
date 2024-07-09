@@ -1,4 +1,4 @@
-// 1.21	2024-07-09T08:30:48.9159504	Vanilla Addition/Tags for minecraft:block
+// 1.21	2024-07-09T10:56:19.8903192	Vanilla Addition/Tags for minecraft:block
 ff6f92a3e9ef8e4d51485509dae9a528c14c76a0 data\vanilla-addition\tags\block\nether_bricks.json
 34969052b498f41eaf578b7489231a8dd5ec55a2 data\minecraft\tags\block\beacon_base_blocks.json
 96122621230a2112253efc3723f65deb6ee0fb48 data\vanilla-addition\tags\block\obsidian.json
@@ -10,6 +10,6 @@ df79d43e8fd7dfa07b1b6c581cebaf707b87bf9e data\minecraft\tags\block\mineable\shov
 34969052b498f41eaf578b7489231a8dd5ec55a2 data\minecraft\tags\block\needs_iron_tool.json
 068aff5cb32d712026aa14aa88a3f074166c9e1c data\minecraft\tags\block\slabs.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_stone_tool.json
-498a9cce9e136ae3fc797869c939f1be843c9666 data\minecraft\tags\block\mineable\pickaxe.json
+98d5bc7dbaa64f4ba3c782d94c7751e9c5e36820 data\minecraft\tags\block\mineable\pickaxe.json
 0eb85ae18a15d14311f1a26d94d4e8894bf17ee5 data\minecraft\tags\block\ice.json
-a562be063bc6c25dc6cd74ef91845c6f67a36321 data\vanilla-addition\tags\block\world_destroyer.json
+0121ded70d50a09396a34de2f21dd67b09def4a5 data\vanilla-addition\tags\block\world_destroyer.json

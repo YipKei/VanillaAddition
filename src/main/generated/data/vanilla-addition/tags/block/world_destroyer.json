@@ -78,6 +78,13 @@
     "minecraft:deepslate",
     "minecraft:cobbled_deepslate",
     "minecraft:end_stone",
-    "minecraft:end_stone_bricks"
+    "minecraft:end_stone_bricks",
+    "minecraft:ancient_debris",
+    "minecraft:obsidian",
+    "minecraft:crying_obsidian",
+    "minecraft:vault",
+    "minecraft:trial_spawner",
+    "minecraft:reinforced_deepslate",
+    "minecraft:respawn_anchor"
   ]
 }
