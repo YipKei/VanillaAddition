@@ -119,6 +119,10 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerUpgradeRecipe(exporter, ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE, Items.GOLDEN_APPLE,            Items.EXPERIENCE_BOTTLE,  RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE);
         offerUpgradeRecipe(exporter, ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,  Items.DIAMOND,                 Items.LAPIS_LAZULI,       RecipeCategory.MISC, Items.TOTEM_OF_UNDYING);
 
+        offerUpgradeRecipe(exporter, ModItems.IRON_HORSE_ARMOR_BLUEPRINT,      Items.LEATHER_HORSE_ARMOR,     Items.IRON_BLOCK,         RecipeCategory.MISC, Items.IRON_HORSE_ARMOR);
+        offerUpgradeRecipe(exporter, ModItems.GOLDEN_HORSE_ARMOR_BLUEPRINT,    Items.LEATHER_HORSE_ARMOR,     Items.GOLD_BLOCK,         RecipeCategory.MISC, Items.GOLDEN_HORSE_ARMOR);
+        offerUpgradeRecipe(exporter, ModItems.DIAMOND_HORSE_ARMOR_BLUEPRINT,   Items.LEATHER_HORSE_ARMOR,     Items.DIAMOND_BLOCK,      RecipeCategory.MISC, Items.DIAMOND_HORSE_ARMOR);
+
         /* 简易再生 */
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.YELLOW_WOOL,   ModItems.CONDUIT_SHARD,Items.SPONGE,            8);
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.BRAIN_CORAL,   ModItems.CONDUIT_SHARD,Items.BRAIN_CORAL_BLOCK, 1);

@@ -1,6 +1,7 @@
 package com.yipkei.vanilladdition.init;
 
 import com.yipkei.vanilladdition.VanillaAddition;
+import com.yipkei.vanilladdition.custom.ModArmorMaterials;
 import com.yipkei.vanilladdition.custom.ModFoodComponents;
 import com.yipkei.vanilladdition.custom.ModToolMaterials;
 import com.yipkei.vanilladdition.item.AbstractPickaxeItem;
@@ -47,6 +48,11 @@ public class ModItems {
 
     public static final Item DEEP_DARK_FANTASY = registerItems("deep_dark_fantasy", new DeepDarkFantasyWand(new Item.Settings()));
     public static final Item EXPLOSION_CREATOR = registerItems("explosion_creator", new ExplosionCreatorWand(new Item.Settings()));
+
+    public static final Item STEEL_HELMET = registerItems("steel_helmet", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(20))));
+    public static final Item STEEL_CHESTPLATE = registerItems("steel_chestplate", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(20))));
+    public static final Item STEEL_LEGGINGS = registerItems("steel_leggings", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20))));
+    public static final Item STEEL_BOOTS = registerItems("steel_boots", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(20))));
 
     //原料
     public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));
@@ -114,6 +120,9 @@ public class ModItems {
     public static final Item GUSTER_POTTERY_SHERD_PROTOTYPE =       registerItems("guster_pottery_sherd_prototype",     new Item(new Item.Settings()));
     public static final Item SCRAPE_POTTERY_SHERD_PROTOTYPE =       registerItems("scrape_pottery_sherd_prototype",     new Item(new Item.Settings()));
 
+    public static final Item IRON_HORSE_ARMOR_BLUEPRINT =           registerItems("iron_horse_armor_blueprint",         new Item(new Item.Settings()));
+    public static final Item GOLDEN_HORSE_ARMOR_BLUEPRINT =         registerItems("golden_horse_armor_blueprint",       new Item(new Item.Settings()));
+    public static final Item DIAMOND_HORSE_ARMOR_BLUEPRINT =        registerItems("diamond_horse_armor_blueprint",      new Item(new Item.Settings()));
     //模板相关
     private static List<Identifier> getDiamondShardsUpgradeEmptyBaseSlotTextures(){
         return List.of(
