@@ -32,4 +32,8 @@ public class ModTags {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(VanillaAddition.MOD_ID, name));
         }
     }
+
+    public static class Structures{
+//        public static final TagKey<Structures>
+    }
 }
