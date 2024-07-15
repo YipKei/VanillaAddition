@@ -83,20 +83,32 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,      1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 4, "recycling");
         offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 5, "recycling");
 
-        offerHammerProcessing(exporter,Items.DIAMOND,            8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 24, "processing");
-        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,      8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 16, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,     8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 8,  "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,    8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 24, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_AXE,        8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 24, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HOE,        8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 16, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,     8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 40, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE, 8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 64, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,   8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 56, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,      8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 32, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,8, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 40, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND,            1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "processing");
+        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,      1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,     1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 1, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,    1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_AXE,        1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HOE,        1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,     1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE, 1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 8, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,   1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 7, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,      1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 4, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
+
+        offerHammerProcessing(exporter,Items.DIAMOND,            1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "processing");
+        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,      1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,     1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 1, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,    1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_AXE,        1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HOE,        1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,     1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE, 1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 8, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,   1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 7, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,      1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 4, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
 
         // 石英块拆解
-        offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,8,ModItems.DIAMOND_HAMMER,Items.QUARTZ,32,"recycling", "quartz_like_block");
+        offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,1,ModItems.DIAMOND_HAMMER,Items.QUARTZ,3,"recycling", "quartz_like_block");
         // 潮涌核心拆解
         offerHammerProcessing(exporter,Items.CONDUIT,1,ModItems.DIAMOND_HAMMER,ModItems.CONDUIT_SHARD,8,"processing");
 

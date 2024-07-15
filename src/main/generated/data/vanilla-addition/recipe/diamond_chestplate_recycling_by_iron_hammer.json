@@ -7,32 +7,11 @@
       "item": "minecraft:diamond_chestplate"
     },
     {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
       "item": "vanilla-addition:iron_hammer"
     }
   ],
   "result": {
-    "count": 64,
+    "count": 8,
     "id": "vanilla-addition:diamond_shard"
   }
 }

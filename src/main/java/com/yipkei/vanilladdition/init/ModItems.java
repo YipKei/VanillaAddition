@@ -7,9 +7,12 @@ import com.yipkei.vanilladdition.custom.ModToolMaterials;
 import com.yipkei.vanilladdition.item.AbstractPickaxeItem;
 import com.yipkei.vanilladdition.item.DeepDarkFantasyWand;
 import com.yipkei.vanilladdition.item.ExplosionCreatorWand;
+import com.yipkei.vanilladdition.item.Hammer;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.BannerPatternsComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -24,9 +27,9 @@ public class ModItems {
     public static final Item ROASTED_ROTTEN_FLESH = registerItems("roasted_rotten_flesh", new Item(new Item.Settings().food(ModFoodComponents.ROASTED_ROTTEN_FLESH)));
 
     //耗材
-    public static final Item STONE_HAMMER = registerItems("stone_hammer", new Item(new Item.Settings()));
-    public static final Item IRON_HAMMER = registerItems("iron_hammer", new Item(new Item.Settings()));
-    public static final Item DIAMOND_HAMMER = registerItems("diamond_hammer", new Item((new Item.Settings())));
+    public static final Item STONE_HAMMER = registerItems("stone_hammer", new Hammer(new Item.Settings().maxDamage(1)));
+    public static final Item IRON_HAMMER = registerItems("iron_hammer", new Hammer(new Item.Settings().maxDamage(8)));
+    public static final Item DIAMOND_HAMMER = registerItems("diamond_hammer", new Hammer(new Item.Settings().maxDamage(64)));
 
     //工具
     public static final Item STEEL_SWORD = registerItems("steel_sword", new SwordItem(ModToolMaterials.STEEL,(new Item.Settings()).attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 3, -2.4F))));
@@ -53,6 +56,8 @@ public class ModItems {
     public static final Item STEEL_CHESTPLATE = registerItems("steel_chestplate", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(20))));
     public static final Item STEEL_LEGGINGS = registerItems("steel_leggings", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20))));
     public static final Item STEEL_BOOTS = registerItems("steel_boots", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(20))));
+
+    public static final Item STEEL_SHIELD = registerItems("steel_shield", new ShieldItem(new Item.Settings().maxDamage(1200).component(DataComponentTypes.BANNER_PATTERNS, BannerPatternsComponent.DEFAULT)));
 
     //原料
     public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));

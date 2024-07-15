@@ -7,32 +7,11 @@
       "item": "minecraft:diamond_helmet"
     },
     {
-      "item": "minecraft:diamond_helmet"
-    },
-    {
-      "item": "minecraft:diamond_helmet"
-    },
-    {
-      "item": "minecraft:diamond_helmet"
-    },
-    {
-      "item": "minecraft:diamond_helmet"
-    },
-    {
-      "item": "minecraft:diamond_helmet"
-    },
-    {
-      "item": "minecraft:diamond_helmet"
-    },
-    {
-      "item": "minecraft:diamond_helmet"
-    },
-    {
       "item": "vanilla-addition:iron_hammer"
     }
   ],
   "result": {
-    "count": 40,
+    "count": 5,
     "id": "vanilla-addition:diamond_shard"
   }
 }

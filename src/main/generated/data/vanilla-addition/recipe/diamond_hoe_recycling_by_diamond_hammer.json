@@ -4,14 +4,14 @@
   "group": "hammer_processing",
   "ingredients": [
     {
-      "item": "minecraft:diamond_horse_armor"
+      "item": "minecraft:diamond_hoe"
     },
     {
-      "item": "vanilla-addition:iron_hammer"
+      "item": "vanilla-addition:diamond_hammer"
     }
   ],
   "result": {
-    "count": 5,
+    "count": 2,
     "id": "vanilla-addition:diamond_shard"
   }
 }

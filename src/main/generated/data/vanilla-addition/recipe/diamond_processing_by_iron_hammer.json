@@ -7,32 +7,11 @@
       "item": "minecraft:diamond"
     },
     {
-      "item": "minecraft:diamond"
-    },
-    {
-      "item": "minecraft:diamond"
-    },
-    {
-      "item": "minecraft:diamond"
-    },
-    {
-      "item": "minecraft:diamond"
-    },
-    {
-      "item": "minecraft:diamond"
-    },
-    {
-      "item": "minecraft:diamond"
-    },
-    {
-      "item": "minecraft:diamond"
-    },
-    {
       "item": "vanilla-addition:iron_hammer"
     }
   ],
   "result": {
-    "count": 24,
+    "count": 3,
     "id": "vanilla-addition:diamond_shard"
   }
 }
