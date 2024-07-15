@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_block"
+  },
+  "base": {
+    "item": "minecraft:leather_horse_armor"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:golden_horse_armor"
+  },
+  "template": {
+    "item": "vanilla-addition:golden_horse_armor_blueprint"
+  }
+}
