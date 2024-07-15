@@ -104,7 +104,8 @@ public abstract class ModCustomRecipeProvider extends FabricRecipeProvider {
                         Ingredient.ofItems(input),
                         Ingredient.ofItems(ingredient),
                         category,
-                        result).criterion("has_"+smithingTemplate.toString(), RecipeProvider
+                        result)
+                .criterion("has_"+smithingTemplate.toString(), RecipeProvider
                         .conditionsFromItem(smithingTemplate))
                 .offerTo(exporter, RecipeProvider.getItemPath(result) + "_smithing_from_" + RecipeProvider.getItemPath(input));
     }
