@@ -1,20 +1,25 @@
 package com.yipkei.vanilladdition.util;
 
+import com.yipkei.vanilladdition.custom.CustomBanners;
 import com.yipkei.vanilladdition.init.ModItems;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.component.ComponentChanges;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.map.MapDecorationTypes;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.StructureTags;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
+
+import java.util.Optional;
 
 public class VanillaTradeModifiers {
     public static void registerVanillaVillageTrades(){
@@ -45,9 +50,12 @@ public class VanillaTradeModifiers {
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 3, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(Items.RECOVERY_COMPASS, 1, 8, 30, 8)));
-        /* 未能生效 */TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 1, factories -> {
-            factories.add(new TradeOffers.SellMapFactory(8, StructureTags.ON_SWAMP_EXPLORER_MAPS, "filled_map.explorer_swamp", MapDecorationTypes.SWAMP_HUT, 12, 5));
-            factories.add(new TradeOffers.SellMapFactory(8, StructureTags.ON_JUNGLE_EXPLORER_MAPS, "filled_map.explorer_jungle", MapDecorationTypes.JUNGLE_TEMPLE, 12, 5));});
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 5, factories -> {
+            factories.add(new SellBiliBiliBannerFactory(Items.LIGHT_BLUE_BANNER, DyeColor.WHITE, Formatting.WHITE, 4, 30, 8));
+            factories.add(new SellBiliBiliBannerFactory(Items.PINK_BANNER, DyeColor.WHITE, Formatting.WHITE, 4, 30, 8));
+            factories.add(new SellBiliBiliBannerFactory(Items.WHITE_BANNER, DyeColor.LIGHT_BLUE, Formatting.WHITE, 4, 30, 8));
+            factories.add(new SellBiliBiliBannerFactory(Items.WHITE_BANNER, DyeColor.PINK, Formatting.WHITE, 4, 30, 8));
+        });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 4, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(Items.SCULK_CATALYST, 1, 16, 20, 4)));
@@ -122,6 +130,33 @@ public class VanillaTradeModifiers {
             ComponentChanges componentChanges = ComponentChanges.builder().add(DataComponentTypes.OMINOUS_BOTTLE_AMPLIFIER, level).build();
             ItemStack itemStack = new ItemStack(RegistryEntry.of(Items.OMINOUS_BOTTLE), 1, componentChanges);
             return new TradeOffer(new TradedItem(Items.EMERALD, this.price), itemStack, this.maxUses, this.experience, this.multiplier);
+        }
+    }
+
+    public static class SellBiliBiliBannerFactory implements TradeOffers.Factory{
+        private final int maxUses;
+        private final int experience;
+        private final int price;
+        private final float multiplier;
+        private final DyeColor patternColor;
+        private final Item defaultBanner;
+        private final Formatting formatting;
+
+        public SellBiliBiliBannerFactory(Item banner, DyeColor patternColor, Formatting formatting, int maxUses, int experience, int price){
+            this.defaultBanner = banner;
+            this.patternColor = patternColor;
+            this.formatting = formatting;
+            this.maxUses = maxUses;
+            this.experience = experience;
+            this.price = price;
+            this.multiplier = 0.05f;
+        }
+
+        @Override
+        public TradeOffer create(Entity entity, Random random) {
+            return new TradeOffer(new TradedItem(Items.EMERALD, this.price),
+                    Optional.of(new TradedItem(this.defaultBanner)),
+                    CustomBanners.getBiliBiliBannerType1(entity.getRegistryManager().getWrapperOrThrow(RegistryKeys.BANNER_PATTERN), this.defaultBanner, this.patternColor, this.formatting), this.maxUses, this.experience, this.multiplier);
         }
     }
 }
