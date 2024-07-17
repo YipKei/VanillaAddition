@@ -31,7 +31,7 @@ public class VanillaTradeModifiers {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FISHERMAN,4, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(Items.SEA_LANTERN, 4, 16, 15)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FISHERMAN, 5, factories -> factories
-                .add(new TradeOffers.SellItemFactory(Items.NAUTILUS_SHELL, 10, 1, 8, 10, 0.2f)));
+                .add(new TradeOffers.SellItemFactory(Items.NAUTILUS_SHELL, 10, 1, 3, 10, 0.2f)));
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 1, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(Items.HAY_BLOCK, 2, 16, 2, 3)));
