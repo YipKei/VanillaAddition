@@ -323,6 +323,8 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add("itemGroup.vanilla_addition",                "Vanilla Addition");
         translationBuilder.add("itemGroup.building_addition",               "Building Addition");
         translationBuilder.add("itemGroup.vanilla_renewable",               "Renewable Addition");
+
+        translationBuilder.add("custom_banner.bilibili", "BiliBili Cheers");
     }
 
 

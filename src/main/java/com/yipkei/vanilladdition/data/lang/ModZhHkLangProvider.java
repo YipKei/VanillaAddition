@@ -323,6 +323,8 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add("itemGroup.vanilla_addition",                "原版升級");
         translationBuilder.add("itemGroup.building_addition",               "建筑升級");
         translationBuilder.add("itemGroup.vanilla_renewable",               "可持續發展");
+
+        translationBuilder.add("custom_banner.bilibili", "嗶哩嗶哩乾杯");
     }
 
 
