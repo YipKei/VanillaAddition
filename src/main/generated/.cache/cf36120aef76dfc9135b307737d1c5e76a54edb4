@@ -1,4 +1,4 @@
-// 1.21	2024-07-15T16:12:29.6960136	Vanilla Addition/Tags for minecraft:item
+// 1.21	2024-07-18T22:50:12.5400732	Vanilla Addition/Tags for minecraft:item
 fdab8ddd5529ae14b26bc1853b004131135318a4 data\vanilla-addition\tags\item\diamond_like_ingredients.json
 f7c5163386ca4f6f59c115f8a2488784b9f15ce3 data\minecraft\tags\item\axes.json
 8aa3f06d6014ada9ee223e82b5bd922b5de15818 data\minecraft\tags\item\chest_armor.json
@@ -12,6 +12,6 @@ c8dff9260a0d1578661497e8fa33098aa108664b data\minecraft\tags\item\swords.json
 bda7abbcd04b86a26a7215fff613bbe542d39f18 data\vanilla-addition\tags\item\shears.json
 877f533d26c14af5a05b6a1796a793825ec75b58 data\minecraft\tags\item\beacon_payment_items.json
 cf9cfe7cdb60b294c6438346aac9de5c1b3b0465 data\vanilla-addition\tags\item\quartz_block.json
-afffedbfe1c369d27976e1b6f99618c5a6e2ae69 data\minecraft\tags\item\head_armor.json
 fdc7d20edf8f651cff035db202810f5b2777b2d7 data\minecraft\tags\item\leg_armor.json
+afffedbfe1c369d27976e1b6f99618c5a6e2ae69 data\minecraft\tags\item\head_armor.json
 0da5cb7319d7dd28a8ef2167022fd35fae155a4d data\minecraft\tags\item\enchantable\durability.json

@@ -1,4 +1,5 @@
 {
+  "RedstoneHead_": "数字： ",
   "block.vanilla-addition.amethyst_slab": "紫水晶半砖",
   "block.vanilla-addition.amethyst_stairs": "紫水晶楼梯",
   "block.vanilla-addition.amethyst_wall": "紫水晶墙",
@@ -160,6 +161,7 @@
   "block.vanilla-addition.yellow_terracotta_slab": "黄色陶瓦半砖",
   "block.vanilla-addition.yellow_terracotta_stairs": "黄色陶瓦楼梯",
   "block.vanilla-addition.yellow_terracotta_wall": "黄色陶瓦墙",
+  "custom_banner.bilibili": "哔哩哔哩干杯~",
   "diamond_shards_upgrade": "钻石升级（伪）",
   "diamond_shards_upgrade_additions_slot": "置入任意碎钻",
   "diamond_shards_upgrade_applies_to": "工具",
@@ -237,6 +239,7 @@
   "item.vanilla-addition.mourner_pottery_sherd_prototype": "悲恸纹样陶坯",
   "item.vanilla-addition.nether_smithing_template": "下界锻造模板",
   "item.vanilla-addition.nether_smithing_template_pro": "高级下界锻造模板",
+  "item.vanilla-addition.nothing_to_be_afraid_of": "已经没有什么好害怕的了",
   "item.vanilla-addition.plenty_pottery_sherd_blueprint": "富饶纹样拓片",
   "item.vanilla-addition.plenty_pottery_sherd_prototype": "富饶纹样陶坯",
   "item.vanilla-addition.pressure_crafting_smithing_template": "压力合成模板",

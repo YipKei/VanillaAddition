@@ -36,6 +36,7 @@ public class ModZhCnLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.STEEL_SHEARS,                   "钢剪");
         translationBuilder.add(ModItems.DEEP_DARK_FANTASY,              "黑暗深邃幻想");
         translationBuilder.add(ModItems.EXPLOSION_CREATOR,              "大炸逼制造者");
+        translationBuilder.add(ModItems.NOTHING_TO_BE_AFRAID_OF,        "已经没有什么好害怕的了");
 
         //再生
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "碎钻堆");
@@ -325,6 +326,7 @@ public class ModZhCnLangProvider extends FabricLanguageProvider {
         translationBuilder.add("itemGroup.vanilla_renewable",               "再生增強");
 
         translationBuilder.add("custom_banner.bilibili", "哔哩哔哩干杯~");
+        translationBuilder.add("RedstoneHead_","数字： ");
     }
 
 

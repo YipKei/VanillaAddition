@@ -13,7 +13,9 @@ public class ModTags {
         public static final TagKey<Block> NULL_BLOCK = createTag("null_block");
         public static final TagKey<Block> OBSIDIAN = createTag("obsidian");
         public static final TagKey<Block> WORLD_DESTROYER = createTag("world_destroyer");
-        public static final TagKey<Block> FAIRY_WAND_REPLACEABLE = createTag("fairy_wand_replaceable");
+        public static final TagKey<Block> DEEP_DARK_FANTASY_AFFECTABLE = createTag("deep_dark_fantasy_affectable");
+        public static final TagKey<Block> EXPLOSION_CREATOR_AFFECTABLE = createTag("explosion_creator_affectable");
+        public static final TagKey<Block> MAGICAL_GIRLS_AFFECTABLE = createTag("magical_girls_affectable");
         public static final TagKey<Block> NETHER_BRICKS = createTag("nether_bricks");
 
         private static TagKey<Block> createTag(String name){

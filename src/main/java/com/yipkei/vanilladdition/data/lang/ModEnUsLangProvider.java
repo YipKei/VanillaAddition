@@ -36,6 +36,7 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.STEEL_SHEARS,                   "Steel Shears");
         translationBuilder.add(ModItems.DEEP_DARK_FANTASY,              "Ender Transformer");
         translationBuilder.add(ModItems.EXPLOSION_CREATOR,              "Explosion Creator");
+        translationBuilder.add(ModItems.NOTHING_TO_BE_AFRAID_OF,        "There is Nothing to be Afraid of.");
 
         //再生
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "Diamond Shard Stack");
@@ -325,6 +326,8 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add("itemGroup.vanilla_renewable",               "Renewable Addition");
 
         translationBuilder.add("custom_banner.bilibili", "BiliBili Cheers");
+
+        translationBuilder.add("RedstoneHead_","Redstone Hex ");
     }
 
 

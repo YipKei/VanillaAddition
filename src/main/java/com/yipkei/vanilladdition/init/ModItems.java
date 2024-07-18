@@ -4,10 +4,7 @@ import com.yipkei.vanilladdition.VanillaAddition;
 import com.yipkei.vanilladdition.custom.ModArmorMaterials;
 import com.yipkei.vanilladdition.custom.ModFoodComponents;
 import com.yipkei.vanilladdition.custom.ModToolMaterials;
-import com.yipkei.vanilladdition.item.AbstractPickaxeItem;
-import com.yipkei.vanilladdition.item.DeepDarkFantasyWand;
-import com.yipkei.vanilladdition.item.ExplosionCreatorWand;
-import com.yipkei.vanilladdition.item.Hammer;
+import com.yipkei.vanilladdition.item.*;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -49,8 +46,9 @@ public class ModItems {
     public static final Item DIAMOND_FLINT = registerItems("diamond_flint", new FlintAndSteelItem(new Item.Settings().maxDamage(200)));
     public static final Item STEEL_SHEARS = registerItems("steel_shears", new ShearsItem(new Item.Settings().maxDamage(600)));
 
-    public static final Item DEEP_DARK_FANTASY = registerItems("deep_dark_fantasy", new DeepDarkFantasyWand(new Item.Settings()));
-    public static final Item EXPLOSION_CREATOR = registerItems("explosion_creator", new ExplosionCreatorWand(new Item.Settings()));
+    public static final Item DEEP_DARK_FANTASY = registerItems("deep_dark_fantasy", new DeepDarkFantasyWand(new Item.Settings().maxDamage(16)));
+    public static final Item EXPLOSION_CREATOR = registerItems("explosion_creator", new ExplosionCreatorWand(new Item.Settings().maxDamage(16)));
+    public static final Item NOTHING_TO_BE_AFRAID_OF = registerItems("nothing_to_be_afraid_of", new MagicalGirlsWand(new Item.Settings().maxDamage(16)));
 
     public static final Item STEEL_HELMET = registerItems("steel_helmet", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(20))));
     public static final Item STEEL_CHESTPLATE = registerItems("steel_chestplate", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(20))));

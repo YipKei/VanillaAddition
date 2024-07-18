@@ -1,4 +1,5 @@
 {
+  "RedstoneHead_": "Redstone Hex ",
   "block.vanilla-addition.amethyst_slab": "Amethyst Slab",
   "block.vanilla-addition.amethyst_stairs": "Amethyst Stairs",
   "block.vanilla-addition.amethyst_wall": "Amethyst Wall",
@@ -160,6 +161,7 @@
   "block.vanilla-addition.yellow_terracotta_slab": "Yellow Terracotta Slab",
   "block.vanilla-addition.yellow_terracotta_stairs": "Yellow Terracotta Stairs",
   "block.vanilla-addition.yellow_terracotta_wall": "Yellow Terracotta Wall",
+  "custom_banner.bilibili": "BiliBili Cheers",
   "diamond_shards_upgrade": "Faked Diamond Upgrade",
   "diamond_shards_upgrade_additions_slot": "Put Any Diamond Shards",
   "diamond_shards_upgrade_applies_to": "Tools",
@@ -237,6 +239,7 @@
   "item.vanilla-addition.mourner_pottery_sherd_prototype": "Mourner Pottery Sherd Prototype",
   "item.vanilla-addition.nether_smithing_template": "Nether Smithing Template",
   "item.vanilla-addition.nether_smithing_template_pro": "Nether Smithing Template Pro",
+  "item.vanilla-addition.nothing_to_be_afraid_of": "There is Nothing to be Afraid of.",
   "item.vanilla-addition.plenty_pottery_sherd_blueprint": "Plenty Pottery Sherd Blueprint",
   "item.vanilla-addition.plenty_pottery_sherd_prototype": "Plenty Pottery Sherd Prototype",
   "item.vanilla-addition.pressure_crafting_smithing_template": "Pressure Crafting Template",

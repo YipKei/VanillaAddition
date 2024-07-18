@@ -36,6 +36,7 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.STEEL_SHEARS,                   "鋼鉸剪");
         translationBuilder.add(ModItems.DEEP_DARK_FANTASY,              "黑暗深邃幻想");
         translationBuilder.add(ModItems.EXPLOSION_CREATOR,              "呼叫超級大炸彈");
+        translationBuilder.add(ModItems.NOTHING_TO_BE_AFRAID_OF,        "無可畏懼");
 
         //再生
         translationBuilder.add(ModItems.DIAMOND_SHARD_STACK,            "碎鑽石堆");
@@ -325,6 +326,8 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add("itemGroup.vanilla_renewable",               "可持續發展");
 
         translationBuilder.add("custom_banner.bilibili", "嗶哩嗶哩乾杯");
+
+        translationBuilder.add("RedstoneHead_","數字： ");
     }
 
 
