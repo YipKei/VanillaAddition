@@ -1,4 +1,4 @@
-// 1.21	2024-07-18T22:50:12.5360735	Vanilla Addition/Block Loot Tables
+// 1.21	2024-07-19T22:40:25.2577441	Vanilla Addition/Block Loot Tables
 65582469a7435f6364ca0c189e06cc7497e76075 data\vanilla-addition\loot_table\blocks\ice_stairs.json
 1a98f88a25643465c0404911c7ed52ac7b4c2d05 data\vanilla-addition\loot_table\blocks\magenta_concrete_stairs.json
 8b11a61582f4250ff65fd05bb8861fa422d474c1 data\vanilla-addition\loot_table\blocks\packed_ice_slab.json
@@ -114,8 +114,8 @@ cfa2395d19a6027aa08115446e03ed1110635a36 data\vanilla-addition\loot_table\blocks
 42cadc72895dbf2b677f02c38ee18d7aa8cdb24e data\vanilla-addition\loot_table\blocks\netherrack_wall.json
 26e3fb8a5c3375ef950836dea2dc3de3b94f4665 data\vanilla-addition\loot_table\blocks\lime_terracotta_stairs.json
 fa4f56668cd8730df5461f20903fd302092febc4 data\vanilla-addition\loot_table\blocks\blue_ice_stairs.json
-dd809ebf9c33b91a7c6563bcd4109f671a6134b1 data\vanilla-addition\loot_table\blocks\polished_granite_wall.json
 b5247073b06ac3e33e65b2fb7bb23d4280698e7a data\vanilla-addition\loot_table\blocks\red_concrete_stairs.json
+dd809ebf9c33b91a7c6563bcd4109f671a6134b1 data\vanilla-addition\loot_table\blocks\polished_granite_wall.json
 553730d6f78c631cff8c4f99af162a17d8b887ae data\vanilla-addition\loot_table\blocks\lime_terracotta_wall.json
 0c3b56d6187256b1981d85dbfd699e92bcdf6571 data\vanilla-addition\loot_table\blocks\light_gray_stairs.json
 1997b34147da5083a55802457d5f1638e59a8c46 data\vanilla-addition\loot_table\blocks\cyan_concrete_wall.json

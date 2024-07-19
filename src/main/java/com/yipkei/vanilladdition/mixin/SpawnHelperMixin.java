@@ -1,33 +1,30 @@
 package com.yipkei.vanilladdition.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.SpawnHelper;
 import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.structure.Structure;
-import net.minecraft.world.gen.structure.StructureKeys;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SpawnHelper.class)
 public class SpawnHelperMixin {
 
-    /**
-     * @author YipKei
-     * @reason  Add NetherFortress Spawn Blocks
-     */
-    @Overwrite
-    public static boolean shouldUseNetherFortressSpawns(BlockPos pos, ServerWorld world, SpawnGroup spawnGroup, StructureAccessor structureAccessor) {
-        if (spawnGroup != SpawnGroup.MONSTER || !world.getBlockState(pos.down()).isIn(ModTags.Blocks.NETHER_BRICKS)) {
-            return false;
+    @Inject(method = "shouldUseNetherFortressSpawns",at = @At("HEAD"), cancellable = true)
+    private static void addNewJudgment(BlockPos pos, ServerWorld world, SpawnGroup spawnGroup, StructureAccessor structureAccessor, CallbackInfoReturnable<Boolean> cir){
+        if (spawnGroup != SpawnGroup.MONSTER || !world.getBlockState(pos.down()).isIn(ModTags.Blocks.NETHER_FORTRESS_CAN_SPAWNS)) {
+            cir.setReturnValue(false);
         }
-        Structure structure = structureAccessor.getRegistryManager().get(RegistryKeys.STRUCTURE).get(StructureKeys.FORTRESS);
-        if (structure == null) {
-            return false;
-        }
-        return structureAccessor.getStructureAt(pos, structure).hasChildren();
     }
+
+    @ModifyExpressionValue(method = "shouldUseNetherFortressSpawns", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"))
+    private static boolean replaceCheck(boolean isNetherBricks){
+        return true;
+    }
+
 }
