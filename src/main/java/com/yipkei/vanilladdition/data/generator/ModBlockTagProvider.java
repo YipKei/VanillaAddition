@@ -363,10 +363,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.WHITE_WOOL)
                 ;
 
-        getOrCreateTagBuilder(ModTags.Blocks.NETHER_BRICKS)
+        getOrCreateTagBuilder(ModTags.Blocks.NETHER_FORTRESS_CAN_SPAWNS)
                 .add(Blocks.NETHER_BRICKS)
                 .add(ModBlocks.NETHERRACK_SLAB)
                 .add(ModBlocks.NETHERRACK_STAIRS)
+                ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.BONE_MEAL_DROPS_EXTRA)
+                .add(Blocks.PITCHER_PLANT)
                 ;
 
     }

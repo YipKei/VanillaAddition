@@ -4,28 +4,28 @@ import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.authlib.properties.Property;
 import com.mojang.authlib.properties.PropertyMap;
 import com.mojang.authlib.yggdrasil.ProfileResult;
-import net.minecraft.component.Component;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.LoreComponent;
 import net.minecraft.component.type.ProfileComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.Properties;
 import net.minecraft.text.MutableText;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.UserCache;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+
 import java.util.Optional;
 import java.util.UUID;
 
 public abstract class Head {
-
-
 
     public static ItemStack getNewPlayerHead(GameProfile gameProfile, String noteBlockSound, int count){
         String playerName = gameProfile.getName();
@@ -42,10 +42,17 @@ public abstract class Head {
         }
         String textures = "ewogICJ0aW1lc3RhbXAiIDogMCwKICAicHJvZmlsZUlk" + texturePropertyValue.split("cHJvZmlsZUlk")[1];
 
-        ItemStack playerHeadStack = getTexturedHead(playerName, textures, gameProfile.getId(), noteBlockSound, count);
+        return getTexturedHead(playerName, textures, gameProfile.getId(), noteBlockSound, count);
 
-        return playerHeadStack;
+    }
 
+    public static ItemStack getPowerHead(BlockState blockState){
+        int power = blockState.get(Properties.POWER);
+        return getTexturedHead("Redstone_"+Integer.toHexString(power).toUpperCase(),Heads.getRedstoneHeadTexture(power),Heads.getRedstoneHeadUUID(power),"",1,MutableText.of(new TranslatableTextContent("RedstoneHead_",null,TranslatableTextContent.EMPTY_ARGUMENTS)).append(Integer.toHexString(power).toUpperCase()));
+    }
+
+    public static ItemStack getBlockHead(Block block){
+        return (Heads.isInList(block)) ? getTexturedHead(Registries.BLOCK.getId(block).getPath(), Heads.getBlockTexture(block), Heads.getBlockUUID(block),"", 1, block.getName()) : null;
     }
 
     public static ItemStack getTexturedHead(String entityName, String texture, UUID uuid, String noteBlockSound, int count){

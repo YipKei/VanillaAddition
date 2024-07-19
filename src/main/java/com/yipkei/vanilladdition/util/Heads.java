@@ -3,15 +3,13 @@ package com.yipkei.vanilladdition.util;
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.text.MutableText;
 import net.minecraft.util.Util;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 public class Heads {
-    public static Map<Block, UUID> uuidList = Util.make(Maps.newHashMap(), map ->{
+    public static Map<Block, UUID> blockUUIDList = Util.make(Maps.newHashMap(), map ->{
         map.put(Blocks.PUMPKIN, UUID.fromString(uuidTransform("821676654,-1294841439,-1246417649,1610157591")));
         map.put(Blocks.GRASS_BLOCK, UUID.fromString(uuidTransform("1556052261,1359694377,-1718803992,1487197239")));
         map.put(Blocks.DIRT, UUID.fromString(uuidTransform("-572851845,-932624543,-1098947364,1010799648")));
@@ -88,7 +86,7 @@ public class Heads {
         map.put(Blocks.REDSTONE_LAMP, UUID.fromString(uuidTransform("896778910,170675293,-1190970474,590931191")));
         map.put(Blocks.LAPIS_BLOCK, UUID.fromString(uuidTransform("1313416803,1145390925,-1328945319,213131654")));
         map.put(Blocks.LAPIS_ORE, UUID.fromString(uuidTransform("1845336219,1977961122,-1677159498,-197476589")));
-        map.put(Blocks.LAVA_CAULDRON, UUID.fromString(uuidTransform("1362100861,-2111418541,-1626987446,-1807932604")));
+        map.put(Blocks.LAVA, UUID.fromString(uuidTransform("1362100861,-2111418541,-1626987446,-1807932604")));
         map.put(Blocks.MAGMA_BLOCK, UUID.fromString(uuidTransform("1830371341,1597587671,-1944414330,67133243")));
         map.put(Blocks.MANGROVE_LOG, UUID.fromString(uuidTransform("-879942145,260589749,-2017159748,2116263445")));
         map.put(Blocks.MELON, UUID.fromString(uuidTransform("2138814617,-555269077,-1104557818,-1585796582")));
@@ -125,12 +123,12 @@ public class Heads {
         map.put(Blocks.TUFF, UUID.fromString(uuidTransform("1736968338,617500086,-1500933999,-16870491")));
         map.put(Blocks.TURTLE_EGG, UUID.fromString(uuidTransform("-72884384,-1623899691,-2101771075,-1896562190")));
         map.put(Blocks.WARPED_STEM, UUID.fromString(uuidTransform("918256636,690376638,-1595561728,728587839")));
-        map.put(Blocks.WATER_CAULDRON, UUID.fromString(uuidTransform("1962146441,-717142658,-1120239433,1908693455")));
+        map.put(Blocks.WATER, UUID.fromString(uuidTransform("1962146441,-717142658,-1120239433,1908693455")));
         map.put(Blocks.WHITE_WOOL, UUID.fromString(uuidTransform("775398644,-1788787824,-1651766630,152117032")));
 
 
     });
-    public static Map<Block, String> textureList = Util.make(Maps.newHashMap(), map ->{
+    public static Map<Block, String> blockTextureList = Util.make(Maps.newHashMap(), map ->{
         map.put(Blocks.PUMPKIN, "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjM5MWQ2MmNlNjkwZTkyYzg2NzA5MzVmNTgxNzYzMWRmMWI0MDdkNTA5MzNjNTAyNGY2MWM2OWNkYTI5OGI4NiJ9fX0=");
         map.put(Blocks.GRASS_BLOCK,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmZkNzA0Y2ZhYWI0OTc0NmMxZDIxMjdjNzAxZTEzYjQ2MWE0MzQ0YTdjOGY4OGNhMGVhMzNhNDBmZjRhOWVmNCJ9fX0=");
         map.put(Blocks.DIRT, "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWFlNmE5MTFmYTJiOWY0Y2IyYTM2NWVjYThkMGI2MGNjZDFiMGUzYmE0ODA5ZDkzNDUzNzUxODMwOWMxYjRmYyJ9fX0=");
@@ -207,7 +205,7 @@ public class Heads {
         map.put(Blocks.REDSTONE_LAMP,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmZhMWRmOTM0N2Y3NTdmNjY5ZWU3Yjk5ZDQzMGIzYmNlM2QwMmM0OWVhY2MwOTk5OTc0NTJmM2YzN2MzMjE2YSJ9fX0=");
         map.put(Blocks.LAPIS_BLOCK,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODZmNDc2ODcxZWQyM2Y3OWU3YjlkNDk1NDg5ODg3ZTI0NGM2MTljNWUxOWU0MWNmOTViMjcxYTJlYmU3NSJ9fX0=");
         map.put(Blocks.LAPIS_ORE,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGRlYTc0ZGU1OWI4MmNjNDQxNzhhMTJmNTcxNTI5MGUzMDMwNGFkZTYzYjE5MDQ2NDNiMDRiMjJkYzFlODhhMiJ9fX0=");
-        map.put(Blocks.LAVA_CAULDRON,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWFlOTdkYTM1ZGQzMjNkNGRiODY2YTE2ZTQ3M2IxYTJiNDNkNjIwNmFhMzk4NDMwZTkxYTJjZWYwY2FhNzA2ZCJ9fX0=");
+        map.put(Blocks.LAVA,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWFlOTdkYTM1ZGQzMjNkNGRiODY2YTE2ZTQ3M2IxYTJiNDNkNjIwNmFhMzk4NDMwZTkxYTJjZWYwY2FhNzA2ZCJ9fX0=");
         map.put(Blocks.MAGMA_BLOCK,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzIxZDA5MzBiZDYxZmVhNGNiOTAyN2IwMGU5NGUxM2Q2MjAyOWM1MjRlYTBiMzI2MGM3NDc0NTdiYTFiY2ZhMSJ9fX0=");
         map.put(Blocks.MANGROVE_LOG,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmYzNDQxYjE2MzNiMThkODY5OGJiMjg3YWVlMzYzMTQyNTk3MTAzYTJlN2EyNTFlYjczYmExMGJjNGNkNmI0MiJ9fX0=");
         map.put(Blocks.MELON,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODlmYzljNWI4NzM2ZjM2ZjM0MDVjYmUxMzYzZDQzNGMxNDFjZDIzYWFjMDQxODY0NzZhZjBhMGY3ODc3YWVmNCJ9fX0=");
@@ -244,7 +242,7 @@ public class Heads {
         map.put(Blocks.TUFF,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmY5YmY1MzgzZmNlNTQzZTRhYTg4MzVhZjhlY2FlZDY3MDI5ZmQwYWFiYjAzYWMwZmY1YTJlZGVjZWUyY2U0ZCJ9fX0=");
         map.put(Blocks.TURTLE_EGG,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzdlOTA2ODFmNWFhMThiMTczNDI0NzkwMDk4NzcxMjhmODk5NzRmYmQyNGQzODFmN2ZjZWVhNzljOTE1ZDBkMiJ9fX0=");
         map.put(Blocks.WARPED_STEM,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGFhNGJiNGE3ODJhNjM2NzJhMzM5YTc0Y2QxNzMxMTlkYjA5YTA0NTY4NTA0MDVhMzRjN2MwZjRiZmRiOWQxNSJ9fX0=");
-        map.put(Blocks.WATER_CAULDRON,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzRmY2JjMjU2ZDBiZTdlNjgzYWY4NGUzOGM0YmNkYjcxYWZiOTM5ODUzOGEyOWFhOTZjYmZhMzE4YjJlYSJ9fX0=");
+        map.put(Blocks.WATER,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzRmY2JjMjU2ZDBiZTdlNjgzYWY4NGUzOGM0YmNkYjcxYWZiOTM5ODUzOGEyOWFhOTZjYmZhMzE4YjJlYSJ9fX0=");
         map.put(Blocks.WHITE_WOOL,"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDA4ZGY2MGM1MTA3NGVlZjI1NDRmZjM4Y2VhZDllMTY2NzVhZTQyNTE5MTYxMDUxODBlMWY4Y2UxOTdhYjNiYyJ9fX0=");
 
     });
@@ -288,8 +286,6 @@ public class Heads {
 
     });
 
-
-
     private static String uuidTransform(String base10){
         String[] sub10 = base10.split(",");
         String[] sub16 = new String[4];
@@ -305,6 +301,28 @@ public class Heads {
             }
         }
         return sub16[0]+"-"+sub16[1].substring(0,4)+"-"+sub16[1].substring(4)+"-"+sub16[2].substring(0,4)+"-"+sub16[2].substring(4)+sub16[3];
+    }
+
+    public static boolean isInBlockList(Block block){
+        return ((blockUUIDList.containsKey(block)) || (block.getDefaultState().isOf(Blocks.REDSTONE_WIRE)));
+    }
+
+    public static UUID getRedstoneHeadUUID(int index){
+        return redstoneHeadUUIDList.get(index);
+    }
+    public static String getRedstoneHeadTexture(int index){
+        return redstoneHeadTextureList.get(index);
+    }
+
+    public static UUID getBlockUUID(Block block){
+        return blockUUIDList.get(block);
+    }
+    public static String getBlockTexture(Block block){
+        return blockTextureList.get(block);
+    }
+
+    public static boolean isInList(Block block){
+        return blockUUIDList.containsKey(block);
     }
 
 }
