@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import static com.yipkei.vanilladdition.settings.VanillaAdditionSettings.extraTallPlantFertilizable;
+
 @Mixin(BoneMealItem.class)
 public abstract class BoneMealItemMixin {
 
@@ -20,7 +22,7 @@ public abstract class BoneMealItemMixin {
     private static void moreUsableBlock(ItemStack stack, World world, BlockPos pos, CallbackInfoReturnable<Boolean> cir){
         BlockState blockState = world.getBlockState(pos);
         Block block = blockState.getBlock();
-        if (blockState.isIn(ModTags.Blocks.BONE_MEAL_DROPS_EXTRA)){
+        if (extraTallPlantFertilizable && blockState.isIn(ModTags.Blocks.TALL_PLANT_FERTILIZABLE)){
             if (world instanceof ServerWorld){
                 Block.dropStack(world, pos, new ItemStack(block));
             }

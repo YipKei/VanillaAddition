@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nether_smithing_template_pro": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:nether_smithing_template_pro"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:destroyer_pickaxe_smithing_from_netherite_pickaxe_and_heavy_core"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_nether_smithing_template_pro"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:destroyer_pickaxe_smithing_from_netherite_pickaxe_and_heavy_core"
+    ]
+  }
+}

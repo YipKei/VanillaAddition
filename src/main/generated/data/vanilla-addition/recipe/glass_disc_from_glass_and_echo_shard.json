@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:echo_shard"
+    },
+    "*": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#*#",
+    " # "
+  ],
+  "result": {
+    "count": 4,
+    "id": "vanilla-addition:glass_disc"
+  }
+}

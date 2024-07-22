@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:diamond_hoe"
+            "items": "vanilla-addition:diamond_hammer"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_hoe_recycling_by_diamond_hammer"
+        "recipe": "vanilla-addition:diamond_hoe_recycling_by_diamond_hammer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_hoe_recycling_by_diamond_hammer"
+      "vanilla-addition:diamond_hoe_recycling_by_diamond_hammer"
     ]
   }
 }

@@ -4,16 +4,22 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import static com.yipkei.vanilladdition.settings.VanillaAdditionSettings.enableFairyWoodPunishment;
 
 
 public class AbstractFairyWand extends Item {
@@ -48,37 +54,14 @@ public class AbstractFairyWand extends Item {
     }
 
 
-    protected void replaceOrDrop(World world, BlockPos blockPos, BlockState blockState, PlayerEntity player){
-//        if (blockState.isOf(Blocks.WITHER_SKELETON_SKULL) || blockState.isOf(Blocks.WITHER_SKELETON_WALL_SKULL)){
-//            world.playSound(null, blockPos, SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-//            world.setBlockState(blockPos, Blocks.DRAGON_HEAD.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
-//        }
-//        if (blockState.isOf(Blocks.CREEPER_HEAD) || blockState.isOf(Blocks.CREEPER_WALL_HEAD)){
-//            LightningEntity lightningEntity = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
-//            lightningEntity.setPos(blockPos.getX(),blockPos.getY(),blockPos.getZ());
-//            world.spawnEntity(lightningEntity);
-//        }
-//        if (blockState.isOf(Blocks.SKELETON_SKULL) || blockState.isOf(Blocks.SKELETON_WALL_SKULL)){
-//            world.playSound(null, blockPos, SoundEvents.ENTITY_SKELETON_STEP, SoundCategory.BLOCKS, 1.0f, 1.0f);
-//            world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
-//            AbstractSkeletonEntity skeleton = EntityType.SKELETON.create(world);
-//            world.spawnEntity(skeleton);
-//        }
-//        if (blockState.isOf(Blocks.ZOMBIE_HEAD) || blockState.isOf(Blocks.ZOMBIE_WALL_HEAD)){
-//            UUID uuid = player.getUuid();
-//            String textures = getTextures(player);
-//            world.playSound(null, blockPos, SoundEvents.ENTITY_ZOMBIE_AMBIENT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-//            world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
-//            ItemStack stack = new Head( uuid ,textures).createStack();
-//            ItemEntity itemEntity = new ItemEntity(world, (double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.1, (double)blockPos.getZ() + 0.5 , stack);
-//            world.spawnEntity(itemEntity);
-//        }
-    }
+    protected void replaceOrDrop(World world, BlockPos blockPos, BlockState blockState, PlayerEntity player) {}
 
     protected static void createExplosionBySkull(World world, BlockPos blockPos){
         world.playSound(null, blockPos, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
         world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
-        world.createExplosion(null,blockPos.getX(),blockPos.getY()+0.5,blockPos.getZ(),10.0f, false,World.ExplosionSourceType.BLOCK);
+        if (enableFairyWoodPunishment) {
+            world.createExplosion(null, blockPos.getX(), blockPos.getY() + 0.5, blockPos.getZ(), world.random.nextBetween(60, 101) / 10F, false, World.ExplosionSourceType.BLOCK);
+        }
     }
 
     protected static int checkManhattanDistance(World world, BlockPos blockPos, Block block, int maxDistance){
@@ -105,27 +88,28 @@ public class AbstractFairyWand extends Item {
             if (distance>=maxDistance) hasBlock = false;
             for (int i=1; i <= distance+1; i++ ){
                 for (int j = -i; j <= i; j++) {
-                    if (!world.getBlockState(blockPos.north(i).east(j)).isOf(block)) {
-                        hasBlock = false;
-                        break;
-                    }
-                    if (!world.getBlockState(blockPos.east(i).south(j)).isOf(block)) {
-                        hasBlock = false;
-                        break;
-                    }
-                    if (!world.getBlockState(blockPos.south(i).west(j)).isOf(block)) {
-                        hasBlock = false;
-                        break;
-                    }
-                    if (!world.getBlockState(blockPos.west(i).north(j)).isOf(block)) {
-                        hasBlock = false;
-                        break;
-                    }
+                    if (!world.getBlockState(blockPos.north(i).east(j)).isOf(block)) {hasBlock = false; break;}
+                    if (!world.getBlockState(blockPos.east(i).south(j)).isOf(block)) {hasBlock = false; break;}
+                    if (!world.getBlockState(blockPos.south(i).west(j)).isOf(block)) {hasBlock = false; break;}
+                    if (!world.getBlockState(blockPos.west(i).north(j)).isOf(block)) {hasBlock = false; break;}
                 }
             }
             if (hasBlock) distance++;
         }while (hasBlock);
         return distance;
+    }
+
+    protected static void playerPunishment(PunishmentType type, World world, PlayerEntity player, int multiplier){
+        if (!enableFairyWoodPunishment) return;
+        switch (type) {
+            case EXPLOSION: world.createExplosion(null, player.getX(), player.getY() + 0.5, player.getZ(), world.random.nextBetween(60, 61 + multiplier*10) / 10F, false, World.ExplosionSourceType.BLOCK);
+            case INSTANT_DAMAGE: player.addStatusEffect(new StatusEffectInstance(RegistryEntry.of(StatusEffects.INSTANT_DAMAGE.value()),1, multiplier));
+        }
+    }
+
+    protected enum PunishmentType{
+        EXPLOSION,
+        INSTANT_DAMAGE,
     }
 }
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "vanilla-addition:diamond_hammer"
+  },
+  "base": {
+    "item": "minecraft:heart_of_the_sea"
+  },
+  "result": {
+    "count": 8,
+    "id": "vanilla-addition:conduit_shard"
+  },
+  "template": {
+    "item": "vanilla-addition:pressure_crafting_smithing_template"
+  }
+}

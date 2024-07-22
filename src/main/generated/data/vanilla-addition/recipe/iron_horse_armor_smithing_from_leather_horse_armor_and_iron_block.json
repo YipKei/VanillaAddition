@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_block"
+  },
+  "base": {
+    "item": "minecraft:leather_horse_armor"
+  },
+  "result": {
+    "components": {
+      "minecraft:damage": 0
+    },
+    "count": 1,
+    "id": "minecraft:iron_horse_armor"
+  },
+  "template": {
+    "item": "vanilla-addition:iron_horse_armor_blueprint"
+  }
+}

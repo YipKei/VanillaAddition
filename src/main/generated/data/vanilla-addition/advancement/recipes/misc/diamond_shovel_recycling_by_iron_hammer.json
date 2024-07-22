@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:diamond_shovel"
+            "items": "vanilla-addition:iron_hammer"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_shovel_recycling_by_iron_hammer"
+        "recipe": "vanilla-addition:diamond_shovel_recycling_by_iron_hammer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_shovel_recycling_by_iron_hammer"
+      "vanilla-addition:diamond_shovel_recycling_by_iron_hammer"
     ]
   }
 }

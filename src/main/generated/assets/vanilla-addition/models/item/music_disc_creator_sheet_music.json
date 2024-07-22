@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vanilla-addition:item/music_disc_creator_sheet_music"
+  }
+}

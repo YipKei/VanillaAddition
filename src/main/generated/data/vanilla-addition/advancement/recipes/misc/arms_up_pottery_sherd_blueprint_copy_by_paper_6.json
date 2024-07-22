@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_arms_up_pottery_sherd_blueprint": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:arms_up_pottery_sherd_blueprint"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:arms_up_pottery_sherd_blueprint_copy_by_paper_6"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_arms_up_pottery_sherd_blueprint"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:arms_up_pottery_sherd_blueprint_copy_by_paper_6"
+    ]
+  }
+}

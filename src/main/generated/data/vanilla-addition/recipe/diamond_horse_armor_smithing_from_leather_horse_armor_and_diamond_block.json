@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond_block"
+  },
+  "base": {
+    "item": "minecraft:leather_horse_armor"
+  },
+  "result": {
+    "components": {
+      "minecraft:damage": 0
+    },
+    "count": 1,
+    "id": "minecraft:diamond_horse_armor"
+  },
+  "template": {
+    "item": "vanilla-addition:diamond_horse_armor_blueprint"
+  }
+}

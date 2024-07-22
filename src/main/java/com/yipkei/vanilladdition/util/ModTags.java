@@ -2,6 +2,7 @@ package com.yipkei.vanilladdition.util;
 
 import com.yipkei.vanilladdition.VanillaAddition;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -17,7 +18,7 @@ public class ModTags {
         public static final TagKey<Block> EXPLOSION_CREATOR_AFFECTABLE = createTag("explosion_creator_affectable");
         public static final TagKey<Block> MAGICAL_GIRLS_AFFECTABLE = createTag("magical_girls_affectable");
         public static final TagKey<Block> NETHER_FORTRESS_CAN_SPAWNS = createTag("nether_bricks");
-        public static final TagKey<Block> BONE_MEAL_DROPS_EXTRA = createTag("bone_meal_drops_extra");
+        public static final TagKey<Block> TALL_PLANT_FERTILIZABLE = createTag("bone_meal_drops_extra");
 
         private static TagKey<Block> createTag(String name){
 
@@ -37,7 +38,12 @@ public class ModTags {
         }
     }
 
-    public static class Structures{
-//        public static final TagKey<Structures>
+    public static class Enchantments{
+
+        public static final TagKey<Enchantment> WANDER_NEARBY = createTag("wander_nearby");
+
+        private static TagKey<Enchantment> createTag(String name) {
+            return TagKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(VanillaAddition.MOD_ID, name));
+        }
     }
 }

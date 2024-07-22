@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "vanilla-addition:arms_up_pottery_sherd_blueprint"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "vanilla-addition:arms_up_pottery_sherd_blueprint"
+  }
+}

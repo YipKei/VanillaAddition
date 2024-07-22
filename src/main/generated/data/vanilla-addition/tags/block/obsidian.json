@@ -3,10 +3,10 @@
     "minecraft:obsidian",
     "vanilla-addition:obsidian_wall",
     "vanilla-addition:obsidian_stairs",
-    "vanilla-addition:obsidian_stair",
+    "vanilla-addition:obsidian_slab",
     "minecraft:crying_obsidian",
     "vanilla-addition:crying_obsidian_wall",
     "vanilla-addition:crying_obsidian_stairs",
-    "vanilla-addition:crying_obsidian_stair"
+    "vanilla-addition:crying_obsidian_slab"
   ]
 }

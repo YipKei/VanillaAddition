@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vanilla-addition:item/iron_horse_armor_blueprint"
+  }
+}

@@ -8,6 +8,7 @@ import com.yipkei.vanilladdition.util.ModLootTableModifiers;
 import com.yipkei.vanilladdition.util.VanillaTradeModifiers;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,5 +36,7 @@ public class VanillaAddition implements ModInitializer {
 		VanillaTradeModifiers.registerVanillaVillageTrades();
 
 		ModDispenserBehavior.register();
+
+		FuelRegistry.INSTANCE.add(ModBlocks.COMPRESS_WOOL, 800);
 	}
 }

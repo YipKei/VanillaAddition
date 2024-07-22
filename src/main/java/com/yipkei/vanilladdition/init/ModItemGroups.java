@@ -20,6 +20,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ROASTED_ROTTEN_FLESH);
                         entries.add(ModItems.STEEL_INGOT);
                         entries.add(ModBlocks.STEEL_BLOCK);
+                        entries.add(ModBlocks.COMPRESS_WOOL);
                         entries.add(ModItems.DIAMOND_SHARD);
                         entries.add(ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE);
 
@@ -39,10 +40,17 @@ public class ModItemGroups {
 
                         entries.add(ModItems.DEEP_DARK_FANTASY);
                         entries.add(ModItems.EXPLOSION_CREATOR);
+                        entries.add(ModItems.NOTHING_TO_BE_AFRAID_OF);
 
                         entries.add(ModItems.STONE_HAMMER);
                         entries.add(ModItems.IRON_HAMMER);
                         entries.add(ModItems.DIAMOND_HAMMER);
+
+                        entries.add(ModItems.STEEL_HELMET);
+                        entries.add(ModItems.STEEL_CHESTPLATE);
+                        entries.add(ModItems.STEEL_LEGGINGS);
+                        entries.add(ModItems.STEEL_BOOTS);
+//                        entries.add(ModItems.STEEL_SHIELD);
                     }).build());
 
     public static final ItemGroup Vanilla_Renewable_Addition = Registry.register(
@@ -55,6 +63,7 @@ public class ModItemGroups {
                         entries.add(ModItems.PULSE_OF_THE_SEA);
                         entries.add(ModItems.DRAGON_WING_MEMBRANE);
                         entries.add(ModItems.ANCIENT_TEAR);
+                        entries.add(ModItems.DIAMOND_GRAVER);
 
                         entries.add(ModItems.DIAMOND_PROTOTYPE);
                         entries.add(ModItems.ANCIENT_PROTOTYPE);
@@ -70,6 +79,10 @@ public class ModItemGroups {
                         entries.add(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE);
                         entries.add(ModItems.HEAD_COPY_TEMPLATE);
                         entries.add(ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE);
+
+                        entries.add(ModItems.IRON_HORSE_ARMOR_BLUEPRINT);
+                        entries.add(ModItems.GOLDEN_HORSE_ARMOR_BLUEPRINT);
+                        entries.add(ModItems.DIAMOND_HORSE_ARMOR_BLUEPRINT);
 
                         entries.add(ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT);
                         entries.add(ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT);
@@ -118,6 +131,28 @@ public class ModItemGroups {
                         entries.add(ModItems.FLOW_POTTERY_SHERD_PROTOTYPE);
                         entries.add(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE);
                         entries.add(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE);
+
+                        entries.add(ModItems.GLASS_DISC);
+                        entries.add(ModItems.EMPTY_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_13_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_CAT_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_BLOCKS_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_CHIRP_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_CREATOR_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_CREATOR_MUSIC_BOX_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_FAR_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_MALL_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_MELLOHI_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_STAL_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_STRAD_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_WARD_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_11_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_WAIT_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_OTHERSIDE_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_RELIC_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_5_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_PIGSTEP_SHEET_MUSIC);
+                        entries.add(ModItems.MUSIC_DISC_PRECIPICE_SHEET_MUSIC);
                     }).build());
 
     public static final ItemGroup Vanilla_Building_Addition =Registry.register(

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pressure_crafting_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:pressure_crafting_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:conduit_shard_smithing_from_heart_of_the_sea_and_diamond_hammer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pressure_crafting_smithing_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:conduit_shard_smithing_from_heart_of_the_sea_and_diamond_hammer"
+    ]
+  }
+}

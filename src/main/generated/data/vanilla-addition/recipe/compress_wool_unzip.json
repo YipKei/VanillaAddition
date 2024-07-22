@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "vanilla-addition:compress_wool"
+    },
+    {
+      "tag": "vanilla-addition:shears"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:white_wool"
+  }
+}

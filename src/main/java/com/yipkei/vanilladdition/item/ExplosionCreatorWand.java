@@ -21,14 +21,13 @@ public class ExplosionCreatorWand extends AbstractFairyWand{
             if (world.isNight()) successChance = 50;
             else if (world.isRaining()) successChance = 80;
             else if (world.isThundering()) successChance = 100;
-            if (world.random.nextBetween(0,99)< successChance) {
+            if (world.random.nextBetween(0,100)< successChance) {
                 LightningEntity lightningEntity = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
                 lightningEntity.setPos(blockPos.getX(),blockPos.getY(),blockPos.getZ());
                 world.spawnEntity(lightningEntity);
-            } else if (!world.isRaining() && world.random.nextBetween(0, 1) < 1) {
+            } else if (!world.isRaining() && world.random.nextBetween(0, 2) < 1) {
                 createExplosionBySkull(world, blockPos);
             }
-
         }
     }
 }

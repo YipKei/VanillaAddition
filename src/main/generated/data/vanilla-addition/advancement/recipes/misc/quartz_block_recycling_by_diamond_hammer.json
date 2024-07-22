@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:diamond_hammer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:quartz_block_recycling_by_diamond_hammer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_diamond_hammer"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:quartz_block_recycling_by_diamond_hammer"
+    ]
+  }
+}

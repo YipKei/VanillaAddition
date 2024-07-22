@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks extends Blocks{
     public static final Block STEEL_BLOCK = registerBlocks("steel_block",new Block(AbstractBlock.Settings.copy(IRON_BLOCK)));
+    public static final Block COMPRESS_WOOL = registerBlocks("compress_wool", new Block(AbstractBlock.Settings.copy(WHITE_WOOL)));
 
     // 原版建材补全（一）只缺墙
     public static final Block STONE_WALL = registerBlocks("stone_wall", new WallBlock(AbstractBlock.Settings.copy(STONE).solid()));
@@ -47,22 +48,22 @@ public class ModBlocks extends Blocks{
 
     public static final Block CALCITE_WALL = registerBlocks("calcite_wall", new WallBlock(AbstractBlock.Settings.copy(CALCITE).solid()));
     public static final Block CALCITE_STAIRS = registerBlocks("calcite_stairs", new StairsBlock(Blocks.CALCITE.getDefaultState(),AbstractBlock.Settings.copy(CALCITE)));
-    public static final Block CALCITE_SLAB = registerBlocks("calcite_slay", new SlabBlock(AbstractBlock.Settings.copy(CALCITE)));
+    public static final Block CALCITE_SLAB = registerBlocks("calcite_slab", new SlabBlock(AbstractBlock.Settings.copy(CALCITE)));
 
 
     public static final Block NETHERRACK_WALL = registerBlocks("netherrack_wall", new WallBlock(AbstractBlock.Settings.copy(NETHERRACK).solid()));
     public static final Block NETHERRACK_STAIRS = registerBlocks("netherrack_stairs", new StairsBlock(Blocks.NETHERRACK.getDefaultState(),AbstractBlock.Settings.copy(NETHERRACK)));
-    public static final Block NETHERRACK_SLAB = registerBlocks("netherrack_stair", new SlabBlock(AbstractBlock.Settings.copy(NETHERRACK)));
+    public static final Block NETHERRACK_SLAB = registerBlocks("netherrack_slab", new SlabBlock(AbstractBlock.Settings.copy(NETHERRACK)));
 
 
     public static final Block OBSIDIAN_WALL = registerBlocks("obsidian_wall", new WallBlock(AbstractBlock.Settings.copy(OBSIDIAN).solid()));
     public static final Block OBSIDIAN_STAIRS = registerBlocks("obsidian_stairs", new StairsBlock(Blocks.OBSIDIAN.getDefaultState(),AbstractBlock.Settings.copy(OBSIDIAN)));
-    public static final Block OBSIDIAN_SLAB = registerBlocks("obsidian_stair", new SlabBlock(AbstractBlock.Settings.copy(OBSIDIAN)));
+    public static final Block OBSIDIAN_SLAB = registerBlocks("obsidian_slab", new SlabBlock(AbstractBlock.Settings.copy(OBSIDIAN)));
 
 
     public static final Block CRYING_OBSIDIAN_WALL = registerBlocks("crying_obsidian_wall", new WallBlock(AbstractBlock.Settings.copy(CRYING_OBSIDIAN).solid()));
     public static final Block CRYING_OBSIDIAN_STAIRS = registerBlocks("crying_obsidian_stairs", new StairsBlock(Blocks.CRYING_OBSIDIAN.getDefaultState(),AbstractBlock.Settings.copy(CRYING_OBSIDIAN)));
-    public static final Block CRYING_OBSIDIAN_SLAB = registerBlocks("crying_obsidian_stair", new SlabBlock(AbstractBlock.Settings.copy(CRYING_OBSIDIAN)));
+    public static final Block CRYING_OBSIDIAN_SLAB = registerBlocks("crying_obsidian_slab", new SlabBlock(AbstractBlock.Settings.copy(CRYING_OBSIDIAN)));
 
 
     public static final Block PURPUR_WALL = registerBlocks("purpur_wall", new WallBlock(AbstractBlock.Settings.copy(PURPUR_BLOCK).solid()));
@@ -82,9 +83,9 @@ public class ModBlocks extends Blocks{
     public static final Block GLOWSTONE_STAIRS = registerBlocks("glowstone_stairs", new StairsBlock(Blocks.GLOWSTONE.getDefaultState(),AbstractBlock.Settings.copy(GLOWSTONE)));
     public static final Block GLOWSTONE_SLAB = registerBlocks("glowstone_slab", new SlabBlock(AbstractBlock.Settings.copy(GLOWSTONE)));
 
-    public static final Block ICE_WALL = registerBlocks("ice_wall", new WallBlock(AbstractBlock.Settings.copy(ICE).solid().slipperiness(0.98f).solidBlock(Blocks::never)));
-    public static final Block ICE_STAIRS = registerBlocks("ice_stairs", new StairsBlock(Blocks.ICE.getDefaultState(),AbstractBlock.Settings.copy(ICE).slipperiness(0.98f).solidBlock(Blocks::never)));
-    public static final Block ICE_SLAB = registerBlocks("ice_slab", new SlabBlock(AbstractBlock.Settings.copy(ICE).slipperiness(0.98f).solidBlock(Blocks::never)));
+    public static final Block ICE_WALL = registerBlocks("ice_wall", new WallBlock(AbstractBlock.Settings.copy(ICE).nonOpaque().solid().slipperiness(0.98f).solidBlock(Blocks::never)));
+    public static final Block ICE_STAIRS = registerBlocks("ice_stairs", new StairsBlock(Blocks.ICE.getDefaultState(),AbstractBlock.Settings.copy(ICE).nonOpaque().slipperiness(0.98f).solidBlock(Blocks::never)));
+    public static final Block ICE_SLAB = registerBlocks("ice_slab", new SlabBlock(AbstractBlock.Settings.copy(ICE).nonOpaque().slipperiness(0.98f).solidBlock(Blocks::never)));
 
     public static final Block PACKED_ICE_WALL = registerBlocks("packed_ice_wall", new WallBlock(AbstractBlock.Settings.copy(PACKED_ICE).solid().slipperiness(0.98f)));
     public static final Block PACKED_ICE_STAIRS = registerBlocks("packed_ice_stairs", new StairsBlock(Blocks.PACKED_ICE.getDefaultState(),AbstractBlock.Settings.copy(PACKED_ICE).slipperiness(0.98f)));
@@ -101,8 +102,8 @@ public class ModBlocks extends Blocks{
     public static final Block WHITE_CONCRETE_SLAB = registerBlocks("white_concrete_slab", new SlabBlock(AbstractBlock.Settings.copy(WHITE_CONCRETE)));
 
     public static final Block LIGHT_GRAY_CONCRETE_WALL = registerBlocks("light_gray_concrete_wall", new WallBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_CONCRETE).solid()));
-    public static final Block LIGHT_GRAY_CONCRETE_STAIRS = registerBlocks("light_gray_stairs", new StairsBlock(Blocks.LIGHT_GRAY_CONCRETE.getDefaultState(),AbstractBlock.Settings.copy(LIGHT_GRAY_CONCRETE)));
-    public static final Block LIGHT_GRAY_CONCRETE_SLAB = registerBlocks("light_gray_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_CONCRETE)));
+    public static final Block LIGHT_GRAY_CONCRETE_STAIRS = registerBlocks("light_gray_concrete_stairs", new StairsBlock(Blocks.LIGHT_GRAY_CONCRETE.getDefaultState(),AbstractBlock.Settings.copy(LIGHT_GRAY_CONCRETE)));
+    public static final Block LIGHT_GRAY_CONCRETE_SLAB = registerBlocks("light_gray_concrete_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_CONCRETE)));
 
     public static final Block GRAY_CONCRETE_WALL = registerBlocks("gray_concrete_wall", new WallBlock(AbstractBlock.Settings.copy(GRAY_CONCRETE).solid()));
     public static final Block GRAY_CONCRETE_STAIRS = registerBlocks("gray_concrete_stairs", new StairsBlock(Blocks.GRAY_CONCRETE.getDefaultState(),AbstractBlock.Settings.copy(GRAY_CONCRETE)));
@@ -227,11 +228,6 @@ public class ModBlocks extends Blocks{
     public static final Block PINK_TERRACOTTA_WALL = registerBlocks("pink_terracotta_wall", new WallBlock(AbstractBlock.Settings.copy(PINK_TERRACOTTA).solid()));
     public static final Block PINK_TERRACOTTA_STAIRS = registerBlocks("pink_terracotta_stairs", new StairsBlock(Blocks.PINK_TERRACOTTA.getDefaultState(),AbstractBlock.Settings.copy(PINK_TERRACOTTA)));
     public static final Block PINK_TERRACOTTA_SLAB = registerBlocks("pink_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(PINK_TERRACOTTA)));
-
-    //特殊操作 - 影子方块，缺点：与材质包不兼容，应尽量避免使用或进行覆盖
-//    public static final Block SHADOW_QUARTZ_BLOCK = registerBlocks("quartz_block_side",new Block(AbstractBlock.Settings.copy(QUARTZ_BLOCK)));
-//    public static final Block SHADOW_BASALT = registerBlocks("basalt_side",new Block(AbstractBlock.Settings.copy(BASALT)));
-//    public static final Block SHADOW_POLISHED_BASALT = registerBlocks("polished_basalt_side",new Block(AbstractBlock.Settings.copy(POLISHED_BASALT)));
 
     public static final Block BASALT_WALL = registerBlocks("basalt_wall", new WallBlock(AbstractBlock.Settings.copy(BASALT).solid()));
     public static final Block BASALT_STAIRS = registerBlocks("basalt_stairs", new StairsBlock(Blocks.BASALT.getDefaultState(),AbstractBlock.Settings.copy(BASALT)));

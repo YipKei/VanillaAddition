@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond_shards_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:diamond_shards_upgrade_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:glass_pickaxe_smithing_from_glass_pickaxe_prototype_and_diamond_shard"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_diamond_shards_upgrade_smithing_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:glass_pickaxe_smithing_from_glass_pickaxe_prototype_and_diamond_shard"
+    ]
+  }
+}

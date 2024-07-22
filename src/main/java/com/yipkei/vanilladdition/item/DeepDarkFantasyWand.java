@@ -45,7 +45,7 @@ public class DeepDarkFantasyWand extends AbstractFairyWand{
             }
         }
         if (blockState.isOf(Blocks.TURTLE_EGG)){
-            if (world.random.nextBetween(0,99)<20*checkManhattanDistance(world, blockPos, Blocks.WITHER_ROSE, 5)){
+            if (world.random.nextBetween(0,100)<20*checkManhattanDistance(world, blockPos, Blocks.WITHER_ROSE, 5)){
                 world.playSound(null,blockPos,SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS,1.0f,1.0f);
                 world.setBlockState(blockPos, Blocks.DRAGON_EGG.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
             }

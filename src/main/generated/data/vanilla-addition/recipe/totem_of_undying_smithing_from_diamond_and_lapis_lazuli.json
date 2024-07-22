@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "base": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "components": {
+      "minecraft:damage": 0
+    },
+    "count": 1,
+    "id": "minecraft:totem_of_undying"
+  },
+  "template": {
+    "item": "vanilla-addition:totem_of_undying_copy_template"
+  }
+}

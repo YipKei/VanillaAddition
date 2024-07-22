@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "vanilla-addition:diamond_flint"
+  },
+  "base": {
+    "item": "vanilla-addition:diamond_prototype"
+  },
+  "result": {
+    "count": 4,
+    "id": "minecraft:diamond"
+  },
+  "template": {
+    "item": "vanilla-addition:pressure_crafting_smithing_template"
+  }
+}

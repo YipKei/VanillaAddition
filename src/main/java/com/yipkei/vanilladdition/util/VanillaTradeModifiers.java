@@ -5,10 +5,13 @@ import com.yipkei.vanilladdition.init.ModItems;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.component.ComponentChanges;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.DyeColor;
@@ -18,11 +21,18 @@ import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+import static com.yipkei.vanilladdition.settings.VanillaAdditionSettings.enableMoreTrade;
+
 public class VanillaTradeModifiers {
     public static void registerVanillaVillageTrades(){
+        if (!enableMoreTrade){
+            return;
+        }
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER,3, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(Items.EGG, 6, 16, 10)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER,5, factories -> factories
@@ -82,7 +92,7 @@ public class VanillaTradeModifiers {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 3, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(ModItems.STEEL_INGOT, 2, 16, 10)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 5, factories -> factories
-                .add(new TradeOffers.SellEnchantedToolFactory(ModItems.GLASS_PICKAXE, 10, 4, 20, 0.2f)));
+                .add(new SellSelectEnchantedTools(ModItems.GLASS_PICKAXE, 10, 4, 15, 0.4f, Enchantments.UNBREAKING)));
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.BUTCHER, 1, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.SUGAR, 12, 16, 3));
@@ -109,6 +119,36 @@ public class VanillaTradeModifiers {
         });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories
                 .add(new TradeOffers.SellItemFactory(Items.CALCITE, 16, 16, 20)));
+    }
+
+    public static class SellSelectEnchantedTools implements TradeOffers.Factory{
+        private final ItemStack tool;
+        private final int maxUses;
+        private final int experience;
+        private final int basePrice;
+        private final float range;
+        private final float multiplier;
+        private final RegistryKey<Enchantment> enchantmentKey;
+
+        public SellSelectEnchantedTools(Item item, int maxUses, int experience, int price, float range, RegistryKey<Enchantment> enchantmentKey){
+            this.tool = new ItemStack(item);
+            this.maxUses = maxUses;
+            this.experience = experience;
+            this.basePrice = price;
+            this.range = range;
+            this.multiplier = 0.2f;
+            this.enchantmentKey = enchantmentKey;
+        }
+
+        @Nullable
+        @Override
+        public TradeOffer create(Entity entity, Random random) {
+            World world = entity.getWorld();
+            int randomLevel = world.random.nextInt(3);
+            int price = basePrice + world.random.nextInt((int) (this.basePrice * this.range * (randomLevel + 1)));
+            this.tool.addEnchantment(world.getRegistryManager().get(RegistryKeys.ENCHANTMENT).getEntry(enchantmentKey).get(),randomLevel+1);
+            return new TradeOffer(new TradedItem(Items.EMERALD, price), tool, maxUses, experience, multiplier);
+        }
     }
 
     public static class SellOminousBottleFactory implements TradeOffers.Factory{

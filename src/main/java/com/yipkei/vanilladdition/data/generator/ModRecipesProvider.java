@@ -1,28 +1,30 @@
 package com.yipkei.vanilladdition.data.generator;
 
 import com.yipkei.vanilladdition.VanillaAddition;
-import com.yipkei.vanilladdition.data.recipe.ModCustomRecipeProvider;
+import com.yipkei.vanilladdition.helper.ModCustomRecipeHelper;
 import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class ModRecipesProvider extends ModCustomRecipeProvider {
+import static com.yipkei.vanilladdition.helper.ModCustomRecipeHelper.*;
+
+public class ModRecipesProvider extends FabricRecipeProvider {
     private static final List<ItemConvertible> STEEL_MATERIAL_LIST = List.of(Items.IRON_INGOT);
 
     public ModRecipesProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
@@ -35,6 +37,14 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.STEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.STEEL_BLOCK);
 
         offerReversible2x2CompactingRecipes(exporter,RecipeCategory.MISC,ModItems.DIAMOND_SHARD, ModItems.DIAMOND_SHARD_STACK);
+
+        /* 压缩羊毛 */
+        offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.WHITE_WOOL,Items.STRING,ModBlocks.COMPRESS_WOOL,1);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.WHITE_WOOL, 8)
+                .input(ModBlocks.COMPRESS_WOOL)
+                .input(ModTags.Items.SHEARS)
+                .criterion(hasItem(ModBlocks.COMPRESS_WOOL),conditionsFromItem(ModBlocks.COMPRESS_WOOL))
+                .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"compress_wool_unzip"));
 
         /* 原版烧炼配方 */
         offerSmelting(exporter,STEEL_MATERIAL_LIST,RecipeCategory.MISC,ModItems.STEEL_INGOT, 1.0f,1000,"steel_ingot");
@@ -66,74 +76,84 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
                 .criterion(hasItem(ModItems.DIAMOND_SHARD),conditionsFromItem(ModItems.DIAMOND_SHARD))
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"diamond_flint"));
         
-        /* 工具锤合成配方及其处理配方*/
+        /* 消耗类工具合成配方及其处理配方*/
         offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, Items.COBBLESTONE,      Items.STICK,          ModItems.STONE_HAMMER,   1, "stone_hammer");
         offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, Items.IRON_INGOT,       Items.STICK,          ModItems.IRON_HAMMER,    1, "iron_hammer");
         offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, ModItems.DIAMOND_SHARD, ModItems.IRON_HAMMER, ModItems.DIAMOND_HAMMER, 1, "diamond_hammer");
+        offerTorchLikeRecipe (exporter, RecipeCategory.TOOLS, ModItems.DIAMOND_SHARD, Items.STICK,          ModItems.DIAMOND_GRAVER, 1, "diamond_graver");
 
-        offerHammerProcessing(exporter,Items.DIAMOND,            1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 3, "processing");
-        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,      1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 2, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,     1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 1, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,    1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 3, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_AXE,        1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 3, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HOE,        1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 2, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,     1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 5, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE, 1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 8, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,   1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 7, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,      1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 4, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND,             ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 3, "processing");
+        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,       ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,      ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 1, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,     ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_AXE,         ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HOE,         ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,      ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE,  ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 8, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,    ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 7, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,       ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 4, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR, ModItems.STONE_HAMMER, ModItems.DIAMOND_SHARD, 5, "recycling");
 
-        offerHammerProcessing(exporter,Items.DIAMOND,            1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "processing");
-        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,      1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,     1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 1, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,    1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_AXE,        1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HOE,        1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,     1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE, 1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 8, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,   1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 7, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,      1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 4, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND,             ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "processing");
+        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,       ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,      ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 1, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,     ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_AXE,         ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HOE,         ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,      ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE,  ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 8, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,    ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 7, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,       ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 4, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR, ModItems.IRON_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
 
-        offerHammerProcessing(exporter,Items.DIAMOND,            1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "processing");
-        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,      1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,     1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 1, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,    1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_AXE,        1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HOE,        1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,     1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE, 1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 8, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,   1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 7, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,      1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 4, "recycling");
-        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR,1, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND,             ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "processing");
+        offerHammerProcessing(exporter,Items.DIAMOND_SWORD,       ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_SHOVEL,      ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 1, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_PICKAXE,     ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_AXE,         ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 3, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HOE,         ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 2, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HELMET,      ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_CHESTPLATE,  ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 8, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_LEGGINGS,    ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 7, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_BOOTS,       ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 4, "recycling");
+        offerHammerProcessing(exporter,Items.DIAMOND_HORSE_ARMOR, ModItems.DIAMOND_HAMMER,  ModItems.DIAMOND_SHARD, 5, "recycling");
 
         // 石英块拆解
-        offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,1,ModItems.DIAMOND_HAMMER,Items.QUARTZ,3,"recycling", "quartz_like_block");
-        // 潮涌核心拆解
-        offerHammerProcessing(exporter,Items.CONDUIT,1,ModItems.DIAMOND_HAMMER,ModItems.CONDUIT_SHARD,8,"processing");
+        offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,ModItems.DIAMOND_HAMMER,  Items.QUARTZ,           3,"recycling");
 
-        // 锻造台配方
+
+        /* 锻造台配方 */
+        // 潮涌核心拆解
+        offerUpgradeRecipe(exporter, ModItems.PRESSURE_CRAFTING_TEMPLATE, Items.HEART_OF_THE_SEA, ModItems.DIAMOND_HAMMER, RecipeCategory.MISC, ModItems.CONDUIT_SHARD, 8);
+
+        // 工具加工
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE,  ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_PICKAXE);
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE,      ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_AXE);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,              Items.NETHERITE_PICKAXE, Items.HEAVY_CORE,     RecipeCategory.COMBAT, ModItems.DESTROYER_PICKAXE);
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.GLASS_PICKAXE_PROTOTYPE, ModItems.DIAMOND_SHARD, RecipeCategory.TOOLS, ModItems.GLASS_PICKAXE);
 
+        // 仙女棒
         offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.BREEZE_ROD,        Items.DRAGON_BREATH,  RecipeCategory.MISC,   ModItems.DEEP_DARK_FANTASY);
         offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.BLAZE_ROD,         Items.GUNPOWDER,      RecipeCategory.MISC,   ModItems.EXPLOSION_CREATOR);
+        offerUpgradeRecipe(exporter, ModItems.HEAD_COPY_TEMPLATE,                        Items.END_ROD,           Items.ENCHANTED_GOLDEN_APPLE, RecipeCategory.MISC, ModItems.NOTHING_TO_BE_AFRAID_OF);
 
+        // 宝藏再生
+        offerUpgradeRecipe(exporter, ModItems.PRESSURE_CRAFTING_TEMPLATE,      ModItems.DIAMOND_PROTOTYPE,    Items.FLINT_AND_STEEL,        RecipeCategory.MISC, Items.DIAMOND, 4);
+        offerUpgradeRecipe(exporter, ModItems.PRESSURE_CRAFTING_TEMPLATE,      ModItems.DIAMOND_PROTOTYPE,    ModItems.DIAMOND_FLINT,        RecipeCategory.MISC, Items.DIAMOND, 4);
 
-        offerUpgradeRecipe(exporter, ModItems.PRESSURE_CRAFTING_TEMPLATE,      ModItems.DIAMOND_PROTOTYPE,    Items.END_CRYSTAL,        RecipeCategory.MISC, Items.DIAMOND_BLOCK);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE,        ModItems.ANCIENT_PROTOTYPE,    ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE,        ModItems.SUSPICIOUS_PROTOTYPE, ModItems.ANCIENT_TEAR,    RecipeCategory.MISC, Items.ANCIENT_DEBRIS);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,    ModItems.HEAVY_CORE_PROTOTYPE, Items.WIND_CHARGE,        RecipeCategory.MISC, Items.HEAVY_CORE);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,    ModItems.PULSE_OF_THE_SEA,     Items.NAUTILUS_SHELL,     RecipeCategory.MISC, Items.HEART_OF_THE_SEA);
-        offerUpgradeRecipe(exporter, ModItems.ELYTRA_COPY_TEMPLATE,            ModItems.ELYTRA_PROTOTYPE,     Items.SADDLE,             RecipeCategory.MISC, Items.ELYTRA);
+        offerUpgradeRecipe(exporter, ModItems.ELYTRA_COPY_TEMPLATE,            ModItems.ELYTRA_PROTOTYPE,     Items.SADDLE,             RecipeCategory.MISC, Items.ELYTRA, 1, 431);
         offerUpgradeRecipe(exporter, ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE, Items.GOLDEN_APPLE,            Items.EXPERIENCE_BOTTLE,  RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE);
         offerUpgradeRecipe(exporter, ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,  Items.DIAMOND,                 Items.LAPIS_LAZULI,       RecipeCategory.MISC, Items.TOTEM_OF_UNDYING);
 
+        // 马铠再生
         offerUpgradeRecipe(exporter, ModItems.IRON_HORSE_ARMOR_BLUEPRINT,      Items.LEATHER_HORSE_ARMOR,     Items.IRON_BLOCK,         RecipeCategory.MISC, Items.IRON_HORSE_ARMOR);
         offerUpgradeRecipe(exporter, ModItems.GOLDEN_HORSE_ARMOR_BLUEPRINT,    Items.LEATHER_HORSE_ARMOR,     Items.GOLD_BLOCK,         RecipeCategory.MISC, Items.GOLDEN_HORSE_ARMOR);
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_HORSE_ARMOR_BLUEPRINT,   Items.LEATHER_HORSE_ARMOR,     Items.DIAMOND_BLOCK,      RecipeCategory.MISC, Items.DIAMOND_HORSE_ARMOR);
+        
 
         /* 简易再生 */
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.YELLOW_WOOL,   ModItems.CONDUIT_SHARD,Items.SPONGE,            8);
@@ -145,7 +165,19 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.AMETHYST_SHARD,ModItems.ANCIENT_TEAR, Items.ECHO_SHARD,        8);
 
         /* 原型合成 */
-        offerChestLikeRecipe(exporter,RecipeCategory.MISC,ModItems.DIAMOND_SHARD_STACK,Items.COAL_BLOCK,ModItems.DIAMOND_PROTOTYPE,1);
+//        offerChestLikeRecipe(exporter,RecipeCategory.MISC,ModItems.DIAMOND_SHARD_STACK,Items.COAL_BLOCK,ModItems.DIAMOND_PROTOTYPE,1);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.DIAMOND_PROTOTYPE,1)
+                .pattern("#*#")
+                .pattern("*o*")
+                .pattern("#*#")
+                .input('#',ModItems.DIAMOND_SHARD_STACK)
+                .input('*',Items.COAL_BLOCK)
+                .input('o',Items.END_CRYSTAL)
+                .criterion(hasItem(ModItems.DIAMOND_SHARD_STACK),conditionsFromItem(ModItems.DIAMOND_SHARD_STACK))
+                .criterion(hasItem(Items.END_CRYSTAL),conditionsFromItem(Items.END_CRYSTAL))
+                .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"diamond_prototype_from_diamond_stack"));
+
+
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.NETHERITE_BLOCK,Items.NETHER_STAR,ModItems.HEAVY_CORE_PROTOTYPE,1);
         offerChestLikeRecipe(exporter,RecipeCategory.MISC,Items.NETHER_STAR,ModBlocks.STEEL_BLOCK.asItem(),ModItems.SUSPICIOUS_PROTOTYPE,1);
 
@@ -323,219 +355,140 @@ public class ModRecipesProvider extends ModCustomRecipeProvider {
                 .offerTo(exporter,Identifier.of(VanillaAddition.MOD_ID,"head_copy_template_by_copying"));
 
         /* 陶片复制 */
-        offerSherdCopy(exporter, Items.ANGLER_POTTERY_SHERD,     ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT,     ModItems.ANGLER_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
-        offerSherdCopy(exporter, Items.ARCHER_POTTERY_SHERD,     ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT,     ModItems.ARCHER_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
-        offerSherdCopy(exporter, Items.ARMS_UP_POTTERY_SHERD,    ModItems.ARMS_UP_POTTERY_SHERD_BLUEPRINT,    ModItems.ARMS_UP_POTTERY_SHERD_PROTOTYPE,    0.4f, 200);
-        offerSherdCopy(exporter, Items.BLADE_POTTERY_SHERD,      ModItems.BLADE_POTTERY_SHERD_BLUEPRINT,      ModItems.BLADE_POTTERY_SHERD_PROTOTYPE,      0.4f, 200);
-        offerSherdCopy(exporter, Items.BREWER_POTTERY_SHERD,     ModItems.BREWER_POTTERY_SHERD_BLUEPRINT,     ModItems.BREWER_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
-        offerSherdCopy(exporter, Items.BURN_POTTERY_SHERD,       ModItems.BURN_POTTERY_SHERD_BLUEPRINT,       ModItems.BURN_POTTERY_SHERD_PROTOTYPE,       0.4f, 200);
-        offerSherdCopy(exporter, Items.DANGER_POTTERY_SHERD,     ModItems.DANGER_POTTERY_SHERD_BLUEPRINT,     ModItems.DANGER_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
-        offerSherdCopy(exporter, Items.EXPLORER_POTTERY_SHERD,   ModItems.EXPLORER_POTTERY_SHERD_BLUEPRINT,   ModItems.EXPLORER_POTTERY_SHERD_PROTOTYPE,   0.4f, 200);
-        offerSherdCopy(exporter, Items.FRIEND_POTTERY_SHERD,     ModItems.FRIEND_POTTERY_SHERD_BLUEPRINT,     ModItems.FRIEND_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
-        offerSherdCopy(exporter, Items.HEART_POTTERY_SHERD,      ModItems.HEART_POTTERY_SHERD_BLUEPRINT,      ModItems.HEART_POTTERY_SHERD_PROTOTYPE,      0.4f, 200);
-        offerSherdCopy(exporter, Items.HEARTBREAK_POTTERY_SHERD, ModItems.HEARTBREAK_POTTERY_SHERD_BLUEPRINT, ModItems.HEARTBREAK_POTTERY_SHERD_PROTOTYPE, 0.4f, 200);
-        offerSherdCopy(exporter, Items.HOWL_POTTERY_SHERD,       ModItems.HOWL_POTTERY_SHERD_BLUEPRINT,       ModItems.HOWL_POTTERY_SHERD_PROTOTYPE,       0.4f, 200);
-        offerSherdCopy(exporter, Items.MINER_POTTERY_SHERD,      ModItems.MINER_POTTERY_SHERD_BLUEPRINT,      ModItems.MINER_POTTERY_SHERD_PROTOTYPE,      0.4f, 200);
-        offerSherdCopy(exporter, Items.MOURNER_POTTERY_SHERD,    ModItems.MOURNER_POTTERY_SHERD_BLUEPRINT,    ModItems.MOURNER_POTTERY_SHERD_PROTOTYPE,    0.4f, 200);
-        offerSherdCopy(exporter, Items.PLENTY_POTTERY_SHERD,     ModItems.PLENTY_POTTERY_SHERD_BLUEPRINT,     ModItems.PLENTY_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
-        offerSherdCopy(exporter, Items.PRIZE_POTTERY_SHERD,      ModItems.PRIZE_POTTERY_SHERD_BLUEPRINT,      ModItems.PRIZE_POTTERY_SHERD_PROTOTYPE,      0.4f, 200);
-        offerSherdCopy(exporter, Items.SHEAF_POTTERY_SHERD,      ModItems.SHEAF_POTTERY_SHERD_BLUEPRINT,      ModItems.SHEAF_POTTERY_SHERD_PROTOTYPE,      0.4f, 200);
-        offerSherdCopy(exporter, Items.SHELTER_POTTERY_SHERD,    ModItems.SHELTER_POTTERY_SHERD_BLUEPRINT,    ModItems.SHELTER_POTTERY_SHERD_PROTOTYPE,    0.4f, 200);
-        offerSherdCopy(exporter, Items.SKULL_POTTERY_SHERD,      ModItems.SKULL_POTTERY_SHERD_BLUEPRINT,      ModItems.SKULL_POTTERY_SHERD_PROTOTYPE,      0.4f, 200);
-        offerSherdCopy(exporter, Items.SNORT_POTTERY_SHERD,      ModItems.SNORT_POTTERY_SHERD_BLUEPRINT,      ModItems.SNORT_POTTERY_SHERD_PROTOTYPE,      0.4f, 200);
-        offerSherdCopy(exporter, Items.FLOW_POTTERY_SHERD,       ModItems.FLOW_POTTERY_SHERD_BLUEPRINT,       ModItems.FLOW_POTTERY_SHERD_PROTOTYPE,       0.4f, 200);
-        offerSherdCopy(exporter, Items.GUSTER_POTTERY_SHERD,     ModItems.GUSTER_POTTERY_SHERD_BLUEPRINT,     ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
-        offerSherdCopy(exporter, Items.SCRAPE_POTTERY_SHERD,     ModItems.SCRAPE_POTTERY_SHERD_BLUEPRINT,     ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE,     0.4f, 200);
+        offerSherdCopy(exporter, Items.ANGLER_POTTERY_SHERD     );
+        offerSherdCopy(exporter, Items.ARCHER_POTTERY_SHERD     );
+        offerSherdCopy(exporter, Items.ARMS_UP_POTTERY_SHERD    );
+        offerSherdCopy(exporter, Items.BLADE_POTTERY_SHERD      );
+        offerSherdCopy(exporter, Items.BREWER_POTTERY_SHERD     );
+        offerSherdCopy(exporter, Items.BURN_POTTERY_SHERD       );
+        offerSherdCopy(exporter, Items.DANGER_POTTERY_SHERD     );
+        offerSherdCopy(exporter, Items.EXPLORER_POTTERY_SHERD   );
+        offerSherdCopy(exporter, Items.FRIEND_POTTERY_SHERD     );
+        offerSherdCopy(exporter, Items.HEART_POTTERY_SHERD      );
+        offerSherdCopy(exporter, Items.HEARTBREAK_POTTERY_SHERD );
+        offerSherdCopy(exporter, Items.HOWL_POTTERY_SHERD       );
+        offerSherdCopy(exporter, Items.MINER_POTTERY_SHERD      );
+        offerSherdCopy(exporter, Items.MOURNER_POTTERY_SHERD    );
+        offerSherdCopy(exporter, Items.PLENTY_POTTERY_SHERD     );
+        offerSherdCopy(exporter, Items.PRIZE_POTTERY_SHERD      );
+        offerSherdCopy(exporter, Items.SHEAF_POTTERY_SHERD      );
+        offerSherdCopy(exporter, Items.SHELTER_POTTERY_SHERD    );
+        offerSherdCopy(exporter, Items.SKULL_POTTERY_SHERD      );
+        offerSherdCopy(exporter, Items.SNORT_POTTERY_SHERD      );
+        offerSherdCopy(exporter, Items.FLOW_POTTERY_SHERD       );
+        offerSherdCopy(exporter, Items.GUSTER_POTTERY_SHERD     );
+        offerSherdCopy(exporter, Items.SCRAPE_POTTERY_SHERD     );
+
+        /* 唱片复制 */
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GLASS_DISC, 4)
+                .pattern(" # ")
+                .pattern("#*#")
+                .pattern(" # ")
+                .input('#', Items.ECHO_SHARD)
+                .input('*', Items.GLASS)
+                .criterion(hasItem(Items.ECHO_SHARD), conditionsFromItem(Items.ECHO_SHARD))
+                .offerTo(exporter, Identifier.of(VanillaAddition.MOD_ID, ModCustomRecipeHelper.convertBetween(ModItems.GLASS_DISC, Items.GLASS, Items.ECHO_SHARD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.EMPTY_SHEET_MUSIC)
+                .input(Items.PAPER)
+                .input(Items.INK_SAC)
+                .input(Items.FEATHER)
+                .criterion(hasItem(Items.INK_SAC), conditionsFromItem(Items.INK_SAC))
+                .offerTo(exporter, Identifier.of(VanillaAddition.MOD_ID, RecipeProvider.getItemPath(ModItems.EMPTY_SHEET_MUSIC)));
+
+        offerDiscCopy(exporter, Items.MUSIC_DISC_13);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_CAT);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_BLOCKS);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_CHIRP);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_CREATOR);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_CREATOR_MUSIC_BOX);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_FAR);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_MALL);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_MELLOHI);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_STAL);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_STRAD);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_WARD);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_11);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_WAIT);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_OTHERSIDE);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_RELIC);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_5);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_PIGSTEP);
+        offerDiscCopy(exporter, Items.MUSIC_DISC_PRECIPICE);
 
         /* 建筑方块拓展配方 */
-        // 墙
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.STONE,                 ModBlocks.STONE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_STONE ,         ModBlocks.SMOOTH_STONE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.DIRT,                  ModBlocks.DIRT_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MUD,                   ModBlocks.MUD_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CLAY,                  ModBlocks.CLAY_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_GRANITE,      ModBlocks.POLISHED_GRANITE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_DIORITE,      ModBlocks.POLISHED_DIORITE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_ANDESITE,     ModBlocks.POLISHED_ANDESITE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CALCITE,               ModBlocks.CALCITE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_SANDSTONE,      ModBlocks.SMOOTH_SANDSTONE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_RED_SANDSTONE,  ModBlocks.SMOOTH_RED_SANDSTONE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICKS,     ModBlocks.PRISMARINE_BRICK_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.DARK_PRISMARINE,       ModBlocks.DARK_PRISMARINE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.OBSIDIAN,              ModBlocks.OBSIDIAN_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CRYING_OBSIDIAN,       ModBlocks.CRYING_OBSIDIAN_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.NETHERRACK,            ModBlocks.NETHERRACK_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BASALT,                ModBlocks.BASALT_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_BASALT,         ModBlocks.SMOOTH_BASALT_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_BASALT,       ModBlocks.POLISHED_BASALT_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE,             ModBlocks.END_STONE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPUR_BLOCK,          ModBlocks.PURPUR_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.QUARTZ_BLOCK,          ModBlocks.QUARTZ_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_QUARTZ,         ModBlocks.SMOOTH_QUARTZ_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.AMETHYST_BLOCK,        ModBlocks.AMETHYST_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE,             ModBlocks.GLOWSTONE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ICE,                   ModBlocks.ICE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PACKED_ICE,            ModBlocks.PACKED_ICE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_ICE,              ModBlocks.BLUE_ICE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_CONCRETE,        ModBlocks.WHITE_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_GRAY_CONCRETE,   ModBlocks.LIGHT_GRAY_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GRAY_CONCRETE,         ModBlocks.GRAY_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_CONCRETE,        ModBlocks.BLACK_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BROWN_CONCRETE,        ModBlocks.BROWN_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.RED_CONCRETE,          ModBlocks.RED_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ORANGE_CONCRETE,       ModBlocks.ORANGE_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.YELLOW_CONCRETE,       ModBlocks.YELLOW_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIME_CONCRETE,         ModBlocks.LIME_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GREEN_CONCRETE,        ModBlocks.GREEN_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CYAN_CONCRETE,         ModBlocks.CYAN_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_BLUE_CONCRETE,   ModBlocks.LIGHT_BLUE_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_CONCRETE,         ModBlocks.BLUE_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_CONCRETE,       ModBlocks.PURPLE_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_CONCRETE,      ModBlocks.MAGENTA_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_CONCRETE,         ModBlocks.PINK_CONCRETE_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.TERRACOTTA,            ModBlocks.TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_TERRACOTTA,      ModBlocks.WHITE_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_GRAY_TERRACOTTA, ModBlocks.LIGHT_GRAY_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GRAY_TERRACOTTA,       ModBlocks.GRAY_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_TERRACOTTA,      ModBlocks.BLACK_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BROWN_TERRACOTTA,      ModBlocks.BROWN_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.RED_TERRACOTTA,        ModBlocks.RED_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ORANGE_TERRACOTTA,     ModBlocks.ORANGE_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.YELLOW_TERRACOTTA,     ModBlocks.YELLOW_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIME_TERRACOTTA,       ModBlocks.LIME_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GREEN_TERRACOTTA,      ModBlocks.GREEN_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CYAN_TERRACOTTA,       ModBlocks.CYAN_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_BLUE_TERRACOTTA, ModBlocks.LIGHT_BLUE_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_TERRACOTTA,       ModBlocks.BLUE_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_TERRACOTTA,     ModBlocks.PURPLE_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_TERRACOTTA,    ModBlocks.MAGENTA_TERRACOTTA_WALL);
-        offerDefaultWallRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_TERRACOTTA,       ModBlocks.PINK_TERRACOTTA_WALL);
+        // 仅缺墙
+        offerDefaultWallRecipe  (exporter, Blocks.STONE);
+        offerDefaultWallRecipe  (exporter, Blocks.POLISHED_GRANITE);
+        offerDefaultWallRecipe  (exporter, Blocks.POLISHED_DIORITE);
+        offerDefaultWallRecipe  (exporter, Blocks.POLISHED_ANDESITE);
+        offerDefaultWallRecipe  (exporter, Blocks.SMOOTH_SANDSTONE);
+        offerDefaultWallRecipe  (exporter, Blocks.SMOOTH_RED_SANDSTONE);
+        offerDefaultWallRecipe  (exporter, Blocks.PRISMARINE_BRICKS);
+        offerDefaultWallRecipe  (exporter, Blocks.DARK_PRISMARINE);
+        offerDefaultWallRecipe  (exporter, Blocks.SMOOTH_QUARTZ);
 
-        // 台阶
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.STONE,                 ModBlocks.STONE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_STONE ,         ModBlocks.SMOOTH_STONE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.DIRT,                  ModBlocks.DIRT_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MUD,                   ModBlocks.MUD_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CLAY,                  ModBlocks.CLAY_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_GRANITE,      ModBlocks.POLISHED_GRANITE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_DIORITE,      ModBlocks.POLISHED_DIORITE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_ANDESITE,     ModBlocks.POLISHED_ANDESITE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CALCITE,               ModBlocks.CALCITE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_SANDSTONE,      ModBlocks.SMOOTH_SANDSTONE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_RED_SANDSTONE,  ModBlocks.SMOOTH_RED_SANDSTONE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICKS,     ModBlocks.PRISMARINE_BRICK_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.DARK_PRISMARINE,       ModBlocks.DARK_PRISMARINE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.OBSIDIAN,              ModBlocks.OBSIDIAN_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CRYING_OBSIDIAN,       ModBlocks.CRYING_OBSIDIAN_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.NETHERRACK,            ModBlocks.NETHERRACK_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BASALT,                ModBlocks.BASALT_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_BASALT,         ModBlocks.SMOOTH_BASALT_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_BASALT,       ModBlocks.POLISHED_BASALT_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE,             ModBlocks.END_STONE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPUR_BLOCK,          ModBlocks.PURPUR_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.QUARTZ_BLOCK,          ModBlocks.QUARTZ_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_QUARTZ,         ModBlocks.SMOOTH_QUARTZ_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.AMETHYST_BLOCK,        ModBlocks.AMETHYST_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE,             ModBlocks.GLOWSTONE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ICE,                   ModBlocks.ICE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PACKED_ICE,            ModBlocks.PACKED_ICE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_ICE,              ModBlocks.BLUE_ICE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_CONCRETE,        ModBlocks.WHITE_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_GRAY_CONCRETE,   ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GRAY_CONCRETE,         ModBlocks.GRAY_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_CONCRETE,        ModBlocks.BLACK_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BROWN_CONCRETE,        ModBlocks.BROWN_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.RED_CONCRETE,          ModBlocks.RED_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ORANGE_CONCRETE,       ModBlocks.ORANGE_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.YELLOW_CONCRETE,       ModBlocks.YELLOW_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIME_CONCRETE,         ModBlocks.LIME_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GREEN_CONCRETE,        ModBlocks.GREEN_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CYAN_CONCRETE,         ModBlocks.CYAN_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_BLUE_CONCRETE,   ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_CONCRETE,         ModBlocks.BLUE_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_CONCRETE,       ModBlocks.PURPLE_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_CONCRETE,      ModBlocks.MAGENTA_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_CONCRETE,         ModBlocks.PINK_CONCRETE_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.TERRACOTTA,            ModBlocks.TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_TERRACOTTA,      ModBlocks.WHITE_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_GRAY_TERRACOTTA, ModBlocks.LIGHT_GRAY_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GRAY_TERRACOTTA,       ModBlocks.GRAY_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_TERRACOTTA,      ModBlocks.BLACK_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BROWN_TERRACOTTA,      ModBlocks.BROWN_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.RED_TERRACOTTA,        ModBlocks.RED_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ORANGE_TERRACOTTA,     ModBlocks.ORANGE_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.YELLOW_TERRACOTTA,     ModBlocks.YELLOW_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIME_TERRACOTTA,       ModBlocks.LIME_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GREEN_TERRACOTTA,      ModBlocks.GREEN_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CYAN_TERRACOTTA,       ModBlocks.CYAN_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_BLUE_TERRACOTTA, ModBlocks.LIGHT_BLUE_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_TERRACOTTA,       ModBlocks.BLUE_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_TERRACOTTA,     ModBlocks.PURPLE_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_TERRACOTTA,    ModBlocks.MAGENTA_TERRACOTTA_STAIRS);
-        offerDefaultStairsRecipe(exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_TERRACOTTA,       ModBlocks.PINK_TERRACOTTA_STAIRS);
+        offerDefaultWallRecipe  (exporter, Blocks.PURPUR_BLOCK,     ModBlocks.PURPUR_WALL);
+        offerDefaultWallRecipe  (exporter, Blocks.QUARTZ_BLOCK,     ModBlocks.QUARTZ_WALL);
 
-        // 半砖
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.STONE,                 ModBlocks.STONE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_STONE ,         ModBlocks.SMOOTH_STONE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.DIRT,                  ModBlocks.DIRT_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MUD,                   ModBlocks.MUD_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CLAY,                  ModBlocks.CLAY_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_GRANITE,      ModBlocks.POLISHED_GRANITE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_DIORITE,      ModBlocks.POLISHED_DIORITE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_ANDESITE,     ModBlocks.POLISHED_ANDESITE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CALCITE,               ModBlocks.CALCITE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_SANDSTONE,      ModBlocks.SMOOTH_SANDSTONE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_RED_SANDSTONE,  ModBlocks.SMOOTH_RED_SANDSTONE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICKS,     ModBlocks.PRISMARINE_BRICK_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.DARK_PRISMARINE,       ModBlocks.DARK_PRISMARINE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.OBSIDIAN,              ModBlocks.OBSIDIAN_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CRYING_OBSIDIAN,       ModBlocks.CRYING_OBSIDIAN_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.NETHERRACK,            ModBlocks.NETHERRACK_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BASALT,                ModBlocks.BASALT_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_BASALT,         ModBlocks.SMOOTH_BASALT_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.POLISHED_BASALT,       ModBlocks.POLISHED_BASALT_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE,             ModBlocks.END_STONE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPUR_BLOCK,          ModBlocks.PURPUR_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.QUARTZ_BLOCK,          ModBlocks.QUARTZ_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_QUARTZ,         ModBlocks.SMOOTH_QUARTZ_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.AMETHYST_BLOCK,        ModBlocks.AMETHYST_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE,             ModBlocks.GLOWSTONE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ICE,                   ModBlocks.ICE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PACKED_ICE,            ModBlocks.PACKED_ICE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_ICE,              ModBlocks.BLUE_ICE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_CONCRETE,        ModBlocks.WHITE_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_GRAY_CONCRETE,   ModBlocks.LIGHT_GRAY_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GRAY_CONCRETE,         ModBlocks.GRAY_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_CONCRETE,        ModBlocks.BLACK_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BROWN_CONCRETE,        ModBlocks.BROWN_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.RED_CONCRETE,          ModBlocks.RED_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ORANGE_CONCRETE,       ModBlocks.ORANGE_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.YELLOW_CONCRETE,       ModBlocks.YELLOW_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIME_CONCRETE,         ModBlocks.LIME_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GREEN_CONCRETE,        ModBlocks.GREEN_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CYAN_CONCRETE,         ModBlocks.CYAN_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_BLUE_CONCRETE,   ModBlocks.LIGHT_BLUE_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_CONCRETE,         ModBlocks.BLUE_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_CONCRETE,       ModBlocks.PURPLE_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_CONCRETE,      ModBlocks.MAGENTA_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_CONCRETE,         ModBlocks.PINK_CONCRETE_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.TERRACOTTA,            ModBlocks.TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_TERRACOTTA,      ModBlocks.WHITE_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_GRAY_TERRACOTTA, ModBlocks.LIGHT_GRAY_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GRAY_TERRACOTTA,       ModBlocks.GRAY_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_TERRACOTTA,      ModBlocks.BLACK_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BROWN_TERRACOTTA,      ModBlocks.BROWN_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.RED_TERRACOTTA,        ModBlocks.RED_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.ORANGE_TERRACOTTA,     ModBlocks.ORANGE_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.YELLOW_TERRACOTTA,     ModBlocks.YELLOW_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIME_TERRACOTTA,       ModBlocks.LIME_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.GREEN_TERRACOTTA,      ModBlocks.GREEN_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.CYAN_TERRACOTTA,       ModBlocks.CYAN_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_BLUE_TERRACOTTA, ModBlocks.LIGHT_BLUE_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_TERRACOTTA,       ModBlocks.BLUE_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_TERRACOTTA,     ModBlocks.PURPLE_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_TERRACOTTA,    ModBlocks.MAGENTA_TERRACOTTA_SLAB);
-        offerDefaultSlabRecipe  (exporter,RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_TERRACOTTA,       ModBlocks.PINK_TERRACOTTA_SLAB);
+        // 缺墙与台阶
+        offerDefaultWallRecipe  (exporter, Blocks.SMOOTH_STONE);
+        offerDefaultStairsRecipe(exporter, Blocks.SMOOTH_STONE);
+
+
+        // 三种都缺
+        offerDefaultDecorateRecipe(exporter, Blocks.DIRT                  );
+        offerDefaultDecorateRecipe(exporter, Blocks.MUD                   );
+        offerDefaultDecorateRecipe(exporter, Blocks.CLAY                  );
+        offerDefaultDecorateRecipe(exporter, Blocks.CALCITE               );
+        offerDefaultDecorateRecipe(exporter, Blocks.OBSIDIAN              );
+        offerDefaultDecorateRecipe(exporter, Blocks.CRYING_OBSIDIAN       );
+        offerDefaultDecorateRecipe(exporter, Blocks.NETHERRACK            );
+        offerDefaultDecorateRecipe(exporter, Blocks.BASALT                );
+        offerDefaultDecorateRecipe(exporter, Blocks.SMOOTH_BASALT         );
+        offerDefaultDecorateRecipe(exporter, Blocks.POLISHED_BASALT       );
+        offerDefaultDecorateRecipe(exporter, Blocks.END_STONE             );
+        offerDefaultDecorateRecipe(exporter, Blocks.GLOWSTONE             );
+        offerDefaultDecorateRecipe(exporter, Blocks.ICE                   );
+        offerDefaultDecorateRecipe(exporter, Blocks.PACKED_ICE            );
+        offerDefaultDecorateRecipe(exporter, Blocks.BLUE_ICE              );
+        offerDefaultDecorateRecipe(exporter, Blocks.WHITE_CONCRETE        );
+        offerDefaultDecorateRecipe(exporter, Blocks.LIGHT_GRAY_CONCRETE   );
+        offerDefaultDecorateRecipe(exporter, Blocks.GRAY_CONCRETE         );
+        offerDefaultDecorateRecipe(exporter, Blocks.BLACK_CONCRETE        );
+        offerDefaultDecorateRecipe(exporter, Blocks.BROWN_CONCRETE        );
+        offerDefaultDecorateRecipe(exporter, Blocks.RED_CONCRETE          );
+        offerDefaultDecorateRecipe(exporter, Blocks.ORANGE_CONCRETE       );
+        offerDefaultDecorateRecipe(exporter, Blocks.YELLOW_CONCRETE       );
+        offerDefaultDecorateRecipe(exporter, Blocks.LIME_CONCRETE         );
+        offerDefaultDecorateRecipe(exporter, Blocks.GREEN_CONCRETE        );
+        offerDefaultDecorateRecipe(exporter, Blocks.CYAN_CONCRETE         );
+        offerDefaultDecorateRecipe(exporter, Blocks.LIGHT_BLUE_CONCRETE   );
+        offerDefaultDecorateRecipe(exporter, Blocks.BLUE_CONCRETE         );
+        offerDefaultDecorateRecipe(exporter, Blocks.PURPLE_CONCRETE       );
+        offerDefaultDecorateRecipe(exporter, Blocks.MAGENTA_CONCRETE      );
+        offerDefaultDecorateRecipe(exporter, Blocks.PINK_CONCRETE         );
+        offerDefaultDecorateRecipe(exporter, Blocks.TERRACOTTA            );
+        offerDefaultDecorateRecipe(exporter, Blocks.WHITE_TERRACOTTA      );
+        offerDefaultDecorateRecipe(exporter, Blocks.LIGHT_GRAY_TERRACOTTA );
+        offerDefaultDecorateRecipe(exporter, Blocks.GRAY_TERRACOTTA       );
+        offerDefaultDecorateRecipe(exporter, Blocks.BLACK_TERRACOTTA      );
+        offerDefaultDecorateRecipe(exporter, Blocks.BROWN_TERRACOTTA      );
+        offerDefaultDecorateRecipe(exporter, Blocks.RED_TERRACOTTA        );
+        offerDefaultDecorateRecipe(exporter, Blocks.ORANGE_TERRACOTTA     );
+        offerDefaultDecorateRecipe(exporter, Blocks.YELLOW_TERRACOTTA     );
+        offerDefaultDecorateRecipe(exporter, Blocks.LIME_TERRACOTTA       );
+        offerDefaultDecorateRecipe(exporter, Blocks.GREEN_TERRACOTTA      );
+        offerDefaultDecorateRecipe(exporter, Blocks.CYAN_TERRACOTTA       );
+        offerDefaultDecorateRecipe(exporter, Blocks.LIGHT_BLUE_TERRACOTTA );
+        offerDefaultDecorateRecipe(exporter, Blocks.BLUE_TERRACOTTA       );
+        offerDefaultDecorateRecipe(exporter, Blocks.PURPLE_TERRACOTTA     );
+        offerDefaultDecorateRecipe(exporter, Blocks.MAGENTA_TERRACOTTA    );
+        offerDefaultDecorateRecipe(exporter, Blocks.PINK_TERRACOTTA       );
+
+        offerDefaultWallRecipe  (exporter, Blocks.AMETHYST_BLOCK,      ModBlocks.AMETHYST_WALL);
+        offerDefaultStairsRecipe(exporter, Blocks.AMETHYST_BLOCK,      ModBlocks.AMETHYST_STAIRS);
+        offerDefaultSlabRecipe  (exporter, Blocks.AMETHYST_BLOCK,      ModBlocks.AMETHYST_SLAB);
 
         /* As no plan：有损原木配方 - 原木合成木楼梯等 */
         //箱子合成

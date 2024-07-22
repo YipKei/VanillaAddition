@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "vanilla-addition:diamond_shard_stack"
+    },
+    "*": {
+      "item": "minecraft:coal_block"
+    },
+    "o": {
+      "item": "minecraft:end_crystal"
+    }
+  },
+  "pattern": [
+    "#*#",
+    "*o*",
+    "#*#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vanilla-addition:diamond_prototype"
+  }
+}

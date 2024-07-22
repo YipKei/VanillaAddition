@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_music_disc_mall_sheet_music": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:music_disc_mall_sheet_music"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:music_disc_mall_smithing_from_glass_disc_and_diamond_graver"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_music_disc_mall_sheet_music"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:music_disc_mall_smithing_from_glass_disc_and_diamond_graver"
+    ]
+  }
+}

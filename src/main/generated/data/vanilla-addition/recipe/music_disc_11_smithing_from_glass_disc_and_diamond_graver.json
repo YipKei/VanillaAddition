@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "vanilla-addition:diamond_graver"
+  },
+  "base": {
+    "item": "vanilla-addition:glass_disc"
+  },
+  "result": {
+    "components": {
+      "minecraft:damage": 0
+    },
+    "count": 1,
+    "id": "minecraft:music_disc_11"
+  },
+  "template": {
+    "item": "vanilla-addition:music_disc_11_sheet_music"
+  }
+}

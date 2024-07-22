@@ -21,6 +21,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
+import static com.yipkei.vanilladdition.settings.VanillaAdditionSettings.*;
+
 public class ModLootTableModifiers {
     private static final RegistryKey<LootTable> ENDER_DRAGON_DROPS_KEY =    registerKey("minecraft", "entities/ender_dragon");
     private static final RegistryKey<LootTable> WARDEN_KEY =                registerKey("minecraft", "entities/warden");
@@ -33,28 +35,30 @@ public class ModLootTableModifiers {
 
     public static void modifierLootTables(){
         LootTableEvents.MODIFY.register((key,tableBuilder,source)->{
-            if (ENDER_DRAGON_DROPS_KEY.equals(key)){
+            if (ENDER_DRAGON_DROPS_KEY.equals(key) && dragonDropsWingsMembrane){
                 tableBuilder.pool(createEntityKilledLootPool(1.0f, ModItems.DRAGON_WING_MEMBRANE, 8.0f, 16.0f));
             }
-            if (WARDEN_KEY.equals(key)){
+            if (WARDEN_KEY.equals(key) && wanderDropsAncientTears){
                 tableBuilder.pool(createEntityKilledLootPool(1.0f, ModItems.ANCIENT_TEAR, 1.0f, 1.5f));
             }
-            if (BASTION_TREASURE.equals(key)){
-                tableBuilder.pool(createSimpleLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE));
+            if (netherSmithingTemplateCanFindInBastion) {
+                if (BASTION_TREASURE.equals(key)) {
+                    tableBuilder.pool(createSimpleLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE));
+                }
+                if (BASTION_BRIDGE.equals(key)) {
+                    tableBuilder.pool(createSimpleWeightLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE, 4, 1));
+                }
+                if (BASTION_HOGLIN_STABLE.equals(key)) {
+                    tableBuilder.pool(createSimpleWeightLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE, 9, 1));
+                }
+                if (BASTION_OTHER.equals(key)) {
+                    tableBuilder.pool(createSimpleWeightLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE, 19, 1));
+                }
             }
-            if (BASTION_BRIDGE.equals(key)){
-                tableBuilder.pool(createSimpleWeightLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE, 4, 1));
-            }
-            if (BASTION_HOGLIN_STABLE.equals(key)){
-                tableBuilder.pool(createSimpleWeightLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE, 9, 1));
-            }
-            if (BASTION_OTHER.equals(key)){
-                tableBuilder.pool(createSimpleWeightLootPool(1.0f, ModItems.NETHER_SMITHING_TEMPLATE,  19, 1));
-            }
-            if (END_CITY_TREASURE.equals(key)){
+            if (END_CITY_TREASURE.equals(key) && elytraTemplateCanFindInEndCity){
                 tableBuilder.pool(createSimpleWeightLootPool(1.0f, ModItems.ELYTRA_COPY_TEMPLATE, 4, 1));
             }
-            if (ANCIENT_CITY.equals(key)){
+            if (ANCIENT_CITY.equals(key) && ancientCityCanFindMoreTreasure){
                 tableBuilder.pool(createMultipleWeightLootPool(3.0f,35, Items.TOTEM_OF_UNDYING, 5, ModItems.ANCIENT_TEAR, 4, ModItems.SUSPICIOUS_PROTOTYPE,3, ModItems.ANCIENT_PROTOTYPE, 2, ModItems.NETHER_SMITHING_TEMPLATE, 1));
             }
 

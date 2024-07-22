@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:saddle"
+  },
+  "base": {
+    "item": "vanilla-addition:elytra_prototype"
+  },
+  "result": {
+    "components": {
+      "minecraft:damage": 431
+    },
+    "count": 1,
+    "id": "minecraft:elytra"
+  },
+  "template": {
+    "item": "vanilla-addition:elytra_copy_template"
+  }
+}

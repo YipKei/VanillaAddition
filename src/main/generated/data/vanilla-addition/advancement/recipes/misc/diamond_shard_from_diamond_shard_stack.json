@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond_shard_stack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla-addition:diamond_shard_stack"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla-addition:diamond_shard_from_diamond_shard_stack"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_diamond_shard_stack"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla-addition:diamond_shard_from_diamond_shard_stack"
+    ]
+  }
+}

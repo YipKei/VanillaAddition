@@ -16,6 +16,8 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import static com.yipkei.vanilladdition.settings.VanillaAdditionSettings.*;
+
 public class MagicalGirlsWand extends AbstractFairyWand{
     public MagicalGirlsWand(Settings settings)
     {
@@ -24,14 +26,15 @@ public class MagicalGirlsWand extends AbstractFairyWand{
 
     @Override
     protected void replaceOrDrop(World world, BlockPos blockPos, BlockState blockState, PlayerEntity player){
-        if ((blockState.isOf(Blocks.ZOMBIE_HEAD)) || (blockState.isOf(Blocks.ZOMBIE_WALL_HEAD))){
+        if (enableSpawnHeads && ((blockState.isOf(Blocks.ZOMBIE_HEAD)) || (blockState.isOf(Blocks.ZOMBIE_WALL_HEAD)))){
             ItemStack playerHead = Head.getNewPlayerHead(player.getGameProfile(),"",1);
             if (playerHead!=null){
                 spawnHead(world, blockPos, playerHead);
             }
-            player.addStatusEffect(new StatusEffectInstance(RegistryEntry.of(StatusEffects.INSTANT_DAMAGE.value()),1,4));
+            playerPunishment(PunishmentType.INSTANT_DAMAGE, world, player, 4);
             return;
         }
+        if (!enableFairyWoodNormalAffectBlocks) return;
         if (blockState.isOf(Blocks.REDSTONE_WIRE)){
             spawnHead(world, blockPos, Head.getPowerHead(blockState));
             return;
@@ -50,17 +53,23 @@ public class MagicalGirlsWand extends AbstractFairyWand{
         }
         int chance = world.random.nextInt(10);
         if ((blockState.isOf(Blocks.BEDROCK)) || (blockState.isOf(Blocks.PISTON_HEAD) || (blockState.isOf(Blocks.REINFORCED_DEEPSLATE)))){
-            if (chance == 0){
+            if (chance == 0 && enableFairyWoodPunishment){
                 player.kill();
+                if (enableSpawnHeads){
+                    ItemStack playerHead = Head.getNewPlayerHead(player.getGameProfile(),"",1);
+                    if (playerHead!=null){
+                        spawnHead(world, blockPos, playerHead);
+                    }
+                }
                 return;
             }else if (chance > 8){
                 spawnHead(world, blockPos, head);
             }
-            player.addStatusEffect(new StatusEffectInstance(RegistryEntry.of(StatusEffects.INSTANT_DAMAGE.value()),1,20));
+            playerPunishment(PunishmentType.INSTANT_DAMAGE, world, player, 20);
             return;
         }
         if (blockState.isOf(Blocks.TNT)){
-            if (chance > 8){
+            if (chance > 7){
                 spawnHead(world, blockPos, head);
                 return;
             }

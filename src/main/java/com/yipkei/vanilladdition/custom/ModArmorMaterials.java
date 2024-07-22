@@ -1,5 +1,6 @@
 package com.yipkei.vanilladdition.custom;
 
+import com.yipkei.vanilladdition.VanillaAddition;
 import com.yipkei.vanilladdition.init.ModItems;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -26,7 +27,7 @@ public class ModArmorMaterials {
     }), 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0f, 0.01f, () -> Ingredient.ofItems(ModItems.STEEL_INGOT));
 
     private static RegistryEntry<ArmorMaterial> register(String id, EnumMap<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(Identifier.ofVanilla(id)));
+        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(Identifier.of(VanillaAddition.MOD_ID,id)));
         return ModArmorMaterials.register(id, defense, enchantability, equipSound, toughness, knockbackResistance, repairIngredient, list);
     }
 

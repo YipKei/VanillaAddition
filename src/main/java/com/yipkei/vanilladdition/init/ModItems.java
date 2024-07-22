@@ -24,9 +24,10 @@ public class ModItems {
     public static final Item ROASTED_ROTTEN_FLESH = registerItems("roasted_rotten_flesh", new Item(new Item.Settings().food(ModFoodComponents.ROASTED_ROTTEN_FLESH)));
 
     //耗材
-    public static final Item STONE_HAMMER = registerItems("stone_hammer", new Hammer(new Item.Settings().maxDamage(1)));
-    public static final Item IRON_HAMMER = registerItems("iron_hammer", new Hammer(new Item.Settings().maxDamage(8)));
-    public static final Item DIAMOND_HAMMER = registerItems("diamond_hammer", new Hammer(new Item.Settings().maxDamage(64)));
+    public static final Item STONE_HAMMER = registerItems("stone_hammer", new AbstractDurabilityTool(new Item.Settings().maxDamage(2)));
+    public static final Item IRON_HAMMER = registerItems("iron_hammer", new AbstractDurabilityTool(new Item.Settings().maxDamage(8)));
+    public static final Item DIAMOND_HAMMER = registerItems("diamond_hammer", new AbstractDurabilityTool(new Item.Settings().maxDamage(32)));
+    public static final Item DIAMOND_GRAVER = registerItems("diamond_graver", new AbstractDurabilityTool(new Item.Settings().maxCount(16)));
 
     //工具
     public static final Item STEEL_SWORD = registerItems("steel_sword", new SwordItem(ModToolMaterials.STEEL,(new Item.Settings()).attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 3, -2.4F))));
@@ -65,6 +66,29 @@ public class ModItems {
     public static final Item DRAGON_WING_MEMBRANE = registerItems("dragon_wing_membrane", new Item(new Item.Settings()));
     public static final Item ANCIENT_TEAR = registerItems("ancient_tear", new Item(new Item.Settings()));
 
+    public static final Item GLASS_DISC                               = registerItems("glass_disc",                         new Item(new Item.Settings().maxCount(16)));
+    public static final Item EMPTY_SHEET_MUSIC                        = registerItems("empty_sheet_music",                  new SheetMusic(new Item.Settings()));
+    public static final Item MUSIC_DISC_13_SHEET_MUSIC                = registerItems("music_disc_13_sheet_music",                new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_CAT_SHEET_MUSIC               = registerItems("music_disc_cat_sheet_music",               new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_BLOCKS_SHEET_MUSIC            = registerItems("music_disc_blocks_sheet_music",            new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_CHIRP_SHEET_MUSIC             = registerItems("music_disc_chirp_sheet_music",             new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_CREATOR_SHEET_MUSIC           = registerItems("music_disc_creator_sheet_music",           new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_CREATOR_MUSIC_BOX_SHEET_MUSIC = registerItems("music_disc_creator_music_box_sheet_music", new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_FAR_SHEET_MUSIC               = registerItems("music_disc_far_sheet_music",               new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_MALL_SHEET_MUSIC              = registerItems("music_disc_mall_sheet_music",              new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_MELLOHI_SHEET_MUSIC           = registerItems("music_disc_mellohi_sheet_music",           new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_STAL_SHEET_MUSIC              = registerItems("music_disc_stal_sheet_music",              new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_STRAD_SHEET_MUSIC             = registerItems("music_disc_strad_sheet_music",             new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_WARD_SHEET_MUSIC              = registerItems("music_disc_ward_sheet_music",              new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_11_SHEET_MUSIC                = registerItems("music_disc_11_sheet_music",                new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_WAIT_SHEET_MUSIC              = registerItems("music_disc_wait_sheet_music",              new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_OTHERSIDE_SHEET_MUSIC         = registerItems("music_disc_otherside_sheet_music",         new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_RELIC_SHEET_MUSIC             = registerItems("music_disc_relic_sheet_music",             new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_5_SHEET_MUSIC                 = registerItems("music_disc_5_sheet_music",                 new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_PIGSTEP_SHEET_MUSIC           = registerItems("music_disc_pigstep_sheet_music",           new Item(new Item.Settings().maxCount(1)));
+    public static final Item MUSIC_DISC_PRECIPICE_SHEET_MUSIC         = registerItems("music_disc_precipice_sheet_music",         new Item(new Item.Settings().maxCount(1)));
+
+
     //原型
     public static final Item DIAMOND_PROTOTYPE = registerItems("diamond_prototype", new Item(new Item.Settings()));
     public static final Item ANCIENT_PROTOTYPE = registerItems("ancient_prototype", new Item(new Item.Settings().fireproof()));
@@ -76,7 +100,7 @@ public class ModItems {
     //陶片纹样
     public static final Item ANGLER_POTTERY_SHERD_BLUEPRINT =       registerItems("angler_pottery_sherd_blueprint",     new Item(new Item.Settings()));
     public static final Item ARCHER_POTTERY_SHERD_BLUEPRINT =       registerItems("archer_pottery_sherd_blueprint",     new Item(new Item.Settings()));
-    public static final Item ARMS_UP_POTTERY_SHERD_BLUEPRINT =      registerItems("arms_up_pottery_sherd_blueprint",       new Item(new Item.Settings()));
+    public static final Item ARMS_UP_POTTERY_SHERD_BLUEPRINT =      registerItems("arms_up_pottery_sherd_blueprint",    new Item(new Item.Settings()));
     public static final Item BLADE_POTTERY_SHERD_BLUEPRINT =        registerItems("blade_pottery_sherd_blueprint",      new Item(new Item.Settings()));
     public static final Item BREWER_POTTERY_SHERD_BLUEPRINT =       registerItems("brewer_pottery_sherd_blueprint",     new Item(new Item.Settings()));
     public static final Item BURN_POTTERY_SHERD_BLUEPRINT =         registerItems("burn_pottery_sherd_blueprint",       new Item(new Item.Settings()));

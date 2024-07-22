@@ -18,6 +18,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static com.yipkei.vanilladdition.settings.VanillaAdditionSettings.dragonDropsElytraTemplateAtFirstFight;
+
 @Mixin(EnderDragonFight.class)
 public class EnderDragonFightMixin {
 
@@ -41,7 +43,7 @@ public class EnderDragonFightMixin {
                     opcode = Opcodes.PUTFIELD))
     private void dropElytraCopyTemplate(EnderDragonEntity dragon, CallbackInfo ci){
         BlockPos templateDropPos = this.world.getTopPosition(Heightmap.Type.MOTION_BLOCKING, EndPortalFeature.offsetOrigin(this.origin));
-        if (!previouslyKilled){
+        if (!previouslyKilled && dragonDropsElytraTemplateAtFirstFight){
             ItemEntity template = new ItemEntity(world, templateDropPos.getX(), templateDropPos.getY() + 6.0f, templateDropPos.getZ(), new ItemStack(ModItems.ELYTRA_COPY_TEMPLATE, 1));
             this.world.spawnEntity(template);
         }

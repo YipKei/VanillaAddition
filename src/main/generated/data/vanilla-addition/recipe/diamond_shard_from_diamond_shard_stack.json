@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "vanilla-addition:diamond_shard_stack"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "vanilla-addition:diamond_shard"
+  }
+}

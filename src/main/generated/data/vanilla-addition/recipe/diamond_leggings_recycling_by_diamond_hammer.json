@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "hammer_processing",
+  "group": "hammer_recycling",
   "ingredients": [
     {
       "item": "minecraft:diamond_leggings"

@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.BlockTexturePool;
+import net.minecraft.item.ArmorItem;
 
 
 public class ModModelsProvider extends FabricModelProvider {
@@ -21,8 +22,9 @@ public class ModModelsProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 //        BlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach(family->blockStateModelGenerator.registerCubeAllModelTexturePool(family.getBaseBlock()).family((BlockFamily) family));
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEEL_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COMPRESS_WOOL);
 
-        BlockTexturePool steel              = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.STEEL_BLOCK);
         BlockTexturePool stone              = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.STONE);
         BlockTexturePool smoothStone        = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_STONE);
         BlockTexturePool polishedGranite    = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.POLISHED_GRANITE);
@@ -33,11 +35,8 @@ public class ModModelsProvider extends FabricModelProvider {
         BlockTexturePool prismarineBricks   = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.PRISMARINE_BRICKS);
         BlockTexturePool darkPrismarine     = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DARK_PRISMARINE);
         BlockTexturePool netherrack         = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.NETHERRACK);
-//        BlockTexturePool basalt             = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_BASALT);
         BlockTexturePool smoothBasalt       = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_BASALT);
-//        BlockTexturePool polishedBasalt     = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_POLISHED_BASALT);
         BlockTexturePool purpur             = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.PURPUR_BLOCK);
-//        BlockTexturePool quartz             = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SHADOW_QUARTZ_BLOCK);
         BlockTexturePool smoothQuartz       = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_QUARTZ);
         BlockTexturePool dirt               = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DIRT);
         BlockTexturePool mud                = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.MUD);
@@ -86,51 +85,6 @@ public class ModModelsProvider extends FabricModelProvider {
         BlockTexturePool greenTerracotta    = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GREEN_TERRACOTTA);
         BlockTexturePool redTerracotta      = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.RED_TERRACOTTA);
         BlockTexturePool blackTerracotta    = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.BLACK_TERRACOTTA);
-
-//        Map<Block, TexturedModel> specialTexturedModels = Map.of(Blocks.BASALT, TexturedModel.makeFactory((Function<Block, TextureMap>) block -> {
-//            Identifier identifier = TextureMap.getSubId(block,"_side");
-//            return new TextureMap().put(TextureKey.TEXTURE, identifier).put(TextureKey.WALL, identifier).put(TextureKey.SIDE, identifier).put(TextureKey.END, TextureMap.getSubId(block, "_top"));
-//        },Models.CUBE_COLUMN).get(Blocks.BASALT), Blocks.POLISHED_BASALT, TexturedModel.makeFactory((Function<Block, TextureMap>) block -> {
-//            Identifier identifier = TextureMap.getSubId(block,"_side");
-//            return new TextureMap().put(TextureKey.TEXTURE, identifier).put(TextureKey.WALL, identifier).put(TextureKey.SIDE, identifier).put(TextureKey.END, TextureMap.getSubId(block, "_top"));
-//        },Models.CUBE_COLUMN).get(Blocks.POLISHED_BASALT), Blocks.QUARTZ_BLOCK, TexturedModel.makeFactory((Function<Block, TextureMap>) block -> {
-//            Identifier identifier = TextureMap.getSubId(block,"_side");
-//            return new TextureMap().put(TextureKey.TEXTURE, identifier).put(TextureKey.WALL, identifier).put(TextureKey.SIDE, identifier).put(TextureKey.END, TextureMap.getSubId(block, "_top"));
-//        },Models.CUBE_COLUMN).get(Blocks.QUARTZ_BLOCK));
-//
-//        TextureMap basaltMap = new TextureMap().put(TextureKey.WALL, TextureMap.getId(Blocks.BASALT)).put(TextureKey.SIDE, TextureMap.getSubId(Blocks.BASALT,"_side")).put(TextureKey.TOP,TextureMap.getSubId(Blocks.BASALT,"_top")).put(TextureKey.BOTTOM, TextureMap.getSubId(Blocks.BASALT,"_top"));
-//        Identifier basalt1 = Models.TEMPLATE_WALL_POST.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        Identifier basalt2 = Models.TEMPLATE_WALL_SIDE.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        Identifier basalt3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        Identifier basalt4 = Models.WALL_INVENTORY.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(ModBlocks.BASALT_WALL,basalt1,basalt2,basalt3));
-//        blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASALT_WALL,basalt4);
-
-
-
-//        final Map<Block, TexturedModel> texturedModels = ImmutableMap
-//                .builder()
-//                .put(Blocks.SANDSTONE, TexturedModel.SIDE_TOP_BOTTOM_WALL.get(Blocks.SANDSTONE))
-//                .put(Blocks.RED_SANDSTONE, TexturedModel.SIDE_TOP_BOTTOM_WALL.get(Blocks.RED_SANDSTONE))
-//                .put(Blocks.SMOOTH_SANDSTONE, TexturedModel.getCubeAll(TextureMap.getSubId(Blocks.SANDSTONE, "_top")))
-//                .put(Blocks.SMOOTH_RED_SANDSTONE, TexturedModel.getCubeAll(TextureMap.getSubId(Blocks.RED_SANDSTONE, "_top")))
-//                .put(Blocks.CUT_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.SANDSTONE).textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(Blocks.CUT_SANDSTONE))))
-//                .put(Blocks.CUT_RED_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.RED_SANDSTONE).textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(Blocks.CUT_RED_SANDSTONE))))
-//                .put(Blocks.QUARTZ_BLOCK, TexturedModel.CUBE_COLUMN.get(Blocks.QUARTZ_BLOCK)).put(Blocks.SMOOTH_QUARTZ, TexturedModel.getCubeAll(TextureMap.getSubId(Blocks.QUARTZ_BLOCK, "_bottom")))
-//                .put(Blocks.BLACKSTONE, TexturedModel.SIDE_END_WALL.get(Blocks.BLACKSTONE))
-//                .put(Blocks.DEEPSLATE, TexturedModel.SIDE_END_WALL.get(Blocks.DEEPSLATE))
-//                .put(Blocks.CHISELED_QUARTZ_BLOCK, TexturedModel.CUBE_COLUMN.get(Blocks.CHISELED_QUARTZ_BLOCK).textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(Blocks.CHISELED_QUARTZ_BLOCK))))
-//                .put(Blocks.CHISELED_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.CHISELED_SANDSTONE).textures(textures -> {
-//                    textures.put(TextureKey.END, TextureMap.getSubId(Blocks.SANDSTONE, "_top"));
-//                    textures.put(TextureKey.SIDE, TextureMap.getId(Blocks.CHISELED_SANDSTONE));
-//                }))
-//                .put(Blocks.CHISELED_RED_SANDSTONE, TexturedModel.CUBE_COLUMN.get(Blocks.CHISELED_RED_SANDSTONE).textures(textures -> {
-//                    textures.put(TextureKey.END, TextureMap.getSubId(Blocks.RED_SANDSTONE, "_top"));
-//                    textures.put(TextureKey.SIDE, TextureMap.getId(Blocks.CHISELED_RED_SANDSTONE));
-//                }))
-//                .put(Blocks.CHISELED_TUFF_BRICKS, TexturedModel.SIDE_END_WALL.get(Blocks.CHISELED_TUFF_BRICKS))
-//                .put(Blocks.CHISELED_TUFF, TexturedModel.SIDE_END_WALL.get(Blocks.CHISELED_TUFF))
-//                .build();
 
         //方块补全（一）只缺墙
         //石质
@@ -189,31 +143,12 @@ public class ModModelsProvider extends FabricModelProvider {
                 .wall  (ModBlocks.NETHERRACK_WALL)
                 .stairs(ModBlocks.NETHERRACK_STAIRS)
                 .slab  (ModBlocks.NETHERRACK_SLAB);
-        //玄武岩 - 特殊模型
-//        basalt
-//                .wall  (ModBlocks.BASALT_WALL)
-//                .stairs(ModBlocks.BASALT_STAIRS)
-//                .slab  (ModBlocks.BASALT_SLAB);
-
-//        TextureMap basaltMap = TextureMap.wallSideTopBottom(Blocks.BASALT);
-//        Identifier idBasaltPost = Models.TEMPLATE_WALL_POST.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        Identifier idBasaltSide = Models.TEMPLATE_WALL_SIDE.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        Identifier idBasaltSideTall = Models.TEMPLATE_WALL_SIDE_TALL.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(ModBlocks.BASALT_WALL, idBasaltPost, idBasaltSide, idBasaltSideTall));
-//        Identifier idInventory = Models.WALL_INVENTORY.upload(ModBlocks.BASALT_WALL, basaltMap, blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.registerParentedItemModel(ModBlocks.BASALT_WALL, idInventory);
-
 
         //平滑玄武岩
         smoothBasalt
                 .wall  (ModBlocks.SMOOTH_BASALT_WALL)
                 .stairs(ModBlocks.SMOOTH_BASALT_STAIRS)
                 .slab  (ModBlocks.SMOOTH_BASALT_SLAB);
-        //磨制玄武岩 - 特殊模型
-//        polishedBasalt
-//                .wall  (ModBlocks.POLISHED_BASALT_WALL)
-//                .stairs(ModBlocks.POLISHED_BASALT_STAIRS)
-//                .slab  (ModBlocks.POLISHED_BASALT_SLAB);
         //黑曜石
         obsidian
                 .wall  (ModBlocks.OBSIDIAN_WALL)
@@ -408,12 +343,17 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STONE_HAMMER,Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_HAMMER,Models.GENERATED);
         itemModelGenerator.register(ModItems.DIAMOND_HAMMER,Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_GRAVER,Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.STEEL_SWORD,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_SHOVEL,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_PICKAXE,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_AXE,Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_HOE,Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.STEEL_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.STEEL_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.STEEL_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.STEEL_BOOTS);
 
         itemModelGenerator.register(ModItems.DIAMOND_UPGRADED_PICKAXE,Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIAMOND_UPGRADED_AXE,Models.HANDHELD);
@@ -426,6 +366,7 @@ public class ModModelsProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.DEEP_DARK_FANTASY,Models.HANDHELD);
         itemModelGenerator.register(ModItems.EXPLOSION_CREATOR,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NOTHING_TO_BE_AFRAID_OF,Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.DIAMOND_PROTOTYPE,Models.GENERATED);
         itemModelGenerator.register(ModItems.ANCIENT_PROTOTYPE,Models.GENERATED);
@@ -442,6 +383,10 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_APPLE_TEMPLATE,Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_COPY_TEMPLATE,Models.GENERATED);
         itemModelGenerator.register(ModItems.TOTEM_OF_UNDYING_COPY_TEMPLATE,Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.IRON_HORSE_ARMOR_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLDEN_HORSE_ARMOR_BLUEPRINT,Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_HORSE_ARMOR_BLUEPRINT,Models.GENERATED);
 
         itemModelGenerator.register(ModItems.ANGLER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
         itemModelGenerator.register(ModItems.ARCHER_POTTERY_SHERD_BLUEPRINT,Models.GENERATED);
@@ -490,6 +435,29 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FLOW_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
         itemModelGenerator.register(ModItems.GUSTER_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
         itemModelGenerator.register(ModItems.SCRAPE_POTTERY_SHERD_PROTOTYPE,Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.GLASS_DISC,Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.EMPTY_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_13_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_CAT_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_BLOCKS_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_CHIRP_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_CREATOR_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_CREATOR_MUSIC_BOX_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_FAR_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_MALL_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_MELLOHI_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_STAL_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_STRAD_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_WARD_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_11_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_WAIT_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_OTHERSIDE_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_RELIC_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_5_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_PIGSTEP_SHEET_MUSIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_PRECIPICE_SHEET_MUSIC,Models.GENERATED);
     }
 
 
