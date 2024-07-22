@@ -22,7 +22,7 @@ public class StackableTransformRecipeJsonBuilder {
     private final Ingredient addition;
     private final RecipeCategory category;
     private final ItemStack resultStack;
-    private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap();
+    private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap<>();
 
     public StackableTransformRecipeJsonBuilder(Ingredient template, Ingredient base, Ingredient addition, RecipeCategory category, Item result, int resultCount, int damage) {
         this.category = category;

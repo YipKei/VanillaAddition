@@ -11,8 +11,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.ModifyArgs;
 
 @Deprecated
 @Mixin(Items.class)

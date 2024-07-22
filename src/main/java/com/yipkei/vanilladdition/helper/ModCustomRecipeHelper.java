@@ -1,6 +1,5 @@
 package com.yipkei.vanilladdition.helper;
 
-import com.yipkei.vanilladdition.VanillaAddition;
 import com.yipkei.vanilladdition.data.generator.recipe.StackableTransformRecipeJsonBuilder;
 import com.yipkei.vanilladdition.init.ModItems;
 import net.minecraft.data.server.recipe.*;
@@ -9,7 +8,6 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
