@@ -11,7 +11,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static com.yipkei.vanilladdition.helper.PathChangeHelper.pathChange;
+import static com.yipkei.vanilladdition.helper.PathHelper.pathChange;
 import static net.minecraft.block.JukeboxBlock.HAS_RECORD;
 
 public class SheetMusic extends Item {

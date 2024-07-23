@@ -44,9 +44,9 @@ public class VanillaTradeModifiers {
                 .add(new TradeOffers.SellItemFactory(Items.NAUTILUS_SHELL, 10, 1, 3, 10, 0.2f)));
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 1, factories -> factories
-                .add(new TradeOffers.BuyItemFactory(Items.HAY_BLOCK, 2, 16, 2, 3)));
+                .add(new TradeOffers.BuyItemFactory(Items.HAY_BLOCK, 3, 16, 2, 2)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 5, factories -> factories
-                .add(new TradeOffers.SellItemFactory(Items.TARGET, 4, 8, 4, 20, 0.2f)));
+                .add(new TradeOffers.SellItemFactory(Items.TARGET, 4, 1, 8, 20, 0.2f)));
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FLETCHER, 3, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(Items.ARROW, 20, 16, 2)));
@@ -78,8 +78,8 @@ public class VanillaTradeModifiers {
         });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 3, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(ModItems.STEEL_INGOT, 2, 16, 10));
-            factories.add(new TradeOffers.SellItemFactory(ModItems.STEEL_HELMET, 12, 1, 10, 20));
-            factories.add(new TradeOffers.SellItemFactory(ModItems.STEEL_CHESTPLATE, 7, 1, 10, 20));
+            factories.add(new TradeOffers.SellItemFactory(ModItems.STEEL_HELMET, 7, 1, 10, 20));
+            factories.add(new TradeOffers.SellItemFactory(ModItems.STEEL_CHESTPLATE, 12, 1, 10, 20));
         });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, 3, factories -> factories
@@ -92,7 +92,7 @@ public class VanillaTradeModifiers {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 3, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(ModItems.STEEL_INGOT, 2, 16, 10)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 5, factories -> factories
-                .add(new SellSelectEnchantedTools(ModItems.GLASS_PICKAXE, 10, 4, 15, 0.4f, Enchantments.UNBREAKING)));
+                .add(new SellSelectEnchantedTools(ModItems.GLASS_PICKAXE, 4, 10, 15, 0.4f, Enchantments.UNBREAKING)));
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.BUTCHER, 1, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.SUGAR, 12, 16, 3));
@@ -166,7 +166,7 @@ public class VanillaTradeModifiers {
 
         @Override
         public TradeOffer create(Entity entity, Random random){
-            int level = random.nextBetween(0,4);
+            int level = random.nextBetween(0,5);
             ComponentChanges componentChanges = ComponentChanges.builder().add(DataComponentTypes.OMINOUS_BOTTLE_AMPLIFIER, level).build();
             ItemStack itemStack = new ItemStack(RegistryEntry.of(Items.OMINOUS_BOTTLE), 1, componentChanges);
             return new TradeOffer(new TradedItem(Items.EMERALD, this.price), itemStack, this.maxUses, this.experience, this.multiplier);

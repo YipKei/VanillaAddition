@@ -14,7 +14,8 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 
 import static com.yipkei.vanilladdition.VanillaAddition.MOD_ID;
-import static com.yipkei.vanilladdition.helper.PathChangeHelper.pathChange;
+import static com.yipkei.vanilladdition.helper.PathHelper.getItemFromName;
+import static com.yipkei.vanilladdition.helper.PathHelper.pathChange;
 import static net.minecraft.data.server.recipe.RecipeProvider.*;
 
 public abstract class ModCustomRecipeHelper {
@@ -91,6 +92,55 @@ public abstract class ModCustomRecipeHelper {
                 .criterion(hasItem(mainInput),conditionsFromItem(mainInput))
                 .criterion(hasItem(minorInput),conditionsFromItem(minorInput))
                 .offerTo(exporter,Identifier.of(MOD_ID,type + "_hoe"));
+    }
+
+    public static void offerHelmetRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, String type){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("###")
+                .pattern("# #")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_helmet"));
+    }
+
+    public static void offerChestplateRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, String type){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("# #")
+                .pattern("###")
+                .pattern("###")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_chestplate"));
+    }
+
+    public static void offerLeggingsRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, String type){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("###")
+                .pattern("# #")
+                .pattern("# #")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_leggings"));
+    }
+
+    public static void offerBootsRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, String type){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("# #")
+                .pattern("# #")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_boots"));
+    }
+
+    public static void offerArmorRecipe(RecipeExporter exporter, ItemConvertible material, String type){
+        Item helmet = getItemFromName(type + "_helmet");
+        Item chestplate = getItemFromName(type + "_chestplate");
+        Item leggings = getItemFromName(type + "_leggings");
+        Item boots = getItemFromName(type + "_boots");
+        offerHelmetRecipe(exporter, material, helmet, type);
+        offerChestplateRecipe(exporter, material, chestplate, type);
+        offerLeggingsRecipe(exporter, material, leggings, type);
+        offerBootsRecipe(exporter, material, boots, type);
     }
 
     public static void offerUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, Item result){
@@ -317,9 +367,15 @@ public abstract class ModCustomRecipeHelper {
     }
 
     public static void offerDefaultDecorateRecipe(RecipeExporter exporter, ItemConvertible baseBlock){
-        offerDefaultWallRecipe(exporter, baseBlock);
-        offerDefaultStairsRecipe(exporter, baseBlock);
-        offerDefaultSlabRecipe(exporter, baseBlock);
+        Item wall = pathChange(baseBlock.asItem(),"_wall");
+        Item stairs = pathChange(baseBlock.asItem(),"_stairs");
+        Item slab = pathChange(baseBlock.asItem(),"_slab");
+        offerStonecuttingRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,wall,baseBlock);
+        offerStonecuttingRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,stairs,baseBlock);
+        offerStonecuttingRecipe(exporter,RecipeCategory.BUILDING_BLOCKS,slab,baseBlock, 2);
+//        offerDefaultWallRecipe(exporter, baseBlock);
+//        offerDefaultStairsRecipe(exporter, baseBlock);
+//        offerDefaultSlabRecipe(exporter, baseBlock);
     }
 
     public static void offerDefaultWallRecipe(RecipeExporter exporter, ItemConvertible baseBlock){

@@ -8,8 +8,6 @@ import com.yipkei.vanilladdition.item.*;
 import com.yipkei.vanilladdition.util.ModTags;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.BannerPatternsComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -56,7 +54,7 @@ public class ModItems {
     public static final Item STEEL_LEGGINGS = registerItems("steel_leggings", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20))));
     public static final Item STEEL_BOOTS = registerItems("steel_boots", new ArmorItem(ModArmorMaterials.STEEL,ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(20))));
 
-    public static final Item STEEL_SHIELD = registerItems("steel_shield", new ShieldItem(new Item.Settings().maxDamage(1200).component(DataComponentTypes.BANNER_PATTERNS, BannerPatternsComponent.DEFAULT)));
+//    public static final Item STEEL_SHIELD = registerItems("steel_shield", new ShieldItem(new Item.Settings().maxDamage(1200).component(DataComponentTypes.BANNER_PATTERNS, BannerPatternsComponent.DEFAULT)));
 
     //原料
     public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));

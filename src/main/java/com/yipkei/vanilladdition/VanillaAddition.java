@@ -9,6 +9,8 @@ import com.yipkei.vanilladdition.util.VanillaTradeModifiers;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.impl.blockrenderlayer.BlockRenderLayerMapImpl;
+import net.minecraft.client.render.RenderLayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,5 +40,8 @@ public class VanillaAddition implements ModInitializer {
 		ModDispenserBehavior.register();
 
 		FuelRegistry.INSTANCE.add(ModBlocks.COMPRESS_WOOL, 800);
+
+		BlockRenderLayerMapImpl blockRenderLayerMap = new BlockRenderLayerMapImpl();
+		blockRenderLayerMap.putBlocks(RenderLayer.getTranslucent(), ModBlocks.ICE_SLAB, ModBlocks.ICE_STAIRS, ModBlocks.ICE_WALL);
 	}
 }

@@ -19,8 +19,8 @@ public class ExplosionCreatorWand extends AbstractFairyWand{
         if (blockState.isOf(Blocks.CREEPER_HEAD) || blockState.isOf(Blocks.CREEPER_WALL_HEAD)){
             int successChance = 20;
             if (world.isNight()) successChance = 50;
-            else if (world.isRaining()) successChance = 80;
-            else if (world.isThundering()) successChance = 100;
+            if (world.isRaining()) successChance = 80;
+            if (world.isThundering()) successChance = 100;
             if (world.random.nextBetween(0,100)< successChance) {
                 LightningEntity lightningEntity = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
                 lightningEntity.setPos(blockPos.getX(),blockPos.getY(),blockPos.getZ());

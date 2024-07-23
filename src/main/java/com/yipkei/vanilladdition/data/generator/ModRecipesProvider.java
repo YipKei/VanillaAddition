@@ -57,6 +57,8 @@ public class ModRecipesProvider extends FabricRecipeProvider {
         offerAxeRecipe     (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_AXE,     "steel");
         offerHoeRecipe     (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_HOE,     "steel");
 
+        offerArmorRecipe   (exporter, ModItems.STEEL_INGOT, "steel");
+
         offerPickaxeRecipe (exporter, Items.GLASS_PANE,     Items.STICK, ModItems.GLASS_PICKAXE_PROTOTYPE, "glass");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STEEL_SHEARS, 1)

@@ -1,6 +1,9 @@
 package com.yipkei.vanilladdition.init;
 
 import com.yipkei.vanilladdition.VanillaAddition;
+import com.yipkei.vanilladdition.block.IceSlab;
+import com.yipkei.vanilladdition.block.IceStairs;
+import com.yipkei.vanilladdition.block.IceWall;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -83,9 +86,9 @@ public class ModBlocks extends Blocks{
     public static final Block GLOWSTONE_STAIRS = registerBlocks("glowstone_stairs", new StairsBlock(Blocks.GLOWSTONE.getDefaultState(),AbstractBlock.Settings.copy(GLOWSTONE)));
     public static final Block GLOWSTONE_SLAB = registerBlocks("glowstone_slab", new SlabBlock(AbstractBlock.Settings.copy(GLOWSTONE)));
 
-    public static final Block ICE_WALL = registerBlocks("ice_wall", new WallBlock(AbstractBlock.Settings.copy(ICE).nonOpaque().solid().slipperiness(0.98f).solidBlock(Blocks::never)));
-    public static final Block ICE_STAIRS = registerBlocks("ice_stairs", new StairsBlock(Blocks.ICE.getDefaultState(),AbstractBlock.Settings.copy(ICE).nonOpaque().slipperiness(0.98f).solidBlock(Blocks::never)));
-    public static final Block ICE_SLAB = registerBlocks("ice_slab", new SlabBlock(AbstractBlock.Settings.copy(ICE).nonOpaque().slipperiness(0.98f).solidBlock(Blocks::never)));
+    public static final Block ICE_WALL = registerBlocks("ice_wall", new IceWall(AbstractBlock.Settings.copy(ICE).nonOpaque().solid().slipperiness(0.98f).solidBlock(Blocks::never)));
+    public static final Block ICE_STAIRS = registerBlocks("ice_stairs", new IceStairs(Blocks.ICE.getDefaultState(),AbstractBlock.Settings.copy(ICE).nonOpaque().slipperiness(0.98f).solidBlock(Blocks::never)));
+    public static final Block ICE_SLAB = registerBlocks("ice_slab", new IceSlab(AbstractBlock.Settings.copy(ICE).nonOpaque().slipperiness(0.98f).solidBlock(Blocks::never)));
 
     public static final Block PACKED_ICE_WALL = registerBlocks("packed_ice_wall", new WallBlock(AbstractBlock.Settings.copy(PACKED_ICE).solid().slipperiness(0.98f)));
     public static final Block PACKED_ICE_STAIRS = registerBlocks("packed_ice_stairs", new StairsBlock(Blocks.PACKED_ICE.getDefaultState(),AbstractBlock.Settings.copy(PACKED_ICE).slipperiness(0.98f)));
