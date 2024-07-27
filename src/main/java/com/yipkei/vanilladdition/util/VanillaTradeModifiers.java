@@ -103,6 +103,7 @@ public class VanillaTradeModifiers {
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LEATHERWORKER, 3, factories -> factories
                 .add(new TradeOffers.BuyItemFactory(Items.ARMADILLO_SCUTE, 4, 16, 10)));
+
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LEATHERWORKER, 5, factories -> {
             factories.add(new TradeOffers.SellItemFactory(ModItems.IRON_HORSE_ARMOR_BLUEPRINT, 28, 1, 1,30,0.2f));
             factories.add(new TradeOffers.SellItemFactory(ModItems.GOLDEN_HORSE_ARMOR_BLUEPRINT, 42, 1, 1, 30, 0.2f));
