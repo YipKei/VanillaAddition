@@ -108,7 +108,7 @@ public class ModLootTables {
         if (MOD_LOOT_TABLES.add(key)){
             return key;
         }
-        throw new IllegalArgumentException(String.valueOf(key.getValue()) + " is already a registered built-in loot table");
+        throw new IllegalArgumentException(key.getValue() + " is already a registered built-in loot table");
     }
 
     public static Set<RegistryKey<LootTable>> getAll() {
