@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/shipwreck_supply",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/shipwreck_treasure",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/shipwreck_map"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

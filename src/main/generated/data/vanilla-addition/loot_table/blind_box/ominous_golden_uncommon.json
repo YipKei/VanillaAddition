@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/bastion_bridge",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/bastion_other",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/bastion_hoglin_stable"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

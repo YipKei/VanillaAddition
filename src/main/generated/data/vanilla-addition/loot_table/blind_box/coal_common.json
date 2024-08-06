@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:archaeology/desert_pyramid",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:archaeology/desert_well",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:archaeology/ocean_ruin_cold",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:archaeology/ocean_ruin_warm",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:archaeology/trail_ruins_common",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:archaeology/trail_ruins_rare",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 40
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

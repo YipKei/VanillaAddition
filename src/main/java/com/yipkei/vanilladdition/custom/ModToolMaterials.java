@@ -15,9 +15,9 @@ import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
     /** 钢制工具/武器：铁的采掘等级，更高的耐久*/
-    STEEL(BlockTags.INCORRECT_FOR_IRON_TOOL, 600, 6.5F, 2.5F, 12, () -> Ingredient.ofItems(ModItems.STEEL_INGOT)),
+    STEEL(BlockTags.INCORRECT_FOR_IRON_TOOL, 300, 6.5F, 2.5F, 12, () -> Ingredient.ofItems(ModItems.STEEL_INGOT)),
     /** 碎钻强化材质：钻石采掘等级，耐久比钻石工具低，通过模板升级钢质工具得到*/
-    DIAMOND_SHARD(BlockTags.INCORRECT_FOR_DIAMOND_TOOL,1200,6.5f,2.5f,12,()->Ingredient.fromTag(ModTags.Items.DIAMOND_LIKE_SHARDS)),
+    DIAMOND_SHARD(BlockTags.INCORRECT_FOR_DIAMOND_TOOL,400,6.5f,2.5f,12,()->Ingredient.fromTag(ModTags.Items.DIAMOND_LIKE_SHARDS)),
     /** 玻璃材质：针对黑曜石方块有特殊采掘速度，采掘等级同钻石，10倍耐久消耗*/
     GLASS(BlockTags.INCORRECT_FOR_DIAMOND_TOOL,100,6.5f,2.5f,30,()->Ingredient.fromTag(ModTags.Items.DIAMOND_LIKE_SHARDS))
     ;

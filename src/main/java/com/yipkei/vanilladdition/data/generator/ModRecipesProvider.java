@@ -9,28 +9,42 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.*;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import static com.yipkei.vanilladdition.helper.ModCustomRecipeHelper.*;
 
 public class ModRecipesProvider extends FabricRecipeProvider {
+    private final CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture;
     private static final List<ItemConvertible> STEEL_MATERIAL_LIST = List.of(Items.IRON_INGOT);
 
     public ModRecipesProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
+        this.completableFuture = registriesFuture;
     }
 
     @Override
     public void generate(RecipeExporter exporter) {
+        RegistryWrapper.WrapperLookup registryLookup = null;
+        try {
+            registryLookup = this.completableFuture.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        RegistryWrapper.Impl<Enchantment> impl = registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+
         /* 可逆压实 */
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.STEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.STEEL_BLOCK);
 
@@ -51,13 +65,9 @@ public class ModRecipesProvider extends FabricRecipeProvider {
         offerCookingDefault(exporter,200,Items.ROTTEN_FLESH,ModItems.ROASTED_ROTTEN_FLESH,0.8f);
 
         /* 工具与装备合成配方 */
-        offerSwordRecipe   (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_SWORD,   "steel");
-        offerShovelRecipe  (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_SHOVEL,  "steel");
-        offerPickaxeRecipe (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_PICKAXE, "steel");
-        offerAxeRecipe     (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_AXE,     "steel");
-        offerHoeRecipe     (exporter, ModItems.STEEL_INGOT, Items.STICK, ModItems.STEEL_HOE,     "steel");
 
-        offerArmorRecipe   (exporter, ModItems.STEEL_INGOT, "steel");
+        offerEnchantedToolRecipe(exporter, ModItems.STEEL_INGOT, Items.STICK, impl.getOrThrow(Enchantments.UNBREAKING), 1, "steel");
+        offerEnchantedArmorRecipe(exporter, ModItems.STEEL_INGOT, impl.getOrThrow(Enchantments.UNBREAKING), 1, "steel");
 
         offerPickaxeRecipe (exporter, Items.GLASS_PANE,     Items.STICK, ModItems.GLASS_PICKAXE_PROTOTYPE, "glass");
 
@@ -127,8 +137,8 @@ public class ModRecipesProvider extends FabricRecipeProvider {
         offerUpgradeRecipe(exporter, ModItems.PRESSURE_CRAFTING_TEMPLATE, Items.HEART_OF_THE_SEA, ModItems.DIAMOND_HAMMER, RecipeCategory.MISC, ModItems.CONDUIT_SHARD, 8);
 
         // 工具加工
-        offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE,  ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_PICKAXE);
-        offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE,      ModItems.STEEL_INGOT, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_AXE);
+        offerEnchantedUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_PICKAXE,  ModItems.DIAMOND_SHARD, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_PICKAXE, impl.getOrThrow(Enchantments.UNBREAKING), 3);
+        offerEnchantedUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.STEEL_AXE,      ModItems.DIAMOND_SHARD, RecipeCategory.TOOLS,  ModItems.DIAMOND_UPGRADED_AXE, impl.getOrThrow(Enchantments.UNBREAKING), 3);
         offerUpgradeRecipe(exporter, ModItems.NETHER_SMITHING_TEMPLATE_PRO,              Items.NETHERITE_PICKAXE, Items.HEAVY_CORE,     RecipeCategory.COMBAT, ModItems.DESTROYER_PICKAXE);
         offerUpgradeRecipe(exporter, ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE, ModItems.GLASS_PICKAXE_PROTOTYPE, ModItems.DIAMOND_SHARD, RecipeCategory.TOOLS, ModItems.GLASS_PICKAXE);
 

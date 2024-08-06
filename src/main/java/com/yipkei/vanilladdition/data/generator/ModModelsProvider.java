@@ -24,6 +24,23 @@ public class ModModelsProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEEL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COMPRESS_WOOL);
+        blockStateModelGenerator.registerSingleton(ModBlocks.STONE_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.COAL_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.COPPER_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.IRON_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.GOLDEN_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.EMERALD_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.DIAMOND_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.NETHERITE_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_STONE_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_COAL_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_COPPER_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_IRON_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_GOLDEN_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_EMERALD_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_DIAMOND_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OMINOUS_NETHERITE_BLIND_BOX, TexturedModel.CUBE_COLUMN);
+
 
         BlockTexturePool stone              = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.STONE);
         BlockTexturePool smoothStone        = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SMOOTH_STONE);

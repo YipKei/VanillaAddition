@@ -1,13 +1,20 @@
 package com.yipkei.vanilladdition.helper;
 
+import com.yipkei.vanilladdition.data.generator.recipe.StackableShapedRecipeJsonBuilder;
 import com.yipkei.vanilladdition.data.generator.recipe.StackableTransformRecipeJsonBuilder;
 import com.yipkei.vanilladdition.init.ModItems;
-import net.minecraft.data.server.recipe.*;
+import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeProvider;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
@@ -45,9 +52,36 @@ public abstract class ModCustomRecipeHelper {
                 .offerTo(exporter,Identifier.of(MOD_ID,type + "_sword"));
     }
 
+    public static void offerEnchantedSwordRecipe(RecipeExporter exporter, ItemConvertible mainInput, ItemConvertible minorInput, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, result)
+                .pattern("#")
+                .pattern("#")
+                .pattern("*")
+                .input('#',mainInput)
+                .input('*',minorInput)
+                .criterion(hasItem(mainInput),conditionsFromItem(mainInput))
+                .criterion(hasItem(minorInput),conditionsFromItem(minorInput))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_sword"));
+    }
 
-    public static void offerShovelRecipe(RecipeExporter exporter,ItemConvertible mainInput,ItemConvertible minorInput,ItemConvertible output,String type){
+    public static void offerShovelRecipe(RecipeExporter exporter,ItemConvertible mainInput, ItemConvertible minorInput, ItemConvertible output, String type){
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("#")
+                .pattern("*")
+                .pattern("*")
+                .input('#',mainInput)
+                .input('*',minorInput)
+                .criterion(hasItem(mainInput),conditionsFromItem(mainInput))
+                .criterion(hasItem(minorInput),conditionsFromItem(minorInput))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_shovel"));
+    }
+
+    public static void offerEnchantedShovelRecipe(RecipeExporter exporter, ItemConvertible mainInput, ItemConvertible minorInput, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, result)
                 .pattern("#")
                 .pattern("*")
                 .pattern("*")
@@ -70,8 +104,36 @@ public abstract class ModCustomRecipeHelper {
                 .offerTo(exporter,Identifier.of(MOD_ID,type + "_pickaxe"));
     }
 
+    public static void offerEnchantedPickaxeRecipe(RecipeExporter exporter, ItemConvertible mainInput, ItemConvertible minorInput, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, result)
+                .pattern("###")
+                .pattern(" * ")
+                .pattern(" * ")
+                .input('#',mainInput)
+                .input('*',minorInput)
+                .criterion(hasItem(mainInput),conditionsFromItem(mainInput))
+                .criterion(hasItem(minorInput),conditionsFromItem(minorInput))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_pickaxe"));
+    }
+
     public static void offerAxeRecipe(RecipeExporter exporter,ItemConvertible mainInput,ItemConvertible minorInput,ItemConvertible output,String type){
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("##")
+                .pattern("#*")
+                .pattern(" *")
+                .input('#',mainInput)
+                .input('*',minorInput)
+                .criterion(hasItem(mainInput),conditionsFromItem(mainInput))
+                .criterion(hasItem(minorInput),conditionsFromItem(minorInput))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_axe"));
+    }
+
+    public static void offerEnchantedAxeRecipe(RecipeExporter exporter, ItemConvertible mainInput, ItemConvertible minorInput, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, result)
                 .pattern("##")
                 .pattern("#*")
                 .pattern(" *")
@@ -94,6 +156,20 @@ public abstract class ModCustomRecipeHelper {
                 .offerTo(exporter,Identifier.of(MOD_ID,type + "_hoe"));
     }
 
+    public static void offerEnchantedHoeRecipe(RecipeExporter exporter, ItemConvertible mainInput, ItemConvertible minorInput, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, result)
+                .pattern("##")
+                .pattern(" *")
+                .pattern(" *")
+                .input('#',mainInput)
+                .input('*',minorInput)
+                .criterion(hasItem(mainInput),conditionsFromItem(mainInput))
+                .criterion(hasItem(minorInput),conditionsFromItem(minorInput))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_hoe"));
+    }
+
     public static void offerHelmetRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, String type){
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
                 .pattern("###")
@@ -103,8 +179,31 @@ public abstract class ModCustomRecipeHelper {
                 .offerTo(exporter,Identifier.of(MOD_ID,type + "_helmet"));
     }
 
+    public static void offerEnchantedHelmetRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("###")
+                .pattern("# #")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_helmet"));
+    }
+
     public static void offerChestplateRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, String type){
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("# #")
+                .pattern("###")
+                .pattern("###")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_chestplate"));
+    }
+
+    public static void offerEnchantedChestplateRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
@@ -123,8 +222,31 @@ public abstract class ModCustomRecipeHelper {
                 .offerTo(exporter,Identifier.of(MOD_ID,type + "_leggings"));
     }
 
+    public static void offerEnchantedLeggingsRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("###")
+                .pattern("# #")
+                .pattern("# #")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_leggings"));
+    }
+
     public static void offerBootsRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, String type){
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
+                .pattern("# #")
+                .pattern("# #")
+                .input('#',material)
+                .criterion(hasItem(material),conditionsFromItem(material))
+                .offerTo(exporter,Identifier.of(MOD_ID,type + "_boots"));
+    }
+
+    public static void offerEnchantedBootsRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible output, RegistryEntry<Enchantment> enchantment, int level, String type){
+        ItemStack result = new ItemStack(output);
+        result.addEnchantment(enchantment, level);
+        StackableShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output,1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#',material)
@@ -143,6 +265,43 @@ public abstract class ModCustomRecipeHelper {
         offerBootsRecipe(exporter, material, boots, type);
     }
 
+    public static void offerEnchantedArmorRecipe(RecipeExporter exporter, ItemConvertible material, RegistryEntry<Enchantment> enchantment, int level, String type){
+        Item helmet = getItemFromName(type + "_helmet");
+        Item chestplate = getItemFromName(type + "_chestplate");
+        Item leggings = getItemFromName(type + "_leggings");
+        Item boots = getItemFromName(type + "_boots");
+        offerEnchantedHelmetRecipe(exporter, material, helmet, enchantment, level, type);
+        offerEnchantedChestplateRecipe(exporter, material, chestplate, enchantment, level, type);
+        offerEnchantedLeggingsRecipe(exporter, material, leggings, enchantment, level, type);
+        offerEnchantedBootsRecipe(exporter, material, boots, enchantment, level, type);
+    }
+
+    public static void offerToolRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible hand, String type){
+        Item sword = getItemFromName(type + "_sword");
+        Item shovel = getItemFromName(type + "_shovel");
+        Item pickaxe = getItemFromName(type + "_pickaxe");
+        Item axe = getItemFromName(type + "_axe");
+        Item hoe = getItemFromName(type + "_hoe");
+        offerSwordRecipe(exporter, material, hand, sword, type);
+        offerShovelRecipe(exporter, material, hand, shovel, type);
+        offerPickaxeRecipe(exporter, material, hand, pickaxe, type);
+        offerAxeRecipe(exporter, material, hand, axe, type);
+        offerHoeRecipe(exporter, material, hand, hoe, type);
+    }
+
+    public static void offerEnchantedToolRecipe(RecipeExporter exporter, ItemConvertible material, ItemConvertible hand, RegistryEntry<Enchantment> enchantment, int level, String type){
+        Item sword = getItemFromName(type + "_sword");
+        Item shovel = getItemFromName(type + "_shovel");
+        Item pickaxe = getItemFromName(type + "_pickaxe");
+        Item axe = getItemFromName(type + "_axe");
+        Item hoe = getItemFromName(type + "_hoe");
+        offerEnchantedSwordRecipe(exporter, material, hand, sword, enchantment, level, type);
+        offerEnchantedShovelRecipe(exporter, material, hand, shovel, enchantment, level, type);
+        offerEnchantedPickaxeRecipe(exporter, material, hand, pickaxe, enchantment, level, type);
+        offerEnchantedAxeRecipe(exporter, material, hand, axe, enchantment, level, type);
+        offerEnchantedHoeRecipe(exporter, material, hand, hoe, enchantment, level, type);
+    }
+
     public static void offerUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, Item result){
         offerUpgradeRecipe(exporter, smithingTemplate, input, ingredient, category, result, 1);
     }
@@ -152,15 +311,32 @@ public abstract class ModCustomRecipeHelper {
     }
 
     public static void offerUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, Item result, int resultCount, int damage){
+        ItemStack resultStack = new ItemStack(result, resultCount);
+        if (resultStack.isDamageable()) resultStack.setDamage(damage);
+        offerUpgradeRecipe(exporter, smithingTemplate, input, ingredient, category, resultStack);
+    }
+
+    public static void offerEnchantedUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, Item result, RegistryEntry<Enchantment> enchantment, int level){
+        offerEnchantedUpgradeRecipe(exporter, smithingTemplate, input, ingredient, category, result, enchantment, level, 0);
+    }
+
+    public static void offerEnchantedUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, Item result, RegistryEntry<Enchantment> enchantment, int level, int damage){
+        ItemStack resultStack = new ItemStack(result);
+        if (resultStack.isDamageable()) resultStack.setDamage(damage);
+        resultStack.addEnchantment(enchantment,level);
+        offerUpgradeRecipe(exporter, smithingTemplate, input, ingredient, category, resultStack);
+    }
+
+    public static void offerUpgradeRecipe(RecipeExporter exporter, Item smithingTemplate, Item input, Item ingredient, RecipeCategory category, ItemStack resultStack){
         StackableTransformRecipeJsonBuilder.create(
                         Ingredient.ofItems(smithingTemplate),
                         Ingredient.ofItems(input),
                         Ingredient.ofItems(ingredient),
                         category,
-                        result, resultCount, damage)
+                        resultStack)
                 .criterion(hasItem(smithingTemplate), RecipeProvider
                         .conditionsFromItem(smithingTemplate))
-                .offerTo(exporter, Identifier.of(MOD_ID,RecipeProvider.getItemPath(result) + "_smithing_from_" + RecipeProvider.getItemPath(input) + "_and_" + RecipeProvider.getItemPath(ingredient)));
+                .offerTo(exporter, Identifier.of(MOD_ID,RecipeProvider.getItemPath(resultStack.getItem()) + "_smithing_from_" + RecipeProvider.getItemPath(input) + "_and_" + RecipeProvider.getItemPath(ingredient)));
     }
 
     public static void offerCookingDefault(RecipeExporter exporter, int baseCookingTime, ItemConvertible input, ItemConvertible output, float experience){

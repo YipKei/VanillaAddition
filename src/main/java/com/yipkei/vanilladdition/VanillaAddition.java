@@ -4,6 +4,7 @@ import com.yipkei.vanilladdition.custom.ModDispenserBehavior;
 import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItemGroups;
 import com.yipkei.vanilladdition.init.ModItems;
+import com.yipkei.vanilladdition.livingentity.villager.ModVillagers;
 import com.yipkei.vanilladdition.util.ModLootTableModifiers;
 import com.yipkei.vanilladdition.util.VanillaTradeModifiers;
 import net.fabricmc.api.ModInitializer;
@@ -31,6 +32,7 @@ public class VanillaAddition implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerModItemGroup();
+		ModVillagers.registerModVillagers();
 
 		ModLootTableModifiers.modifierLootTables();
 		VanillaTradeModifiers.registerVanillaVillageTrades();

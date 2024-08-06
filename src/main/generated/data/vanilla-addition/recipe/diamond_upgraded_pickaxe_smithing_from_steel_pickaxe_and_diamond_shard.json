@@ -1,12 +1,19 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "vanilla-addition:steel_ingot"
+    "item": "vanilla-addition:diamond_shard"
   },
   "base": {
     "item": "vanilla-addition:steel_pickaxe"
   },
   "result": {
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:unbreaking": 3
+        }
+      }
+    },
     "count": 1,
     "id": "vanilla-addition:diamond_upgraded_pickaxe"
   },

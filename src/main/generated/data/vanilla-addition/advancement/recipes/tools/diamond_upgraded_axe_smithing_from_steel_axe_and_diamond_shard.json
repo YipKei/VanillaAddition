@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanilla-addition:diamond_upgraded_pickaxe_smithing_from_steel_pickaxe_and_steel_ingot"
+        "recipe": "vanilla-addition:diamond_upgraded_axe_smithing_from_steel_axe_and_diamond_shard"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vanilla-addition:diamond_upgraded_pickaxe_smithing_from_steel_pickaxe_and_steel_ingot"
+      "vanilla-addition:diamond_upgraded_axe_smithing_from_steel_axe_and_diamond_shard"
     ]
   }
 }

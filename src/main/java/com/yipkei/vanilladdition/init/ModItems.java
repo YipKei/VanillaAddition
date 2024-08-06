@@ -22,10 +22,10 @@ public class ModItems {
     public static final Item ROASTED_ROTTEN_FLESH = registerItems("roasted_rotten_flesh", new Item(new Item.Settings().food(ModFoodComponents.ROASTED_ROTTEN_FLESH)));
 
     //耗材
-    public static final Item STONE_HAMMER = registerItems("stone_hammer", new AbstractDurabilityTool(new Item.Settings().maxDamage(2)));
-    public static final Item IRON_HAMMER = registerItems("iron_hammer", new AbstractDurabilityTool(new Item.Settings().maxDamage(8)));
-    public static final Item DIAMOND_HAMMER = registerItems("diamond_hammer", new AbstractDurabilityTool(new Item.Settings().maxDamage(32)));
-    public static final Item DIAMOND_GRAVER = registerItems("diamond_graver", new AbstractDurabilityTool(new Item.Settings().maxCount(16)));
+    public static final Item STONE_HAMMER = registerItems("stone_hammer", new SimpleDurabilityTool(new Item.Settings().maxDamage(2)));
+    public static final Item IRON_HAMMER = registerItems("iron_hammer", new SimpleDurabilityTool(new Item.Settings().maxDamage(8)));
+    public static final Item DIAMOND_HAMMER = registerItems("diamond_hammer", new SimpleDurabilityTool(new Item.Settings().maxDamage(32)));
+    public static final Item DIAMOND_GRAVER = registerItems("diamond_graver", new SimpleDurabilityTool(new Item.Settings().maxCount(16)));
 
     //工具
     public static final Item STEEL_SWORD = registerItems("steel_sword", new SwordItem(ModToolMaterials.STEEL,(new Item.Settings()).attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 3, -2.4F))));

@@ -7,9 +7,6 @@
     "item": "minecraft:diamond"
   },
   "result": {
-    "components": {
-      "minecraft:damage": 0
-    },
     "count": 1,
     "id": "minecraft:totem_of_undying"
   },

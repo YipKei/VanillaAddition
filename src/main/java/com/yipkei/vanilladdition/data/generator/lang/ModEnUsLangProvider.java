@@ -2,8 +2,10 @@ package com.yipkei.vanilladdition.data.generator.lang;
 
 import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
+import com.yipkei.vanilladdition.livingentity.villager.ModVillagers;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -140,6 +142,23 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         //方块
         translationBuilder.add(ModBlocks.STEEL_BLOCK,                   "Steel Block");
         translationBuilder.add(ModBlocks.COMPRESS_WOOL,                 "Compress Wool");
+
+        translationBuilder.add(ModBlocks.STONE_BLIND_BOX,               "Stone Blind Box");
+        translationBuilder.add(ModBlocks.COAL_BLIND_BOX,                "Coal Blind Box");
+        translationBuilder.add(ModBlocks.COPPER_BLIND_BOX,              "Copper Blind Box");
+        translationBuilder.add(ModBlocks.IRON_BLIND_BOX,                "Iron Blind Box");
+        translationBuilder.add(ModBlocks.GOLDEN_BLIND_BOX,              "Golden Blind Box");
+        translationBuilder.add(ModBlocks.EMERALD_BLIND_BOX,             "Emerald Blind Box");
+        translationBuilder.add(ModBlocks.DIAMOND_BLIND_BOX,             "Diamond Blind Box");
+        translationBuilder.add(ModBlocks.NETHERITE_BLOCK,               "Netherite Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_STONE_BLIND_BOX,       "Ominous Stone Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_COAL_BLIND_BOX,        "Ominous Coal Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_COPPER_BLIND_BOX,      "Ominous Copper Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_IRON_BLIND_BOX,        "Ominous Iron Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_GOLDEN_BLIND_BOX,      "Ominous Golden Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_EMERALD_BLIND_BOX,     "Ominous Emerald Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_DIAMOND_BLIND_BOX,     "Ominous Diamond Blind Box");
+        translationBuilder.add(ModBlocks.OMINOUS_NETHERITE_BLIND_BOX,   "Ominous Netherite Blind Box");
 
         translationBuilder.add(ModBlocks.STONE_WALL,                    "Stone Block");
         translationBuilder.add(ModBlocks.POLISHED_GRANITE_WALL,         "Polished Granite Wall");
@@ -303,6 +322,8 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_WALL,          "Pink Terracotta Wall");
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_STAIRS,        "Pink Terracotta Stairs");
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_SLAB,          "Pink Terracotta Slab");
+
+        translationBuilder.add("entity.minecraft.villager."+Registries.VILLAGER_PROFESSION.getId(ModVillagers.VAULT_TRADER).getPath(), "Vault Trader");
 
         //文本
         translationBuilder.add("diamond_shards_upgrade_applies_to",         "Tools");

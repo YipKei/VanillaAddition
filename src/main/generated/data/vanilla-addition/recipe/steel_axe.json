@@ -15,6 +15,13 @@
     " *"
   ],
   "result": {
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:unbreaking": 1
+        }
+      }
+    },
     "count": 1,
     "id": "vanilla-addition:steel_axe"
   }

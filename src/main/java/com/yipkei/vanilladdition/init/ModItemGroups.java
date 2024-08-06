@@ -2,10 +2,12 @@ package com.yipkei.vanilladdition.init;
 
 import com.yipkei.vanilladdition.VanillaAddition;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.registry.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -24,13 +26,13 @@ public class ModItemGroups {
                         entries.add(ModItems.DIAMOND_SHARD);
                         entries.add(ModItems.DIAMOND_SHARDS_UPGRADED_SMITHING_TEMPLATE);
 
-                        entries.add(ModItems.STEEL_SWORD);
-                        entries.add(ModItems.STEEL_SHOVEL);
-                        entries.add(ModItems.STEEL_PICKAXE);
-                        entries.add(ModItems.STEEL_AXE);
-                        entries.add(ModItems.STEEL_HOE);
-                        entries.add(ModItems.DIAMOND_UPGRADED_PICKAXE);
-                        entries.add(ModItems.DIAMOND_UPGRADED_AXE);
+                        entries.add(setEnchantmentStack(ModItems.STEEL_SWORD, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.STEEL_SHOVEL, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.STEEL_PICKAXE, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.STEEL_AXE, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.STEEL_HOE, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.DIAMOND_UPGRADED_PICKAXE, Enchantments.UNBREAKING, 3, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.DIAMOND_UPGRADED_AXE, Enchantments.UNBREAKING, 3, displayContext));
 
                         entries.add(ModItems.GLASS_PICKAXE_PROTOTYPE);
                         entries.add(ModItems.GLASS_PICKAXE);
@@ -46,11 +48,28 @@ public class ModItemGroups {
                         entries.add(ModItems.IRON_HAMMER);
                         entries.add(ModItems.DIAMOND_HAMMER);
 
-                        entries.add(ModItems.STEEL_HELMET);
-                        entries.add(ModItems.STEEL_CHESTPLATE);
-                        entries.add(ModItems.STEEL_LEGGINGS);
-                        entries.add(ModItems.STEEL_BOOTS);
+                        entries.add(setEnchantmentStack(ModItems.STEEL_HELMET, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.STEEL_CHESTPLATE, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.STEEL_LEGGINGS, Enchantments.UNBREAKING, 1, displayContext));
+                        entries.add(setEnchantmentStack(ModItems.STEEL_BOOTS, Enchantments.UNBREAKING, 1, displayContext));
 //                        entries.add(ModItems.STEEL_SHIELD);
+                        
+                        entries.add(ModBlocks.STONE_BLIND_BOX);
+                        entries.add(ModBlocks.COAL_BLIND_BOX);
+                        entries.add(ModBlocks.COPPER_BLIND_BOX);
+                        entries.add(ModBlocks.IRON_BLIND_BOX);
+                        entries.add(ModBlocks.GOLDEN_BLIND_BOX);
+                        entries.add(ModBlocks.EMERALD_BLIND_BOX);
+                        entries.add(ModBlocks.DIAMOND_BLIND_BOX);
+                        entries.add(ModBlocks.NETHERITE_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_STONE_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_COAL_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_COPPER_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_IRON_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_GOLDEN_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_EMERALD_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_DIAMOND_BLIND_BOX);
+                        entries.add(ModBlocks.OMINOUS_NETHERITE_BLIND_BOX);
                     }).build());
 
     public static final ItemGroup Vanilla_Renewable_Addition = Registry.register(
@@ -467,6 +486,13 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PINK_TERRACOTTA_WALL);
 
                     }).build());
+
+    private static ItemStack setEnchantmentStack(ItemConvertible item, RegistryKey<Enchantment> enchantment, int level, ItemGroup.DisplayContext displayContext){
+        RegistryWrapper.Impl<Enchantment> impl = displayContext.lookup().getOptionalWrapper(RegistryKeys.ENCHANTMENT).get();
+        ItemStack stack = new ItemStack(item);
+        stack.addEnchantment(impl.getOrThrow(enchantment), level);
+        return stack;
+    }
 
     public static void registerModItemGroup(){
 

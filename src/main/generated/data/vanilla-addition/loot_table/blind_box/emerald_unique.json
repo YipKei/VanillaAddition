@@ -1,0 +1,174 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.99,
+                "min": 0.8
+              },
+              "function": "minecraft:set_damage"
+            },
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:efficiency": 5.0,
+                "minecraft:mending": 1.0,
+                "minecraft:unbreaking": 3.0,
+                "minecraft:vanishing_curse": 1.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:diamond_pickaxe",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.99,
+                "min": 0.8
+              },
+              "function": "minecraft:set_damage"
+            },
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:efficiency": 5.0,
+                "minecraft:mending": 1.0,
+                "minecraft:unbreaking": 3.0,
+                "minecraft:vanishing_curse": 1.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:diamond_axe",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.99,
+                "min": 0.8
+              },
+              "function": "minecraft:set_damage"
+            },
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:efficiency": 5.0,
+                "minecraft:mending": 1.0,
+                "minecraft:unbreaking": 3.0,
+                "minecraft:vanishing_curse": 1.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:diamond_shovel",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.99,
+                "min": 0.8
+              },
+              "function": "minecraft:set_damage"
+            },
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:efficiency": 5.0,
+                "minecraft:mending": 1.0,
+                "minecraft:unbreaking": 3.0,
+                "minecraft:vanishing_curse": 1.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:diamond_hoe",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:looting": 3.0,
+                "minecraft:mending": 1.0,
+                "minecraft:sharpness": 5.0,
+                "minecraft:sweeping_edge": 3.0,
+                "minecraft:unbreaking": 3.0,
+                "minecraft:vanishing_curse": 1.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:flame": 3.0,
+                "minecraft:infinity": 3.0,
+                "minecraft:power": 5.0,
+                "minecraft:punch": 3.0,
+                "minecraft:unbreaking": 3.0,
+                "minecraft:vanishing_curse": 1.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:binding_curse": 1.0,
+                "minecraft:mending": 1.0,
+                "minecraft:unbreaking": 3.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:elytra",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:totem_of_undying",
+          "weight": 3
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

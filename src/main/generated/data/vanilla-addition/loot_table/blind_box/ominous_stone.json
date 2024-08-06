@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "vanilla-addition:blind_box/ominous_stone_common",
+          "weight": 40
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "vanilla-addition:blind_box/ominous_stone_uncommon",
+          "weight": 50
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "vanilla-addition:blind_box/ominous_stone_rare",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "vanilla-addition:blind_box/ominous_stone_unique",
+          "weight": 2
+        }
+      ],
+      "rolls": 10.0
+    }
+  ]
+}

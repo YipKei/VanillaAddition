@@ -71,11 +71,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STEEL_SHEARS)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.HAMMERS)
+                .add(ModItems.STONE_HAMMER)
+                .add(ModItems.IRON_HAMMER)
+                .add(ModItems.DIAMOND_HAMMER)
+        ;
+
         getOrCreateTagBuilder(ItemTags.HEAD_ARMOR).add(ModItems.STEEL_HELMET);
         getOrCreateTagBuilder(ItemTags.CHEST_ARMOR).add(ModItems.STEEL_CHESTPLATE);
         getOrCreateTagBuilder(ItemTags.LEG_ARMOR).add(ModItems.STEEL_LEGGINGS);
         getOrCreateTagBuilder(ItemTags.FOOT_ARMOR).add(ModItems.STEEL_BOOTS);
 
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR).add(ModItems.STEEL_HELMET,ModItems.STEEL_CHESTPLATE,ModItems.STEEL_LEGGINGS,ModItems.STEEL_BOOTS);
+
+        getOrCreateTagBuilder(ItemTags.CREEPER_IGNITERS).add(ModItems.DIAMOND_FLINT);
     }
 }

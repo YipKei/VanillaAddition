@@ -1,6 +1,7 @@
 package com.yipkei.vanilladdition.init;
 
 import com.yipkei.vanilladdition.VanillaAddition;
+import com.yipkei.vanilladdition.block.BlindBox;
 import com.yipkei.vanilladdition.block.TranslucentSlab;
 import com.yipkei.vanilladdition.block.TranslucentStairs;
 import com.yipkei.vanilladdition.block.TranslucentWall;
@@ -14,6 +15,24 @@ import net.minecraft.util.Identifier;
 public class ModBlocks extends Blocks{
     public static final Block STEEL_BLOCK = registerBlocks("steel_block",new Block(AbstractBlock.Settings.copy(IRON_BLOCK)));
     public static final Block COMPRESS_WOOL = registerBlocks("compress_wool", new Block(AbstractBlock.Settings.copy(WHITE_WOOL)));
+
+    public static final Block STONE_BLIND_BOX = registerBlocks("stone_blind_box", new BlindBox(ModLootTables.STONE_BLIND_BOX, Blocks.STONE));
+    public static final Block COAL_BLIND_BOX = registerBlocks("coal_blind_box", new BlindBox(ModLootTables.COAL_BLIND_BOX, Blocks.COAL_BLOCK));
+    public static final Block COPPER_BLIND_BOX = registerBlocks("copper_blind_box", new BlindBox(ModLootTables.COPPER_BLIND_BOX, Blocks.COPPER_BLOCK));
+    public static final Block IRON_BLIND_BOX = registerBlocks("iron_blind_box", new BlindBox(ModLootTables.IRON_BLIND_BOX, Blocks.IRON_BLOCK));
+    public static final Block GOLDEN_BLIND_BOX = registerBlocks("golden_blind_box", new BlindBox(ModLootTables.GOLDEN_BLIND_BOX, Blocks.GOLD_BLOCK));
+    public static final Block EMERALD_BLIND_BOX = registerBlocks("emerald_blind_box", new BlindBox(ModLootTables.EMERALD_BLIND_BOX, Blocks.EMERALD_BLOCK));
+    public static final Block DIAMOND_BLIND_BOX = registerBlocks("diamond_blind_box", new BlindBox(ModLootTables.DIAMOND_BLIND_BOX, Blocks.DIAMOND_BLOCK));
+    public static final Block NETHERITE_BLIND_BOX = registerBlocks("netherite_blind_box", new BlindBox(ModLootTables.NETHERITE_BLIND_BOX, Blocks.NETHERITE_BLOCK));
+
+    public static final Block OMINOUS_STONE_BLIND_BOX = registerBlocks("ominous_stone_blind_box", new BlindBox(ModLootTables.OMINOUS_STONE_BLIND_BOX, Blocks.STONE));
+    public static final Block OMINOUS_COAL_BLIND_BOX = registerBlocks("ominous_coal_blind_box", new BlindBox(ModLootTables.OMINOUS_COAL_BLIND_BOX, Blocks.COAL_BLOCK));
+    public static final Block OMINOUS_COPPER_BLIND_BOX = registerBlocks("ominous_copper_blind_box", new BlindBox(ModLootTables.OMINOUS_COPPER_BLIND_BOX, Blocks.COPPER_BLOCK));
+    public static final Block OMINOUS_IRON_BLIND_BOX = registerBlocks("ominous_iron_blind_box", new BlindBox(ModLootTables.OMINOUS_IRON_BLIND_BOX, Blocks.IRON_BLOCK));
+    public static final Block OMINOUS_GOLDEN_BLIND_BOX = registerBlocks("ominous_golden_blind_box", new BlindBox(ModLootTables.OMINOUS_GOLDEN_BLIND_BOX, Blocks.GOLD_BLOCK));
+    public static final Block OMINOUS_EMERALD_BLIND_BOX = registerBlocks("ominous_emerald_blind_box", new BlindBox(ModLootTables.OMINOUS_EMERALD_BLIND_BOX, Blocks.EMERALD_BLOCK));
+    public static final Block OMINOUS_DIAMOND_BLIND_BOX = registerBlocks("ominous_diamond_blind_box", new BlindBox(ModLootTables.OMINOUS_DIAMOND_BLIND_BOX, Blocks.DIAMOND_BLOCK));
+    public static final Block OMINOUS_NETHERITE_BLIND_BOX = registerBlocks("ominous_netherite_blind_box", new BlindBox(ModLootTables.OMINOUS_NETHERITE_BLIND_BOX, Blocks.NETHERITE_BLOCK));
 
     // 原版建材补全（一）只缺墙
     public static final Block STONE_WALL = registerBlocks("stone_wall", new WallBlock(AbstractBlock.Settings.copy(STONE).solid()));

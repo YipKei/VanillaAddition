@@ -1,0 +1,149 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:mending",
+                "minecraft:unbreaking",
+                "minecraft:efficiency",
+                "minecraft:sharpness",
+                "minecraft:fortune",
+                "minecraft:silk_touch"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:mending",
+                "minecraft:unbreaking",
+                "minecraft:protection",
+                "minecraft:fire_protection",
+                "minecraft:projectile_protection",
+                "minecraft:blast_protection",
+                "minecraft:thorns"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:depth_strider",
+                "minecraft:frost_walker",
+                "minecraft:soul_speed",
+                "minecraft:feather_falling"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:mending",
+                "minecraft:unbreaking",
+                "minecraft:density",
+                "minecraft:breach",
+                "minecraft:wind_burst",
+                "minecraft:smite",
+                "minecraft:fire_aspect",
+                "minecraft:bane_of_arthropods"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:sharpness",
+                "minecraft:smite",
+                "minecraft:bane_of_arthropods",
+                "minecraft:mending",
+                "minecraft:unbreaking",
+                "minecraft:looting",
+                "minecraft:knockback",
+                "minecraft:sweeping_edge"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:infinity",
+                "minecraft:power",
+                "minecraft:unbreaking",
+                "minecraft:mending",
+                "minecraft:flame",
+                "minecraft:punch"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:mending",
+                "minecraft:unbreaking",
+                "minecraft:multishot",
+                "minecraft:piercing",
+                "minecraft:quick_charge"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": [
+                "minecraft:mending",
+                "minecraft:unbreaking",
+                "minecraft:channeling",
+                "minecraft:impaling",
+                "minecraft:loyalty",
+                "minecraft:riptide"
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

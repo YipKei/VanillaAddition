@@ -2,8 +2,10 @@ package com.yipkei.vanilladdition.data.generator.lang;
 
 import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
+import com.yipkei.vanilladdition.livingentity.villager.ModVillagers;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -139,6 +141,24 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         //方块
         translationBuilder.add(ModBlocks.STEEL_BLOCK,                   "鋼塊");
         translationBuilder.add(ModBlocks.COMPRESS_WOOL,                 "壓縮羊毛");
+
+        translationBuilder.add(ModBlocks.STONE_BLIND_BOX,               "石頭盲盒");
+        translationBuilder.add(ModBlocks.COAL_BLIND_BOX,                "黑仔盲盒");
+        translationBuilder.add(ModBlocks.COPPER_BLIND_BOX,              "赤铜盲盒");
+        translationBuilder.add(ModBlocks.IRON_BLIND_BOX,                "白铁盲盒");
+        translationBuilder.add(ModBlocks.GOLDEN_BLIND_BOX,              "撈金盲盒");
+        translationBuilder.add(ModBlocks.EMERALD_BLIND_BOX,             "綠寶石盲盒");
+        translationBuilder.add(ModBlocks.DIAMOND_BLIND_BOX,             "鑽石盲盒");
+        translationBuilder.add(ModBlocks.NETHERITE_BLOCK,               "至專無敵大盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_STONE_BLIND_BOX,       "不详的石頭盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_COAL_BLIND_BOX,        "不详的黑仔盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_COPPER_BLIND_BOX,      "不详的赤铜盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_IRON_BLIND_BOX,        "不详的白铁盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_GOLDEN_BLIND_BOX,      "不详的撈金盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_EMERALD_BLIND_BOX,     "不详的綠寶石盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_DIAMOND_BLIND_BOX,     "不详的鑽石盲盒");
+        translationBuilder.add(ModBlocks.OMINOUS_NETHERITE_BLIND_BOX,   "不详的至專無敵大盲盒");
+
 
         translationBuilder.add(ModBlocks.STONE_WALL,                    "石墻");
         translationBuilder.add(ModBlocks.POLISHED_GRANITE_WALL,         "拋光花崗岩墻");
@@ -302,6 +322,8 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_WALL,          "粉紅色陶瓦墻");
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_STAIRS,        "粉紅色陶瓦樓梯");
         translationBuilder.add(ModBlocks.PINK_TERRACOTTA_SLAB,          "粉紅色陶瓦半磚");
+
+        translationBuilder.add("entity.minecraft.villager."+ Registries.VILLAGER_PROFESSION.getId(ModVillagers.VAULT_TRADER).getPath(), "寶庫商人");
 
         //文本
         translationBuilder.add("diamond_shards_upgrade_applies_to",         "工具");

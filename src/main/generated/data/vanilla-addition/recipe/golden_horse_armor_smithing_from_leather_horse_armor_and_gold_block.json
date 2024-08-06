@@ -7,9 +7,6 @@
     "item": "minecraft:leather_horse_armor"
   },
   "result": {
-    "components": {
-      "minecraft:damage": 0
-    },
     "count": 1,
     "id": "minecraft:golden_horse_armor"
   },

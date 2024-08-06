@@ -5,15 +5,19 @@
   "mixins": [
     "BoggedEntityMixin",
     "BoneMealItemMixin",
+    "CraftingResultSlotMixin",
     "EnchantmentScreenHandlerMixin",
     "EnderDragonFightMixin",
-    "TranslucentBlockMixin",
+    "FlintAndSteelItemMixin",
     "MooshroomEntityMixin",
     "PumpkinBlockMixin",
+    "RepairItemRecipeMixin",
     "ShearsItemMixin",
     "SheepEntityMixin",
+    "SmithingScreenHandlerMixin",
     "SnowGolemEntityMixin",
     "SpawnHelperMixin",
+    "TranslucentBlockMixin",
     "WolfEntityMixin"
   ],
   "injectors": {

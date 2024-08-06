@@ -7,9 +7,6 @@
     "item": "vanilla-addition:heavy_core_prototype"
   },
   "result": {
-    "components": {
-      "minecraft:damage": 0
-    },
     "count": 1,
     "id": "minecraft:heavy_core"
   },

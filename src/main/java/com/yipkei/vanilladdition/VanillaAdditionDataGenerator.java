@@ -7,6 +7,7 @@ import com.yipkei.vanilladdition.data.generator.tag.ModItemTagProvider;
 import com.yipkei.vanilladdition.data.generator.lang.ModEnUsLangProvider;
 import com.yipkei.vanilladdition.data.generator.lang.ModZhCnLangProvider;
 import com.yipkei.vanilladdition.data.generator.lang.ModZhHkLangProvider;
+import com.yipkei.vanilladdition.data.generator.tag.ModPointTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -18,10 +19,12 @@ public class VanillaAdditionDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
+		pack.addProvider(ModPointTagProvider::new);
 		pack.addProvider(ModEnchantmentTagProvider::new);
 		pack.addProvider(ModModelsProvider::new);
 		pack.addProvider(ModBlockLootTablesProvider::new);
 //		pack.addProvider(ModEntityLootTablesProvider::new);
+		pack.addProvider(ModChestLootTableProvider::new);
 		pack.addProvider(ModRecipesProvider::new);
 		pack.addProvider(ModEnUsLangProvider::new);
 		pack.addProvider(ModZhCnLangProvider::new);

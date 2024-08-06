@@ -7,9 +7,6 @@
     "item": "vanilla-addition:suspicious_prototype"
   },
   "result": {
-    "components": {
-      "minecraft:damage": 0
-    },
     "count": 1,
     "id": "minecraft:ancient_debris"
   },

@@ -1,17 +1,14 @@
-package com.yipkei.vanilladdition.item;
+package com.yipkei.vanilladdition.mixin;
 
 import net.fabricmc.fabric.api.item.v1.FabricItem;
-import net.minecraft.item.Item;
+import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
 
-public class AbstractDurabilityTool extends Item implements FabricItem {
-
-    public AbstractDurabilityTool(Item.Settings settings) {
-        super(settings);
-    }
-
+@Mixin(FlintAndSteelItem.class)
+public class FlintAndSteelItemMixin implements FabricItem {
     @Override
-    public  final ItemStack getRecipeRemainder(ItemStack stack){
+    public final ItemStack getRecipeRemainder(ItemStack stack) {
         if (stack.getDamage()< stack.getMaxDamage()-1){
             ItemStack processed = stack.copy();
             processed.setDamage(stack.getDamage()+1);

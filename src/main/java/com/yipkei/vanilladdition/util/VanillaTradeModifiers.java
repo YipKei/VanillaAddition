@@ -1,14 +1,19 @@
 package com.yipkei.vanilladdition.util;
 
 import com.yipkei.vanilladdition.custom.CustomBanners;
+import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
+import com.yipkei.vanilladdition.livingentity.villager.ModVillagers;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.component.ComponentChanges;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKey;
@@ -120,6 +125,39 @@ public class VanillaTradeModifiers {
         });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories
                 .add(new TradeOffers.SellItemFactory(Items.CALCITE, 16, 16, 20)));
+
+
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.VAULT_TRADER, 1, factories -> {
+            factories.add(new ProcessBlindBoxFactory(Blocks.STONE, 64, Items.TRIAL_KEY, 1, new ItemStack(ModBlocks.STONE_BLIND_BOX),8, 1));
+            factories.add(new ProcessBlindBoxFactory(Blocks.STONE, 64, Items.OMINOUS_TRIAL_KEY, 1, new ItemStack(ModBlocks.OMINOUS_STONE_BLIND_BOX),8, 1));
+            factories.add(new ProcessBlindBoxFactory(Blocks.COAL_BLOCK, 16, Items.TRIAL_KEY, 1, new ItemStack(ModBlocks.COAL_BLIND_BOX),8, 1));
+            factories.add(new ProcessBlindBoxFactory(Blocks.COAL_BLOCK, 16, Items.OMINOUS_TRIAL_KEY, 1, new ItemStack(ModBlocks.OMINOUS_COAL_BLIND_BOX),8, 1));
+        });
+
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.VAULT_TRADER, 2, factories -> {
+            factories.add(new ProcessBlindBoxFactory(Blocks.COPPER_BLOCK, 16, Items.TRIAL_KEY, 4, new ItemStack(ModBlocks.COPPER_BLIND_BOX), 6, 2));
+            factories.add(new ProcessBlindBoxFactory(Blocks.COPPER_BLOCK, 16, Items.OMINOUS_TRIAL_KEY, 4, new ItemStack(ModBlocks.OMINOUS_COPPER_BLIND_BOX), 6, 2));
+            factories.add(new ProcessBlindBoxFactory(Blocks.IRON_BLOCK, 16, Items.TRIAL_KEY, 4, new ItemStack(ModBlocks.IRON_BLIND_BOX), 6, 2));
+            factories.add(new ProcessBlindBoxFactory(Blocks.IRON_BLOCK, 16, Items.OMINOUS_TRIAL_KEY, 4, new ItemStack(ModBlocks.OMINOUS_IRON_BLIND_BOX), 6, 2));
+            factories.add(new ProcessBlindBoxFactory(Blocks.GOLD_BLOCK, 16, Items.TRIAL_KEY, 4, new ItemStack(ModBlocks.GOLDEN_BLIND_BOX), 6, 2));
+            factories.add(new ProcessBlindBoxFactory(Blocks.GOLD_BLOCK, 16, Items.OMINOUS_TRIAL_KEY, 4, new ItemStack(ModBlocks.OMINOUS_GOLDEN_BLIND_BOX), 6, 2));
+        });
+
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.VAULT_TRADER, 3, factories -> {
+            factories.add(new ProcessBlindBoxFactory(Blocks.EMERALD_BLOCK, 4, Items.TRIAL_KEY, 7, new ItemStack(ModBlocks.EMERALD_BLIND_BOX), 4, 3));
+            factories.add(new ProcessBlindBoxFactory(Blocks.EMERALD_BLOCK, 4, Items.OMINOUS_TRIAL_KEY, 7, new ItemStack(ModBlocks.OMINOUS_EMERALD_BLIND_BOX), 4, 3));
+        });
+
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.VAULT_TRADER, 4, factories -> {
+            factories.add(new ProcessBlindBoxFactory(Blocks.DIAMOND_BLOCK, 1, Items.TRIAL_KEY, 7, new ItemStack(ModBlocks.DIAMOND_BLIND_BOX), 3, 4));
+            factories.add(new ProcessBlindBoxFactory(Blocks.DIAMOND_BLOCK, 1, Items.OMINOUS_TRIAL_KEY, 7, new ItemStack(ModBlocks.OMINOUS_DIAMOND_BLIND_BOX), 3, 4));
+        });
+
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.VAULT_TRADER, 5, factories -> {
+            factories.add(new ProcessBlindBoxFactory(Blocks.NETHERITE_BLOCK, 1, Items.TRIAL_KEY, 10, new ItemStack(ModBlocks.NETHERITE_BLIND_BOX), 2, 5));
+            factories.add(new ProcessBlindBoxFactory(Blocks.NETHERITE_BLOCK, 1, Items.OMINOUS_TRIAL_KEY, 10, new ItemStack(ModBlocks.OMINOUS_NETHERITE_BLIND_BOX), 2, 5));
+        });
+
     }
 
     public static class SellSelectEnchantedTools implements TradeOffers.Factory{
@@ -167,7 +205,7 @@ public class VanillaTradeModifiers {
 
         @Override
         public TradeOffer create(Entity entity, Random random){
-            int level = random.nextBetween(0,5);
+            int level = random.nextBetween(0,4);
             ComponentChanges componentChanges = ComponentChanges.builder().add(DataComponentTypes.OMINOUS_BOTTLE_AMPLIFIER, level).build();
             ItemStack itemStack = new ItemStack(RegistryEntry.of(Items.OMINOUS_BOTTLE), 1, componentChanges);
             return new TradeOffer(new TradedItem(Items.EMERALD, this.price), itemStack, this.maxUses, this.experience, this.multiplier);
@@ -198,6 +236,33 @@ public class VanillaTradeModifiers {
             return new TradeOffer(new TradedItem(Items.EMERALD, this.price),
                     Optional.of(new TradedItem(this.defaultBanner)),
                     CustomBanners.getBiliBiliBannerType1(entity.getRegistryManager().getWrapperOrThrow(RegistryKeys.BANNER_PATTERN), this.defaultBanner, this.patternColor, this.formatting), this.maxUses, this.experience, this.multiplier);
+        }
+    }
+
+    public static class ProcessBlindBoxFactory implements TradeOffers.Factory{
+        private final int maxUses;
+        private final int experience;
+        private final float multiplier;
+        private final int sourceBlockCount;
+        private final Block sourceBlock;
+        private final int keyCount;
+        private final Item keyType;
+        private final ItemStack result;
+
+        public ProcessBlindBoxFactory(Block sourceBlock, int sourceBlockCount, ItemConvertible keyType, int keyCount, ItemStack result, int maxUses, int experience){
+            this.sourceBlock = sourceBlock;
+            this.sourceBlockCount = sourceBlockCount;
+            this.keyType = keyType.asItem();
+            this.keyCount = keyCount;
+            this.result = result;
+            this.maxUses = maxUses;
+            this.experience = experience;
+            this.multiplier = 0.0f;
+        }
+
+        @Override
+        public TradeOffer create(Entity entity, Random random) {
+            return new TradeOffer(new TradedItem(this.keyType, this.keyCount), Optional.of(new TradedItem(this.sourceBlock, this.sourceBlockCount)), result, 0 ,this.maxUses, this.experience, this.multiplier);
         }
     }
 }

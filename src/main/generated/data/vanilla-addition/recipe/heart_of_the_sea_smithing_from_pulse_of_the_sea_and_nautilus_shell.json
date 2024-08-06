@@ -7,9 +7,6 @@
     "item": "vanilla-addition:pulse_of_the_sea"
   },
   "result": {
-    "components": {
-      "minecraft:damage": 0
-    },
     "count": 1,
     "id": "minecraft:heart_of_the_sea"
   },

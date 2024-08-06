@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "vanilla-addition:block/emerald_blind_box_top",
+    "side": "vanilla-addition:block/emerald_blind_box_side"
+  }
+}

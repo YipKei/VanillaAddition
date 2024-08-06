@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/simple_dungeon",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/pillager_outpost",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/igloo_chest"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

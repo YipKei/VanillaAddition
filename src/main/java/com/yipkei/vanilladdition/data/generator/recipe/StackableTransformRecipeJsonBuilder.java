@@ -1,20 +1,20 @@
 package com.yipkei.vanilladdition.data.generator.recipe;
 
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementCriterion;
 import net.minecraft.advancement.AdvancementRequirements;
 import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.SmithingTransformRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class StackableTransformRecipeJsonBuilder {
     private final Ingredient template;
@@ -24,17 +24,17 @@ public class StackableTransformRecipeJsonBuilder {
     private final ItemStack resultStack;
     private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap<>();
 
-    public StackableTransformRecipeJsonBuilder(Ingredient template, Ingredient base, Ingredient addition, RecipeCategory category, Item result, int resultCount, int damage) {
+    private StackableTransformRecipeJsonBuilder(Ingredient template, Ingredient base, Ingredient addition, RecipeCategory category, ItemStack resultStack) {
         this.category = category;
         this.template = template;
         this.base = base;
         this.addition = addition;
-        this.resultStack = new ItemStack(result, resultCount);
-        if (resultCount == 1) this.resultStack.setDamage(damage);
+        this.resultStack = resultStack;
     }
 
-    public static StackableTransformRecipeJsonBuilder create(Ingredient template, Ingredient base, Ingredient addition, RecipeCategory category, Item result, int resultCount, int damage) {
-        return new StackableTransformRecipeJsonBuilder(template, base, addition, category, result, resultCount, damage);
+
+    public static StackableTransformRecipeJsonBuilder create(Ingredient template, Ingredient base, Ingredient addition, RecipeCategory category, ItemStack resultStack) {
+        return new StackableTransformRecipeJsonBuilder(template, base, addition, category, resultStack);
     }
 
     public StackableTransformRecipeJsonBuilder criterion(String name, AdvancementCriterion<?> criterion) {

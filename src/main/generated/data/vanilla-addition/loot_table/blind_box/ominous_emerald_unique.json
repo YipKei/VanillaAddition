@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:efficiency": 5.0,
+                "minecraft:mending": 1.0,
+                "minecraft:silk_touch": 1.0,
+                "minecraft:unbreaking": 3.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:diamond_pickaxe",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:efficiency": 5.0,
+                "minecraft:mending": 1.0,
+                "minecraft:silk_touch": 1.0,
+                "minecraft:unbreaking": 3.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:diamond_shovel",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "enchantments": {
+                "minecraft:efficiency": 5.0,
+                "minecraft:mending": 1.0,
+                "minecraft:sharpness": 5.0,
+                "minecraft:silk_touch": 1.0,
+                "minecraft:unbreaking": 3.0
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:diamond_axe"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rose_bush"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_boots",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_leggings",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rabbit_hide",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rabbit_stew",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:experience_bottle",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glistering_melon_slice",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cherry_chest_boat"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bamboo_chest_raft"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:mangrove_chest_boat"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:birch_chest_boat"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "vanilla-addition:diamond_shard",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tinted_glass",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:decorated_pot",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "vanilla-addition:compress_wool",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "vanilla-addition:iron_hammer",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_scrap"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:short_grass",
+          "weight": 18
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+package com.yipkei.vanilladdition.data.generator.recipe;
+
+import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.AdvancementCriterion;
+import net.minecraft.advancement.AdvancementRequirements;
+import net.minecraft.advancement.AdvancementRewards;
+import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
+import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.ShapelessRecipe;
+import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+
+public class StackableShapelessRecipeJsonBuilder implements CraftingRecipeJsonBuilder {
+    private final RecipeCategory category;
+    private final ItemStack resultStack;
+    private final DefaultedList<Ingredient> inputs = DefaultedList.of();
+    private final Map<String, AdvancementCriterion<?>> advancementBuilder = new LinkedHashMap<>();
+    @Nullable
+    private String group;
+
+    public StackableShapelessRecipeJsonBuilder(RecipeCategory category, ItemStack resultStack) {
+        this.category = category;
+        this.resultStack = resultStack;
+    }
+
+    public static StackableShapelessRecipeJsonBuilder create(RecipeCategory category, ItemConvertible output) {
+        return create(category, output, 1);
+    }
+
+    public static StackableShapelessRecipeJsonBuilder create(RecipeCategory category, ItemConvertible output, int count) {
+        return create(category, new ItemStack(output, count));
+    }
+
+    public static StackableShapelessRecipeJsonBuilder create(RecipeCategory category, ItemStack resultStack) {
+        return new StackableShapelessRecipeJsonBuilder(category, resultStack);
+    }
+
+    public StackableShapelessRecipeJsonBuilder input(TagKey<Item> tag) {
+        return this.input(Ingredient.fromTag(tag));
+    }
+
+    public StackableShapelessRecipeJsonBuilder input(ItemConvertible itemProvider) {
+        return this.input(itemProvider, 1);
+    }
+
+    public StackableShapelessRecipeJsonBuilder input(ItemConvertible itemProvider, int size) {
+        for(int i = 0; i < size; ++i) {
+            this.input(Ingredient.ofItems(itemProvider));
+        }
+
+        return this;
+    }
+
+    public StackableShapelessRecipeJsonBuilder input(Ingredient ingredient) {
+        return this.input(ingredient, 1);
+    }
+
+    public StackableShapelessRecipeJsonBuilder input(Ingredient ingredient, int size) {
+        for(int i = 0; i < size; ++i) {
+            this.inputs.add(ingredient);
+        }
+
+        return this;
+    }
+
+    public StackableShapelessRecipeJsonBuilder criterion(String string, AdvancementCriterion<?> advancementCriterion) {
+        this.advancementBuilder.put(string, advancementCriterion);
+        return this;
+    }
+
+    public StackableShapelessRecipeJsonBuilder group(@Nullable String string) {
+        this.group = string;
+        return this;
+    }
+
+    public Item getOutputItem() {
+        return this.resultStack.getItem();
+    }
+
+    public void offerTo(RecipeExporter exporter, Identifier recipeId) {
+        this.validate(recipeId);
+        Advancement.Builder builder = exporter.getAdvancementBuilder().criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId)).rewards(AdvancementRewards.Builder.recipe(recipeId)).criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
+        this.advancementBuilder.forEach(builder::criterion);
+        ShapelessRecipe shapelessRecipe = new ShapelessRecipe((String)Objects.requireNonNullElse(this.group, ""), CraftingRecipeJsonBuilder.toCraftingCategory(this.category), resultStack, this.inputs);
+        exporter.accept(recipeId, shapelessRecipe, builder.build(recipeId.withPrefixedPath("recipes/" + this.category.getName() + "/")));
+    }
+
+    private void validate(Identifier recipeId) {
+        if (this.advancementBuilder.isEmpty()) {
+            throw new IllegalStateException("No way of obtaining recipe " + String.valueOf(recipeId));
+        }
+    }
+}
+

@@ -32,6 +32,7 @@ public class ModTags {
         public static final TagKey<Item> DIAMOND_LIKE_INGREDIENTS = createTag("diamond_like_ingredients");
         public static final TagKey<Item> QUARTZ_BLOCK = createTag("quartz_block");
         public static final TagKey<Item> SHEARS = createTag("shears");
+        public static final TagKey<Item> HAMMERS = createTag("hammers");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(VanillaAddition.MOD_ID, name));
