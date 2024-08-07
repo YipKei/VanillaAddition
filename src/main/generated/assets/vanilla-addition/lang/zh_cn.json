@@ -1,6 +1,5 @@
 {
   "RedstoneHead_": "数字： ",
-  "block.minecraft.netherite_block": "至尊无敌大盲盒",
   "block.vanilla-addition.amethyst_slab": "紫水晶半砖",
   "block.vanilla-addition.amethyst_stairs": "紫水晶楼梯",
   "block.vanilla-addition.amethyst_wall": "紫水晶墙",
@@ -102,6 +101,7 @@
   "block.vanilla-addition.mud_slab": "泥半砖",
   "block.vanilla-addition.mud_stairs": "泥楼梯",
   "block.vanilla-addition.mud_wall": "泥墙",
+  "block.vanilla-addition.netherite_blind_box": "至尊无敌大盲盒",
   "block.vanilla-addition.netherrack_slab": "下界岩半砖",
   "block.vanilla-addition.netherrack_stairs": "下界岩楼梯",
   "block.vanilla-addition.netherrack_wall": "下界岩墙",

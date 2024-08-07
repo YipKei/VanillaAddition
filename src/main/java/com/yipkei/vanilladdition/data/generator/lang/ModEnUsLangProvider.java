@@ -150,7 +150,7 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.GOLDEN_BLIND_BOX,              "Golden Blind Box");
         translationBuilder.add(ModBlocks.EMERALD_BLIND_BOX,             "Emerald Blind Box");
         translationBuilder.add(ModBlocks.DIAMOND_BLIND_BOX,             "Diamond Blind Box");
-        translationBuilder.add(ModBlocks.NETHERITE_BLOCK,               "Netherite Blind Box");
+        translationBuilder.add(ModBlocks.NETHERITE_BLIND_BOX,           "Netherite Blind Box");
         translationBuilder.add(ModBlocks.OMINOUS_STONE_BLIND_BOX,       "Ominous Stone Blind Box");
         translationBuilder.add(ModBlocks.OMINOUS_COAL_BLIND_BOX,        "Ominous Coal Blind Box");
         translationBuilder.add(ModBlocks.OMINOUS_COPPER_BLIND_BOX,      "Ominous Copper Blind Box");

@@ -1,6 +1,5 @@
 {
   "RedstoneHead_": "Redstone Hex ",
-  "block.minecraft.netherite_block": "Netherite Blind Box",
   "block.vanilla-addition.amethyst_slab": "Amethyst Slab",
   "block.vanilla-addition.amethyst_stairs": "Amethyst Stairs",
   "block.vanilla-addition.amethyst_wall": "Amethyst Wall",
@@ -102,6 +101,7 @@
   "block.vanilla-addition.mud_slab": "Mud Slab",
   "block.vanilla-addition.mud_stairs": "Mud Stairs",
   "block.vanilla-addition.mud_wall": "Mud Wall",
+  "block.vanilla-addition.netherite_blind_box": "Netherite Blind Box",
   "block.vanilla-addition.netherrack_slab": "Netherrack Slab",
   "block.vanilla-addition.netherrack_stairs": "Netherrack Stairs",
   "block.vanilla-addition.netherrack_wall": "Netherrack Wall",

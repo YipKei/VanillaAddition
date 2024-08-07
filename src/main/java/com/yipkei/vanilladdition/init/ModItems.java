@@ -56,6 +56,24 @@ public class ModItems {
 
 //    public static final Item STEEL_SHIELD = registerItems("steel_shield", new ShieldItem(new Item.Settings().maxDamage(1200).component(DataComponentTypes.BANNER_PATTERNS, BannerPatternsComponent.DEFAULT)));
 
+    public static final Item STONE_BLIND_BOX     = Items.register(ModBlocks.STONE_BLIND_BOX);
+    public static final Item COAL_BLIND_BOX      = Items.register(ModBlocks.COAL_BLIND_BOX);
+    public static final Item COPPER_BLIND_BOX    = Items.register(ModBlocks.COPPER_BLIND_BOX);
+    public static final Item IRON_BLIND_BOX      = Items.register(ModBlocks.IRON_BLIND_BOX);
+    public static final Item GOLDEN_BLIND_BOX    = Items.register(ModBlocks.GOLDEN_BLIND_BOX);
+    public static final Item EMERALD_BLIND_BOX   = Items.register(ModBlocks.EMERALD_BLIND_BOX);
+    public static final Item DIAMOND_BLIND_BOX   = Items.register(ModBlocks.DIAMOND_BLIND_BOX);
+    public static final Item NETHERITE_BLIND_BOX = Items.register(ModBlocks.NETHERITE_BLIND_BOX);
+
+    public static final Item OMINOUS_STONE_BLIND_BOX     = Items.register(ModBlocks.OMINOUS_STONE_BLIND_BOX);
+    public static final Item OMINOUS_COAL_BLIND_BOX      = Items.register(ModBlocks.OMINOUS_COAL_BLIND_BOX);
+    public static final Item OMINOUS_COPPER_BLIND_BOX    = Items.register(ModBlocks.OMINOUS_COPPER_BLIND_BOX);
+    public static final Item OMINOUS_IRON_BLIND_BOX      = Items.register(ModBlocks.OMINOUS_IRON_BLIND_BOX);
+    public static final Item OMINOUS_GOLDEN_BLIND_BOX    = Items.register(ModBlocks.OMINOUS_GOLDEN_BLIND_BOX);
+    public static final Item OMINOUS_EMERALD_BLIND_BOX   = Items.register(ModBlocks.OMINOUS_EMERALD_BLIND_BOX);
+    public static final Item OMINOUS_DIAMOND_BLIND_BOX   = Items.register(ModBlocks.OMINOUS_DIAMOND_BLIND_BOX);
+    public static final Item OMINOUS_NETHERITE_BLIND_BOX = Items.register(ModBlocks.OMINOUS_NETHERITE_BLIND_BOX);
+
     //原料
     public static final Item STEEL_INGOT = registerItems("steel_ingot", new Item(new Item.Settings()));
     public static final Item DIAMOND_SHARD = registerItems("diamond_shard", new Item(new Item.Settings()));

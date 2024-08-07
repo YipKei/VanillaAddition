@@ -149,7 +149,7 @@ public class ModZhHkLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.GOLDEN_BLIND_BOX,              "撈金盲盒");
         translationBuilder.add(ModBlocks.EMERALD_BLIND_BOX,             "綠寶石盲盒");
         translationBuilder.add(ModBlocks.DIAMOND_BLIND_BOX,             "鑽石盲盒");
-        translationBuilder.add(ModBlocks.NETHERITE_BLOCK,               "至專無敵大盲盒");
+        translationBuilder.add(ModBlocks.NETHERITE_BLIND_BOX,           "至專無敵大盲盒");
         translationBuilder.add(ModBlocks.OMINOUS_STONE_BLIND_BOX,       "不详的石頭盲盒");
         translationBuilder.add(ModBlocks.OMINOUS_COAL_BLIND_BOX,        "不详的黑仔盲盒");
         translationBuilder.add(ModBlocks.OMINOUS_COPPER_BLIND_BOX,      "不详的赤铜盲盒");

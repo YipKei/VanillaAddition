@@ -16,7 +16,7 @@ import net.minecraft.world.poi.PointOfInterestType;
 import org.jetbrains.annotations.Nullable;
 
 public class ModVillagers {
-    public static final VillagerProfession VAULT_TRADER = register("vault_trader", ModPointOfInterestTypes.VAULT_TRADER_POI, SoundEvents.ENTITY_VILLAGER_WORK_FISHERMAN);
+    public static final VillagerProfession VAULT_TRADER = register("vault_trader", ModPointOfInterestTypes.VAULT_TRADER_POI, SoundEvents.BLOCK_VAULT_INSERT_ITEM);
 
     public static final PointOfInterestType VAULT_TRADER_POI = registerPointOfInterestType("vault_trader_poi", Blocks.VAULT);
 
