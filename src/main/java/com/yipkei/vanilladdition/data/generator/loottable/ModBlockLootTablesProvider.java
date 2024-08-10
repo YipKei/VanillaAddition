@@ -1,4 +1,4 @@
-package com.yipkei.vanilladdition.data.generator;
+package com.yipkei.vanilladdition.data.generator.loottable;
 
 import com.yipkei.vanilladdition.init.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

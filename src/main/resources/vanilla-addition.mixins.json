@@ -20,6 +20,8 @@
     "TntBlockMixin",
     "TranslucentBlockMixin",
     "VillagerEntityMixin",
+    "WitherRoseBlockMixin",
+    "WitherSkeletonEntityMixin",
     "WolfEntityMixin"
   ],
   "injectors": {

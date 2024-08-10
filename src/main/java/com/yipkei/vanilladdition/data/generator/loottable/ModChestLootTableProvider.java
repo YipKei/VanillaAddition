@@ -1,4 +1,4 @@
-package com.yipkei.vanilladdition.data.generator;
+package com.yipkei.vanilladdition.data.generator.loottable;
 
 import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItems;
@@ -12,6 +12,7 @@ import net.minecraft.data.DataWriter;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
+import net.minecraft.item.map.MapDecorationTypes;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
@@ -27,6 +28,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntryList;
+import net.minecraft.registry.tag.StructureTags;
+import net.minecraft.text.Text;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -275,6 +278,45 @@ public class ModChestLootTableProvider implements FabricLootTableProvider, DataP
                 LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .with(LootTableEntry.builder(LootTables.UNDERWATER_RUIN_SMALL_CHEST).weight(8))
                         .with(LootTableEntry.builder(LootTables.UNDERWATER_RUIN_BIG_CHEST).weight(2))
+
+                        .with(ItemEntry.builder(Items.COAL).weight(1)
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2,32))))
+                        .with(ItemEntry.builder(Items.GOLD_NUGGET).weight(1)
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2,24))))
+                        .with(ItemEntry.builder(Items.EMERALD).weight(1)
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2,8))))
+                        .with(ItemEntry.builder(Items.BOOK).weight(1)
+                                .apply(EnchantWithLevelsLootFunction.builder(registryLookup,UniformLootNumberProvider.create(10,50))))
+                        .with(ItemEntry.builder(Items.MAP).weight(1)
+                                .apply(ExplorationMapLootFunction.builder().withDestination(StructureTags.ON_TREASURE_MAPS).withDecoration(MapDecorationTypes.RED_X).withZoom((byte)1).withSkipExistingChunks(false))
+                                .apply(SetNameLootFunction.builder(Text.translatable("filled_map.buried_treasure"), SetNameLootFunction.Target.ITEM_NAME)))
+                        .with(ItemEntry.builder(Items.GOLDEN_APPLE).weight(1))
+
+                        .with(ItemEntry.builder(Items.PAPER).weight(1)
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3,120))))
+                        .with(ItemEntry.builder(Items.PAPER).weight(1))
+                        .with(ItemEntry.builder(Items.POISONOUS_POTATO).weight(1))
+                        .with(ItemEntry.builder(Items.POTATO).weight(1))
+                        .with(ItemEntry.builder(Items.WHEAT).weight(1))
+                        .with(ItemEntry.builder(Items.CARROT).weight(1))
+                        .with(ItemEntry.builder(Items.ROTTEN_FLESH).weight(1))
+                        .with(ItemEntry.builder(Items.GUNPOWDER).weight(1))
+                        .with(ItemEntry.builder(Items.BAMBOO).weight(1))
+                        .with(ItemEntry.builder(Items.PUMPKIN).weight(1))
+                        .with(ItemEntry.builder(Items.TNT).weight(1))
+                        .with(ItemEntry.builder(Items.IRON_INGOT).weight(1))
+                        .with(ItemEntry.builder(Items.IRON_NUGGET).weight(1))
+                        .with(ItemEntry.builder(Items.LAPIS_LAZULI).weight(1))
+                        .with(ItemEntry.builder(Items.PAPER).weight(1))
+                        .with(ItemEntry.builder(Items.GOLD_INGOT).weight(1))
+                        .with(ItemEntry.builder(Items.EXPERIENCE_BOTTLE).weight(1))
+                        .with(ItemEntry.builder(Items.DIAMOND).weight(1))
+                        .with(ItemEntry.builder(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE).weight(1))
+                        .with(ItemEntry.builder(Items.BOOK).weight(1))
+                        .with(ItemEntry.builder(Items.CLOCK).weight(1))
+                        .with(ItemEntry.builder(Items.MAP).weight(1))
+                        .with(ItemEntry.builder(Items.COMPASS).weight(1))
+                        .with(ItemEntry.builder(Items.FEATHER).weight(1))
                 ));
 
         lootTableBiConsumer.accept(ModLootTables.COPPER_BLIND_BOX_UNCOMMON,

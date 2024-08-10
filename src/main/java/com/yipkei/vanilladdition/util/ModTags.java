@@ -17,7 +17,8 @@ public class ModTags {
         public static final TagKey<Block> DEEP_DARK_FANTASY_AFFECTABLE = createTag("deep_dark_fantasy_affectable");
         public static final TagKey<Block> EXPLOSION_CREATOR_AFFECTABLE = createTag("explosion_creator_affectable");
         public static final TagKey<Block> MAGICAL_GIRLS_AFFECTABLE = createTag("magical_girls_affectable");
-        public static final TagKey<Block> NETHER_FORTRESS_CAN_SPAWNS = createTag("nether_bricks");
+        public static final TagKey<Block> NETHER_FORTRESS_CAN_SPAWNS = createTag("nether_fortress_can_spawns");
+        public static final TagKey<Block> WITHER_ROSE_CAN_KEEP_ON = createTag("wither_rose_can_keep_on");
         public static final TagKey<Block> TALL_PLANT_FERTILIZABLE = createTag("bone_meal_drops_extra");
 
         private static TagKey<Block> createTag(String name){

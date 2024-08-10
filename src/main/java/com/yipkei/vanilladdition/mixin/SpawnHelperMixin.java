@@ -33,5 +33,4 @@ public class SpawnHelperMixin {
     private static boolean replaceCheck(boolean isNetherBricks){
         return true;
     }
-
 }

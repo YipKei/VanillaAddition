@@ -1,6 +1,8 @@
 package com.yipkei.vanilladdition;
 
 import com.yipkei.vanilladdition.data.generator.*;
+import com.yipkei.vanilladdition.data.generator.loottable.ModBlockLootTablesProvider;
+import com.yipkei.vanilladdition.data.generator.loottable.ModChestLootTableProvider;
 import com.yipkei.vanilladdition.data.generator.tag.ModBlockTagProvider;
 import com.yipkei.vanilladdition.data.generator.tag.ModEnchantmentTagProvider;
 import com.yipkei.vanilladdition.data.generator.tag.ModItemTagProvider;

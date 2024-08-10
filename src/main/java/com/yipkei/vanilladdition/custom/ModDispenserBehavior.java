@@ -3,7 +3,6 @@ package com.yipkei.vanilladdition.custom;
 import com.yipkei.vanilladdition.init.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
-import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
@@ -14,7 +13,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.event.GameEvent;
 
 public class ModDispenserBehavior {
-    private static final ItemDispenserBehavior defaultBehavior = new ItemDispenserBehavior();
 
     public static void register(){
         DispenserBlock.registerBehavior(ModItems.STEEL_SHEARS, new ShearsDispenserBehavior());

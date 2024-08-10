@@ -369,6 +369,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NETHERRACK_STAIRS)
                 ;
 
+        getOrCreateTagBuilder(ModTags.Blocks.WITHER_ROSE_CAN_KEEP_ON)
+                .add(Blocks.NETHER_BRICKS)
+                ;
+
         getOrCreateTagBuilder(ModTags.Blocks.TALL_PLANT_FERTILIZABLE)
                 .add(Blocks.PITCHER_PLANT)
                 ;
