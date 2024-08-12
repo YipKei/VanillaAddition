@@ -5,48 +5,160 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 20.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:lapis_lazuli",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 10.0,
+                "min": 3.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:gold_ingot",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 24.0,
+                "min": 10.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:coal",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 12.0,
+                "min": 8.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:redstone",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:experience_bottle",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 10.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:terracotta",
+          "weight": 20
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
           "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_armorer"
+          "value": "vanilla-addition:equipments/iron_equipment",
+          "weight": 10
         },
         {
           "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_butcher"
+          "value": "vanilla-addition:equipments/leather_armors",
+          "weight": 2
         },
         {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_cartographer"
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:diamond",
+          "weight": 5
         },
         {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_fisher"
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 10.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:emerald",
+          "weight": 5
         },
         {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_fletcher"
+          "type": "minecraft:item",
+          "name": "vanilla-addition:iron_horse_armor_blueprint"
         },
         {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_mason"
+          "type": "minecraft:item",
+          "name": "vanilla-addition:golden_horse_armor_blueprint"
         },
         {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_shepherd"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_tannery"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_temple"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_toolsmith"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "value": "minecraft:chests/village/village_weaponsmith"
+          "type": "minecraft:item",
+          "name": "vanilla-addition:diamond_horse_armor_blueprint"
         }
       ],
       "rolls": 1.0

@@ -43,7 +43,7 @@ public class BlindBox extends Block {
         if (rewards.isEmpty()) return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
         for (ItemStack reward : rewards){
-            world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY()+0.5d, pos.getZ(),reward, 0d, 0.2d, 0d));
+            world.spawnEntity(new ItemEntity(world, pos.getX()+0.5d, pos.getY()+0.5d, pos.getZ()+0.5d, reward, 0d, 0.2d, 0d));
         }
         stack.damage(1, player, LivingEntity.getSlotForHand(hand));
         return ItemActionResult.success(world.isClient);

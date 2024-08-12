@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "vanilla-addition:equipments/enchanted_iron_tools",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "vanilla-addition:equipments/enchanted_iron_armors",
+          "weight": 4
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

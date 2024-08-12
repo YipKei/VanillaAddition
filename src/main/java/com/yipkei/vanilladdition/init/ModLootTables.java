@@ -99,6 +99,29 @@ public class ModLootTables {
     public static final RegistryKey<LootTable> OMINOUS_NETHERITE_BLIND_BOX_RARE   = ModLootTables.register("blind_box/ominous_netherite_rare");
     public static final RegistryKey<LootTable> OMINOUS_NETHERITE_BLIND_BOX_UNIQUE = ModLootTables.register("blind_box/ominous_netherite_unique");
 
+    public static final RegistryKey<LootTable> LEATHER_ARMORS =    ModLootTables.register("equipments/leather_armors");
+    public static final RegistryKey<LootTable> IRON_TOOLS =        ModLootTables.register("equipments/iron_tools");
+    public static final RegistryKey<LootTable> IRON_ARMORS =       ModLootTables.register("equipments/iron_armors");
+    public static final RegistryKey<LootTable> CHAINMAIL_ARMORS =  ModLootTables.register("equipments/chainmail_armors");
+    public static final RegistryKey<LootTable> IRON_EQUIPMENT =    ModLootTables.register("equipments/iron_equipment");
+    public static final RegistryKey<LootTable> GOLDEN_TOOLS =      ModLootTables.register("equipments/golden_tools");
+    public static final RegistryKey<LootTable> GOLDEN_ARMORS =     ModLootTables.register("equipments/golden_armors");
+    public static final RegistryKey<LootTable> GOLDEN_EQUIPMENT =  ModLootTables.register("equipments/golden_equipment");
+    public static final RegistryKey<LootTable> DIAMOND_TOOLS =     ModLootTables.register("equipments/diamond_tools");
+    public static final RegistryKey<LootTable> DIAMOND_ARMORS =    ModLootTables.register("equipments/diamond_armors");
+    public static final RegistryKey<LootTable> DIAMOND_EQUIPMENT = ModLootTables.register("equipments/diamond_equipment");
+
+    public static final RegistryKey<LootTable> ENCHANTED_LEATHER_ARMORS =    ModLootTables.register("equipments/enchanted_leather_armors");
+    public static final RegistryKey<LootTable> ENCHANTED_IRON_TOOLS =        ModLootTables.register("equipments/enchanted_iron_tools");
+    public static final RegistryKey<LootTable> ENCHANTED_IRON_ARMORS =       ModLootTables.register("equipments/enchanted_iron_armors");
+    public static final RegistryKey<LootTable> ENCHANTED_CHAINMAIL_ARMORS =  ModLootTables.register("equipments/enchanted_chainmail_armors");
+    public static final RegistryKey<LootTable> ENCHANTED_IRON_EQUIPMENT =    ModLootTables.register("equipments/enchanted_iron_equipment");
+    public static final RegistryKey<LootTable> ENCHANTED_GOLDEN_TOOLS =      ModLootTables.register("equipments/enchanted_golden_tools");
+    public static final RegistryKey<LootTable> ENCHANTED_GOLDEN_ARMORS =     ModLootTables.register("equipments/enchanted_golden_armors");
+    public static final RegistryKey<LootTable> ENCHANTED_GOLDEN_EQUIPMENT =  ModLootTables.register("equipments/enchanted_golden_equipment");
+    public static final RegistryKey<LootTable> ENCHANTED_DIAMOND_TOOLS =     ModLootTables.register("equipments/enchanted_diamond_tools");
+    public static final RegistryKey<LootTable> ENCHANTED_DIAMOND_ARMORS =    ModLootTables.register("equipments/enchanted_diamond_armors");
+    public static final RegistryKey<LootTable> ENCHANTED_DIAMOND_EQUIPMENT = ModLootTables.register("equipments/enchanted_diamond_equipment");
 
     private static RegistryKey<LootTable> register(String id) {
         return ModLootTables.registerLootTable(RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(VanillaAddition.MOD_ID, id)));

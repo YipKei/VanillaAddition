@@ -1,8 +1,8 @@
-// 1.21	2024-08-06T22:34:08.9517832	Vanilla Addition/Tags for minecraft:block
-0355cc8858fc27a8875758452d79699715194641 data\vanilla-addition\tags\block\nether_bricks.json
+// 1.21	2024-08-12T16:10:11.0006154	Vanilla Addition/Tags for minecraft:block
 f8c69575215863c835f560299feeb75712ce6683 data\vanilla-addition\tags\block\bone_meal_drops_extra.json
 34969052b498f41eaf578b7489231a8dd5ec55a2 data\minecraft\tags\block\beacon_base_blocks.json
 44a672eabd767bd6d85652525a56a451ed71aa6d data\vanilla-addition\tags\block\obsidian.json
+248c3de861b3ad7043d4577dc4047910fdc433c3 data\vanilla-addition\tags\block\wither_rose_can_keep_on.json
 714c14c7070725695cd2e6bb37596f00cedb300d data\vanilla-addition\tags\block\magical_girls_affectable.json
 46c914fc5a9a16aba22d45e84efb29a9a0ba17f7 data\minecraft\tags\block\walls.json
 81a68e0a5c0efa2569f457fc7702a2762e4a0b8e data\minecraft\tags\block\needs_diamond_tool.json
@@ -12,6 +12,7 @@ df79d43e8fd7dfa07b1b6c581cebaf707b87bf9e data\minecraft\tags\block\mineable\shov
 068aff5cb32d712026aa14aa88a3f074166c9e1c data\minecraft\tags\block\slabs.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_stone_tool.json
 a758a41ebd3f984fb0e71c248798c9785b75deff data\vanilla-addition\tags\block\explosion_creator_affectable.json
+0355cc8858fc27a8875758452d79699715194641 data\vanilla-addition\tags\block\nether_fortress_can_spawns.json
 5dafba40d8ab419369c791702c0dfc626244cedc data\vanilla-addition\tags\block\deep_dark_fantasy_affectable.json
 669a041f8a99625cf5f00a1327d9e22be575f1f5 data\minecraft\tags\block\mineable\pickaxe.json
 0eb85ae18a15d14311f1a26d94d4e8894bf17ee5 data\minecraft\tags\block\ice.json

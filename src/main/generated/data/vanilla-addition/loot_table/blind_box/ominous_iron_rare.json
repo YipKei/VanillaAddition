@@ -6,9 +6,69 @@
       "entries": [
         {
           "type": "minecraft:loot_table",
-          "value": "minecraft:chests/end_city_treasure",
-          "weight": 600
+          "value": "vanilla-addition:equipments/enchanted_diamond_equipment",
+          "weight": 2
         },
+        {
+          "type": "minecraft:loot_table",
+          "value": "vanilla-addition:equipments/enchanted_iron_equipment",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 7.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 10.0,
+                "min": 6.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:gold_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:saddle"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16.0,
+                "min": 6.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:emerald"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:shulker_shell",
@@ -21,13 +81,18 @@
               "add": false,
               "damage": {
                 "type": "minecraft:uniform",
-                "max": 0.99,
-                "min": 0.9
+                "max": 0.1,
+                "min": 0.01
               },
               "function": "minecraft:set_damage"
             }
           ],
           "name": "minecraft:elytra"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:spire_armor_trim_smithing_template",
+          "weight": 200
         }
       ],
       "rolls": 1.0
