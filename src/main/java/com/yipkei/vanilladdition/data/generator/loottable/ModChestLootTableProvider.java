@@ -48,7 +48,7 @@ public class ModChestLootTableProvider implements FabricLootTableProvider, DataP
 
     @Override
     public void accept(BiConsumer<RegistryKey<LootTable>, LootTable.Builder> lootTableBiConsumer) {
-        RegistryWrapper.WrapperLookup registryLookup = null;
+        RegistryWrapper.WrapperLookup registryLookup;
         try {
             registryLookup = this.completableFuture.get();
         } catch (InterruptedException | ExecutionException e) {
