@@ -43,7 +43,7 @@ public class ModChestLootTableProvider implements FabricLootTableProvider, DataP
     public ModChestLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup)  {
 
         this.output = dataOutput;
-        this.completableFuture = registryLookup;;
+        this.completableFuture = registryLookup;
     }
 
     @Override
