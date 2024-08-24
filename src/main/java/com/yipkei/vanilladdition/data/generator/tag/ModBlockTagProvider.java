@@ -41,6 +41,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.GLASS_PANE , Blocks.WHITE_STAINED_GLASS_PANE, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE, Blocks.GRAY_STAINED_GLASS_PANE, Blocks.BLACK_STAINED_GLASS_PANE, Blocks.BROWN_STAINED_GLASS_PANE, Blocks.RED_STAINED_GLASS_PANE, Blocks.ORANGE_STAINED_GLASS_PANE, Blocks.YELLOW_STAINED_GLASS_PANE, Blocks.LIME_STAINED_GLASS_PANE, Blocks.GREEN_STAINED_GLASS_PANE, Blocks.CYAN_STAINED_GLASS_PANE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE, Blocks.BLUE_STAINED_GLASS_PANE, Blocks.PURPLE_STAINED_GLASS_PANE, Blocks.MAGENTA_STAINED_GLASS_PANE, Blocks.PINK_STAINED_GLASS_PANE)
 
                 .add(ModBlocks.STEEL_BLOCK)
+
+                .add(ModBlocks.LIGHT_BEACON_BASE)
+                .add(ModBlocks.PORTABLE_BEACON_BASE)
                 .add(ModBlocks.STONE_WALL)
                 .add(ModBlocks.SMOOTH_STONE_WALL, ModBlocks.SMOOTH_STONE_STAIRS)
                 .add(ModBlocks.CALCITE_WALL, ModBlocks.CALCITE_STAIRS, ModBlocks.CALCITE_SLAB)
@@ -104,7 +107,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)
-                .add(ModBlocks.STEEL_BLOCK);
+                .add(ModBlocks.STEEL_BLOCK)
+                .add(ModBlocks.LIGHT_BEACON_BASE);
 
         getOrCreateTagBuilder(ModTags.Blocks.OBSIDIAN)
                 .add(Blocks.OBSIDIAN, ModBlocks.OBSIDIAN_WALL, ModBlocks.OBSIDIAN_STAIRS, ModBlocks.OBSIDIAN_SLAB)

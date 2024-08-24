@@ -1,11 +1,9 @@
 package com.yipkei.vanilladdition.init;
 
 import com.yipkei.vanilladdition.VanillaAddition;
-import com.yipkei.vanilladdition.block.BlindBox;
-import com.yipkei.vanilladdition.block.TranslucentSlab;
-import com.yipkei.vanilladdition.block.TranslucentStairs;
-import com.yipkei.vanilladdition.block.TranslucentWall;
+import com.yipkei.vanilladdition.block.*;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -15,6 +13,13 @@ import net.minecraft.util.Identifier;
 public class ModBlocks extends Blocks{
     public static final Block STEEL_BLOCK = registerBlocks("steel_block",new Block(AbstractBlock.Settings.copy(IRON_BLOCK)));
     public static final Block COMPRESS_WOOL = registerBlocks("compress_wool", new Block(AbstractBlock.Settings.copy(WHITE_WOOL)));
+    public static final Block ENDER_TNT = registerBlocks("ender_tnt", new EnderTntBlock (AbstractBlock.Settings.copy(TNT).pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block SMITHER = registerBlocks("smither",(Block) new SmitherBlock(AbstractBlock.Settings.create().strength(1.5f, 3.5f)));
+
+    public static final Block PORTABLE_BEACON_BASE = registerBlocks("portable_beacon_base", new Block(AbstractBlock.Settings.copy(NETHERITE_BLOCK).pistonBehavior(PistonBehavior.BLOCK)));
+
+    public static final Block LIGHT_BEACON_BASE = registerBlocks("light_beacon_base", new Block(AbstractBlock.Settings.copy(IRON_BLOCK).hardness(0.5F).pistonBehavior(PistonBehavior.BLOCK)));
 
     public static final Block STONE_BLIND_BOX = registerBlocks("stone_blind_box", new BlindBox(ModLootTables.STONE_BLIND_BOX, Blocks.STONE));
     public static final Block COAL_BLIND_BOX = registerBlocks("coal_blind_box", new BlindBox(ModLootTables.COAL_BLIND_BOX, Blocks.COAL_BLOCK));
@@ -260,6 +265,13 @@ public class ModBlocks extends Blocks{
     public static final Block POLISHED_BASALT_SLAB = registerBlocks("polished_basalt_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_BASALT)));
 
     public static final Block QUARTZ_WALL = registerBlocks("quartz_wall", new WallBlock(AbstractBlock.Settings.copy(QUARTZ_BLOCK).solid()));
+
+//    private static Block createPortableBeacon(RegistryEntry<StatusEffect> primary, RegistryEntry<StatusEffect> secondary){
+//        PortableBeacon block = new PortableBeacon(AbstractBlock.Settings.copy(Blocks.BEACON));
+//        block.setPrimary(primary);
+//        block.setSecondary(secondary);
+//        return block;
+//    }
 
     private static Block registerBlocks(String name,Block block){
         registerBlockItems(name,block);

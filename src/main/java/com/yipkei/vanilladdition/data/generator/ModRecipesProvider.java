@@ -131,6 +131,28 @@ public class ModRecipesProvider extends FabricRecipeProvider {
         // 石英块拆解
         offerHammerProcessing(exporter,ModTags.Items.QUARTZ_BLOCK,ModItems.DIAMOND_HAMMER,  Items.QUARTZ,           3,"recycling");
 
+        // 信标基座
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.LIGHT_BEACON_BASE, 8)
+                .pattern("#*#")
+                .pattern("*o*")
+                .pattern("#*#")
+                .input('#', ModBlocks.STEEL_BLOCK)
+                .input('*', Items.NETHERITE_SCRAP)
+                .input('o', Items.NETHER_STAR)
+                .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
+                .offerTo(exporter, Identifier.of(VanillaAddition.MOD_ID, getItemPath(ModBlocks.LIGHT_BEACON_BASE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PORTABLE_BEACON_BASE)
+                .pattern("ENE")
+                .pattern("GBG")
+                .pattern("III")
+                .input('E', Blocks.EMERALD_BLOCK)
+                .input('N', Items.NETHERITE_INGOT)
+                .input('G', Blocks.GOLD_BLOCK)
+                .input('B', Blocks.BEACON)
+                .input('I', Blocks.IRON_BLOCK)
+                .criterion(hasItem(Blocks.BEACON), conditionsFromItem(Blocks.BEACON))
+                .offerTo(exporter, Identifier.of(VanillaAddition.MOD_ID, getItemPath(ModBlocks.PORTABLE_BEACON_BASE)));
 
         /* 锻造台配方 */
         // 潮涌核心拆解

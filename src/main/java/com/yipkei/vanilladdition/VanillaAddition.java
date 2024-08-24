@@ -1,6 +1,7 @@
 package com.yipkei.vanilladdition;
 
 import com.yipkei.vanilladdition.custom.ModDispenserBehavior;
+import com.yipkei.vanilladdition.init.ModBlockEntityType;
 import com.yipkei.vanilladdition.init.ModBlocks;
 import com.yipkei.vanilladdition.init.ModItemGroups;
 import com.yipkei.vanilladdition.init.ModItems;
@@ -33,6 +34,7 @@ public class VanillaAddition implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerModItemGroup();
 		ModVillagers.registerModVillagers();
+		ModBlockEntityType.registerBlockEntities();
 
 		ModLootTableModifiers.modifierLootTables();
 		VanillaTradeModifiers.registerVanillaVillageTrades();

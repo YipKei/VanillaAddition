@@ -3,6 +3,7 @@
   "package": "com.yipkei.vanilladdition.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BeaconBlockEntityMixin",
     "BoggedEntityMixin",
     "BoneMealItemMixin",
     "CraftingResultSlotMixin",

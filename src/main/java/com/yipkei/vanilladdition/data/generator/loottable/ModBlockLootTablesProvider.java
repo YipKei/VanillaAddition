@@ -10,7 +10,6 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.LootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -29,6 +28,9 @@ public class ModBlockLootTablesProvider extends FabricBlockLootTableProvider {
     public void generate() {
         addDrop(ModBlocks.STEEL_BLOCK);
         addDrop(ModBlocks.COMPRESS_WOOL);
+        addDrop(ModBlocks.LIGHT_BEACON_BASE);
+
+        addDrop(ModBlocks.PORTABLE_BEACON_BASE, dropsWithSilkTouch(ModBlocks.BEACON));
         
         addDrop(ModBlocks.STONE_WALL);
         addDrop(ModBlocks.POLISHED_GRANITE_WALL);
@@ -243,6 +245,6 @@ public class ModBlockLootTablesProvider extends FabricBlockLootTableProvider {
     }
 
     public LootTable.Builder slabDropsWithSilkTouch(Block block){
-        return LootTable.builder().pool(LootPool.builder().conditionally(this.createSilkTouchCondition()).rolls(ConstantLootNumberProvider.create(1.0f)).with((LootPoolEntry.Builder)this.applyExplosionDecay(block, ItemEntry.builder(block).apply((LootFunction.Builder)((Object) SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0f)).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))))))));
+        return LootTable.builder().pool(LootPool.builder().conditionally(this.createSilkTouchCondition()).rolls(ConstantLootNumberProvider.create(1.0f)).with(this.applyExplosionDecay(block, ItemEntry.builder(block).apply((LootFunction.Builder)((Object) SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0f)).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))))))));
     }
 }
