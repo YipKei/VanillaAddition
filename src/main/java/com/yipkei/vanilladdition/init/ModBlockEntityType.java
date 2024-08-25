@@ -2,13 +2,14 @@ package com.yipkei.vanilladdition.init;
 
 import com.yipkei.vanilladdition.VanillaAddition;
 import com.yipkei.vanilladdition.block.entity.SmitherBlockEntity;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class ModBlockEntityType{
+public class ModBlockEntityType implements FabricEntityType {
     public static final BlockEntityType<SmitherBlockEntity> SMITHER = (BlockEntityType<SmitherBlockEntity>) registerBlockEntities("smither", SmitherBlockEntity::new, ModBlocks.SMITHER);
 
 

@@ -2,9 +2,9 @@ package com.yipkei.vanilladdition.block.entity;
 
 import com.yipkei.vanilladdition.block.SmitherBlock;
 import com.yipkei.vanilladdition.block.screen.SmitherScreenHandler;
+import com.yipkei.vanilladdition.init.ModBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeMatcher;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.text.Text;
@@ -26,22 +27,52 @@ public class SmitherBlockEntity extends LootableContainerBlockEntity implements 
     public static final int GRID_SIZE = 3;
     private DefaultedList<ItemStack> inputStacks = DefaultedList.ofSize(3, ItemStack.EMPTY);
     private int smithingTicksRemaining = 0;
-    private boolean triggered = false;
+    protected final PropertyDelegate propertyDelegate = new PropertyDelegate() {
+        private int triggered = 0;
+
+        @Override
+        public int get(int index) {
+            return this.triggered;
+        }
+
+        @Override
+        public void set(int index, int value) {
+            this.triggered = value;
+        }
+
+        @Override
+        public int size() {
+            return 1;
+        }
+    };
 
     public SmitherBlockEntity(BlockPos pos, BlockState state){
-        super(BlockEntityType.CRAFTER, pos, state);
+        super(ModBlockEntityType.SMITHER, pos, state);
     }
 
     protected Text getContainerName() { return Text.translatable("container.smither");}
 
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return new SmitherScreenHandler(syncId, playerInventory, this, this.triggered, ScreenHandlerContext.create(world, pos));
+        return new SmitherScreenHandler(syncId, playerInventory, this.propertyDelegate, ScreenHandlerContext.create(world, pos));
     }
 
 // setSlotEnabled & isSlotDisabled 设置与读取禁用槽位
 // isValid 读取是否可用槽位，用于物品输入（通用）
 // betterSlotExists 剩余槽位是否可用
+
+    @Override
+    public boolean isValid(int slot, ItemStack stack) {
+        ItemStack itemStack = this.inputStacks.get(slot);
+        int i = itemStack.getCount();
+        if (i >= itemStack.getMaxCount()) {
+            return false;
+        }
+        if (itemStack.isEmpty()) {
+            return true;
+        }
+        return super.isValid(slot, stack);
+    }
 
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
@@ -51,7 +82,7 @@ public class SmitherBlockEntity extends LootableContainerBlockEntity implements 
         if (!this.readLootTable(nbt)) {
             Inventories.readNbt(nbt, this.inputStacks, registryLookup);
         }
-        this.triggered = nbt.getBoolean("triggered");
+        this.propertyDelegate.set(0, nbt.getInt("triggered"));
     }
 
     @Override
@@ -61,7 +92,7 @@ public class SmitherBlockEntity extends LootableContainerBlockEntity implements 
         if (!this.writeLootTable(nbt)) {
             Inventories.writeNbt(nbt, this.inputStacks, registryLookup);
         }
-        nbt.putBoolean("triggered", this.triggered);
+        nbt.putInt("triggered", this.propertyDelegate.get(0));
     }
 
     @Override
@@ -119,11 +150,11 @@ public class SmitherBlockEntity extends LootableContainerBlockEntity implements 
 
 
     public void setTriggered(boolean triggered) {
-        this.triggered = triggered;
+        this.propertyDelegate.set(0, triggered ? 1 : 0);
     }
 
     public boolean isTriggered() {
-        return this.triggered;
+        return this.propertyDelegate.get(0) == 1;
     }
 
     public static void tickSmithing(World world, BlockPos pos, BlockState state, SmitherBlockEntity blockEntity) {

@@ -1,11 +1,11 @@
 package com.yipkei.vanilladdition.block.screen;
 
 import com.yipkei.vanilladdition.init.ModBlocks;
+import com.yipkei.vanilladdition.init.ModScreenHandlerType;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeType;
@@ -19,30 +19,21 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class SmitherScreenHandler extends ForgingScreenHandler implements ScreenHandlerListener {
-    public static final int TEMPLATE_ID = 0;
-    public static final int EQUIPMENT_ID = 1;
-    public static final int MATERIAL_ID = 2;
-    public static final int OUTPUT_ID = 3;
-    public static final int TEMPLATE_X = 8;
-    public static final int EQUIPMENT_X = 26;
-    public static final int MATERIAL_X = 44;
-    private static final int OUTPUT_X = 98;
-    public static final int SLOT_Y = 48;
     private final World world;
     private RecipeEntry<SmithingRecipe> currentRecipe;
     private final List<RecipeEntry<SmithingRecipe>> recipes;
     protected static final int SIZE = 3;
-    private final boolean triggered;
+    private final PropertyDelegate propertyDelegate;
 
 
     public SmitherScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory,new SimpleInventory(4), false, ScreenHandlerContext.EMPTY);
+        this(syncId, playerInventory, new ArrayPropertyDelegate(1), ScreenHandlerContext.EMPTY);
     }
 
-    public SmitherScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inputInventory, boolean triggered, ScreenHandlerContext context) {
-        super(ScreenHandlerType.SMITHING, syncId, playerInventory, context);
+    public SmitherScreenHandler(int syncId, PlayerInventory playerInventory, PropertyDelegate propertyDelegate, ScreenHandlerContext context) {
+        super(ModScreenHandlerType.SMITHER, syncId, playerInventory, context);
         this.world = playerInventory.player.getWorld();
-        this.triggered = triggered;
+        this.propertyDelegate = propertyDelegate;
         this.addListener(this);
         this.recipes = this.world.getRecipeManager().listAllOfType(RecipeType.SMITHING);
     }
@@ -53,7 +44,7 @@ public class SmitherScreenHandler extends ForgingScreenHandler implements Screen
     }
 
     public boolean isTriggered() {
-        return this.triggered;
+        return this.propertyDelegate.get(0) == 1;
     }
 
 
@@ -80,7 +71,6 @@ public class SmitherScreenHandler extends ForgingScreenHandler implements Screen
     @Override
     public void updateResult(){
         if (this.player instanceof ServerPlayerEntity serverPlayerEntity) {
-            World world = serverPlayerEntity.getWorld();
             SmithingRecipeInput smithingRecipeInput = this.createRecipeInput();
             List<RecipeEntry<SmithingRecipe>> list = world.getRecipeManager().getAllMatches(RecipeType.SMITHING, smithingRecipeInput, world);
             if (list.isEmpty()) {
@@ -90,7 +80,7 @@ public class SmitherScreenHandler extends ForgingScreenHandler implements Screen
                 ItemStack stack = recipeEntry.value().craft(smithingRecipeInput, world.getRegistryManager());
                 if (stack.isItemEnabled(world.getEnabledFeatures())){
                     this.currentRecipe = recipeEntry;
-                    this.output.setLastRecipe(recipeEntry);
+                    this.output.setLastRecipe(currentRecipe);
                     this.output.setStack(0, stack);
                 }
             }
