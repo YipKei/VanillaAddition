@@ -4,6 +4,7 @@ import com.yipkei.vanilladdition.VanillaAddition;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
+import net.minecraft.recipe.Recipe;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -46,6 +47,14 @@ public class ModTags {
 
         private static TagKey<Enchantment> createTag(String name) {
             return TagKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(VanillaAddition.MOD_ID, name));
+        }
+    }
+
+    public static class Recipes {
+        public static final TagKey<Recipe<?>> BANNED_REMAINDER = createTag("banned_remainder");
+
+        private static TagKey<Recipe<?>> createTag(String name) {
+            return TagKey.of(RegistryKeys.RECIPE, Identifier.of(VanillaAddition.MOD_ID, name));
         }
     }
 }

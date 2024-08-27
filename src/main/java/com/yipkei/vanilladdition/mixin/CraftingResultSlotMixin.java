@@ -2,18 +2,25 @@ package com.yipkei.vanilladdition.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
+import com.yipkei.vanilladdition.helper.ModRecipeHelper;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.input.CraftingRecipeInput;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CraftingResultSlot.class)
 public class CraftingResultSlotMixin {
+    @Shadow @Final private RecipeInputInventory input;
+
     /**
      * {@link net.minecraft.screen.slot.CraftingResultSlot#onTakeItem(PlayerEntity, ItemStack)}：提取合成产物
      * <p>
@@ -30,25 +37,11 @@ public class CraftingResultSlotMixin {
      */
     @Inject(method = "onTakeItem", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/recipe/RecipeManager;getRemainingStacks(Lnet/minecraft/recipe/RecipeType;Lnet/minecraft/recipe/input/RecipeInput;Lnet/minecraft/world/World;)Lnet/minecraft/util/collection/DefaultedList;"))
     private void removeNonDurabilityTools(PlayerEntity player, ItemStack stack, CallbackInfo ci, @Local LocalRef<DefaultedList<ItemStack>> defaultedListRef){
-        Item check = null;
-        DefaultedList<ItemStack> defaultedList = defaultedListRef.get();
-        int length = defaultedList.size();
-        boolean isRepair = false;
-        for (ItemStack itemStack : defaultedList) {
-            if (itemStack.equals(ItemStack.EMPTY)) continue;
-            if (check == null){
-                check = itemStack.getItem();
-                continue;
-            }
-            if (itemStack.isOf(check)){
-                if (isRepair){
-                    isRepair = false;
-                    break;
-                }
-                isRepair = true;
-            }
-        }
-        if (isRepair ){
+        World world = player.getWorld();
+        CraftingRecipeInput craftingRecipeInput = this.input.createPositionedRecipeInput().input();
+        int length = defaultedListRef.get().size();
+        boolean isRepair = ModRecipeHelper.checkCraftingRepair(craftingRecipeInput, world);
+        if (isRepair){
             defaultedListRef.set(DefaultedList.ofSize(length, ItemStack.EMPTY));
         }
     }

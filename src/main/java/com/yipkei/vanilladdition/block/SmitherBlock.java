@@ -89,7 +89,6 @@ public class SmitherBlock extends BlockWithEntity {
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random){
         this.smith(state, world, pos);
-        System.out.println("scheduledTick");
     }
 
     @Override
@@ -148,13 +147,10 @@ public class SmitherBlock extends BlockWithEntity {
     }
 
     protected void smith(BlockState state, ServerWorld world, BlockPos pos) {
-        System.out.println("smith start");
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (!(blockEntity instanceof SmitherBlockEntity smitherBlockEntity)) return;
         SmithingRecipeInput smithingRecipeInput = new SmithingRecipeInput(((SmitherBlockEntity) blockEntity).getStack(0), ((SmitherBlockEntity) blockEntity).getStack(1), ((SmitherBlockEntity) blockEntity).getStack(2));
-        System.out.println(smithingRecipeInput.getStackInSlot(0));
         Optional<RecipeEntry<SmithingRecipe>> optional = SmitherBlock.getSmithingRecipe(world, smithingRecipeInput);
-        System.out.println(optional);
         if (optional.isEmpty()) {
             world.syncWorldEvent(WorldEvents.CRAFTER_FAILS, pos, 0);
             return;
@@ -169,12 +165,18 @@ public class SmitherBlock extends BlockWithEntity {
         world.setBlockState(pos, state.with(SMITHING, true), Block.NOTIFY_LISTENERS);
         itemStack.onCraftByCrafter(world);
         this.transferOrSpawnStack(world, pos, smitherBlockEntity, itemStack, state, recipeEntry);
+        int i = -1;
         for (ItemStack itemStack2 : recipeEntry.value().getRemainder(smithingRecipeInput)) {
-            if (itemStack2.isEmpty()) continue;
+            i++;
+            if (itemStack2.isEmpty() || itemStack2.isOf(smithingRecipeInput.getStackInSlot(i).getItem())) continue;
             this.transferOrSpawnStack(world, pos, smitherBlockEntity, itemStack2, state, recipeEntry);
         }
         smitherBlockEntity.getHeldStacks().forEach(stack -> {
             if (stack.isEmpty()) {
+                return;
+            }
+            if (stack.getRecipeRemainder().isOf(stack.getItem())){
+                stack.setDamage(stack.getRecipeRemainder().getDamage());
                 return;
             }
             stack.decrement(1);
@@ -201,7 +203,6 @@ public class SmitherBlock extends BlockWithEntity {
         } else if (inventory != null) {
             int i ;
             while (!itemStack.isEmpty() && (i = itemStack.getCount()) != (itemStack = HopperBlockEntity.transfer(blockEntity, inventory, itemStack, direction.getOpposite())).getCount()){
-
             }
         }
         if (!itemStack.isEmpty()) {

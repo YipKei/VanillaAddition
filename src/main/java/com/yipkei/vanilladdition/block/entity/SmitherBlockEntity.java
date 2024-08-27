@@ -1,5 +1,6 @@
 package com.yipkei.vanilladdition.block.entity;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.yipkei.vanilladdition.block.SmitherBlock;
 import com.yipkei.vanilladdition.block.screen.SmitherScreenHandler;
 import com.yipkei.vanilladdition.init.ModBlockEntityType;
@@ -17,7 +18,6 @@ import net.minecraft.recipe.RecipeMatcher;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -54,7 +54,7 @@ public class SmitherBlockEntity extends LootableContainerBlockEntity implements 
 
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return new SmitherScreenHandler(syncId, playerInventory, this.propertyDelegate, ScreenHandlerContext.create(world, pos));
+        return new SmitherScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
 
 // setSlotEnabled & isSlotDisabled 设置与读取禁用槽位
@@ -97,7 +97,7 @@ public class SmitherBlockEntity extends LootableContainerBlockEntity implements 
 
     @Override
     public int size() {
-        return 3;
+        return GRID_SIZE;
     }
 
     @Override
@@ -153,6 +153,7 @@ public class SmitherBlockEntity extends LootableContainerBlockEntity implements 
         this.propertyDelegate.set(0, triggered ? 1 : 0);
     }
 
+    @VisibleForTesting
     public boolean isTriggered() {
         return this.propertyDelegate.get(0) == 1;
     }
